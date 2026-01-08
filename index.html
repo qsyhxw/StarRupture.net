@@ -1,0 +1,931 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>StarRupture Guides & Tools | Fast, Version-Verified Answers</title>
+  <meta name="description" content="Beginner-first StarRupture guides, resource tables, and troubleshooting fixes—version-verified for Early Access. Find answers in 30 seconds." />
+  <link rel="canonical" href="https://starrupture.net/" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="StarRupture Guides & Tools" />
+  <meta property="og:description" content="Fast, beginner-first answers—version-verified for Early Access. No fluff. Just steps, tables, and fixes." />
+  <meta property="og:url" content="https://starrupture.net/" />
+  <meta property="og:site_name" content="StarRupture Guides & Tools" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="StarRupture Guides & Tools" />
+  <meta name="twitter:description" content="Fast, beginner-first answers—version-verified for Early Access." />
+
+  <!-- Favicons (optional) -->
+  <!-- <link rel="icon" href="/favicon.ico" /> -->
+
+  <style>
+    :root{
+      /* Industrial Night palette */
+      --bg: #0B0F14;
+      --panel: #0F1620;
+      --panel-2: #0C121A;
+      --text: #E6EEF6;
+      --muted: #A9B6C6;
+      --border: #1B2530;
+      --accent: #4CC9F0;
+      --accent-2: #A3FFB0;
+      --warning: #FFB703;
+      --danger: #FB7185;
+
+      --shadow: 0 10px 30px rgba(0,0,0,.28);
+      --radius: 14px;
+      --maxw: 1180px;
+
+      --h1: clamp(2rem, 2.6vw, 3rem);
+      --h2: clamp(1.35rem, 1.6vw, 1.8rem);
+      --p: 1.05rem;
+      --small: .92rem;
+
+      --space-1: 10px;
+      --space-2: 14px;
+      --space-3: 18px;
+      --space-4: 24px;
+      --space-5: 32px;
+      --space-6: 44px;
+      --space-7: 64px;
+
+      --grid-gap: 18px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1000px 600px at 20% 0%, rgba(76,201,240,.10), transparent 55%),
+                  radial-gradient(900px 500px at 90% 10%, rgba(163,255,176,.06), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a{color:inherit; text-decoration:none}
+    a:hover{color: var(--accent)}
+    .container{max-width: var(--maxw); margin:0 auto; padding: 0 18px;}
+    .section{padding: var(--space-7) 0;}
+    .section.compact{padding: var(--space-6) 0;}
+    .section-top{display:flex; gap: 16px; align-items: baseline; justify-content: space-between; margin-bottom: var(--space-4);}
+    .section-top h2{margin:0; font-size: var(--h2);}
+    .section-top p{margin:0; color: var(--muted); font-size: var(--small); max-width: 70ch;}
+
+    /* Header */
+    .header{
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(11,15,20,.72);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(27,37,48,.7);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 14px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap: 10px;
+      font-weight: 700; letter-spacing: .2px;
+    }
+    .logo{
+      width: 34px; height: 34px; border-radius: 10px;
+      background:
+        radial-gradient(14px 14px at 30% 35%, rgba(76,201,240,.85), transparent 70%),
+        radial-gradient(18px 18px at 70% 70%, rgba(163,255,176,.55), transparent 72%),
+        linear-gradient(145deg, rgba(27,37,48,.95), rgba(15,22,32,.95));
+      border: 1px solid rgba(76,201,240,.28);
+      box-shadow: 0 10px 24px rgba(0,0,0,.25);
+    }
+    .navlinks{
+      display:flex; gap: 14px; flex-wrap: wrap;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+    .navlinks a{
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+    }
+    .navlinks a:hover{
+      background: rgba(15,22,32,.65);
+      border-color: rgba(27,37,48,.9);
+      color: var(--text);
+    }
+
+    /* Hero */
+    .hero{
+      padding: 44px 0 18px;
+    }
+    .hero-wrap{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: var(--space-5);
+      align-items: center;
+      padding: 26px;
+      border-radius: calc(var(--radius) + 6px);
+      background: linear-gradient(180deg, rgba(15,22,32,.92), rgba(12,18,26,.88));
+      border: 1px solid rgba(27,37,48,.9);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-wrap:before{
+      content:"";
+      positionz-index:0;
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(700px 340px at 15% 0%, rgba(76,201,240,.14), transparent 60%),
+        radial-gradient(640px 320px at 90% 20%, rgba(163,255,176,.10), transparent 55%);
+      pointer-events:none;
+    }
+    .hero-left, .hero-right{position:relative; z-index:1;}
+    h1{margin:0 0 10px; font-size: var(--h1); line-height: 1.15;}
+    .lead{margin:0 0 16px; color: var(--muted); font-size: 1.05rem; max-width: 62ch;}
+    .badges{display:flex; gap: 10px; flex-wrap: wrap; margin: 16px 0 0;}
+    .badge{
+      font-size: .85rem;
+      color: var(--text);
+      border: 1px solid rgba(27,37,48,.95);
+      background: rgba(12,18,26,.65);
+      padding: 8px 10px;
+      border-radius: 999px;
+      display:inline-flex; gap:8px; align-items:center;
+    }
+    .dot{
+      width: 9px; height: 9px; border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 3px rgba(76,201,240,.18);
+    }
+    .dot.green{background: var(--accent-2); box-shadow: 0 0 0 3px rgba(163,255,176,.12);}
+    .dot.warn{background: var(--warning); box-shadow: 0 0 0 3px rgba(255,183,3,.14);}
+
+    .cta-row{display:flex; gap: 12px; flex-wrap: wrap; margin-top: 18px;}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(27,37,48,.95);
+      background: rgba(12,18,26,.55);
+      color: var(--text);
+      font-weight: 650;
+      letter-spacing: .2px;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+      min-width: 210px;
+    }
+    .btn:hover{transform: translateY(-1px); border-color: rgba(76,201,240,.45); background: rgba(15,22,32,.75);}
+    .btn.primary{
+      background: linear-gradient(180deg, rgba(76,201,240,.20), rgba(12,18,26,.65));
+      border-color: rgba(76,201,240,.55);
+    }
+    .btn.primary:hover{border-color: rgba(163,255,176,.42);}
+    .hero-right{
+      border-radius: var(--radius);
+      border: 1px solid rgba(27,37,48,.9);
+      background: rgba(12,18,26,.55);
+      padding: 18px;
+    }
+    .hero-right h3{margin: 0 0 10px; font-size: 1.05rem;}
+    .hero-right ul{margin: 0; padding-left: 18px; color: var(--muted);}
+    .hero-right li{margin: 8px 0;}
+    .kpi{
+      display:grid; grid-template-columns: 1fr 1fr;
+      gap: 10px; margin-top: 14px;
+    }
+    .chip{
+      border-radius: 12px;
+      border: 1px solid rgba(27,37,48,.9);
+      background: rgba(15,22,32,.55);
+      padding: 10px;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+    .chip strong{color: var(--text); display:block; margin-bottom: 4px; font-size: .98rem;}
+
+    /* Grid / Cards */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: var(--grid-gap);
+    }
+    .col-4{grid-column: span 4;}
+    .col-6{grid-column: span 6;}
+    .col-12{grid-column: span 12;}
+    .card{
+      border-radius: var(--radius);
+      border: 1px solid rgba(27,37,48,.95);
+      background: rgba(12,18,26,.65);
+      padding: 18px;
+      box-shadow: 0 10px 22px rgba(0,0,0,.18);
+      transition: transform .12s ease, border-color .12s ease;
+      min-height: 120px;
+    }
+    .card:hover{transform: translateY(-1px); border-color: rgba(76,201,240,.35);}
+    .card h3{margin:0 0 8px; font-size: 1.08rem;}
+    .card p{margin:0 0 12px; color: var(--muted); font-size: .98rem;}
+    .card .link{
+      display:inline-flex; gap: 8px; align-items:center;
+      font-weight: 650; color: var(--accent);
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(76,201,240,.25);
+      background: rgba(76,201,240,.08);
+    }
+    .card .link:hover{background: rgba(76,201,240,.12);}
+
+    /* Roadmap */
+    .roadmap{
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: var(--grid-gap);
+    }
+    .step{
+      border-radius: var(--radius);
+      border: 1px solid rgba(27,37,48,.95);
+      background: linear-gradient(180deg, rgba(15,22,32,.80), rgba(12,18,26,.70));
+      padding: 18px;
+    }
+    .step .tag{
+      display:inline-flex; align-items:center; gap: 8px;
+      font-size: .85rem; color: var(--muted);
+      border: 1px solid rgba(27,37,48,.95);
+      background: rgba(12,18,26,.55);
+      padding: 6px 10px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+    .step h3{margin: 0 0 10px;}
+    .step ul{margin: 0; padding-left: 18px; color: var(--muted);}
+    .step li{margin: 8px 0;}
+    .step a{color: var(--accent); font-weight: 650;}
+
+    /* Banner */
+    .banner{
+      border-radius: calc(var(--radius) + 6px);
+      border: 1px solid rgba(163,255,176,.28);
+      background: radial-gradient(900px 240px at 15% 20%, rgba(163,255,176,.12), transparent 60%),
+                  rgba(12,18,26,.75);
+      padding: 18px;
+      display:flex; justify-content: space-between; align-items: center;
+      gap: 14px;
+    }
+    .banner strong{color: var(--text)}
+    .banner p{margin: 6px 0 0; color: var(--muted); font-size: .95rem;}
+    .banner .actions{display:flex; gap: 10px; flex-wrap: wrap;}
+    .pill{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(27,37,48,.95);
+      background: rgba(15,22,32,.55);
+      color: var(--text);
+      font-weight: 650;
+      font-size: .92rem;
+    }
+    .pill:hover{border-color: rgba(163,255,176,.35);}
+
+    /* Updates list */
+    .list{
+      display:grid;
+      gap: 12px;
+    }
+    .row{
+      border-radius: var(--radius);
+      border: 1px solid rgba(27,37,48,.95);
+      background: rgba(12,18,26,.55);
+      padding: 14px 16px;
+      display:flex; gap: 14px; justify-content: space-between; align-items: baseline;
+      flex-wrap: wrap;
+    }
+    .row .title{font-weight: 700;}
+    .row .meta{color: var(--muted); font-size: .92rem;}
+    .row .excerpt{color: var(--muted); margin-top: 6px; max-width: 95ch; font-size: .98rem;}
+
+    /* FAQ */
+    details{
+      border-radius: var(--radius);
+      border: 1px solid rgba(27,37,48,.95);
+      background: rgba(12,18,26,.55);
+      padding: 12px 14px;
+    }
+    details + details{margin-top: 12px;}
+    summary{
+      cursor:pointer;
+      font-weight: 750;
+      outline: none;
+    }
+    details p{margin: 10px 0 0; color: var(--muted);}
+
+    /* Ad slots */
+    .ad-slot{
+      border-radius: var(--radius);
+      border: 1px dashed rgba(76,201,240,.35);
+      background: rgba(76,201,240,.06);
+      color: rgba(230,238,246,.75);
+      padding: 18px;
+      text-align:center;
+      font-size: .95rem;
+    }
+    .ad-slot small{display:block; color: rgba(169,182,198,.85); margin-top: 6px;}
+
+    /* Footer */
+    footer{
+      border-top: 1px solid rgba(27,37,48,.8);
+      padding: 28px 0 40px;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .footlinks{display:flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end;}
+    .footlinks a{
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(27,37,48,.9);
+      background: rgba(12,18,26,.45);
+      color: var(--muted);
+    }
+    .footlinks a:hover{color: var(--text); border-color: rgba(76,201,240,.35);}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-wrap{grid-template-columns: 1fr;}
+      .roadmap{grid-template-columns: 1fr;}
+      .col-4{grid-column: span 6;}
+      .footer-grid{grid-template-columns: 1fr;}
+      .footlinks{justify-content: flex-start;}
+    }
+    @media (max-width: 640px){
+      .navlinks{display:none;}
+      .col-4{grid-column: span 12;}
+      .btn{min-width: 100%;}
+      .kpi{grid-template-columns: 1fr;}
+    }
+  </style>
+
+  <!-- Website schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"StarRupture Guides & Tools",
+    "url":"https://starrupture.net/"
+  }
+  </script>
+
+  <!-- FAQ schema (matches the FAQ section below) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Is this site official?",
+        "acceptedAnswer":{"@type":"Answer","text":"No. Starrupture.net is an independent guide site. We verify pages by game version and update when things change."}
+      },
+      {
+        "@type":"Question",
+        "name":"How do you verify “version-verified”?",
+        "acceptedAnswer":{"@type":"Answer","text":"Each guide shows a Verified on date and a game version/build note when available, so you can spot outdated info quickly."}
+      },
+      {
+        "@type":"Question",
+        "name":"Where should I start as a new player?",
+        "acceptedAnswer":{"@type":"Answer","text":"Start with the 60-minute roadmap, then follow Water → Food → First Base. It’s designed for fast early stability."}
+      },
+      {
+        "@type":"Question",
+        "name":"Do you cover mods?",
+        "acceptedAnswer":{"@type":"Answer","text":"We cover safe installation basics and recommended mods—no cheats, no shady downloads."}
+      },
+      {
+        "@type":"Question",
+        "name":"Can I request a guide or report outdated info?",
+        "acceptedAnswer":{"@type":"Answer","text":"Yes. Use the contact page and include your game version and what changed. We prioritize high-frequency issues first."}
+      }
+    ]
+  }
+  </script>
+
+  <!-- AdSense (ADD LATER)
+    1) After your site is approved, paste the official AdSense script here.
+    2) Replace ad-slot placeholders below with your <ins class="adsbygoogle"> units.
+    3) Keep ads out of Hero / inside-card areas for best UX.
+  -->
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header" aria-label="Site header">
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="https://starrupture.net/" aria-label="Starrupture.net Home">
+          <span class="logo" aria-hidden="true"></span>
+          <span>starrupture.net</span>
+        </a>
+
+        <nav class="navlinks" aria-label="Primary navigation">
+          <a href="#quick-answers">Quick Answers</a>
+          <a href="#new-player-path">Starter Path</a>
+          <a href="#resources">Resources</a>
+          <a href="#tools">Tools</a>
+          <a href="#fixes">Fixes</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main class="hero" aria-label="Main content">
+    <div class="container">
+      <div class="hero-wrap">
+        <div class="hero-left">
+          <h1>StarRupture Guides &amp; Tools</h1>
+          <p class="lead">
+            Fast, beginner-first answers—<strong>version-verified</strong> for Early Access.
+            No fluff. Just steps, tables, and fixes.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn primary" href="/start-here/">Start the 60-Minute Roadmap</a>
+            <a class="btn" href="#quick-answers">Browse Quick Answers</a>
+          </div>
+
+          <div class="badges" aria-label="Trust badges">
+            <span class="badge"><span class="dot green" aria-hidden="true"></span>Version-Verified</span>
+            <span class="badge"><span class="dot" aria-hidden="true"></span>Beginner-First</span>
+            <span class="badge"><span class="dot warn" aria-hidden="true"></span>No-Fluff Steps</span>
+          </div>
+        </div>
+
+        <aside class="hero-right" aria-label="What you'll find">
+          <h3>What you’ll find here</h3>
+          <ul>
+            <li>Quick answers for water, food, base setup, and early research.</li>
+            <li>Resource &amp; blueprint hubs designed for fast scanning.</li>
+            <li>Troubleshooting checklists with minimal-risk steps first.</li>
+          </ul>
+
+          <div class="kpi" aria-label="Quick links">
+            <div class="chip">
+              <strong>New here?</strong>
+              <span><a href="/start-here/">Start Here</a> → Water → Food → Base</span>
+            </div>
+            <div class="chip">
+              <strong>Game crashing?</strong>
+              <span><a href="/troubleshooting/crash-fixes/">Crash Fixes</a> (updated)</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Section 2: Quick Answers -->
+    <section id="quick-answers" class="section compact" aria-label="Quick answers">
+      <div class="container">
+        <div class="section-top">
+          <h2>Quick Answers (Most Searched)</h2>
+          <p>Click once, get the “final answer” fast—then details below it. Built for scanning.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card col-4">
+            <h3>Get Water Fast (Hydration)</h3>
+            <p>One clear path to hydration early—what to pick up and what to craft next.</p>
+            <a class="link" href="/guides/water-hydration/">Open guide →</a>
+          </article>
+
+          <article class="card col-4">
+            <h3>Best Early Food (Calories)</h3>
+            <p>Quick food sources and what to prioritize so you stop dying to hunger.</p>
+            <a class="link" href="/guides/food-calories/">Open guide →</a>
+          </article>
+
+          <article class="card col-4">
+            <h3>First Base Setup (Minimal Build)</h3>
+            <p>The smallest base layout that gets you stable—then scalable.</p>
+            <a class="link" href="/guides/first-base-setup/">Open guide →</a>
+          </article>
+
+          <article class="card col-4">
+            <h3>Research Priorities (First 60 Minutes)</h3>
+            <p>What to unlock first and why—avoid wasting early materials.</p>
+            <a class="link" href="/guides/research-priority/">Open guide →</a>
+          </article>
+
+          <article class="card col-4">
+            <h3>Co-op Basics (2–4 Players)</h3>
+            <p>Simple co-op setup tips and how to split tasks efficiently.</p>
+            <a class="link" href="/guides/co-op-basics/">Open guide →</a>
+          </article>
+
+          <article class="card col-4">
+            <h3>Crashes &amp; Fixes (EA Week-1)</h3>
+            <p>The most common issues and the fastest fixes—kept up to date.</p>
+            <a class="link" href="/troubleshooting/crash-fixes/">Open fixes →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ad slot 1 (Recommended) -->
+    <section class="section compact" aria-label="Ad slot 1">
+      <div class="container">
+        <div class="ad-slot">
+          Ad Slot (after Quick Answers)
+          <small>Replace this box with an AdSense responsive unit after approval.</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: New Player Path -->
+    <section id="new-player-path" class="section" aria-label="New player path">
+      <div class="container">
+        <div class="section-top">
+          <h2>New Player Path (0 → 60 Minutes)</h2>
+          <p>A beginner roadmap that builds stability fast. Follow in order, skip what you already solved.</p>
+        </div>
+
+        <div class="roadmap">
+          <div class="step">
+            <div class="tag"><span class="dot" aria-hidden="true"></span>0–15 min</div>
+            <h3>Stabilize survival</h3>
+            <ul>
+              <li>Secure hydration: <a href="/guides/water-hydration/">Water guide</a></li>
+              <li>Secure calories: <a href="/guides/food-calories/">Food guide</a></li>
+              <li>Stop bleeding time: avoid wandering without a plan</li>
+            </ul>
+          </div>
+
+          <div class="step">
+            <div class="tag"><span class="dot green" aria-hidden="true"></span>15–30 min</div>
+            <h3>Minimal base that works</h3>
+            <ul>
+              <li>Build the “minimum viable base”: <a href="/guides/first-base-setup/">Base setup</a></li>
+              <li>Unlock only what you need: <a href="/guides/research-priority/">Research priorities</a></li>
+              <li>Start a consistent resource loop</li>
+            </ul>
+          </div>
+
+          <div class="step">
+            <div class="tag"><span class="dot warn" aria-hidden="true"></span>30–60 min</div>
+            <h3>Go from stable → scalable</h3>
+            <ul>
+              <li>Target your first key node: <a href="/guides/calcium-ore-location/">Calcium ore</a></li>
+              <li>Set up a simple crafting chain</li>
+              <li>If crashing/lagging: <a href="/troubleshooting/">Troubleshooting hub</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Resources / Blueprints -->
+    <section id="resources" class="section" aria-label="Resources and blueprints">
+      <div class="container">
+        <div class="section-top">
+          <h2>Resources, Blueprints &amp; Locations</h2>
+          <p>Hubs and tables designed for fast scanning—perfect for long-tail search and quick answers.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card col-4">
+            <h3>Calcium Ore Locations</h3>
+            <p>Best spots + a practical farming setup for steady supply.</p>
+            <a class="link" href="/guides/calcium-ore-location/">Open locations →</a>
+          </article>
+
+          <article class="card col-4">
+            <h3>Resource Nodes Index</h3>
+            <p>A clean, table-first index of key nodes (upgrade later to a filter tool).</p>
+            <a class="link" href="/guides/resource-nodes/">Open index →</a>
+          </article>
+
+          <article class="card col-4">
+            <h3>Blueprint Locations Hub</h3>
+            <p>Checklist-friendly blueprint guide—find what you need, fast.</p>
+            <a class="link" href="/guides/blueprint-locations/">Open hub →</a>
+          </article>
+
+          <article class="card col-4">
+            <h3>Items Index (MVP Table)</h3>
+            <p>What each item is for + where you get it (updated by version).</p>
+            <a class="link" href="/resources/items/">Open items →</a>
+          </article>
+
+          <article class="card col-4">
+            <h3>Recipes &amp; Stations Table</h3>
+            <p>Inputs → outputs → station → unlock notes (static table first).</p>
+            <a class="link" href="/resources/recipes/">Open recipes →</a>
+          </article>
+
+          <article class="card col-4">
+            <h3>Crafting Dependency (MVP)</h3>
+            <p>“To craft X, you need…” a dependency table you can scan in seconds.</p>
+            <a class="link" href="/tools/crafting-dependency/">Open table →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ad slot 2 (Recommended) -->
+    <section class="section compact" aria-label="Ad slot 2">
+      <div class="container">
+        <div class="ad-slot">
+          Ad Slot (after Resources)
+          <small>Good spot: users are already browsing, minimal interruption.</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Tools -->
+    <section id="tools" class="section" aria-label="Tools">
+      <div class="container">
+        <div class="section-top">
+          <h2>Tools (Lightweight MVP)</h2>
+          <p>No complex app yet—start with static “tools” (tables, checklists, planners) that later evolve into interactive pages.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card col-4">
+            <h3>Blueprint Checklist</h3>
+            <p>Track what you’ve found. Simple, printable, and easy to update by patch.</p>
+            <a class="link" href="/tools/blueprint-checklist/">Open checklist →</a>
+          </article>
+
+          <article class="card col-4">
+            <h3>Recipe Table</h3>
+            <p>Fast scan: item → ingredients → station → unlock notes.</p>
+            <a class="link" href="/tools/recipe-table/">Open table →</a>
+          </article>
+
+          <article class="card col-4">
+            <h3>Crafting Dependency</h3>
+            <p>Pick a target item and see the dependency chain (table-first MVP).</p>
+            <a class="link" href="/tools/crafting-dependency/">Open dependency →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Performance & Troubleshooting -->
+    <section id="fixes" class="section" aria-label="Performance and fixes">
+      <div class="container">
+        <div class="section-top">
+          <h2>Performance &amp; Fixes</h2>
+          <p>Checklist-style troubleshooting. Least-risk steps first. Clear “stop when fixed” guidance.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card col-4">
+            <h3>System Requirements + FPS Tips</h3>
+            <p>Requirements plus real settings that usually improve FPS first.</p>
+            <a class="link" href="/performance/system-requirements/">Open page →</a>
+          </article>
+
+          <article class="card col-4">
+            <h3>Stutter / Low FPS Checklist</h3>
+            <p>Do these in order, and stop as soon as performance stabilizes.</p>
+            <a class="link" href="/performance/fps-checklist/">Open checklist →</a>
+          </article>
+
+          <article class="card col-4">
+            <h3>Co-op Lag &amp; Desync Fixes</h3>
+            <p>Network tips and common causes of co-op instability.</p>
+            <a class="link" href="/troubleshooting/co-op-lag/">Open fixes →</a>
+          </article>
+
+          <article class="card col-4">
+            <h3>Known Issues (Tracked)</h3>
+            <p>A living list of issues + status + workarounds.</p>
+            <a class="link" href="/troubleshooting/known-issues/">Open tracker →</a>
+          </article>
+
+          <article class="card col-4">
+            <h3>Launch / Black Screen Fix</h3>
+            <p>Step-by-step launch fixes with the least risk first.</p>
+            <a class="link" href="/troubleshooting/launch-fix/">Open guide →</a>
+          </article>
+
+          <article class="card col-4">
+            <h3>Save / Progress Issues</h3>
+            <p>Safe troubleshooting and how to prevent progress loss.</p>
+            <a class="link" href="/troubleshooting/save-issues/">Open guide →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: Version-Verified Banner -->
+    <section class="section compact" aria-label="Version verified">
+      <div class="container">
+        <div class="banner">
+          <div>
+            <strong>Version-Verified Guides</strong>
+            <p>
+              Early Access changes fast. Each guide includes a <strong>Verified on</strong> date and version/build note when available.
+              If something’s outdated, report it.
+            </p>
+          </div>
+          <div class="actions">
+            <a class="pill" href="/news/patch-notes/">Patch Notes Tracker</a>
+            <a class="pill" href="/contact/">Report Outdated Info</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 8: Latest Updates -->
+    <section class="section" aria-label="Latest updates">
+      <div class="container">
+        <div class="section-top">
+          <h2>What’s New (Patch Notes &amp; Changes)</h2>
+          <p>Keep this updated even if you only add short summaries. Freshness drives repeat visits.</p>
+        </div>
+
+        <div class="list">
+          <div class="row">
+            <div>
+              <div class="title"><a href="/news/patch-notes/">Patch Notes — Latest</a></div>
+              <div class="excerpt">Short summary: what changed for survival, crafting, and progression (add your newest entry here).</div>
+            </div>
+            <div class="meta">Updated: <time datetime="2026-01-08">Jan 8, 2026</time></div>
+          </div>
+
+          <div class="row">
+            <div>
+              <div class="title"><a href="/guides/research-priority/">Research priorities updated</a></div>
+              <div class="excerpt">Short summary: new recommended unlock order after early changes (replace with your real note).</div>
+            </div>
+            <div class="meta">Updated: <time datetime="2026-01-08">Jan 8, 2026</time></div>
+          </div>
+
+          <div class="row">
+            <div>
+              <div class="title"><a href="/troubleshooting/known-issues/">Known Issues tracker refreshed</a></div>
+              <div class="excerpt">Short summary: top crashes + workarounds, plus what’s confirmed (replace with real entries).</div>
+            </div>
+            <div class="meta">Updated: <time datetime="2026-01-08">Jan 8, 2026</time></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 9: Community-Sourced Fixes -->
+    <section class="section" aria-label="Community-tested answers">
+      <div class="container">
+        <div class="section-top">
+          <h2>Community-Tested Answers</h2>
+          <p>We turn scattered discussions into step-by-step fixes with clear “what worked” notes.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card col-4">
+            <h3>“Game won’t launch” — fast checklist</h3>
+            <p>Ordered steps: simplest and safest first. Stop as soon as it’s fixed.</p>
+            <a class="link" href="/troubleshooting/launch-fix/">Open checklist →</a>
+          </article>
+
+          <article class="card col-4">
+            <h3>“Co-op desync” — what to try</h3>
+            <p>Network + host tips that are low-risk and commonly effective.</p>
+            <a class="link" href="/troubleshooting/co-op-lag/">Open fixes →</a>
+          </article>
+
+          <article class="card col-4">
+            <h3>“Random crashes” — common fixes</h3>
+            <p>Crash patterns, quick fixes, and what info to include when reporting.</p>
+            <a class="link" href="/troubleshooting/crash-fixes/">Open fixes →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 10: Browse All Guides -->
+    <section class="section" aria-label="Browse all guides">
+      <div class="container">
+        <div class="section-top">
+          <h2>Browse All Guides</h2>
+          <p>Use this as your internal “site map” for humans (and a strong internal linking hub).</p>
+        </div>
+
+        <div class="grid">
+          <article class="card col-6">
+            <h3>Guides</h3>
+            <p>Beginner path, survival, base setup, progression, and co-op.</p>
+            <a class="link" href="/guides/">Go to Guides →</a>
+          </article>
+
+          <article class="card col-6">
+            <h3>Resources</h3>
+            <p>Items, recipes, blueprints, and locations. Table-first MVP.</p>
+            <a class="link" href="/resources/">Go to Resources →</a>
+          </article>
+
+          <article class="card col-6">
+            <h3>Tools</h3>
+            <p>Checklists and dependency tables that can evolve into real tools.</p>
+            <a class="link" href="/tools/">Go to Tools →</a>
+          </article>
+
+          <article class="card col-6">
+            <h3>Troubleshooting</h3>
+            <p>Crashes, FPS, co-op issues, known problems, and safe fixes.</p>
+            <a class="link" href="/troubleshooting/">Go to Fixes →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ad slot 3 (Optional, before FAQ) -->
+    <section class="section compact" aria-label="Ad slot 3">
+      <div class="container">
+        <div class="ad-slot">
+          Ad Slot (before FAQ)
+          <small>Optional: users already finished the main browsing path.</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 11: FAQ -->
+    <section id="faq" class="section" aria-label="FAQ section">
+      <div class="container">
+        <div class="section-top">
+          <h2>FAQ</h2>
+          <p>Short answers + links. This section also powers FAQ schema for richer SERP display.</p>
+        </div>
+
+        <details>
+          <summary>Is this site official?</summary>
+          <p>No. <strong>starrupture.net</strong> is an independent guide site. We verify pages by game version and update when things change. <a href="/about/">Learn more →</a></p>
+        </details>
+
+        <details>
+          <summary>How do you verify “version-verified”?</summary>
+          <p>Each guide shows a <strong>Verified on</strong> date and a game version/build note when available, so you can spot outdated info quickly. <a href="/news/patch-notes/">See updates →</a></p>
+        </details>
+
+        <details>
+          <summary>Where should I start as a new player?</summary>
+          <p>Start with the 60-minute roadmap, then follow <strong>Water → Food → First Base</strong>. It’s designed for fast early stability. <a href="/start-here/">Start here →</a></p>
+        </details>
+
+        <details>
+          <summary>Do you cover mods?</summary>
+          <p>We cover safe installation basics and recommended mods—<strong>no cheats</strong>, no shady downloads. <a href="/mods/">Mods hub →</a></p>
+        </details>
+
+        <details>
+          <summary>Can I request a guide or report outdated info?</summary>
+          <p>Yes. Use the contact page and include your game version and what changed. We prioritize high-frequency issues first. <a href="/contact/">Contact →</a></p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Section 12: Footer -->
+    <footer aria-label="Footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <strong style="color: var(--text);">starrupture.net</strong>
+            <p style="margin: 10px 0 0;">
+              Beginner-first StarRupture guides and tools. We focus on clarity, speed, and version-verified info.
+            </p>
+            <p style="margin: 10px 0 0; font-size: .9rem;">
+              Disclaimer: This is a fan-made site and is not affiliated with the game’s creators/publishers. Game names and trademarks belong to their respective owners.
+            </p>
+          </div>
+
+          <div class="footlinks" aria-label="Footer links">
+            <a href="/about/">About</a>
+            <a href="/contact/">Contact</a>
+            <a href="/privacy-policy/">Privacy Policy</a>
+            <a href="/disclaimer/">Disclaimer</a>
+          </div>
+        </div>
+
+        <p style="margin: 18px 0 0; font-size: .9rem;">
+          © <span id="year">2026</span> starrupture.net
+        </p>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Tiny enhancement: keep the year current (safe for static sites)
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
