@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>StarRupture Crash Fixes (PC/Steam) — Known Issues + Safe Troubleshooting</title>
+  <meta name="description" content="StarRupture crashing or won’t launch? Start with official known issues, then follow safe steps: verify Steam files, reduce conflicts, and use Windows compatibility tools if needed." />
+  <link rel="canonical" href="https://starrupture.net/troubleshooting/crash-fixes" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="StarRupture Crash Fixes (PC/Steam)" />
+  <meta property="og:description" content="Known issues + safe troubleshooting steps (verify files, compatibility, and common conflicts)." />
+  <meta property="og:url" content="https://starrupture.net/troubleshooting/crash-fixes/" />
+  <meta name="theme-color" content="#0b1020" />
+
+  <style>
+    :root{--bg:#0b1020;--panel:#0f1833;--panel2:#0c142b;--text:#e8eefc;--muted:#a7b3d6;--line:rgba(255,255,255,.10);--accent:#7cf7c3;--accent2:#7aa7ff;--warn:#ffcf5a;--danger:#ff6b6b;--shadow:0 10px 30px rgba(0,0,0,.35);--r:16px;--max:1100px}
+    *{box-sizing:border-box} body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:
+      radial-gradient(1200px 700px at 20% -10%, rgba(122,167,255,.25), transparent 55%),
+      radial-gradient(900px 700px at 90% 0%, rgba(124,247,195,.18), transparent 60%), var(--bg);
+      color:var(--text);line-height:1.55}
+    a{color:inherit;text-decoration:none} a:hover{color:var(--accent)}
+    .wrap{max-width:var(--max);margin:0 auto;padding:22px 18px 70px}
+    .topbar{display:flex;gap:14px;align-items:center;justify-content:space-between;padding:14px 16px;border:1px solid var(--line);border-radius:18px;background:rgba(15,24,51,.65);backdrop-filter:blur(10px);box-shadow:var(--shadow);position:sticky;top:10px;z-index:20}
+    .brand{display:flex;gap:10px;align-items:center}
+    .logo{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,rgba(124,247,195,.9),rgba(122,167,255,.9));box-shadow:0 10px 20px rgba(122,167,255,.25)}
+    .nav{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}
+    .chip{padding:8px 10px;border:1px solid var(--line);border-radius:999px;background:rgba(12,20,43,.55);color:var(--muted);font-size:14px}
+    .chip:hover{border-color:rgba(124,247,195,.55);color:var(--text)}
+    .hero{padding:34px 6px 12px}
+    h1{font-size:34px;line-height:1.15;margin:0 0 10px}
+    .sub{color:var(--muted);max-width:90ch;margin:0 0 18px}
+    .kicker{display:inline-flex;gap:8px;align-items:center;color:var(--muted);font-size:14px}
+    .dot{width:8px;height:8px;border-radius:999px;background:var(--accent)}
+    .grid{display:grid;gap:14px}
+    @media(min-width:860px){.grid.cols3{grid-template-columns:repeat(3,1fr)}}
+    @media(min-width:860px){.grid.cols2{grid-template-columns:repeat(2,1fr)}}
+    .card{border:1px solid var(--line);border-radius:var(--r);background:rgba(15,24,51,.55);box-shadow:var(--shadow);padding:16px}
+    .card h2{font-size:18px;margin:0 0 8px}
+    .card p{margin:0;color:var(--muted)}
+    .section{margin-top:18px}
+    .section h2{font-size:22px;margin:0 0 10px}
+    .note{border:1px dashed rgba(255,255,255,.18);background:rgba(12,20,43,.55);border-radius:var(--r);padding:14px;color:var(--muted)}
+    .note b{color:var(--text)}
+    .warn{border:1px solid rgba(255,107,107,.25); background: rgba(255,107,107,.08)}
+    .list{margin:10px 0 0;padding-left:18px;color:var(--muted)}
+    .list li{margin:8px 0}
+    .ad-slot{border:1px dashed rgba(255,255,255,.22);border-radius:var(--r);padding:16px;text-align:center;color:rgba(232,238,252,.65);background:rgba(12,20,43,.35)}
+    details{border:1px solid var(--line);border-radius:var(--r);background:rgba(15,24,51,.45);padding:12px 14px}
+    details+details{margin-top:10px} summary{cursor:pointer;font-weight:700} summary::-webkit-details-marker{display:none}
+    footer{margin-top:26px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:14px;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
+    .pill{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:rgba(12,20,43,.45)}
+    .step{display:flex; gap:10px; align-items:flex-start}
+    .num{flex:0 0 auto; width:26px; height:26px; border-radius:10px; background: rgba(122,167,255,.18); border:1px solid rgba(122,167,255,.35); display:flex; align-items:center; justify-content:center; font-weight:800}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"What is the safest first step for crashes?","acceptedAnswer":{"@type":"Answer","text":"Verify the integrity of the game files in Steam. This checks that files are installed correctly and replaces corrupted files if needed."}},
+      {"@type":"Question","name":"Are there official known issues?","acceptedAnswer":{"@type":"Answer","text":"Yes. The developers posted known issues for the Early Access launch build (including a movement lock related to certain movement keybinding changes)."}},
+      {"@type":"Question","name":"My character can’t move after changing keybinds—what do I do?","acceptedAnswer":{"@type":"Answer","text":"Restore default movement keybindings. An official note suggests using arrow keys for AZERTY instead of remapping movement keys."}},
+      {"@type":"Question","name":"What if verifying files doesn’t help?","acceptedAnswer":{"@type":"Answer","text":"Try reducing conflicts (overlays, background apps), reboot, and use Windows Program Compatibility Troubleshooter if the game still won’t behave."}},
+      {"@type":"Question","name":"Where should I report bugs?","acceptedAnswer":{"@type":"Answer","text":"Use the official Steam discussions / bug-report channels referenced by the developers, and include steps to reproduce plus your PC specs."}}
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <a class="brand" href="https://starrupture.net/">
+        <span class="logo" aria-hidden="true"></span>
+        <div>
+          <strong>StarRupture Guides & Tools</strong><br />
+          <span style="color:var(--muted); font-size:13px;">Troubleshooting • Updated: 2026-01-08</span>
+        </div>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a class="chip" href="https://starrupture.net/">Home</a>
+        <a class="chip" href="https://starrupture.net/guides/start-here/">Start Here</a>
+        <a class="chip" href="https://starrupture.net/guides/water-hydration/">Water</a>
+        <a class="chip" href="https://starrupture.net/guides/food-calories/">Food</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="kicker"><span class="dot"></span> Troubleshooting • PC/Steam</div>
+      <h1>Crash Fixes & “Won’t Launch” Checklist (StarRupture)</h1>
+      <p class="sub">
+        This page prioritizes <b>safe</b>, low-risk fixes first (no sketchy downloads, no registry voodoo).
+        StarRupture is in Early Access, so some crashes are simply “known issues” awaiting patches.
+      </p>
+
+      <div class="grid cols3">
+        <div class="card">
+          <h2>Start Here (Safest)</h2>
+          <p><b>Verify game files</b> in Steam (fixes missing/corrupt files).</p>
+        </div>
+        <div class="card">
+          <h2>Known Issues</h2>
+          <p>Check official launch notes first. Some “bugs” have specific workarounds.</p>
+        </div>
+        <div class="card">
+          <h2>Still broken?</h2>
+          <p>Use Windows compatibility tools, reduce conflicts, and then report with repro steps.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- AdSense: OK after routing, before long steps -->
+    <div class="ad-slot section">Ad Slot (responsive) — place AdSense unit here</div>
+
+    <section class="section">
+      <h2>Step 1: Verify integrity of game files (Steam)</h2>
+      <div class="note">
+        Steam has a built-in “verify integrity” feature that checks whether the game’s files are installed correctly and reacquires missing/corrupt files if needed.
+      </div>
+      <div class="card">
+        <div class="step"><div class="num">1</div><p class="sub">Steam Library → right-click <b>StarRupture</b> → <b>Properties</b>.</p></div>
+        <div class="step"><div class="num">2</div><p class="sub">Open <b>Installed Files</b> (or Local Files) → click <b>Verify integrity of game files</b>.</p></div>
+        <div class="step"><div class="num">3</div><p class="sub">Let it finish, then relaunch the game.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Step 2: Check official known issues (Early Access launch build)</h2>
+      <div class="note warn">
+        <b>Important:</b> if your problem matches a known issue, don’t waste an hour “fixing Windows.” Use the dev workaround and move on.
+      </div>
+
+      <div class="grid cols2">
+        <div class="card">
+          <h2>Movement locked after keybind changes</h2>
+          <p>Official notes warn that changing movement keybindings may result in being unable to move.</p>
+          <ul class="list">
+            <li><b>Fix:</b> restore default movement binds.</li>
+            <li><b>Workaround mentioned:</b> for AZERTY, use arrow keys rather than remapping movement keys.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h2>If your issue isn’t listed</h2>
+          <p>Still do Step 1 first, then continue to Step 3 and Step 4 below (conflict reduction + Windows tools).</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Step 3: Reduce common conflicts (low-risk)</h2>
+      <div class="note">
+        The goal is to remove variables. Do one change at a time so you know what worked.
+      </div>
+      <ul class="list">
+        <li>Reboot PC (simple, but it clears stuck drivers and background hooks).</li>
+        <li>Close background overlays/capture tools (if you use them) and try again.</li>
+        <li>Temporarily disable aggressive antivirus “game mode” blocking (if applicable), then retry.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Step 4: Windows Program Compatibility Troubleshooter</h2>
+      <div class="note">
+        Windows includes a built-in Program Compatibility Troubleshooter path in Settings. Use it if the game launches but behaves strangely or fails immediately.
+      </div>
+      <ul class="list">
+        <li>Windows Settings → System → Troubleshoot → Other troubleshooters → <b>Program Compatibility Troubleshooter</b>.</li>
+        <li>Follow prompts, test, and revert if it makes things worse.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Bug report template (copy/paste)</h2>
+      <div class="card">
+        <p class="sub"><b>Title:</b> [Crash / Freeze / Black Screen] + when it happens</p>
+        <p class="sub"><b>Build/Date:</b> Steam Early Access + today’s date</p>
+        <p class="sub"><b>Repro steps:</b> 1) … 2) … 3) …</p>
+        <p class="sub"><b>Expected:</b> …</p>
+        <p class="sub"><b>Actual:</b> …</p>
+        <p class="sub"><b>PC specs:</b> CPU / GPU / RAM / OS / Driver version</p>
+        <p class="sub"><b>Logs:</b> (attach if available) • <b>Did you verify files?</b> Yes/No</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>FAQ</h2>
+      <details>
+        <summary>Should I reinstall immediately?</summary>
+        <p class="sub">Try verify-files first. Reinstall is usually a “last resort” when verification and conflict reduction fail.</p>
+      </details>
+      <details>
+        <summary>My keyboard controls broke after rebinding—am I cooked?</summary>
+        <p class="sub">Not necessarily. Official notes specifically mention restoring default movement binds; start there.</p>
+      </details>
+      <details>
+        <summary>Will this page be updated?</summary>
+        <p class="sub">Yes—known issues and fixes change fast in Early Access. Keep a “last updated” stamp visible.</p>
+      </details>
+    </section>
+
+    <!-- AdSense: safe placement after FAQ -->
+    <div class="ad-slot section">Ad Slot (responsive) — place AdSense unit here</div>
+
+    <footer>
+      <div class="pill"><a href="https://starrupture.net/guides/start-here/">← Start Here</a></div>
+      <div class="pill">Also useful: <a href="https://starrupture.net/guides/water-hydration/">Water</a> · <a href="https://starrupture.net/guides/food-calories/">Food</a></div>
+    </footer>
+  </div>
+</body>
+</html>
