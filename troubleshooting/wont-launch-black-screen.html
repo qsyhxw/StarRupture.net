@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>StarRupture Won’t Launch / Black Screen (PC & Steam) – Fixes</title>
+  <meta name="description" content="StarRupture won’t launch or shows a black screen on PC/Steam? Try these quick, version-agnostic fixes: verify files, clear Steam download cache, update drivers/Windows, repair VC++/DirectX, and collect dxdiag for support." />
+
+  <link rel="canonical" href="https://starrupture.net/troubleshooting/wont-launch-black-screen" />
+
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#0b0f17" />
+
+  <style>
+    :root{
+      --bg:#0b0f17; --panel:#0f1624; --panel2:#0c1220;
+      --text:#e7eefc; --muted:#a9b7d3;
+      --line:#1f2a44; --brand:#7c5cff; --brand2:#22d3ee;
+      --ok:#34d399; --warn:#fbbf24;
+      --radius:16px;
+      --max:1120px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:radial-gradient(1200px 600px at 20% -10%, rgba(124,92,255,.22), transparent 60%),
+                 radial-gradient(900px 500px at 80% 0%, rgba(34,211,238,.18), transparent 55%),
+                 var(--bg);
+      color:var(--text); line-height:1.55;
+    }
+    a{color:inherit; text-decoration:none}
+    a:hover{color:var(--brand2)}
+    .wrap{max-width:var(--max); margin:0 auto; padding:20px}
+    header{
+      position:sticky; top:0; z-index:20;
+      backdrop-filter:saturate(160%) blur(10px);
+      background:rgba(11,15,23,.72);
+      border-bottom:1px solid rgba(31,42,68,.7);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:14px 20px; max-width:var(--max); margin:0 auto;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px;
+    }
+    .logo{
+      width:32px; height:32px; border-radius:10px;
+      background:linear-gradient(135deg, rgba(124,92,255,.9), rgba(34,211,238,.9));
+      box-shadow:0 10px 30px rgba(124,92,255,.25);
+    }
+    .navlinks{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
+    .navlinks a{
+      padding:8px 10px; border-radius:10px; color:var(--muted);
+      border:1px solid transparent;
+    }
+    .navlinks a:hover{border-color:rgba(124,92,255,.35); background:rgba(124,92,255,.08); color:var(--text)}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px; border-radius:999px; border:1px solid rgba(31,42,68,.9);
+      background:rgba(15,22,36,.7); color:var(--muted); font-size:13px;
+    }
+    .hero{
+      padding:26px 0 8px;
+    }
+    .crumbs{margin:10px 0 0; color:var(--muted); font-size:13px}
+    .crumbs a{color:var(--muted); text-decoration:underline; text-decoration-color:rgba(169,183,211,.35)}
+    .hero h1{
+      margin:12px 0 10px; font-size:clamp(28px, 3.2vw, 40px); line-height:1.15;
+      letter-spacing:-.4px;
+    }
+    .lead{max-width:880px; color:var(--muted); font-size:16px; margin:0 0 14px}
+    .grid{
+      display:grid; grid-template-columns:1.3fr .7fr; gap:16px; align-items:start;
+    }
+    @media (max-width: 920px){ .grid{grid-template-columns:1fr} .nav{padding:14px} }
+    .card{
+      background:linear-gradient(180deg, rgba(15,22,36,.9), rgba(12,18,32,.9));
+      border:1px solid rgba(31,42,68,.85);
+      border-radius:var(--radius);
+      box-shadow:0 18px 60px rgba(0,0,0,.35);
+      padding:16px;
+    }
+    .card h2{margin:0 0 10px; font-size:18px}
+    .toc a{display:block; padding:8px 10px; border-radius:12px; color:var(--muted)}
+    .toc a:hover{background:rgba(34,211,238,.08); color:var(--text)}
+    .kicker{display:flex; gap:10px; flex-wrap:wrap; margin:10px 0 0}
+    .callout{
+      border-left:3px solid rgba(124,92,255,.9);
+      padding:10px 12px; background:rgba(124,92,255,.08);
+      border-radius:12px; color:var(--muted);
+    }
+    .steps{margin:0; padding-left:18px; color:var(--muted)}
+    .steps li{margin:8px 0}
+    .tag{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px; border-radius:12px;
+      background:rgba(34,211,238,.08); border:1px solid rgba(34,211,238,.22);
+      color:var(--muted); font-size:13px;
+    }
+    .split{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+    @media (max-width: 820px){ .split{grid-template-columns:1fr} }
+    .ad-slot{
+      border:1px dashed rgba(169,183,211,.35);
+      border-radius:14px;
+      padding:14px;
+      color:rgba(169,183,211,.75);
+      background:rgba(15,22,36,.45);
+      text-align:center;
+      font-size:13px;
+    }
+    .hr{height:1px; background:rgba(31,42,68,.8); margin:14px 0}
+    details{
+      border:1px solid rgba(31,42,68,.85);
+      border-radius:14px; background:rgba(15,22,36,.55);
+      padding:10px 12px;
+    }
+    details + details{margin-top:10px}
+    summary{cursor:pointer; font-weight:700}
+    summary::marker{color:var(--brand2)}
+    footer{
+      margin-top:26px; border-top:1px solid rgba(31,42,68,.75);
+      background:rgba(11,15,23,.55);
+    }
+    .foot{
+      display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between;
+      padding:16px 20px; max-width:var(--max); margin:0 auto; color:var(--muted); font-size:13px;
+    }
+    .foot a{color:var(--muted); text-decoration:underline; text-decoration-color:rgba(169,183,211,.35)}
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="nav">
+    <a class="brand" href="https://starrupture.net">
+      <span class="logo" aria-hidden="true"></span>
+      <span>StarRupture.net</span>
+    </a>
+    <nav class="navlinks" aria-label="Primary">
+      <a href="https://starrupture.net/guides">Guides</a>
+      <a href="https://starrupture.net/troubleshooting">Troubleshooting</a>
+      <a href="https://starrupture.net/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="kicker">
+      <span class="pill">Troubleshooting</span>
+      <span class="pill">PC / Steam</span>
+      <span class="pill">Updated: <time datetime="2026-01-08">Jan 8, 2026</time></span>
+    </div>
+
+    <div class="crumbs">
+      <a href="https://starrupture.net">Home</a> → <a href="https://starrupture.net/troubleshooting">Troubleshooting</a> → Won’t Launch / Black Screen
+    </div>
+
+    <h1>StarRupture Won’t Launch / Black Screen (PC & Steam): Fast Fix Checklist</h1>
+    <p class="lead">
+      This page is intentionally “no fluff”: start at the top, stop as soon as it works.
+      All steps are launcher/Windows-level fixes that apply to most Steam PC games.
+    </p>
+
+    <div class="callout">
+      <strong style="color:var(--text)">Goal:</strong> get you back in-game in under 10 minutes.
+      If it still fails, you’ll leave with clean diagnostics (dxdiag + what you tried) to send to support.
+    </div>
+  </section>
+
+  <div class="grid">
+    <!-- Main -->
+    <article class="card">
+      <h2 id="quick">1) Quick fixes (do these first)</h2>
+      <ol class="steps">
+        <li><strong>Restart Steam</strong> (fully exit, relaunch), then try again.</li>
+        <li><strong>Verify game files (Steam)</strong>:
+          <div class="hr"></div>
+          <div class="tag">Steam → Library → right-click StarRupture → Properties → Installed Files → “Verify integrity…”</div>
+        </li>
+        <li><strong>Clear Steam Download Cache</strong> (you will likely need to sign in again):
+          <div class="hr"></div>
+          <div class="tag">Steam → Settings → Downloads → “Clear download cache”</div>
+        </li>
+        <li><strong>Remove custom Launch Options</strong> (if you set any) and retry:
+          <div class="hr"></div>
+          <div class="tag">Steam → Library → right-click → Properties → General → Launch Options (clear the field)</div>
+        </li>
+      </ol>
+
+      <div class="hr"></div>
+
+      <div class="ad-slot" aria-label="Ad placeholder">
+        AdSense placeholder (recommended): between “Quick fixes” and “Drivers/Windows”
+        <!-- Insert responsive AdSense unit here -->
+      </div>
+
+      <div class="hr"></div>
+
+      <h2 id="drivers">2) Drivers + Windows updates (most common “black screen” bucket)</h2>
+      <div class="split">
+        <div>
+          <h3 style="margin:0 0 8px">Update GPU drivers (official sources only)</h3>
+          <ul class="steps">
+            <li><strong>NVIDIA:</strong> use NVIDIA’s official GeForce driver page (manual download) or its automatic update flow (NVIDIA App).</li>
+            <li><strong>AMD:</strong> use AMD’s official drivers page; if needed, use AMD’s Auto-Detect/Install tools or follow the Adrenalin install guide.</li>
+          </ul>
+          <p class="lead" style="font-size:14px;margin-top:8px">
+            Tip: avoid random “driver download” websites. Stick to NVIDIA/AMD official pages.
+          </p>
+        </div>
+        <div>
+          <h3 style="margin:0 0 8px">Install Windows updates</h3>
+          <ul class="steps">
+            <li>Open <strong>Settings → Windows Update</strong>.</li>
+            <li>Install all pending updates, reboot, then retry the game.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="hr"></div>
+
+      <h2 id="compat">3) Compatibility & permissions (safe to try)</h2>
+      <ul class="steps">
+        <li><strong>Run Program Compatibility Troubleshooter</strong> for the game executable if it instantly black-screens or closes.</li>
+        <li><strong>Try “Run as administrator”</strong> for Steam (or the game) as a test. If it helps, keep it; if not, revert to normal.</li>
+      </ul>
+
+      <div class="hr"></div>
+
+      <h2 id="deps">4) Repair common runtime dependencies (VC++ / DirectX)</h2>
+      <ul class="steps">
+        <li><strong>Visual C++ Redistributables:</strong> install the latest supported Microsoft Visual C++ Redistributable(s) (VS 2015–2022) matching your system (x64 is typical; some games also need x86).</li>
+        <li><strong>DirectX (legacy components):</strong> if a game depends on older DirectX components, Microsoft provides the DirectX End-User Runtime Web Installer for those legacy libraries.</li>
+      </ul>
+
+      <div class="hr"></div>
+
+      <div class="ad-slot" aria-label="Ad placeholder">
+        AdSense placeholder (recommended): after “Dependencies” and before “Network/Firewall”
+        <!-- Insert responsive AdSense unit here -->
+      </div>
+
+      <div class="hr"></div>
+
+      <h2 id="firewall">5) Firewall / security software (do this carefully)</h2>
+      <ul class="steps">
+        <li><strong>Windows Defender Firewall:</strong> allow the game app through the firewall <em>only if</em> you trust it. Don’t disable your firewall globally.</li>
+        <li>If your security software quarantined the game executable, restore/allow it using your antivirus UI (avoid downloading “fixed” executables from the internet).</li>
+      </ul>
+
+      <div class="hr"></div>
+
+      <h2 id="collect">6) Collect diagnostics (so you can actually get help)</h2>
+      <p class="lead" style="margin-top:0">
+        If it still won’t launch, do this once and attach it when contacting support:
+      </p>
+      <ul class="steps">
+        <li><strong>Create a dxdiag report:</strong> open <code>dxdiag</code> → check info → click <strong>Save All Information</strong>.</li>
+        <li>Write down what you tried (e.g., verified files, cleared cache, updated drivers, installed VC++/DirectX, Windows updated).</li>
+      </ul>
+
+      <div class="hr"></div>
+
+      <h2 id="faq">FAQ (quick answers)</h2>
+      <details>
+        <summary>Will “Verify integrity…” delete my save?</summary>
+        <p class="lead">In Steam, “Verify integrity…” checks installed game files and re-fetches missing ones; it’s used as a safe first-line troubleshooting step.</p>
+      </details>
+      <details>
+        <summary>Clearing Steam download cache sounds scary—what happens?</summary>
+        <p class="lead">It clears Steam’s download cache and typically makes Steam restart and ask you to sign in again. It should not remove your installed games.</p>
+      </details>
+      <details>
+        <summary>Do I need both x64 and x86 Visual C++ packages?</summary>
+        <p class="lead">Many PCs are x64, but some games ship 32-bit components. When in doubt, installing both (from Microsoft official packages) is a common, low-risk repair step.</p>
+      </details>
+      <details>
+        <summary>Should I download drivers from third-party “driver sites”?</summary>
+        <p class="lead">No—use NVIDIA/AMD official pages or their official update tools (NVIDIA App / AMD Auto-Detect & Adrenalin).</p>
+      </details>
+      <details>
+        <summary>What should I send in a support email?</summary>
+        <p class="lead">Your dxdiag report, Windows version, GPU model, and the exact steps you already tried from this page.</p>
+      </details>
+
+      <div class="hr"></div>
+
+      <p class="lead" style="font-size:14px">
+        Related: <a href="https://starrupture.net/troubleshooting/crash-fixes" style="text-decoration:underline">Crash Fixes</a> ·
+        <a href="https://starrupture.net/guides/start-here" style="text-decoration:underline">Start Here</a>
+      </p>
+    </article>
+
+    <!-- Sidebar -->
+    <aside class="card toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <a href="#quick">1) Quick fixes</a>
+      <a href="#drivers">2) Drivers + Windows</a>
+      <a href="#compat">3) Compatibility & permissions</a>
+      <a href="#deps">4) VC++ / DirectX</a>
+      <a href="#firewall">5) Firewall / security</a>
+      <a href="#collect">6) Collect diagnostics</a>
+      <a href="#faq">FAQ</a>
+
+      <div class="hr"></div>
+
+      <h2>Next pages to build</h2>
+      <a href="https://starrupture.net/troubleshooting">Troubleshooting Hub</a>
+      <a href="https://starrupture.net/troubleshooting/crash-fixes">Crash Fixes</a>
+      <a href="https://starrupture.net/guides">Guides Hub</a>
+
+      <div class="hr"></div>
+
+      <div class="ad-slot" aria-label="Ad placeholder">
+        Sidebar AdSense placeholder (optional)
+        <!-- Insert sticky sidebar unit only if it doesn't hurt UX -->
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer>
+  <div class="foot">
+    <div>© <span id="y"></span> StarRupture.net · Unofficial fan site</div>
+    <div>
+      <a href="https://starrupture.net/privacy-policy">Privacy Policy</a> ·
+      <a href="https://starrupture.net/disclaimer">Disclaimer</a> ·
+      <a href="https://starrupture.net/contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // tiny, non-tracking convenience
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
