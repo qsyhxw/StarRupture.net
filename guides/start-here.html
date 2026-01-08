@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Start Here: StarRupture Beginner Guide (Fast Track)</title>
+  <meta name="description" content="New to StarRupture? This fast-track starter guide helps you find the right answers in 30 seconds: hydration, food, early progression, co-op basics, and the best next pages to read." />
+  <link rel="canonical" href="https://starrupture.net/guides/start-here" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Start Here: StarRupture Beginner Guide (Fast Track)" />
+  <meta property="og:description" content="A no-fluff StarRupture starter page: what to do first, what to avoid, and where to click next." />
+  <meta property="og:url" content="https://starrupture.net/guides/start-here/" />
+  <meta name="theme-color" content="#0b1020" />
+
+  <style>
+    :root{
+      --bg:#0b1020; --panel:#0f1833; --panel2:#0c142b;
+      --text:#e8eefc; --muted:#a7b3d6;
+      --line:rgba(255,255,255,.10);
+      --accent:#7cf7c3; --accent2:#7aa7ff; --warn:#ffcf5a;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius:16px;
+      --max:1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 700px at 20% -10%, rgba(122,167,255,.25), transparent 55%),
+                  radial-gradient(900px 700px at 90% 0%, rgba(124,247,195,.18), transparent 60%),
+                  var(--bg);
+      color:var(--text); line-height:1.55;
+    }
+    a{color:inherit; text-decoration:none}
+    a:hover{color:var(--accent)}
+    .wrap{max-width:var(--max); margin:0 auto; padding:22px 18px 70px}
+    .topbar{
+      display:flex; gap:14px; align-items:center; justify-content:space-between;
+      padding:14px 16px; border:1px solid var(--line); border-radius:18px;
+      background: rgba(15,24,51,.65); backdrop-filter: blur(10px); box-shadow: var(--shadow);
+      position: sticky; top: 10px; z-index: 20;
+    }
+    .brand{display:flex; gap:10px; align-items:center}
+    .logo{
+      width:36px; height:36px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(124,247,195,.9), rgba(122,167,255,.9));
+      box-shadow: 0 10px 20px rgba(122,167,255,.25);
+    }
+    .brand strong{letter-spacing:.2px}
+    .nav{display:flex; flex-wrap:wrap; gap:10px; justify-content:flex-end}
+    .chip{
+      padding:8px 10px; border:1px solid var(--line); border-radius:999px;
+      background: rgba(12,20,43,.55); color:var(--muted); font-size:14px;
+    }
+    .chip:hover{border-color: rgba(124,247,195,.55); color:var(--text)}
+    .hero{padding:34px 6px 12px}
+    h1{font-size:38px; line-height:1.15; margin:0 0 10px}
+    .sub{color:var(--muted); max-width:78ch; margin:0 0 18px}
+    .ctaRow{display:flex; flex-wrap:wrap; gap:12px; margin:16px 0 8px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 14px; border-radius:14px; border:1px solid var(--line);
+      background: rgba(12,20,43,.65); box-shadow: var(--shadow);
+      font-weight:600;
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(124,247,195,.18), rgba(122,167,255,.16));
+      border-color: rgba(124,247,195,.35);
+    }
+    .btn small{font-weight:500; color:var(--muted)}
+    .grid{display:grid; gap:14px}
+    @media (min-width: 860px){ .grid.cols3{grid-template-columns:repeat(3,1fr)} }
+    @media (min-width: 860px){ .grid.cols2{grid-template-columns:repeat(2,1fr)} }
+    .card{
+      border:1px solid var(--line); border-radius: var(--radius);
+      background: rgba(15,24,51,.55); box-shadow: var(--shadow);
+      padding:16px;
+    }
+    .card h2{font-size:18px; margin:0 0 8px}
+    .card p{margin:0; color:var(--muted)}
+    .kicker{display:inline-flex; gap:8px; align-items:center; color:var(--muted); font-size:14px}
+    .dot{width:8px; height:8px; border-radius:999px; background: var(--accent)}
+    .section{margin-top:18px}
+    .section h2{font-size:22px; margin:0 0 10px}
+    .list{margin:10px 0 0; padding-left:18px; color:var(--muted)}
+    .list li{margin:8px 0}
+    .note{
+      border:1px dashed rgba(255,255,255,.18);
+      background: rgba(12,20,43,.55);
+      border-radius: var(--radius);
+      padding:14px 14px;
+      color:var(--muted);
+    }
+    .note b{color:var(--text)}
+    .ad-slot{
+      border:1px dashed rgba(255,255,255,.22);
+      border-radius: var(--radius);
+      padding:16px;
+      text-align:center;
+      color:rgba(232,238,252,.65);
+      background: rgba(12,20,43,.35);
+    }
+    details{
+      border:1px solid var(--line); border-radius: var(--radius);
+      background: rgba(15,24,51,.45);
+      padding:12px 14px;
+    }
+    details + details{margin-top:10px}
+    summary{cursor:pointer; font-weight:700}
+    summary::-webkit-details-marker{display:none}
+    footer{
+      margin-top:26px; padding-top:18px; border-top:1px solid var(--line);
+      color:var(--muted); font-size:14px;
+      display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between;
+    }
+    .pill{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:6px 10px; border-radius:999px; border:1px solid var(--line);
+      background: rgba(12,20,43,.45);
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"What is StarRupture?","acceptedAnswer":{"@type":"Answer","text":"StarRupture is a first-person open-world base building game with survival elements, exploration, and combat. It supports solo play and up to 4-player co-op."}},
+      {"@type":"Question","name":"Is StarRupture in Early Access?","acceptedAnswer":{"@type":"Answer","text":"Yes. StarRupture launched in Early Access on Steam on Jan 6, 2026."}},
+      {"@type":"Question","name":"Where should beginners start?","acceptedAnswer":{"@type":"Answer","text":"Start with the basics: stabilize hydration and calories, then follow early progression to unlock better consumables and production via the Recipe Station."}},
+      {"@type":"Question","name":"Do numbers/mechanics change?","acceptedAnswer":{"@type":"Answer","text":"Yes—Early Access games can change frequently. Always sanity-check in-game tooltips and patch notes when something feels off."}},
+      {"@type":"Question","name":"What if my game crashes?","acceptedAnswer":{"@type":"Answer","text":"Use the Crash Fixes page for known issues and safe troubleshooting steps (verify files, check drivers, and follow official notes)."}}
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <a class="brand" href="https://starrupture.net/">
+        <span class="logo" aria-hidden="true"></span>
+        <div>
+          <strong>StarRupture Guides & Tools</strong><br />
+          <span style="color:var(--muted); font-size:13px;">No-fluff help for PC/Steam players</span>
+        </div>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a class="chip" href="https://starrupture.net/">Home</a>
+        <a class="chip" href="https://starrupture.net/guides/">Guides</a>
+        <a class="chip" href="https://starrupture.net/tools/">Tools</a>
+        <a class="chip" href="https://starrupture.net/items/">Items DB</a>
+        <a class="chip" href="https://starrupture.net/troubleshooting/">Troubleshooting</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="kicker"><span class="dot"></span> Start Here • Updated: 2026-01-08</div>
+      <h1>Start Here: StarRupture (Beginner Fast Track)</h1>
+      <p class="sub">
+        StarRupture is a <b>first-person open-world base building</b> game by <b>Creepy Jar</b>, launched in <b>Early Access (Jan 6, 2026)</b>.
+        This page is your “30-second routing” hub: click the right guide, avoid early mistakes, and keep moving.
+      </p>
+      <div class="ctaRow">
+        <a class="btn primary" href="https://starrupture.net/guides/water-hydration/">
+          💧 Fix Hydration Fast <small>(what to eat / unlock)</small>
+        </a>
+        <a class="btn" href="https://starrupture.net/guides/food-calories/">
+          🍽️ Fix Calories Fast <small>(early foods + upgrades)</small>
+        </a>
+        <a class="btn" href="https://starrupture.net/troubleshooting/crash-fixes/">
+          🛠️ Crashes / Won’t Launch <small>(safe fixes)</small>
+        </a>
+      </div>
+    </section>
+
+    <!-- AdSense: place a responsive unit here AFTER hero, before heavy how-to content -->
+    <div class="ad-slot section">
+      Ad Slot (responsive) — place AdSense unit here
+    </div>
+
+    <section class="section">
+      <h2>What you’re trying to accomplish (first session)</h2>
+      <div class="grid cols3">
+        <div class="card">
+          <h2>1) Stabilize survival basics</h2>
+          <p>Hydration + Calories first. If those aren’t stable, everything else feels harder than it needs to be.</p>
+          <ul class="list">
+            <li>Go to: <a href="https://starrupture.net/guides/water-hydration/">Water & Hydration</a></li>
+            <li>Go to: <a href="https://starrupture.net/guides/food-calories/">Food & Calories</a></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h2>2) Build a “safe loop”</h2>
+          <p>Pick a repeatable route: gather → craft/upgrade → return → restock. Consistency beats speed early.</p>
+          <ul class="list">
+            <li>Target 2–3 nearby resource spots</li>
+            <li>Return on a timer (don’t overextend)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h2>3) Unlock better production</h2>
+          <p>Long-term quality of life comes from researched production and stronger consumables.</p>
+          <ul class="list">
+            <li>Next milestone: <b>Recipe Station</b> (commonly tied to <b>Moon Energy Corporation Level 2</b>)</li>
+            <li>Recipe Station is used to unlock item production via blueprints</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Core concept (so the rest makes sense)</h2>
+      <div class="note">
+        StarRupture’s world is described by the developers as an <b>ever-changing planet</b> with <b>repeating cycles of elemental cataclysms</b>.
+        Early Access means numbers and balance can shift—treat tooltips and patch notes as the final boss of truth.
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Recommended reading order (for absolute beginners)</h2>
+      <div class="grid cols2">
+        <div class="card">
+          <h2>💧 Water & Hydration</h2>
+          <p>Fastest way to stop “I’m dying of thirst” spirals. Includes early items and the first big upgrades.</p>
+          <p style="margin-top:10px;"><a class="btn" href="https://starrupture.net/guides/water-hydration/">Open guide →</a></p>
+        </div>
+        <div class="card">
+          <h2>🍽️ Food & Calories</h2>
+          <p>What to eat now vs. what to unlock next for stable calories (and less panic farming).</p>
+          <p style="margin-top:10px;"><a class="btn" href="https://starrupture.net/guides/food-calories/">Open guide →</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>FAQ (quick answers)</h2>
+      <details>
+        <summary>Is StarRupture playable solo?</summary>
+        <p class="sub">Yes. It supports single-player and also up to 4-player co-op.</p>
+      </details>
+      <details>
+        <summary>Is co-op worth it for beginners?</summary>
+        <p class="sub">If your goal is faster learning and safer exploration, yes. Just keep your early loop simple and share survival supplies.</p>
+      </details>
+      <details>
+        <summary>What should I do next after basics?</summary>
+        <p class="sub">Push progression toward Recipe Station access, because research/blueprints unlock better production and consumables.</p>
+      </details>
+      <details>
+        <summary>Are guides here “version verified”?</summary>
+        <p class="sub">They’re written for Early Access and updated as sources change. Always double-check in-game UI when something differs.</p>
+      </details>
+      <details>
+        <summary>My game crashes—where do I start?</summary>
+        <p class="sub">Go to Crash Fixes for official known issues + safe troubleshooting steps.</p>
+      </details>
+    </section>
+
+    <!-- AdSense: place a responsive unit AFTER FAQ or mid-page to avoid breaking the “quick answers” flow -->
+    <div class="ad-slot section">
+      Ad Slot (responsive) — place AdSense unit here
+    </div>
+
+    <footer>
+      <div class="pill">© 2026 starrupture.net • Fan guide</div>
+      <div class="pill">
+        Next: <a href="https://starrupture.net/guides/water-hydration/">Water</a> ·
+        <a href="https://starrupture.net/guides/food-calories/">Food</a> ·
+        <a href="https://starrupture.net/troubleshooting/crash-fixes/">Crash Fixes</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
