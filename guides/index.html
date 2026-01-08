@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>StarRupture Guides Index | StarRupture.net</title>
+  <meta name="description" content="StarRupture Guides Index: beginner start here, survival basics (water, food), and fast troubleshooting links. Short steps, version-aware, no fluff." />
+
+  <!-- Canonical (NO trailing slash) -->
+  <link rel="canonical" href="https://starrupture.net/guides" />
+
+  <meta property="og:title" content="StarRupture Guides Index | StarRupture.net" />
+  <meta property="og:description" content="Beginner start here, survival basics, and fast troubleshooting links. Short steps, no fluff." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://starrupture.net/guides" />
+
+  <style>
+    :root{
+      --bg:#0b1020;
+      --panel:#0f1732;
+      --text:#e7eaf5;
+      --muted:#aab2d6;
+      --brand:#6ae4ff;
+      --accent:#a78bfa;
+      --border:rgba(255,255,255,.12);
+      --shadow: 0 12px 30px rgba(0,0,0,.35);
+      --radius:18px;
+      --max: 1080px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(106,228,255,.12), transparent 60%),
+                  radial-gradient(1000px 500px at 90% 0%, rgba(167,139,250,.10), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{color:var(--brand); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    header{
+      border-bottom:1px solid var(--border);
+      background:rgba(11,16,32,.6);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top:0;
+      z-index:10;
+    }
+    .nav{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:14px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:999px;
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+      box-shadow: 0 0 18px rgba(106,228,255,.55);
+    }
+    .nav a.small{color:var(--muted); font-size:14px}
+    .nav-links{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end; align-items:center}
+
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 60px}
+    .hero{
+      border:1px solid var(--border);
+      border-radius:calc(var(--radius) + 6px);
+      box-shadow: var(--shadow);
+      padding:22px;
+      background: linear-gradient(180deg, rgba(15,23,50,.92), rgba(15,23,50,.68));
+      overflow:hidden;
+      position:relative;
+    }
+    .hero:before{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      background:
+        radial-gradient(500px 220px at 15% 10%, rgba(106,228,255,.16), transparent 60%),
+        radial-gradient(520px 240px at 85% 0%, rgba(167,139,250,.14), transparent 60%);
+      pointer-events:none;
+    }
+    .hero > *{position:relative}
+    h1{font-size:40px; line-height:1.1; margin:0 0 10px}
+    .sub{color:var(--muted); margin:0 0 16px; max-width: 70ch}
+    .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    .btn{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 14px;
+      border-radius:14px;
+      font-weight:800;
+      font-size:14px;
+      border:1px solid rgba(255,255,255,.12);
+      cursor:pointer;
+      text-decoration:none !important;
+    }
+    .btn-primary{
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+      color:#07101a;
+      border:none;
+    }
+    .btn-ghost{
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+    }
+    .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
+    .chip{
+      display:inline-flex; align-items:center;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(11,16,32,.35);
+      color: var(--muted);
+      font-size:13px;
+    }
+
+    .section{margin-top:18px}
+    .section h2{font-size:20px; margin:22px 0 10px}
+    .section p.lead{color:var(--muted); margin:0 0 12px}
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:12px;
+    }
+    @media(min-width:860px){
+      .grid{grid-template-columns: 1fr 1fr 1fr}
+    }
+
+    .card{
+      background: rgba(11,16,32,.35);
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:14px;
+      min-height: 126px;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .card .title{
+      font-weight:900;
+      letter-spacing:.2px;
+    }
+    .card .desc{color:var(--muted); font-size:14px; margin:0}
+    .meta{
+      display:flex; gap:8px; flex-wrap:wrap; margin-top:auto;
+      font-size:12px; color:var(--muted);
+    }
+    .tag{
+      border:1px solid rgba(255,255,255,.12);
+      padding:4px 8px;
+      border-radius:999px;
+      background: rgba(255,255,255,.04);
+    }
+    .disabled{
+      opacity:.55;
+      cursor:not-allowed;
+    }
+    .box{
+      margin-top:18px;
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:16px;
+      background: linear-gradient(180deg, rgba(15,23,50,.70), rgba(15,23,50,.40));
+    }
+    .box h3{margin:0 0 8px; font-size:16px}
+    .box ul{margin:8px 0 0; padding-left:18px}
+    .box li{margin:6px 0; color: var(--muted)}
+    .hr{border:none;border-top:1px solid var(--border); margin:20px 0;}
+
+    footer{
+      max-width:var(--max);
+      margin:24px auto 0;
+      padding:18px;
+      color:var(--muted);
+      font-size:14px;
+      border-top:1px solid var(--border);
+    }
+  </style>
+
+  <!-- Optional basic structured data (safe, no game facts) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"CollectionPage",
+    "name":"StarRupture Guides Index",
+    "url":"https://starrupture.net/guides",
+    "isPartOf":{
+      "@type":"WebSite",
+      "name":"StarRupture.net",
+      "url":"https://starrupture.net"
+    }
+  }
+  </script>
+</head>
+
+<body>
+  <header>
+    <div class="nav">
+      <div class="logo">
+        <span class="dot"></span>
+        <a href="https://starrupture.net" aria-label="StarRupture.net Home">StarRupture.net</a>
+      </div>
+      <div class="nav-links">
+        <a class="small" href="https://starrupture.net/guides/start-here">Start Here</a>
+        <a class="small" href="https://starrupture.net/troubleshooting/crash-fixes">Crash Fixes</a>
+        <a class="small" href="https://starrupture.net/contact">Contact</a>
+        <a class="small" href="https://starrupture.net/privacy-policy">Privacy</a>
+        <a class="small" href="https://starrupture.net/disclaimer">Disclaimer</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- HERO -->
+    <section class="hero">
+      <h1>StarRupture Guides</h1>
+      <p class="sub">
+        Pick a topic, get the steps, move on. This index is built for new PC/Steam players who want answers fast —
+        and it’s designed to scale into a full guide library.
+      </p>
+
+      <div class="cta">
+        <a class="btn btn-primary" href="https://starrupture.net/guides/start-here">Start Here (Beginner)</a>
+        <a class="btn btn-ghost" href="https://starrupture.net/troubleshooting/crash-fixes">Crash Fixes (Fast)</a>
+      </div>
+
+      <div class="chips" aria-label="Quick jump">
+        <span class="chip">Beginner</span>
+        <span class="chip">Survival</span>
+        <span class="chip">Troubleshooting</span>
+        <span class="chip">Short + actionable</span>
+        <span class="chip">No fluff</span>
+      </div>
+    </section>
+
+    <!-- SECTION: BEGINNER -->
+    <section class="section" id="beginner">
+      <h2>Beginner Fast-Start</h2>
+      <p class="lead">If you do only three things today, do these.</p>
+
+      <div class="grid">
+        <a class="card" href="https://starrupture.net/guides/start-here">
+          <div class="title">Start Here</div>
+          <p class="desc">The shortest path to “I can survive + I know what matters.”</p>
+          <div class="meta">
+            <span class="tag">Beginner</span><span class="tag">Checklist</span>
+          </div>
+        </a>
+
+        <a class="card" href="https://starrupture.net/guides/water-hydration">
+          <div class="title">Water & Hydration</div>
+          <p class="desc">Early water sources + what to carry so you don’t bleed out mid-run.</p>
+          <div class="meta">
+            <span class="tag">Survival</span><span class="tag">Early game</span>
+          </div>
+        </a>
+
+        <a class="card" href="https://starrupture.net/guides/food-calories">
+          <div class="title">Food & Calories</div>
+          <p class="desc">Stop starving: best early calories + inventory-efficient upgrades.</p>
+          <div class="meta">
+            <span class="tag">Survival</span><span class="tag">Early game</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- AD SLOT (optional, keep empty until AdSense) -->
+    <!-- <div class="hr"></div>
+    <div class="box" aria-label="Ad slot placeholder">
+      <h3 style="margin:0;">Ad</h3>
+      <p class="lead" style="margin:6px 0 0;">(Reserved space for a responsive ad unit.)</p>
+    </div> -->
+
+    <!-- SECTION: TROUBLESHOOTING ENTRY -->
+    <section class="section" id="troubleshooting">
+      <h2>Fast Troubleshooting</h2>
+      <p class="lead">When you just need the game to work (no theory, only fixes).</p>
+
+      <div class="grid">
+        <a class="card" href="https://starrupture.net/troubleshooting/crash-fixes">
+          <div class="title">Crash Fixes</div>
+          <p class="desc">Quick checks: drivers, files, common culprits, and “try this first” order.</p>
+          <div class="meta">
+            <span class="tag">Troubleshooting</span><span class="tag">High intent</span>
+          </div>
+        </a>
+
+        <div class="card disabled" aria-disabled="true" title="Coming soon">
+          <div class="title">Won’t Launch / Black Screen</div>
+          <p class="desc">Coming soon: launch errors, black screen, stuck loading, and safe settings.</p>
+          <div class="meta">
+            <span class="tag">Coming soon</span><span class="tag">High intent</span>
+          </div>
+        </div>
+
+        <div class="card disabled" aria-disabled="true" title="Coming soon">
+          <div class="title">Controls / Keybind Issues</div>
+          <p class="desc">Coming soon: keys not working, rebind bug, input fixes, and safe defaults.</p>
+          <div class="meta">
+            <span class="tag">Coming soon</span><span class="tag">Quick fixes</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: LIBRARY EXPANSION (no dead links) -->
+    <section class="section" id="library">
+      <h2>Library Expansion (Planned)</h2>
+      <p class="lead">These categories are designed for long-tail scaling. Pages will appear here as they ship.</p>
+
+      <div class="box">
+        <h3>Next guides we’re building</h3>
+        <ul>
+          <li><strong>Toxicity</strong> — detox basics + safe usage patterns (will link from Water/Food)</li>
+          <li><strong>Performance</strong> — FPS/stutter tips for PC players</li>
+          <li><strong>Items Database</strong> — short item pages (what it does / where to find / best use)</li>
+          <li><strong>Patch Notes Tracker</strong> — what changed, what guides need updates</li>
+        </ul>
+        <p class="lead" style="margin-top:10px;">
+          Want a page prioritized? <a href="https://starrupture.net/contact">Send a request</a> (include the exact question you searched).
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION: QUALITY / TRUST -->
+    <section class="section" id="quality">
+      <h2>How we keep guides usable</h2>
+      <p class="lead">Short, readable, and updated when the game changes.</p>
+
+      <div class="grid" style="grid-template-columns: 1fr; gap:12px;">
+        <div class="box">
+          <h3>Unofficial + transparent</h3>
+          <ul>
+            <li>This is a fan site (no affiliation). See: <a href="https://starrupture.net/disclaimer">Disclaimer</a></li>
+            <li>Privacy details: <a href="https://starrupture.net/privacy-policy">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <div class="box">
+          <h3>Corrections welcome</h3>
+          <ul>
+            <li>If something is outdated or wrong, email: <a href="mailto:qsyhxw@gmail.com">qsyhxw@gmail.com</a></li>
+            <li>Or use: <a href="https://starrupture.net/contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> StarRupture.net ·
+      <a href="https://starrupture.net/privacy-policy">Privacy</a> ·
+      <a href="https://starrupture.net/disclaimer">Disclaimer</a> ·
+      <a href="https://starrupture.net/contact">Contact</a>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
