@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StarRupture Resources Guide - Ore Locations & Extraction</title>
+  <meta name="description" content="Find all StarRupture resource locations: Titanium, Wolfram, Calcium, Helium-3, Sulphur & Quartz. Extraction methods, map markers & unlock requirements.">
+  <link rel="canonical" href="https://starrupture.net/database/resources/">
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8830315294299920" crossorigin="anonymous"></script>
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="StarRupture Resources Guide - Ore Locations & Extraction">
+  <meta property="og:description" content="All resource locations with extraction methods and unlock requirements.">
+  <meta property="og:url" content="https://starrupture.net/database/resources/">
+
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#06080c;--surface:#0d1117;--surface-2:#161b22;--border:#21262d;
+      --text:#e6edf3;--text-muted:#8b949e;
+      --primary:#f97316;--primary-dim:rgba(249,115,22,.15);
+      --secondary:#22d3ee;--secondary-dim:rgba(34,211,238,.12);
+      --accent:#a855f7;--success:#22c55e;--warning:#eab308;--danger:#ef4444;
+      --radius:12px;--max-w:1200px;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+    a{color:inherit;text-decoration:none;transition:color .2s}
+    a:hover{color:var(--primary)}
+    .container{max-width:var(--max-w);margin:0 auto;padding:0 20px}
+
+    .header{position:sticky;top:0;z-index:100;background:rgba(6,8,12,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;height:60px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.1rem}
+    .logo-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--primary),var(--secondary));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;color:#fff}
+    .nav{display:flex;gap:8px}
+    .nav a{padding:8px 14px;border-radius:8px;font-size:.9rem;color:var(--text-muted);transition:all .2s}
+    .nav a:hover,.nav a.active{background:var(--surface-2);color:var(--text)}
+    .nav a.active{color:var(--primary)}
+
+    .breadcrumb{padding:16px 0;font-size:.875rem;color:var(--text-muted)}
+    .breadcrumb a:hover{color:var(--primary)}
+    .breadcrumb span{margin:0 8px;opacity:.5}
+
+    .hero{padding:40px 0 30px;background:radial-gradient(ellipse at 30% 0%,rgba(34,211,238,.08),transparent 50%)}
+    .hero h1{font-size:clamp(1.8rem,4vw,2.4rem);font-weight:800;margin-bottom:12px}
+    .hero p{font-size:1.05rem;color:var(--text-muted);max-width:700px}
+    .hero-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:20px;font-size:.8rem;background:var(--secondary-dim);color:var(--secondary);margin-bottom:16px}
+
+    .section{padding:30px 0}
+
+    .quick-nav{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0;padding:16px;background:var(--surface);border-radius:var(--radius);border:1px solid var(--border)}
+    .quick-nav a{padding:8px 16px;background:var(--surface-2);border-radius:8px;font-size:.85rem;font-weight:500;transition:all .2s}
+    .quick-nav a:hover{background:var(--primary);color:#fff}
+
+    .resource-card{padding:24px;border-radius:var(--radius);background:var(--surface);border:1px solid var(--border);margin-bottom:20px}
+    .resource-header{display:flex;align-items:center;gap:16px;margin-bottom:16px}
+    .resource-icon{width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center}
+    .resource-info h3{font-size:1.2rem;font-weight:700;margin-bottom:4px}
+    .resource-info .tier{font-size:.85rem;padding:4px 10px;border-radius:6px;display:inline-block}
+    .tier-early{background:rgba(34,197,94,.15);color:var(--success)}
+    .tier-mid{background:rgba(234,179,8,.15);color:var(--warning)}
+    .tier-late{background:rgba(239,68,68,.15);color:var(--danger)}
+
+    .resource-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:16px 0}
+    .resource-stat{padding:12px;background:var(--surface-2);border-radius:8px}
+    .resource-stat .label{font-size:.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px}
+    .resource-stat .value{font-size:.95rem;font-weight:600;margin-top:2px}
+
+    .resource-desc{color:var(--text-muted);font-size:.9rem;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+
+    .location-box{padding:14px;background:var(--surface-2);border-radius:8px;margin-bottom:12px}
+    .location-box h4{font-size:.9rem;font-weight:600;margin-bottom:8px;color:var(--secondary)}
+    .location-box ul{padding-left:20px;font-size:.9rem;color:var(--text-muted)}
+    .location-box li{margin-bottom:4px}
+
+    .extraction-box{padding:14px;background:linear-gradient(135deg,var(--surface-2),var(--surface));border-radius:8px;border-left:3px solid var(--primary)}
+    .extraction-box h4{font-size:.9rem;font-weight:600;margin-bottom:8px}
+    .extraction-box p{font-size:.85rem;color:var(--text-muted)}
+
+    .unlock-tag{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:var(--primary-dim);border-radius:6px;font-size:.85rem;margin-top:12px}
+
+    .footer{padding:40px 0;border-top:1px solid var(--border);margin-top:40px}
+    .footer-inner{display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:30px}
+    .footer-brand{max-width:300px}
+    .footer-brand p{font-size:.85rem;color:var(--text-muted);margin-top:10px}
+    .footer-links{display:flex;gap:30px}
+    .footer-links a{font-size:.9rem;color:var(--text-muted)}
+    .footer-copy{text-align:center;padding-top:30px;margin-top:30px;border-top:1px solid var(--border);font-size:.8rem;color:var(--text-muted)}
+
+    @media(max-width:768px){.nav{display:none}.resource-header{flex-direction:column;text-align:center}.footer-inner{flex-direction:column}}
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="/" class="logo">
+        <span class="logo-icon">SR</span>
+        <span>StarRupture<span style="color:var(--text-muted)">.net</span></span>
+      </a>
+      <nav class="nav">
+        <a href="/guides/">Guides</a>
+        <a href="/database/" class="active">Database</a>
+        <a href="/tier-lists/">Tier Lists</a>
+        <a href="/troubleshooting/">Fixes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a><span>›</span><a href="/database/">Database</a><span>›</span><span>Resources</span>
+      </nav>
+    </div>
+
+    <section class="hero">
+      <div class="container">
+        <span class="hero-badge">💎 6 Resources Documented</span>
+        <h1>Resource Locations</h1>
+        <p>Complete guide to finding and extracting all resources on Arcadia-7. Locations, visual identification, extraction methods, and unlock requirements.</p>
+
+        <div class="quick-nav">
+          <span style="color:var(--text-muted);font-size:.85rem;padding:8px 0">Jump to:</span>
+          <a href="#titanium">Titanium</a>
+          <a href="#wolfram">Wolfram</a>
+          <a href="#calcium">Calcium</a>
+          <a href="#helium3">Helium-3</a>
+          <a href="#sulphur">Sulphur</a>
+          <a href="#quartz">Quartz</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+
+        <!-- Titanium -->
+        <div class="resource-card" id="titanium">
+          <div class="resource-header">
+            <div class="resource-icon" style="background:linear-gradient(135deg,#6b7280,#9ca3af)">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M6 3h12l4 6-10 13L2 9z"/></svg>
+            </div>
+            <div class="resource-info">
+              <h3>Titanium Ore</h3>
+              <span class="tier tier-early">Early Game</span>
+            </div>
+          </div>
+
+          <div class="resource-grid">
+            <div class="resource-stat">
+              <div class="label">Appearance</div>
+              <div class="value">Gray rocky veins</div>
+            </div>
+            <div class="resource-stat">
+              <div class="label">Map Marker</div>
+              <div class="value">Gray circles</div>
+            </div>
+            <div class="resource-stat">
+              <div class="label">Extractor</div>
+              <div class="value">Ore Excavator</div>
+            </div>
+            <div class="resource-stat">
+              <div class="label">Processing</div>
+              <div class="value">Smelter → Bars</div>
+            </div>
+          </div>
+
+          <p class="resource-desc">The most common early-game resource. Gray rocky deposits with muted coloring. Essential for Basic Building Material, Titanium Bars, Sheets, and Beams. Found abundantly near the starting area.</p>
+
+          <div class="location-box">
+            <h4>Primary Locations</h4>
+            <ul>
+              <li><strong>North of Lander:</strong> Large clusters of veins</li>
+              <li><strong>Northeast of Lander:</strong> Major deposits extending from start</li>
+              <li><strong>Ground rocks:</strong> Small gray rocks scattered everywhere</li>
+              <li><strong>Meteorites:</strong> Can be harvested from fallen meteorites</li>
+            </ul>
+          </div>
+
+          <div class="extraction-box">
+            <h4>Extraction Methods</h4>
+            <p><strong>Manual:</strong> Harvester Laser on veins or pick up loose rocks<br>
+            <strong>Automated:</strong> Place Ore Excavator on flat deposits, connect to Smelter via rails</p>
+          </div>
+        </div>
+
+        <!-- Wolfram -->
+        <div class="resource-card" id="wolfram">
+          <div class="resource-header">
+            <div class="resource-icon" style="background:linear-gradient(135deg,#b87333,#cd7f32)">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M6 3h12l4 6-10 13L2 9z"/></svg>
+            </div>
+            <div class="resource-info">
+              <h3>Wolfram Ore</h3>
+              <span class="tier tier-early">Early Game</span>
+            </div>
+          </div>
+
+          <div class="resource-grid">
+            <div class="resource-stat">
+              <div class="label">Appearance</div>
+              <div class="value">Copper-brown veins</div>
+            </div>
+            <div class="resource-stat">
+              <div class="label">Map Marker</div>
+              <div class="value">Orange circles</div>
+            </div>
+            <div class="resource-stat">
+              <div class="label">Extractor</div>
+              <div class="value">Ore Excavator</div>
+            </div>
+            <div class="resource-stat">
+              <div class="label">Processing</div>
+              <div class="value">Smelter → Bars</div>
+            </div>
+          </div>
+
+          <p class="resource-desc">Reddish-brown ore with distinctive gate-like structure on deposits. Essential for Wolfram Bars, Plates, Wire, and Powder. Often the first resource you'll encounter after leaving the Lander.</p>
+
+          <div class="location-box">
+            <h4>Primary Locations</h4>
+            <ul>
+              <li><strong>Left of Lander:</strong> Initial deposit immediately visible</li>
+              <li><strong>North/Northeast:</strong> Large clusters of veins</li>
+              <li><strong>Far North:</strong> Significant vein further on map</li>
+              <li><strong>Ground rocks:</strong> Reddish small rocks scattered</li>
+            </ul>
+          </div>
+
+          <div class="extraction-box">
+            <h4>Extraction Methods</h4>
+            <p><strong>Manual:</strong> Harvester Laser on veins, pick up loose chunks<br>
+            <strong>Automated:</strong> Ore Excavator on flat deposits → Smelter → Furnace (for Powder)</p>
+          </div>
+        </div>
+
+        <!-- Calcium -->
+        <div class="resource-card" id="calcium">
+          <div class="resource-header">
+            <div class="resource-icon" style="background:linear-gradient(135deg,#f5f5dc,#e8e8d0)">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2"><path d="M6 3h12l4 6-10 13L2 9z"/></svg>
+            </div>
+            <div class="resource-info">
+              <h3>Calcium Ore</h3>
+              <span class="tier tier-early">Early-Mid Game</span>
+            </div>
+          </div>
+
+          <div class="resource-grid">
+            <div class="resource-stat">
+              <div class="label">Appearance</div>
+              <div class="value">White/pale plateaus</div>
+            </div>
+            <div class="resource-stat">
+              <div class="label">Map Marker</div>
+              <div class="value">Sandy/beige patches</div>
+            </div>
+            <div class="resource-stat">
+              <div class="label">Extractor</div>
+              <div class="value">Ore Excavator</div>
+            </div>
+            <div class="resource-stat">
+              <div class="label">Processing</div>
+              <div class="value">Smelter → Blocks</div>
+            </div>
+          </div>
+
+          <p class="resource-desc">Large pale white plateaus often containing water puddles. Critical progression gate for Calcium Blocks, Calcite Sheets, and Glass production. White orbs scattered on ground also contain calcium.</p>
+
+          <div class="location-box">
+            <h4>Primary Locations</h4>
+            <ul>
+              <li><strong>North of Lander:</strong> Large sandy plateau deposits</li>
+              <li><strong>Northeast:</strong> Significant veins with water pools</li>
+              <li><strong>Near water sources:</strong> Often found near ponds</li>
+              <li><strong>Meteorites:</strong> Up to 30 Calcium + Meteorite Hearts</li>
+            </ul>
+          </div>
+
+          <div class="extraction-box">
+            <h4>Extraction Methods</h4>
+            <p><strong>Manual:</strong> Harvest 3-5 units from small white rocks<br>
+            <strong>Automated:</strong> Ore Excavator → Smelter (unlock Calcium Block recipe first: 1,000 Ca Ore)</p>
+          </div>
+        </div>
+
+        <!-- Helium-3 -->
+        <div class="resource-card" id="helium3">
+          <div class="resource-header">
+            <div class="resource-icon" style="background:linear-gradient(135deg,#9370db,#8a2be2)">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2v4"/><path d="M12 18v4"/><circle cx="12" cy="12" r="4"/></svg>
+            </div>
+            <div class="resource-info">
+              <h3>Helium-3</h3>
+              <span class="tier tier-mid">Mid Game</span>
+            </div>
+          </div>
+
+          <div class="resource-grid">
+            <div class="resource-stat">
+              <div class="label">Appearance</div>
+              <div class="value">Purple geysers/vents</div>
+            </div>
+            <div class="resource-stat">
+              <div class="label">Map Marker</div>
+              <div class="value">Purple indicators</div>
+            </div>
+            <div class="resource-stat">
+              <div class="label">Extractor</div>
+              <div class="value">Helium-3 Extractor</div>
+            </div>
+            <div class="resource-stat">
+              <div class="label">Unlock</div>
+              <div class="value">Selenian Lv6</div>
+            </div>
+          </div>
+
+          <p class="resource-desc">Distinctive purple geysers emitting purple smoke. Critical for Glass, Accumulators, Aerogel, and advanced power systems. Requires specialized extractor unlocked mid-game.</p>
+
+          <div class="location-box">
+            <h4>Primary Locations</h4>
+            <ul>
+              <li><strong>East of Lander:</strong> Near Grubbler trees at mountain base (2 vents)</li>
+              <li><strong>Far Northeast:</strong> Triple geyser cluster past large Calcium vein</li>
+              <li><strong>Far North:</strong> Snow/winter biomes past Calcium plateaus</li>
+              <li><strong>Note:</strong> One geyser blocked by abandoned base (unusable)</li>
+            </ul>
+          </div>
+
+          <div class="extraction-box">
+            <h4>Extraction Methods</h4>
+            <p><strong>Requires:</strong> Helium-3 Extractor (Selenian Lv6)<br>
+            <strong>Setup:</strong> Deploy Base Core near geyser → Place extractor → Connect power (high electricity demand)</p>
+          </div>
+
+          <div class="unlock-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Selenian Corporation Level 6 required
+          </div>
+        </div>
+
+        <!-- Sulphur -->
+        <div class="resource-card" id="sulphur">
+          <div class="resource-header">
+            <div class="resource-icon" style="background:linear-gradient(135deg,#ffd700,#ffcc00)">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2"><path d="M6 3h12l4 6-10 13L2 9z"/></svg>
+            </div>
+            <div class="resource-info">
+              <h3>Sulphur Ore</h3>
+              <span class="tier tier-late">Late Game</span>
+            </div>
+          </div>
+
+          <div class="resource-grid">
+            <div class="resource-stat">
+              <div class="label">Appearance</div>
+              <div class="value">Yellow with toxic gas</div>
+            </div>
+            <div class="resource-stat">
+              <div class="label">Map Marker</div>
+              <div class="value">Bright yellow areas</div>
+            </div>
+            <div class="resource-stat">
+              <div class="label">Extractor</div>
+              <div class="value">Sulphur Extractor</div>
+            </div>
+            <div class="resource-stat">
+              <div class="label">Unlock</div>
+              <div class="value">Selenian Lv9</div>
+            </div>
+          </div>
+
+          <p class="resource-desc">Hazardous yellow deposits surrounded by corrosive gas clouds. Required for advanced late-game crafting. Extraction only possible immediately after Rupture events when fumes temporarily dissipate.</p>
+
+          <div class="location-box">
+            <h4>Primary Locations</h4>
+            <ul>
+              <li><strong>East of Lander:</strong> Beyond Calcium deposit, near cliffs</li>
+              <li><strong>Far East:</strong> Large deposit near Helium-3 areas</li>
+              <li><strong>Warning:</strong> Corrosive environment damages player</li>
+            </ul>
+          </div>
+
+          <div class="extraction-box">
+            <h4>Extraction Methods</h4>
+            <p><strong>Requires:</strong> Sulphur Extractor (Selenian Lv9)<br>
+            <strong>Timing:</strong> Place extractor immediately after Rupture when gas clears temporarily</p>
+          </div>
+
+          <div class="unlock-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Selenian Corporation Level 9 required
+          </div>
+        </div>
+
+        <!-- Quartz -->
+        <div class="resource-card" id="quartz">
+          <div class="resource-header">
+            <div class="resource-icon" style="background:linear-gradient(135deg,#e0e0e0,#c0c0c0)">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2"><path d="M6 3h12l4 6-10 13L2 9z"/></svg>
+            </div>
+            <div class="resource-info">
+              <h3>Quartz</h3>
+              <span class="tier tier-late">Late Game</span>
+            </div>
+          </div>
+
+          <div class="resource-grid">
+            <div class="resource-stat">
+              <div class="label">Appearance</div>
+              <div class="value">Clear/white crystals</div>
+            </div>
+            <div class="resource-stat">
+              <div class="label">Map Marker</div>
+              <div class="value">Underground caves</div>
+            </div>
+            <div class="resource-stat">
+              <div class="label">Extractor</div>
+              <div class="value">Manual harvest</div>
+            </div>
+            <div class="resource-stat">
+              <div class="label">Unlock</div>
+              <div class="value">Cave access</div>
+            </div>
+          </div>
+
+          <p class="resource-desc">Crystalline mineral found in underground cave systems. Required for advanced electronics and late-game components. Cave entrances become accessible after Rupture events reveal new terrain.</p>
+
+          <div class="location-box">
+            <h4>Primary Locations</h4>
+            <ul>
+              <li><strong>Underground caves:</strong> Crystal formations on cave walls</li>
+              <li><strong>Post-Rupture areas:</strong> New cave entrances after seismic events</li>
+              <li><strong>Deep exploration:</strong> Requires lighting and preparation</li>
+            </ul>
+          </div>
+
+          <div class="extraction-box">
+            <h4>Extraction Methods</h4>
+            <p><strong>Manual:</strong> Harvester Laser on crystal formations<br>
+            <strong>Note:</strong> Cave exploration requires adequate lighting and combat readiness</p>
+          </div>
+        </div>
+
+        <!-- Tips Section -->
+        <div class="info-box" style="border-left:3px solid var(--secondary)">
+          <h4>Resource Gathering Tips</h4>
+          <ul>
+            <li><strong>Early Game:</strong> Focus on Titanium and Wolfram near the Lander</li>
+            <li><strong>Meteorites:</strong> Harvest fallen meteorites for bonus resources + Meteorite Hearts</li>
+            <li><strong>Automation:</strong> Set up Ore Excavators early to build passive income</li>
+            <li><strong>Map Markers:</strong> Use the map (Moon Energy Lv3) to locate resource deposits</li>
+            <li><strong>Processing Chain:</strong> Ore → Smelter → Fabricator for most materials</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="logo">
+            <span class="logo-icon">SR</span>
+            <span>StarRupture.net</span>
+          </div>
+          <p>Independent StarRupture guides and database. Version-verified for Early Access. Not affiliated with Creepy Jar.</p>
+        </div>
+        <div class="footer-links">
+          <a href="/about/">About</a>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy-policy/">Privacy</a>
+          <a href="/disclaimer/">Disclaimer</a>
+        </div>
+      </div>
+      <p class="footer-copy">© 2026 StarRupture.net — Fan site. Game content belongs to Creepy Jar.</p>
+    </div>
+  </footer>
+</body>
+</html>
