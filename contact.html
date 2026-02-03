@@ -1,431 +1,207 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | StarRupture.net - Report Issues & Feedback</title>
+  <meta name="description" content="Contact StarRupture.net for corrections, suggestions, or bug reports. Email: qsyhxw@gmail.com">
+  <link rel="canonical" href="https://starrupture.net/contact/">
 
-  <title>Contact | StarRupture.net</title>
-  <meta name="description"
-    content="Contact StarRupture.net for corrections, suggestions, or bug reports. Email: qsyhxw@gmail.com" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8830315294299920" crossorigin="anonymous"></script>
 
-  <!-- Canonical (NO trailing slash) -->
-  <link rel="canonical" href="https://starrupture.net/contact" />
-
-  <meta property="og:title" content="Contact | StarRupture.net" />
-  <meta property="og:description" content="Corrections, suggestions, bug reports. Email: qsyhxw@gmail.com" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://starrupture.net/contact" />
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contact | StarRupture.net">
+  <meta property="og:description" content="Corrections, suggestions, bug reports. Email: qsyhxw@gmail.com">
+  <meta property="og:url" content="https://starrupture.net/contact/">
 
   <style>
-    :root {
-      --bg: #0B0F14;
-      --panel: #0F1620;
-      --text: #E6EEF6;
-      --muted: #A9B6C6;
-      --brand: #4CC9F0;
-      --accent: #A78BFA;
-      --border: rgba(27, 37, 48, .95);
-      --shadow: 0 12px 30px rgba(0, 0, 0, .35);
-      --radius: 14px;
-      --max: 980px;
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#06080c;--surface:#0d1117;--surface-2:#161b22;--border:#21262d;
+      --text:#e6edf3;--text-muted:#8b949e;
+      --primary:#f97316;--primary-dim:rgba(249,115,22,.15);
+      --secondary:#22d3ee;--secondary-dim:rgba(34,211,238,.12);
+      --accent:#a855f7;--success:#22c55e;--warning:#eab308;--danger:#ef4444;
+      --radius:12px;--max-w:1200px;
     }
-
-    @keyframes pulse {
-
-      0%,
-      100% {
-        opacity: 1
-      }
-
-      50% {
-        opacity: .6
-      }
-    }
-
-    * {
-      box-sizing: border-box
-    }
-
-    html {
-      scroll-behavior: smooth
-    }
-
-    body {
-      margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      background: radial-gradient(1200px 600px at 20% -10%, rgba(76, 201, 240, .12), transparent 60%),
-        radial-gradient(1000px 500px at 90% 0%, rgba(167, 139, 250, .10), transparent 55%),
-        var(--bg);
-      color: var(--text);
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      color: var(--brand);
-      text-decoration: none
-    }
-
-    a:hover {
-      text-decoration: none;
-      color: #A3FFB0
-    }
-
-    header {
-      border-bottom: 1px solid var(--border);
-      background: rgba(11, 16, 32, .6);
-      backdrop-filter: blur(10px);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    .nav {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 14px 18px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 700;
-      letter-spacing: .2px;
-    }
-
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 99px;
-      background: linear-gradient(135deg, var(--brand), var(--accent));
-      box-shadow: 0 0 18px rgba(106, 228, 255, .55);
-    }
-
-    .nav a.small {
-      color: var(--muted);
-      font-size: 14px
-    }
-
-    .wrap {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 28px 18px 60px
-    }
-
-    .card {
-      background: linear-gradient(180deg, rgba(15, 23, 50, .92), rgba(15, 23, 50, .72));
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 22px;
-    }
-
-    h1 {
-      font-size: 34px;
-      line-height: 1.15;
-      margin: 0 0 8px
-    }
-
-    .sub {
-      color: var(--muted);
-      margin: 0 0 18px
-    }
-
-    h2 {
-      font-size: 20px;
-      margin: 26px 0 10px
-    }
-
-    .pill {
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-      margin-top: 14px;
-    }
-
-    @media(min-width:900px) {
-      .grid {
-        grid-template-columns: 1.2fr .8fr
-      }
-    }
-
-    .box {
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 14px;
-      background: rgba(11, 16, 32, .35);
-    }
-
-    label {
-      display: block;
-      font-size: 14px;
-      color: var(--muted);
-      margin: 10px 0 6px
-    }
-
-    input,
-    textarea,
-    select {
-      width: 100%;
-      background: rgba(255, 255, 255, .06);
-      border: 1px solid rgba(255, 255, 255, .12);
-      color: var(--text);
-      border-radius: 12px;
-      padding: 10px 12px;
-      font-size: 15px;
-      outline: none;
-    }
-
-    textarea {
-      min-height: 120px;
-      resize: vertical
-    }
-
-    .row {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px
-    }
-
-    @media(min-width:680px) {
-      .row {
-        grid-template-columns: 1fr 1fr
-      }
-    }
-
-    .btns {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 12px
-    }
-
-    button {
-      appearance: none;
-      border: none;
-      cursor: pointer;
-      padding: 10px 14px;
-      border-radius: 14px;
-      font-weight: 700;
-      font-size: 14px;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--brand), var(--accent));
-      color: #08101c;
-    }
-
-    .btn-ghost {
-      background: rgba(255, 255, 255, .06);
-      border: 1px solid rgba(255, 255, 255, .14);
-      color: var(--text);
-    }
-
-    .muted {
-      color: var(--muted)
-    }
-
-    .hr {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 22px 0;
-    }
-
-    code {
-      background: rgba(255, 255, 255, .06);
-      border: 1px solid rgba(255, 255, 255, .10);
-      padding: 2px 6px;
-      border-radius: 8px;
-      color: #dbeafe;
-    }
-
-    footer {
-      max-width: var(--max);
-      margin: 24px auto 0;
-      padding: 18px;
-      color: var(--muted);
-      font-size: 14px;
-      border-top: 1px solid var(--border);
-    }
-
-    .notice {
-      border-left: 3px solid rgba(106, 228, 255, .65);
-      padding: 10px 12px;
-      background: rgba(106, 228, 255, .06);
-      border-radius: 14px;
-      color: var(--muted);
-    }
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+    a{color:inherit;text-decoration:none;transition:color .2s}
+    a:hover{color:var(--primary)}
+    .container{max-width:var(--max-w);margin:0 auto;padding:0 20px}
+    .header{position:sticky;top:0;z-index:100;background:rgba(6,8,12,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;height:60px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.1rem}
+    .logo-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--primary),var(--secondary));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;color:#fff}
+    .nav{display:flex;gap:8px}
+    .nav a{padding:8px 14px;border-radius:8px;font-size:.9rem;color:var(--text-muted);transition:all .2s}
+    .nav a:hover{background:var(--surface-2);color:var(--text)}
+    .hero{padding:50px 0 40px;background:radial-gradient(ellipse at 20% 0%,rgba(249,115,22,.08),transparent 50%),radial-gradient(ellipse at 80% 100%,rgba(34,211,238,.06),transparent 50%)}
+    .hero-content{max-width:800px}
+    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:.85rem;color:var(--text-muted);margin-bottom:16px}
+    h1{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;line-height:1.2;margin-bottom:12px}
+    .hero-sub{font-size:1.1rem;color:var(--text-muted);margin-bottom:20px}
+    .section{padding:40px 0}
+    .cards{display:grid;gap:16px}
+    .cards-2{grid-template-columns:repeat(2,1fr)}
+    .card{padding:20px;border-radius:var(--radius);background:var(--surface);border:1px solid var(--border);transition:all .25s}
+    .card:hover{border-color:var(--primary);transform:translateY(-2px)}
+    .card h3{font-size:1.1rem;font-weight:600;margin-bottom:12px}
+    .card p{font-size:.9rem;color:var(--text-muted);margin-bottom:12px}
+    .notice{border-left:3px solid var(--primary);padding:12px 14px;background:var(--primary-dim);border-radius:0 var(--radius) var(--radius) 0;color:var(--text-muted);margin:16px 0}
+    .notice strong{color:var(--text)}
+    label{display:block;font-size:.9rem;color:var(--text-muted);margin:12px 0 6px}
+    input,textarea,select{width:100%;background:var(--surface-2);border:1px solid var(--border);color:var(--text);border-radius:var(--radius);padding:10px 12px;font-size:.95rem;outline:none;transition:border-color .2s}
+    input:focus,textarea:focus,select:focus{border-color:var(--primary)}
+    textarea{min-height:120px;resize:vertical}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+    button{appearance:none;border:none;cursor:pointer;padding:12px 20px;border-radius:var(--radius);font-weight:600;font-size:.95rem;transition:all .2s}
+    .btn-primary{background:linear-gradient(135deg,var(--primary),#ea580c);color:#fff;box-shadow:0 4px 20px rgba(249,115,22,.3)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 25px rgba(249,115,22,.4)}
+    .btn-ghost{background:var(--surface-2);border:1px solid var(--border);color:var(--text)}
+    .btn-ghost:hover{border-color:var(--primary)}
+    .footer{padding:40px 0;border-top:1px solid var(--border);margin-top:40px}
+    .footer-inner{display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:30px}
+    .footer-brand{max-width:300px}
+    .footer-brand p{font-size:.85rem;color:var(--text-muted);margin-top:10px}
+    .footer-links{display:flex;gap:30px}
+    .footer-links a{font-size:.9rem;color:var(--text-muted)}
+    .footer-copy{text-align:center;padding-top:30px;margin-top:30px;border-top:1px solid var(--border);font-size:.8rem;color:var(--text-muted)}
+    @media(max-width:900px){.cards-2{grid-template-columns:1fr}.row{grid-template-columns:1fr}}
+    @media(max-width:600px){.nav{display:none}.footer-inner{flex-direction:column}}
   </style>
 </head>
-
 <body>
-  <header>
-    <div class="nav">
-      <div class="logo">
-        <span class="dot"></span>
-        <a href="https://starrupture.net" aria-label="StarRupture.net Home">StarRupture.net</a>
-      </div>
-      <div style="display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end;">
-        <a class="small" href="https://starrupture.net/guides/start-here">Start Here</a>
-        <a class="small" href="https://starrupture.net/guides/water-hydration">Water</a>
-        <a class="small" href="https://starrupture.net/guides/food-calories">Food</a>
-        <a class="small" href="https://starrupture.net/troubleshooting/crash-fixes">Crash Fixes</a>
-        <a class="small" href="https://starrupture.net/privacy-policy">Privacy</a>
-        <a class="small" href="https://starrupture.net/disclaimer">Disclaimer</a>
-      </div>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="/" class="logo">
+        <span class="logo-icon">SR</span>
+        <span>StarRupture<span style="color:var(--text-muted)">.net</span></span>
+      </a>
+      <nav class="nav">
+        <a href="/guides/">Guides</a>
+        <a href="/database/">Database</a>
+        <a href="/tier-lists/">Tier Lists</a>
+        <a href="/troubleshooting/">Fixes</a>
+      </nav>
     </div>
   </header>
 
-  <main class="wrap">
-    <div class="card">
-      <div class="pill" title="Page version">
-        <span>Last updated:</span>
-        <strong>2026-01-08</strong>
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="breadcrumb">
+          <a href="/">Home</a><span>/</span><span>Contact</span>
+        </div>
+        <h1>Contact Us</h1>
+        <p class="hero-sub">Found something wrong? Have a crash log or a better method? Send it over — we use reports to keep guides short, accurate, and version-checked.</p>
       </div>
+    </section>
 
-      <h1>Contact</h1>
-      <p class="sub">
-        Found something wrong? Have a crash log or a better method? Send it over — we use reports to keep guides short,
-        accurate, and version-checked.
-      </p>
+    <section class="section">
+      <div class="container">
+        <div class="cards cards-2">
+          <div class="card">
+            <h3>Email Us</h3>
+            <p><strong>Primary contact:</strong> <a href="mailto:qsyhxw@gmail.com" style="color:var(--primary)">qsyhxw@gmail.com</a></p>
 
-      <div class="grid">
-        <!-- Left: Email + simple form -->
-        <div class="box">
-          <h2 style="margin-top:0;">Email</h2>
-          <p style="margin:8px 0 0;">
-            <strong>Primary contact:</strong>
-            <a href="mailto:qsyhxw@gmail.com">qsyhxw@gmail.com</a>
-          </p>
+            <div class="notice">
+              This is an <strong>unofficial</strong> fan site. If you are a rights holder and need a takedown request, include the URL(s) and details — we'll review quickly.
+            </div>
 
-          <div class="notice" style="margin-top:12px;">
-            This is an <strong>unofficial</strong> fan site. If you are a rights holder and need a takedown request,
-            include the URL(s) and details — we’ll review quickly.
+            <h3 style="margin-top:20px">Quick Message</h3>
+            <p>This opens your email client. If it doesn't work, email us directly.</p>
+
+            <form action="mailto:qsyhxw@gmail.com" method="post" enctype="text/plain">
+              <div class="row">
+                <div>
+                  <label for="topic">Topic</label>
+                  <select id="topic" name="Topic">
+                    <option>Guide correction</option>
+                    <option>Troubleshooting help</option>
+                    <option>Bug / crash report</option>
+                    <option>Partnership / business</option>
+                    <option>DMCA / rights holder request</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="page">Related page URL (if any)</label>
+                  <input id="page" name="Page URL" placeholder="https://starrupture.net/...">
+                </div>
+              </div>
+
+              <label for="msg">Message</label>
+              <textarea id="msg" name="Message" placeholder="What happened? Steps to reproduce? What should we fix?"></textarea>
+
+              <label for="extra">Helpful extras (optional)</label>
+              <input id="extra" name="Extras" placeholder="Game version / platform / crash log snippet / system specs">
+
+              <div class="btns">
+                <button class="btn-primary" type="submit">Open Email Draft</button>
+                <button class="btn-ghost" type="button" id="copyEmail">Copy Email Address</button>
+              </div>
+            </form>
           </div>
 
-          <h2>Quick message (optional)</h2>
-          <p class="muted" style="margin:8px 0 10px;">
-            Static-site friendly form: this opens your email client. If it doesn’t work in your browser, just email us
-            directly.
-          </p>
+          <div class="card">
+            <h3>What to Include</h3>
+            <p>So we can fix fast:</p>
+            <ul style="margin:12px 0 0;padding-left:18px;color:var(--text-muted)">
+              <li style="margin:8px 0"><strong style="color:var(--text)">The exact page URL</strong> you're referring to</li>
+              <li style="margin:8px 0"><strong style="color:var(--text)">What's wrong</strong> (wrong stat, outdated steps, missing warning)</li>
+              <li style="margin:8px 0"><strong style="color:var(--text)">Your game build/version</strong> (if you know it)</li>
+              <li style="margin:8px 0"><strong style="color:var(--text)">For crashes:</strong> error text + what you were doing right before</li>
+              <li style="margin:8px 0"><strong style="color:var(--text)">For performance:</strong> GPU/CPU + settings + FPS symptoms</li>
+            </ul>
 
-          <!-- Mailto form (static-site friendly, but browser-dependent) -->
-          <form action="mailto:qsyhxw@gmail.com" method="post" enctype="text/plain">
-            <div class="row">
-              <div>
-                <label for="topic">Topic</label>
-                <select id="topic" name="Topic">
-                  <option>Guide correction</option>
-                  <option>Troubleshooting help</option>
-                  <option>Bug / crash report</option>
-                  <option>Partnership / business</option>
-                  <option>DMCA / rights holder request</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              <div>
-                <label for="page">Related page URL (if any)</label>
-                <input id="page" name="Page URL" placeholder="https://starrupture.net/..." />
-              </div>
-            </div>
+            <h3 style="margin-top:24px">Privacy Note</h3>
+            <p>If you email us, your message may include personal data (like your email address). See our <a href="/privacy-policy/" style="color:var(--primary)">Privacy Policy</a> for details.</p>
 
-            <label for="msg">Message</label>
-            <textarea id="msg" name="Message"
-              placeholder="What happened? Steps to reproduce? What should we fix?"></textarea>
-
-            <label for="extra">Helpful extras (optional)</label>
-            <input id="extra" name="Extras"
-              placeholder="Game version / platform / crash log snippet (paste) / system specs" />
-
-            <div class="btns">
-              <button class="btn-primary" type="submit">Open Email Draft</button>
-              <button class="btn-ghost" type="button" id="copyEmail">Copy Email Address</button>
-            </div>
-
-            <p class="muted" style="margin:10px 0 0;">
-              Note: For attachments (screenshots/logs), email is best.
-            </p>
-          </form>
-        </div>
-
-        <!-- Right: what to include -->
-        <div class="box">
-          <h2 style="margin-top:0;">What to include (so we can fix fast)</h2>
-          <ul>
-            <li><strong>The exact page URL</strong> you’re referring to</li>
-            <li><strong>What’s wrong</strong> (wrong stat, outdated steps, missing warning)</li>
-            <li><strong>Your game build/version</strong> (if you know it)</li>
-            <li><strong>For crashes:</strong> error text + what you were doing right before</li>
-            <li><strong>For performance:</strong> GPU/CPU + settings + FPS symptoms</li>
-          </ul>
-
-          <hr class="hr" />
-
-          <h2>Privacy note</h2>
-          <p class="muted">
-            If you email us, your message may include personal data (like your email address).
-            See our <a href="https://starrupture.net/privacy-policy">Privacy Policy</a> for details on how we handle
-            information.
-          </p>
-
-          <hr class="hr" />
-
-          <h2>Useful links</h2>
-          <ul>
-            <li><a href="https://starrupture.net/guides/start-here">Start Here</a></li>
-            <li><a href="https://starrupture.net/troubleshooting/crash-fixes">Crash Fixes</a></li>
-            <li><a href="https://starrupture.net/disclaimer">Disclaimer</a></li>
-          </ul>
+            <h3 style="margin-top:24px">Useful Links</h3>
+            <ul style="margin:12px 0 0;padding-left:18px;color:var(--text-muted)">
+              <li style="margin:8px 0"><a href="/guides/start-here/">Start Here Guide</a></li>
+              <li style="margin:8px 0"><a href="/troubleshooting/crash-fixes/">Crash Fixes</a></li>
+              <li style="margin:8px 0"><a href="/disclaimer/">Disclaimer</a></li>
+            </ul>
+          </div>
         </div>
       </div>
-
-      <hr class="hr" />
-      <p class="muted" style="margin:0;">
-        Tip: If you later want a “real” contact form on a static site, you can switch to a form backend (e.g.,
-        Cloudflare Forms, Netlify Forms, Formspree) and keep this page layout unchanged.
-      </p>
-    </div>
-
-    <footer>
-      © <span id="year"></span> StarRupture.net ·
-      <a href="https://starrupture.net/privacy-policy">Privacy</a> ·
-      <a href="https://starrupture.net/disclaimer">Disclaimer</a> ·
-      <a href="https://starrupture.net/contact">Contact</a>
-    </footer>
+    </section>
   </main>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="logo">
+            <span class="logo-icon">SR</span>
+            <span>StarRupture.net</span>
+          </div>
+          <p>Independent StarRupture guides and database. Version-verified for Early Access. Not affiliated with Creepy Jar.</p>
+        </div>
+        <div class="footer-links">
+          <a href="/about/">About</a>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy-policy/">Privacy</a>
+          <a href="/disclaimer/">Disclaimer</a>
+        </div>
+      </div>
+      <p class="footer-copy">© 2026 StarRupture.net — Fan site. Game content belongs to Creepy Jar.</p>
+    </div>
+  </footer>
 
-    // Copy email button (no heavy JS, static friendly)
+  <script>
     document.getElementById('copyEmail').addEventListener('click', async () => {
       const email = "qsyhxw@gmail.com";
       try {
         await navigator.clipboard.writeText(email);
         alert("Copied: " + email);
       } catch (e) {
-        // fallback
         prompt("Copy this email:", email);
       }
     });
   </script>
 </body>
-
 </html>

@@ -18,326 +18,159 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://starrupture.net/disclaimer" />
 
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8830315294299920" crossorigin="anonymous"></script>
+
   <style>
-    :root {
-      --bg: #0B0F14;
-      --panel: #0F1620;
-      --text: #E6EEF6;
-      --muted: #A9B6C6;
-      --brand: #4CC9F0;
-      --accent: #A78BFA;
-      --border: rgba(27, 37, 48, .95);
-      --shadow: 0 12px 30px rgba(0, 0, 0, .35);
-      --radius: 14px;
-      --max: 980px;
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#06080c;--surface:#0d1117;--surface-2:#161b22;--border:#21262d;
+      --text:#e6edf3;--text-muted:#8b949e;
+      --primary:#f97316;--primary-dim:rgba(249,115,22,.15);
+      --secondary:#22d3ee;--secondary-dim:rgba(34,211,238,.12);
+      --accent:#a855f7;--success:#22c55e;--warning:#eab308;--danger:#ef4444;
+      --radius:12px;--max-w:1200px;
     }
-
-    @keyframes pulse {
-
-      0%,
-      100% {
-        opacity: 1
-      }
-
-      50% {
-        opacity: .6
-      }
-    }
-
-    * {
-      box-sizing: border-box
-    }
-
-    html {
-      scroll-behavior: smooth
-    }
-
-    body {
-      margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      background: radial-gradient(1200px 600px at 20% -10%, rgba(76, 201, 240, .12), transparent 60%),
-        radial-gradient(1000px 500px at 90% 0%, rgba(167, 139, 250, .10), transparent 55%),
-        var(--bg);
-      color: var(--text);
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      color: var(--brand);
-      text-decoration: none
-    }
-
-    a:hover {
-      text-decoration: none;
-      color: #A3FFB0
-    }
-
-    header {
-      border-bottom: 1px solid var(--border);
-      background: rgba(11, 16, 32, .6);
-      backdrop-filter: blur(10px);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    .nav {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 14px 18px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 700;
-      letter-spacing: .2px;
-    }
-
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 99px;
-      background: linear-gradient(135deg, var(--brand), var(--accent));
-      box-shadow: 0 0 18px rgba(106, 228, 255, .55);
-    }
-
-    .nav a.small {
-      color: var(--muted);
-      font-size: 14px
-    }
-
-    .wrap {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 28px 18px 60px
-    }
-
-    .card {
-      background: linear-gradient(180deg, rgba(15, 23, 50, .92), rgba(15, 23, 50, .72));
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 22px;
-    }
-
-    h1 {
-      font-size: 34px;
-      line-height: 1.15;
-      margin: 0 0 8px
-    }
-
-    .sub {
-      color: var(--muted);
-      margin: 0 0 18px
-    }
-
-    h2 {
-      font-size: 20px;
-      margin: 26px 0 10px
-    }
-
-    ul {
-      margin: 10px 0 0;
-      padding-left: 18px
-    }
-
-    li {
-      margin: 6px 0
-    }
-
-    .muted {
-      color: var(--muted)
-    }
-
-    .pill {
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-      margin-top: 14px;
-    }
-
-    @media(min-width:860px) {
-      .grid {
-        grid-template-columns: 1fr 1fr
-      }
-    }
-
-    .box {
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 14px;
-      background: rgba(11, 16, 32, .35);
-    }
-
-    code {
-      background: rgba(255, 255, 255, .06);
-      border: 1px solid rgba(255, 255, 255, .10);
-      padding: 2px 6px;
-      border-radius: 8px;
-      color: #dbeafe;
-    }
-
-    footer {
-      max-width: var(--max);
-      margin: 24px auto 0;
-      padding: 18px;
-      color: var(--muted);
-      font-size: 14px;
-      border-top: 1px solid var(--border);
-    }
-
-    .hr {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 22px 0;
-    }
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+    a{color:var(--primary);text-decoration:none;transition:color .2s}
+    a:hover{color:var(--secondary)}
+    .container{max-width:var(--max-w);margin:0 auto;padding:0 20px}
+    .header{position:sticky;top:0;z-index:100;background:rgba(6,8,12,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;height:60px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.1rem;color:var(--text)}
+    .logo-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--primary),var(--secondary));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;color:#fff}
+    .nav{display:flex;gap:8px}
+    .nav a{padding:8px 14px;border-radius:8px;font-size:.9rem;color:var(--text-muted);transition:all .2s}
+    .nav a:hover{background:var(--surface-2);color:var(--text)}
+    .hero{padding:50px 0 40px;background:radial-gradient(ellipse at 20% 0%,rgba(249,115,22,.08),transparent 50%),radial-gradient(ellipse at 80% 100%,rgba(34,211,238,.06),transparent 50%)}
+    .hero-content{max-width:800px}
+    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:.85rem;color:var(--text-muted);margin-bottom:16px}
+    h1{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;line-height:1.2;margin-bottom:12px}
+    .hero-sub{font-size:1.1rem;color:var(--text-muted);margin-bottom:20px}
+    .section{padding:40px 0}
+    .content{max-width:800px}
+    h2{font-size:1.2rem;font-weight:700;margin:28px 0 12px;color:var(--text)}
+    p{color:var(--text-muted);margin-bottom:14px}
+    .cards{display:grid;gap:16px;margin:16px 0}
+    .cards-2{grid-template-columns:repeat(2,1fr)}
+    .card{padding:16px;border-radius:var(--radius);background:var(--surface);border:1px solid var(--border)}
+    .card strong{color:var(--text);display:block;margin-bottom:8px}
+    .card p{margin:0;font-size:.9rem}
+    ul{margin:12px 0;padding-left:20px;color:var(--text-muted)}
+    li{margin:8px 0}
+    .box{padding:16px;border-radius:var(--radius);background:var(--surface);border:1px solid var(--border);margin:16px 0}
+    .box strong{color:var(--text);display:block;margin-bottom:8px}
+    .footer{padding:40px 0;border-top:1px solid var(--border);margin-top:40px}
+    .footer-inner{display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:30px}
+    .footer-brand{max-width:300px}
+    .footer-brand p{font-size:.85rem;color:var(--text-muted);margin-top:10px}
+    .footer-links{display:flex;gap:30px}
+    .footer-links a{font-size:.9rem;color:var(--text-muted)}
+    .footer-copy{text-align:center;padding-top:30px;margin-top:30px;border-top:1px solid var(--border);font-size:.8rem;color:var(--text-muted)}
+    @media(max-width:900px){.cards-2{grid-template-columns:1fr}}
+    @media(max-width:600px){.nav{display:none}.footer-inner{flex-direction:column}}
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="nav">
-      <div class="logo">
-        <span class="dot"></span>
-        <a href="https://starrupture.net" aria-label="StarRupture.net Home">StarRupture.net</a>
-      </div>
-      <div style="display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end;">
-        <a class="small" href="https://starrupture.net/guides/start-here">Start Here</a>
-        <a class="small" href="https://starrupture.net/guides">Guides</a>
-        <a class="small" href="https://starrupture.net/troubleshooting">Troubleshooting</a>
-        <a class="small" href="https://starrupture.net/privacy-policy">Privacy</a>
-        <a class="small" href="https://starrupture.net/contact">Contact</a>
-      </div>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="/" class="logo">
+        <span class="logo-icon">SR</span>
+        <span>StarRupture<span style="color:var(--text-muted)">.net</span></span>
+      </a>
+      <nav class="nav">
+        <a href="/guides/">Guides</a>
+        <a href="/database/">Database</a>
+        <a href="/tier-lists/">Tier Lists</a>
+        <a href="/troubleshooting/">Fixes</a>
+      </nav>
     </div>
   </header>
 
-  <main class="wrap">
-    <div class="card">
-      <div class="pill" title="Policy version">
-        <span>Last updated:</span>
-        <strong>2026-01-08</strong>
-      </div>
-
-      <h1>Disclaimer</h1>
-      <p class="sub">
-        Read this before using StarRupture.net. This page covers affiliation, accuracy, and intellectual property notes.
-      </p>
-
-      <h2>1) Unofficial fan site (no affiliation)</h2>
-      <p>
-        <strong>StarRupture.net is an unofficial, fan-made website.</strong>
-        We are <strong>not affiliated with</strong>, endorsed by, or sponsored by the game’s developers, publisher, or
-        any official entity.
-        We publish guides and troubleshooting help for players.
-      </p>
-      <p class="muted">
-        We include this clarification to avoid any misleading representation about affiliation or endorsement.
-      </p>
-
-      <h2>2) Information “as-is” (no guarantee)</h2>
-      <p>
-        Game content can change (patches, hotfixes, balance updates). We try to keep guides accurate, but we make no
-        warranties
-        about completeness, correctness, or suitability for any purpose. Use the information at your own risk.
-      </p>
-
-      <h2>3) Trademarks</h2>
-      <p>
-        <strong>Trademarks are protected intellectual property</strong> and are used to distinguish the goods or
-        services of one enterprise from those of others.
-        All trademarks, logos, and brand names referenced on this site belong to their respective owners.
-      </p>
-      <p class="muted">
-        We use game-related names only for identification and informational purposes.
-      </p>
-
-      <h2>4) Copyright & permitted content</h2>
-      <div class="grid">
-        <div class="box">
-          <strong>We do not host pirated downloads</strong>
-          <p class="muted" style="margin:8px 0 0;">
-            We do not provide or promote unauthorized copies of games, cracked executables, or download links to
-            infringing files.
-            If content is reported as infringing, we will review and remove it where appropriate.
-          </p>
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="breadcrumb">
+          <a href="/">Home</a><span>/</span><span>Disclaimer</span>
         </div>
-        <div class="box">
-          <strong>Ads policy note (if monetized)</strong>
-          <p class="muted" style="margin:8px 0 0;">
-            If we display ads (e.g., Google AdSense), we must comply with publisher policies. Pages linking to
-            unauthorized copyrighted material
-            may violate advertising policies.
-          </p>
+        <h1>Disclaimer</h1>
+        <p class="hero-sub">Read this before using StarRupture.net. This page covers affiliation, accuracy, and intellectual property notes.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="content">
+
+          <h2>1) Unofficial fan site (no affiliation)</h2>
+          <p><strong>StarRupture.net is an unofficial, fan-made website.</strong> We are not affiliated with, endorsed by, or sponsored by the game's developers, publisher, or any official entity. We publish guides and troubleshooting help for players.</p>
+          <p>We include this clarification to avoid any misleading representation about affiliation or endorsement.</p>
+
+          <h2>2) Information "as-is" (no guarantee)</h2>
+          <p>Game content can change (patches, hotfixes, balance updates). We try to keep guides accurate, but we make no warranties about completeness, correctness, or suitability for any purpose. Use the information at your own risk.</p>
+
+          <h2>3) Trademarks</h2>
+          <p><strong>Trademarks are protected intellectual property</strong> and are used to distinguish the goods or services of one enterprise from those of others. All trademarks, logos, and brand names referenced on this site belong to their respective owners.</p>
+          <p>We use game-related names only for identification and informational purposes.</p>
+
+          <h2>4) Copyright & permitted content</h2>
+          <div class="cards cards-2">
+            <div class="card">
+              <strong>We do not host pirated downloads</strong>
+              <p>We do not provide or promote unauthorized copies of games, cracked executables, or download links to infringing files. If content is reported as infringing, we will review and remove it where appropriate.</p>
+            </div>
+            <div class="card">
+              <strong>Ads policy note (if monetized)</strong>
+              <p>If we display ads (e.g., Google AdSense), we must comply with publisher policies. Pages linking to unauthorized copyrighted material may violate advertising policies.</p>
+            </div>
+          </div>
+
+          <h2>5) DMCA / Takedown requests</h2>
+          <p>If you are a copyright owner (or authorized agent) and believe content on this site infringes your rights, please contact us with a valid takedown request.</p>
+          <div class="box">
+            <strong>What to include (recommended)</strong>
+            <ul>
+              <li>Your contact information (name, email, and other reasonable contact details).</li>
+              <li>The URL(s) of the allegedly infringing content on StarRupture.net.</li>
+              <li>Identification of the copyrighted work claimed to be infringed.</li>
+              <li>A statement that you have a good-faith belief the use is not authorized by the rights holder, its agent, or the law.</li>
+              <li>A statement that the information in the notice is accurate.</li>
+            </ul>
+            <p>Send requests via <a href="/contact/">Contact</a>.</p>
+          </div>
+
+          <h2>6) External links</h2>
+          <p>This site may link to third-party websites. We do not control those sites and are not responsible for their content, policies, or availability.</p>
+
+          <h2>7) Contact</h2>
+          <p>For takedown requests, corrections, or general questions: <a href="/contact/">https://starrupture.net/contact</a></p>
+          <p>Related: <a href="/privacy-policy/">Privacy Policy</a></p>
         </div>
       </div>
-
-      <h2>5) DMCA / Takedown requests</h2>
-      <p>
-        If you are a copyright owner (or authorized agent) and believe content on this site infringes your rights,
-        please contact us with a valid takedown request.
-      </p>
-      <div class="box">
-        <strong>What to include (recommended)</strong>
-        <ul>
-          <li>Your contact information (name, email, and other reasonable contact details).</li>
-          <li>The URL(s) of the allegedly infringing content on StarRupture.net.</li>
-          <li>Identification of the copyrighted work claimed to be infringed.</li>
-          <li>A statement that you have a good-faith belief the use is not authorized by the rights holder, its agent,
-            or the law.</li>
-          <li>A statement that the information in the notice is accurate.</li>
-        </ul>
-        <p class="muted" style="margin:10px 0 0;">
-          Send requests via <a href="https://starrupture.net/contact">Contact</a>.
-        </p>
-      </div>
-
-      <h2>6) External links</h2>
-      <p>
-        This site may link to third-party websites. We do not control those sites and are not responsible for their
-        content,
-        policies, or availability.
-      </p>
-
-      <h2>7) Contact</h2>
-      <p>
-        For takedown requests, corrections, or general questions:
-        <a href="https://starrupture.net/contact">https://starrupture.net/contact</a>
-      </p>
-
-      <hr class="hr" />
-      <p class="muted" style="margin:0;">
-        Related: <a href="https://starrupture.net/privacy-policy">Privacy Policy</a>
-      </p>
-    </div>
-
-    <footer>
-      © <span id="year"></span> StarRupture.net ·
-      <a href="https://starrupture.net/privacy-policy">Privacy</a> ·
-      <a href="https://starrupture.net/disclaimer">Disclaimer</a>
-    </footer>
+    </section>
   </main>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="logo">
+            <span class="logo-icon">SR</span>
+            <span>StarRupture.net</span>
+          </div>
+          <p>Independent StarRupture guides and database. Version-verified for Early Access. Not affiliated with Creepy Jar.</p>
+        </div>
+        <div class="footer-links">
+          <a href="/about/">About</a>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy-policy/">Privacy</a>
+          <a href="/disclaimer/">Disclaimer</a>
+        </div>
+      </div>
+      <p class="footer-copy">© 2026 StarRupture.net — Fan site. Game content belongs to Creepy Jar.</p>
+    </div>
+  </footer>
 </body>
 
 </html>

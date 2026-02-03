@@ -20,388 +20,72 @@
   <meta name="theme-color" content="#0b0f14" />
 
   <style>
-    :root {
-      --bg: #0B0F14;
-      --panel: #0F1620;
-      --panel2: #0C121A;
-      --text: #E6EEF6;
-      --muted: #A9B6C6;
-      --line: rgba(27, 37, 48, .95);
-      --brand: #F87171;
-      --brand2: #4CC9F0;
-      --ok: #34D399;
-      --warn: #FFB703;
-      --danger: #F87171;
-      --radius: 14px;
-      --max: 1120px;
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#06080c;--surface:#0d1117;--surface-2:#161b22;--border:#21262d;
+      --text:#e6edf3;--text-muted:#8b949e;
+      --primary:#f97316;--primary-dim:rgba(249,115,22,.15);
+      --secondary:#22d3ee;--secondary-dim:rgba(34,211,238,.12);
+      --accent:#a855f7;--success:#22c55e;--warning:#eab308;--danger:#ef4444;--ok:#22c55e;--warn:#eab308;
+      --radius:12px;--max-w:1200px;
     }
-
-    * {
-      box-sizing: border-box
-    }
-
-    html {
-      scroll-behavior: smooth
-    }
-
-    body {
-      margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      background: radial-gradient(1200px 600px at 20% -10%, rgba(248, 113, 113, .15), transparent 60%),
-        radial-gradient(900px 500px at 80% 0%, rgba(76, 201, 240, .12), transparent 55%),
-        var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none
-    }
-
-    a:hover {
-      color: var(--brand2)
-    }
-
-    .wrap {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 20px
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: saturate(160%) blur(10px);
-      background: rgba(11, 15, 23, .72);
-      border-bottom: 1px solid rgba(31, 42, 68, .7);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      padding: 14px 20px;
-      max-width: var(--max);
-      margin: 0 auto;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 800;
-    }
-
-    .logo {
-      width: 32px;
-      height: 32px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, rgba(248, 113, 113, .9), rgba(76, 201, 240, .9));
-      box-shadow: 0 10px 30px rgba(248, 113, 113, .25);
-    }
-
-    .navlinks {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      justify-content: flex-end
-    }
-
-    .navlinks a {
-      padding: 8px 10px;
-      border-radius: 10px;
-      color: var(--muted);
-      border: 1px solid transparent;
-    }
-
-    .navlinks a:hover {
-      border-color: rgba(248, 113, 113, .35);
-      background: rgba(248, 113, 113, .08);
-      color: var(--text)
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(31, 42, 68, .9);
-      background: rgba(15, 22, 36, .7);
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .hero {
-      padding: 26px 0 8px
-    }
-
-    .crumbs {
-      margin: 10px 0 0;
-      color: var(--muted);
-      font-size: 13px
-    }
-
-    .crumbs a {
-      color: var(--muted);
-      text-decoration: underline;
-      text-decoration-color: rgba(169, 183, 211, .35)
-    }
-
-    .hero h1 {
-      margin: 12px 0 10px;
-      font-size: clamp(28px, 3.2vw, 40px);
-      line-height: 1.15;
-    }
-
-    .lead {
-      max-width: 880px;
-      color: var(--muted);
-      font-size: 16px;
-      margin: 0 0 14px
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 1.3fr .7fr;
-      gap: 16px;
-      align-items: start;
-    }
-
-    @media (max-width: 920px) {
-      .grid {
-        grid-template-columns: 1fr
-      }
-
-      .nav {
-        padding: 14px
-      }
-    }
-
-    .card {
-      background: linear-gradient(180deg, rgba(15, 22, 36, .9), rgba(12, 18, 32, .9));
-      border: 1px solid rgba(31, 42, 68, .85);
-      border-radius: var(--radius);
-      box-shadow: 0 18px 60px rgba(0, 0, 0, .35);
-      padding: 18px;
-    }
-
-    .card h2 {
-      margin: 0 0 12px;
-      font-size: 18px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .card h3 {
-      margin: 16px 0 8px;
-      font-size: 16px;
-      color: var(--brand2);
-    }
-
-    .toc a {
-      display: block;
-      padding: 8px 10px;
-      border-radius: 12px;
-      color: var(--muted)
-    }
-
-    .toc a:hover {
-      background: rgba(248, 113, 113, .08);
-      color: var(--text)
-    }
-
-    .kicker {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin: 10px 0 0
-    }
-
-    .callout {
-      border-left: 3px solid rgba(76, 201, 240, .9);
-      padding: 12px 14px;
-      background: rgba(76, 201, 240, .08);
-      border-radius: 12px;
-      color: var(--muted);
-      margin: 14px 0;
-    }
-
-    .callout-warn {
-      border-left-color: var(--warn);
-      background: rgba(255, 183, 3, .08);
-    }
-
-    .callout-danger {
-      border-left-color: var(--danger);
-      background: rgba(248, 113, 113, .08);
-    }
-
-    .callout-ok {
-      border-left-color: var(--ok);
-      background: rgba(52, 211, 153, .08);
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 14px 0;
-      font-size: 14px;
-    }
-
-    th,
-    td {
-      padding: 10px 12px;
-      text-align: left;
-      border-bottom: 1px solid rgba(31, 42, 68, .7);
-    }
-
-    th {
-      background: rgba(15, 22, 36, .8);
-      color: var(--brand);
-      font-weight: 600;
-      position: sticky;
-      top: 60px;
-    }
-
-    tr:hover {
-      background: rgba(248, 113, 113, .04)
-    }
-
-    .steps {
-      margin: 0;
-      padding-left: 20px;
-      color: var(--muted)
-    }
-
-    .steps li {
-      margin: 10px 0
-    }
-
-    code {
-      background: rgba(248, 113, 113, .12);
-      padding: 2px 6px;
-      border-radius: 6px;
-      font-size: 13px;
-      color: var(--brand);
-    }
-
-    .hr {
-      height: 1px;
-      background: rgba(31, 42, 68, .8);
-      margin: 18px 0
-    }
-
-    details {
-      border: 1px solid rgba(31, 42, 68, .85);
-      border-radius: 14px;
-      background: rgba(15, 22, 36, .55);
-      padding: 12px 14px;
-    }
-
-    details+details {
-      margin-top: 10px
-    }
-
-    summary {
-      cursor: pointer;
-      font-weight: 700
-    }
-
-    summary::marker {
-      color: var(--brand)
-    }
-
-    .ad-slot {
-      border: 1px dashed rgba(169, 183, 211, .35);
-      border-radius: 14px;
-      padding: 14px;
-      color: rgba(169, 183, 211, .75);
-      background: rgba(15, 22, 36, .45);
-      text-align: center;
-      font-size: 13px;
-    }
-
-    footer {
-      margin-top: 26px;
-      border-top: 1px solid rgba(31, 42, 68, .75);
-      background: rgba(11, 15, 23, .55);
-    }
-
-    .foot {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 20px;
-      max-width: var(--max);
-      margin: 0 auto;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .foot a {
-      color: var(--muted);
-      text-decoration: underline;
-      text-decoration-color: rgba(169, 183, 211, .35)
-    }
-
-    @media(max-width:640px) {
-      .navlinks {
-        display: none
-      }
-
-      h1 {
-        font-size: 1.5rem !important
-      }
-
-      table {
-        font-size: 12px
-      }
-
-      th,
-      td {
-        padding: 8px 6px
-      }
-    }
-
-    .step-box {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      margin: 10px 0;
-    }
-
-    .step-num {
-      flex-shrink: 0;
-      width: 28px;
-      height: 28px;
-      border-radius: 10px;
-      background: rgba(248, 113, 113, .18);
-      border: 1px solid rgba(248, 113, 113, .35);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 14px;
-    }
-
-    .nvidia {
-      border-color: rgba(118, 185, 0, .5);
-      background: rgba(118, 185, 0, .08)
-    }
-
-    .amd {
-      border-color: rgba(237, 28, 36, .5);
-      background: rgba(237, 28, 36, .08)
-    }
-  </style>
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+    a{color:var(--primary);text-decoration:none;transition:color .2s}
+    a:hover{color:var(--secondary)}
+    .container{max-width:var(--max-w);margin:0 auto;padding:0 20px}
+    .header{position:sticky;top:0;z-index:100;background:rgba(6,8,12,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;height:60px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.1rem;color:var(--text)}
+    .logo-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--primary),var(--secondary));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;color:#fff}
+    .nav{display:flex;gap:8px}
+    .nav a{padding:8px 14px;border-radius:8px;font-size:.9rem;color:var(--text-muted);transition:all .2s}
+    .nav a:hover{background:var(--surface-2);color:var(--text)}
+    .nav a.active{color:var(--primary)}
+    .hero{padding:50px 0 40px;background:radial-gradient(ellipse at 20% 0%,rgba(249,115,22,.08),transparent 50%),radial-gradient(ellipse at 80% 100%,rgba(34,211,238,.06),transparent 50%)}
+    .hero-content{max-width:800px}
+    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:.85rem;color:var(--text-muted);margin-bottom:16px}
+    h1{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;line-height:1.2;margin-bottom:12px}
+    .hero-sub{font-size:1.1rem;color:var(--text-muted);margin-bottom:20px}
+    .section{padding:40px 0}
+    .content{max-width:900px}
+    h2{font-size:1.2rem;font-weight:700;margin:28px 0 12px;color:var(--text)}
+    h3{font-size:1rem;font-weight:600;margin:20px 0 10px;color:var(--primary)}
+    p{color:var(--text-muted);margin-bottom:14px}
+    .callout{border-left:3px solid var(--primary);padding:14px;background:var(--primary-dim);border-radius:0 var(--radius) var(--radius) 0;margin:16px 0}
+    .callout-ok{border-left-color:var(--success);background:rgba(34,197,94,.1)}
+    .callout-warn{border-left-color:var(--warning);background:rgba(234,179,8,.1)}
+    .nvidia{border-left-color:var(--success);background:rgba(34,197,94,.1)}
+    .amd{border-left-color:var(--danger);background:rgba(239,68,68,.1)}
+    table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.9rem}
+    th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border)}
+    th{background:var(--surface);color:var(--primary);font-weight:600}
+    tr:hover{background:var(--surface-2)}
+    ul,ol{margin:12px 0;padding-left:20px;color:var(--text-muted)}
+    li{margin:8px 0}
+    code{background:var(--primary-dim);padding:2px 6px;border-radius:6px;font-size:.85rem;color:var(--primary)}
+    details{border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);padding:14px;margin:10px 0}
+    details:hover{border-color:var(--primary)}
+    summary{cursor:pointer;font-weight:600;color:var(--text)}
+    .hr{height:1px;background:var(--border);margin:20px 0}
+    .grid{display:grid;grid-template-columns:1.3fr .7fr;gap:20px;align-items:start}
+    .card{padding:20px;border-radius:var(--radius);background:var(--surface);border:1px solid var(--border)}
+    .toc a{display:block;padding:8px 10px;border-radius:8px;color:var(--text-muted)}
+    .toc a:hover{background:var(--surface-2);color:var(--text)}
+    .step-box{display:flex;align-items:center;gap:12px;padding:12px;background:var(--surface);border-radius:var(--radius);margin:8px 0}
+    .step-num{width:28px;height:28px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0}
+    .steps{list-style:none;padding-left:0}
+    .steps li{padding:8px 0;border-bottom:1px solid var(--border)}
+    .steps li:last-child{border-bottom:none}
+    .footer{padding:40px 0;border-top:1px solid var(--border);margin-top:40px}
+    .footer-inner{display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:30px}
+    .footer-brand{max-width:300px}
+    .footer-brand p{font-size:.85rem;color:var(--text-muted);margin-top:10px}
+    .footer-links{display:flex;gap:30px}
+    .footer-links a{font-size:.9rem;color:var(--text-muted)}
+    .footer-copy{text-align:center;padding-top:30px;margin-top:30px;border-top:1px solid var(--border);font-size:.8rem;color:var(--text-muted)}
+    @media(max-width:900px){.grid{grid-template-columns:1fr}}
+    @media(max-width:600px){.nav{display:none}.footer-inner{flex-direction:column}}
 
   <script type="application/ld+json">
   {
@@ -432,45 +116,35 @@
 </head>
 
 <body>
-  <header>
-    <div class="nav">
-      <a class="brand" href="https://starrupture.net">
-        <span class="logo" aria-hidden="true"></span>
-        <span>StarRupture.net</span>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="/" class="logo">
+        <span class="logo-icon">SR</span>
+        <span>StarRupture<span style="color:var(--text-muted)">.net</span></span>
       </a>
-      <nav class="navlinks" aria-label="Primary">
-        <a href="https://starrupture.net/troubleshooting">Troubleshooting</a>
-        <a href="https://starrupture.net/guides">Guides</a>
-        <a href="https://starrupture.net/troubleshooting/fps-performance">FPS Fixes</a>
-        <a href="https://starrupture.net/contact">Contact</a>
+      <nav class="nav">
+        <a href="/guides/">Guides</a>
+        <a href="/database/">Database</a>
+        <a href="/tier-lists/">Tier Lists</a>
+        <a href="/troubleshooting/" class="active">Fixes</a>
       </nav>
     </div>
   </header>
 
-  <main class="wrap">
+  <main>
     <section class="hero">
-      <div class="kicker">
-        <span class="pill">Troubleshooting</span>
-        <span class="pill">Crashes</span>
-        <span class="pill">Verified: <time datetime="2026-02-03">Feb 3, 2026</time></span>
-        <span class="pill">v0.1.3</span>
+      <div class="container hero-content">
+        <div class="breadcrumb">
+          <a href="/">Home</a><span>/</span><a href="/troubleshooting/">Troubleshooting</a><span>/</span><span>Crash Fixes</span>
+        </div>
+        <h1>StarRupture Crash Fixes (PC/Steam)</h1>
+        <p class="hero-sub">Fix crashes with GPU-specific solutions, crash log analysis, and safe troubleshooting steps. We prioritize safe, reversible fixes first — no sketchy downloads or registry hacks.</p>
       </div>
-
-      <div class="crumbs">
-        <a href="https://starrupture.net">Home</a> →
-        <a href="https://starrupture.net/troubleshooting">Troubleshooting</a> →
-        Crash Fixes
-      </div>
-
-      <h1>StarRupture Crash Fixes (PC/Steam)</h1>
-      <p class="lead">
-        Fix crashes with GPU-specific solutions, crash log analysis, and safe troubleshooting steps.
-        We prioritize safe, reversible fixes first — no sketchy downloads or registry hacks.
-      </p>
     </section>
 
-    <div class="grid">
-      <!-- Main Content -->
+    <section class="section">
+      <div class="container">
+        <div class="grid">
       <article class="card">
         <h2 id="priority">🎯 Priority Checklist</h2>
         <div class="callout callout-ok">
@@ -838,22 +512,32 @@
           <strong style="color:var(--text)">Version:</strong> 0.1.3<br>
           <strong style="color:var(--text)">Verified:</strong> Feb 3, 2026
         </div>
-      </aside>
-    </div>
+        </aside>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer>
-    <div class="foot">
-      <div>© <span id="y"></span> StarRupture.net · Unofficial fan site</div>
-      <div>
-        <a href="https://starrupture.net/privacy-policy">Privacy Policy</a> ·
-        <a href="https://starrupture.net/disclaimer">Disclaimer</a> ·
-        <a href="https://starrupture.net/contact">Contact</a>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="logo">
+            <span class="logo-icon">SR</span>
+            <span>StarRupture.net</span>
+          </div>
+          <p>Independent StarRupture guides and database. Version-verified for Early Access. Not affiliated with Creepy Jar.</p>
+        </div>
+        <div class="footer-links">
+          <a href="/about/">About</a>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy-policy/">Privacy</a>
+          <a href="/disclaimer/">Disclaimer</a>
+        </div>
       </div>
+      <p class="footer-copy">© 2026 StarRupture.net — Fan site. Game content belongs to Creepy Jar.</p>
     </div>
   </footer>
-
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 
 </html>

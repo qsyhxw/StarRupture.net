@@ -1,670 +1,201 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StarRupture Troubleshooting - Crash Fixes, Performance & Co-op Issues</title>
+  <meta name="description" content="Fix StarRupture crashes, black screens, FPS drops, and co-op connection issues. Safe troubleshooting steps for PC/Steam Early Access 2026.">
+  <link rel="canonical" href="https://starrupture.net/troubleshooting/">
 
-  <title>StarRupture Troubleshooting Hub (PC/Steam) | StarRupture.net</title>
-  <meta name="description"
-    content="StarRupture Troubleshooting Hub for PC/Steam: crash fixes, won’t launch, black screen, controls, stutter/FPS, saves, and co-op issues. Safe steps first." />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8830315294299920" crossorigin="anonymous"></script>
 
-  <!-- Canonical (NO trailing slash) -->
-  <link rel="canonical" href="https://starrupture.net/troubleshooting/" />
-
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8830315294299920"
-    crossorigin="anonymous"></script>
-
-  <meta property="og:title" content="StarRupture Troubleshooting Hub (PC/Steam) | StarRupture.net" />
-  <meta property="og:description"
-    content="Crash fixes, won’t launch, black screen, controls, stutter/FPS, saves, and co-op issues. Safe steps first." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://starrupture.net/troubleshooting" />
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="StarRupture Troubleshooting - Crash Fixes & Performance">
+  <meta property="og:description" content="Fix crashes, black screens, FPS drops, and co-op issues. Safe steps for PC/Steam.">
+  <meta property="og:url" content="https://starrupture.net/troubleshooting/">
 
   <style>
-    :root {
-      --bg: #0B0F14;
-      --panel: #0F1620;
-      --text: #E6EEF6;
-      --muted: #A9B6C6;
-      --brand: #4CC9F0;
-      --accent: #A78BFA;
-      --accent-2: #A3FFB0;
-      --border: rgba(27, 37, 48, .95);
-      --shadow: 0 12px 30px rgba(0, 0, 0, .35);
-      --radius: 14px;
-      --max: 1080px;
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#06080c;--surface:#0d1117;--surface-2:#161b22;--border:#21262d;
+      --text:#e6edf3;--text-muted:#8b949e;
+      --primary:#f97316;--primary-dim:rgba(249,115,22,.15);
+      --secondary:#22d3ee;--secondary-dim:rgba(34,211,238,.12);
+      --accent:#a855f7;--success:#22c55e;--warning:#eab308;--danger:#ef4444;
+      --radius:12px;--max-w:1200px;
     }
-
-    @keyframes pulse {
-
-      0%,
-      100% {
-        opacity: 1
-      }
-
-      50% {
-        opacity: .6
-      }
-    }
-
-    @keyframes glow {
-
-      0%,
-      100% {
-        box-shadow: 0 0 8px var(--brand)
-      }
-
-      50% {
-        box-shadow: 0 0 20px var(--brand)
-      }
-    }
-
-    * {
-      box-sizing: border-box
-    }
-
-    html {
-      scroll-behavior: smooth
-    }
-
-    body {
-      margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      background: radial-gradient(1200px 600px at 20% -10%, rgba(76, 201, 240, .12), transparent 60%),
-        radial-gradient(1000px 500px at 90% 0%, rgba(167, 139, 250, .10), transparent 55%),
-        var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      color: var(--brand);
-      text-decoration: none
-    }
-
-    a:hover {
-      text-decoration: none;
-      color: var(--accent-2)
-    }
-
-    header {
-      border-bottom: 1px solid var(--border);
-      background: rgba(11, 15, 20, .72);
-      backdrop-filter: blur(12px);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    .nav {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 14px 18px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 700;
-      letter-spacing: .2px;
-    }
-
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--brand), var(--accent));
-      box-shadow: 0 0 18px rgba(76, 201, 240, .55);
-    }
-
-    .nav a.small {
-      color: var(--muted);
-      font-size: 14px;
-      transition: color .2s
-    }
-
-    .nav a.small:hover {
-      color: var(--text)
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      align-items: center
-    }
-
-    .wrap {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 28px 18px 60px
-    }
-
-    .hero {
-      border: 1px solid var(--border);
-      border-radius: calc(var(--radius) + 6px);
-      box-shadow: var(--shadow);
-      padding: 22px;
-      background: linear-gradient(180deg, rgba(15, 22, 32, .92), rgba(12, 18, 26, .88));
-      overflow: hidden;
-      position: relative;
-    }
-
-    .hero:before {
-      content: "";
-      position: absolute;
-      inset: -1px;
-      background:
-        radial-gradient(520px 240px at 12% 10%, rgba(76, 201, 240, .16), transparent 60%),
-        radial-gradient(520px 240px at 88% 0%, rgba(167, 139, 250, .14), transparent 60%);
-      pointer-events: none;
-    }
-
-    .hero>* {
-      position: relative
-    }
-
-    h1 {
-      font-size: clamp(1.8rem, 3vw, 2.5rem);
-      line-height: 1.1;
-      margin: 0 0 10px
-    }
-
-    .sub {
-      color: var(--muted);
-      margin: 0 0 16px;
-      max-width: 75ch;
-      font-size: 1.05rem
-    }
-
-    .cta {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 10px
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 16px;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 14px;
-      border: 1px solid var(--border);
-      cursor: pointer;
-      text-decoration: none !important;
-      transition: all .2s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, transparent, rgba(255, 255, 255, .1), transparent);
-      transform: translateX(-100%);
-      transition: transform .4s ease;
-    }
-
-    .btn:hover::before {
-      transform: translateX(100%)
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(76, 201, 240, .15)
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, rgba(76, 201, 240, .25), rgba(167, 139, 250, .15));
-      color: var(--text);
-      border-color: rgba(76, 201, 240, .6);
-    }
-
-    .btn-primary:hover {
-      border-color: rgba(163, 255, 176, .5)
-    }
-
-    .btn-ghost {
-      background: rgba(12, 18, 26, .55);
-      color: var(--text);
-    }
-
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 12px
-    }
-
-    .chip {
-      display: inline-flex;
-      align-items: center;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(12, 18, 26, .55);
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .section {
-      margin-top: 18px
-    }
-
-    .section h2 {
-      font-size: clamp(1.2rem, 2vw, 1.5rem);
-      margin: 22px 0 10px
-    }
-
-    .section p.lead {
-      color: var(--muted);
-      margin: 0 0 12px
-    }
-
-    .search {
-      margin-top: 10px;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .search input {
-      width: min(560px, 100%);
-      background: rgba(12, 18, 26, .55);
-      border: 1px solid var(--border);
-      color: var(--text);
-      border-radius: 12px;
-      padding: 12px 14px;
-      font-size: 15px;
-      outline: none;
-      transition: border-color .2s;
-    }
-
-    .search input:focus {
-      border-color: rgba(76, 201, 240, .5)
-    }
-
-    .hint {
-      color: var(--muted);
-      font-size: 13px
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-    }
-
-    @media(min-width:860px) {
-      .grid {
-        grid-template-columns: 1fr 1fr 1fr
-      }
-    }
-
-    .card {
-      background: rgba(12, 18, 26, .65);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 16px;
-      min-height: 132px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      transition: all .25s ease;
-      position: relative;
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      inset: -1px;
-      border-radius: var(--radius);
-      background: linear-gradient(135deg, var(--brand), var(--accent));
-      opacity: 0;
-      z-index: -1;
-      transition: opacity .25s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(76, 201, 240, .5);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, .25), 0 0 25px rgba(76, 201, 240, .1);
-    }
-
-    .card:hover::before {
-      opacity: .15
-    }
-
-    .card .title {
-      font-weight: 800;
-      letter-spacing: .2px;
-      color: var(--text);
-    }
-
-    .card .desc {
-      color: var(--muted);
-      font-size: 14px;
-      margin: 0
-    }
-
-    .meta {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-top: auto;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .tag {
-      border: 1px solid var(--border);
-      padding: 4px 8px;
-      border-radius: 999px;
-      background: rgba(76, 201, 240, .08);
-    }
-
-    .disabled {
-      opacity: .55;
-      cursor: not-allowed;
-      user-select: none;
-    }
-
-    .box {
-      margin-top: 18px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 16px;
-      background: linear-gradient(180deg, rgba(15, 22, 32, .80), rgba(12, 18, 26, .70));
-    }
-
-    .box h3 {
-      margin: 0 0 8px;
-      font-size: 16px
-    }
-
-    .box ul {
-      margin: 8px 0 0;
-      padding-left: 18px
-    }
-
-    .box li {
-      margin: 6px 0;
-      color: var(--muted)
-    }
-
-    .hr {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 20px 0;
-    }
-
-    footer {
-      max-width: var(--max);
-      margin: 24px auto 0;
-      padding: 18px;
-      color: var(--muted);
-      font-size: 14px;
-      border-top: 1px solid var(--border);
-    }
-
-    @media(max-width:640px) {
-      .nav-links {
-        display: none
-      }
-
-      h1 {
-        font-size: 1.6rem !important
-      }
-    }
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+    a{color:inherit;text-decoration:none;transition:color .2s}
+    a:hover{color:var(--primary)}
+    .container{max-width:var(--max-w);margin:0 auto;padding:0 20px}
+    .header{position:sticky;top:0;z-index:100;background:rgba(6,8,12,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;height:60px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.1rem}
+    .logo-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--primary),var(--secondary));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;color:#fff}
+    .nav{display:flex;gap:8px}
+    .nav a{padding:8px 14px;border-radius:8px;font-size:.9rem;color:var(--text-muted);transition:all .2s}
+    .nav a:hover{background:var(--surface-2);color:var(--text)}
+    .nav a.active{color:var(--primary)}
+    .hero{padding:50px 0 40px;background:radial-gradient(ellipse at 20% 0%,rgba(239,68,68,.08),transparent 50%),radial-gradient(ellipse at 80% 100%,rgba(34,211,238,.06),transparent 50%)}
+    .hero-content{max-width:800px}
+    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:.85rem;color:var(--text-muted);margin-bottom:16px}
+    .hero h1{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;line-height:1.2;margin-bottom:12px}
+    .hero-sub{font-size:1.1rem;color:var(--text-muted);margin-bottom:20px}
+    .section{padding:40px 0}
+    .section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+    .section-header h2{font-size:1.4rem;font-weight:700}
+    .cards{display:grid;gap:16px}
+    .cards-3{grid-template-columns:repeat(3,1fr)}
+    .card{padding:20px;border-radius:var(--radius);background:var(--surface);border:1px solid var(--border);transition:all .25s}
+    .card:hover{border-color:var(--primary);transform:translateY(-2px)}
+    .card-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+    .card h3{font-size:1rem;font-weight:600;margin-bottom:6px}
+    .card p{font-size:.875rem;color:var(--text-muted);margin-bottom:12px}
+    .card-link{display:inline-flex;align-items:center;gap:4px;font-size:.85rem;font-weight:600;color:var(--primary)}
+    .tag{display:inline-block;padding:4px 8px;border-radius:6px;font-size:.7rem;font-weight:600;margin-right:6px}
+    .tag.high{background:rgba(239,68,68,.12);color:var(--danger)}
+    .tag.live{background:rgba(34,197,94,.12);color:var(--success)}
+    .note{padding:16px;border-radius:var(--radius);background:var(--surface);border:1px solid var(--border);margin-top:20px}
+    .note h3{font-size:1rem;margin-bottom:8px}
+    .note ul{margin:0;padding-left:20px;color:var(--text-muted)}
+    .note li{margin:6px 0}
+    .footer{padding:40px 0;border-top:1px solid var(--border);margin-top:40px}
+    .footer-inner{display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:30px}
+    .footer-brand{max-width:300px}
+    .footer-brand p{font-size:.85rem;color:var(--text-muted);margin-top:10px}
+    .footer-links{display:flex;gap:30px}
+    .footer-links a{font-size:.9rem;color:var(--text-muted)}
+    .footer-copy{text-align:center;padding-top:30px;margin-top:30px;border-top:1px solid var(--border);font-size:.8rem;color:var(--text-muted)}
+    @media(max-width:900px){.cards-3{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:600px){.nav{display:none}.cards-3{grid-template-columns:1fr}.hero{padding:30px 0}.footer-inner{flex-direction:column}}
   </style>
 
-  <!-- Safe structured data (no game facts) -->
   <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"CollectionPage",
-    "name":"StarRupture Troubleshooting Hub (PC/Steam)",
-    "url":"https://starrupture.net/troubleshooting",
-    "isPartOf":{
-      "@type":"WebSite",
-      "name":"StarRupture.net",
-      "url":"https://starrupture.net"
-    }
-  }
+  {"@context":"https://schema.org","@type":"CollectionPage","name":"StarRupture Troubleshooting","url":"https://starrupture.net/troubleshooting/","isPartOf":{"@type":"WebSite","name":"StarRupture.net","url":"https://starrupture.net"}}
   </script>
 </head>
-
 <body>
-  <header>
-    <div class="nav">
-      <div class="logo">
-        <span class="dot"></span>
-        <a href="https://starrupture.net" aria-label="StarRupture.net Home">StarRupture.net</a>
-      </div>
-      <div class="nav-links">
-        <a class="small" href="https://starrupture.net/guides">Guides</a>
-        <a class="small" href="https://starrupture.net/guides/start-here">Start Here</a>
-        <a class="small" href="https://starrupture.net/contact">Contact</a>
-        <a class="small" href="https://starrupture.net/privacy-policy">Privacy</a>
-        <a class="small" href="https://starrupture.net/disclaimer">Disclaimer</a>
-      </div>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="/" class="logo">
+        <span class="logo-icon">SR</span>
+        <span>StarRupture<span style="color:var(--text-muted)">.net</span></span>
+      </a>
+      <nav class="nav">
+        <a href="/guides/">Guides</a>
+        <a href="/database/">Database</a>
+        <a href="/tier-lists/">Tier Lists</a>
+        <a href="/troubleshooting/" class="active">Fixes</a>
+      </nav>
     </div>
   </header>
 
-  <main class="wrap">
-    <!-- HERO -->
+  <main>
     <section class="hero">
-      <h1>Troubleshooting (PC/Steam)</h1>
-      <p class="sub">
-        Find your symptom → follow the safest steps first. This hub is built for fast scanning,
-        then it routes you to a single “final answer” checklist.
-      </p>
-
-      <div class="cta">
-        <a class="btn btn-primary" href="https://starrupture.net/troubleshooting/crash-fixes">Open Crash Fixes (Start
-          Here)</a>
-        <a class="btn btn-ghost" href="https://starrupture.net/contact">Report an Issue / Correction</a>
-      </div>
-
-      <div class="chips" aria-label="Principles">
-        <span class="chip">Safe-first order</span>
-        <span class="chip">No sketchy downloads</span>
-        <span class="chip">One change at a time</span>
-        <span class="chip">Early Access reality</span>
-      </div>
-
-      <div class="search" aria-label="Filter">
-        <input id="filter" type="search"
-          placeholder="Type to filter (e.g., crash, launch, black screen, keybind, fps, stutter, save, coop)" />
-        <span class="hint">Tip: this only filters cards on this page (no tracking).</span>
+      <div class="container hero-content">
+        <div class="breadcrumb">
+          <a href="/">Home</a><span>/</span><span>Troubleshooting</span>
+        </div>
+        <h1>Troubleshooting & Fixes</h1>
+        <p class="hero-sub">Game won't launch? Crashing? Lag in co-op? Find your issue below and follow the safe-first fix order.</p>
       </div>
     </section>
 
-    <!-- SECTION: CORE ENTRY POINTS -->
-    <section class="section" id="most-common">
-      <h2>Most Common Fixes</h2>
-      <p class="lead">High-intent pages first. We’ll add more as they’re verified.</p>
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Common Issues</h2>
+        </div>
+        <div class="cards cards-3">
+          <a href="/troubleshooting/crash-fixes/" class="card">
+            <div class="card-icon" style="background:rgba(239,68,68,.12);color:var(--danger)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </div>
+            <span class="tag high">High Priority</span>
+            <h3>Crash Fixes</h3>
+            <p>Game crashing on startup or during play? Safe checklist: verify files, drivers, overlays.</p>
+            <span class="card-link">Fix crashes →</span>
+          </a>
+          <a href="/troubleshooting/wont-launch-black-screen/" class="card">
+            <div class="card-icon" style="background:var(--primary-dim);color:var(--primary)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <span class="tag high">High Priority</span>
+            <h3>Won't Launch / Black Screen</h3>
+            <p>Stuck on black screen or game won't start? Step-by-step launch troubleshooting.</p>
+            <span class="card-link">Fix launch issues →</span>
+          </a>
+          <a href="/troubleshooting/fps-performance/" class="card">
+            <div class="card-icon" style="background:rgba(234,179,8,.12);color:var(--warning)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            </div>
+            <span class="tag live">Live</span>
+            <h3>FPS & Performance</h3>
+            <p>Low FPS, stuttering, or lag? In-game settings and driver optimizations.</p>
+            <span class="card-link">Improve FPS →</span>
+          </a>
+          <a href="/troubleshooting/coop-issues/" class="card">
+            <div class="card-icon" style="background:var(--secondary-dim);color:var(--secondary)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <span class="tag live">Live</span>
+            <h3>Co-op Connection Issues</h3>
+            <p>Can't connect to friends? Desync problems? Port forwarding and connection fixes.</p>
+            <span class="card-link">Fix co-op →</span>
+          </a>
+          <a href="/troubleshooting/save-issues/" class="card">
+            <div class="card-icon" style="background:rgba(168,85,247,.12);color:var(--accent)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+            </div>
+            <span class="tag live">Live</span>
+            <h3>Save Issues / Progress Lost</h3>
+            <p>Lost your save? Find save file locations, backup tips, and recovery steps.</p>
+            <span class="card-link">Fix saves →</span>
+          </a>
+          <a href="/troubleshooting/controls-keybinds/" class="card">
+            <div class="card-icon" style="background:rgba(34,197,94,.12);color:var(--success)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M8 12h8M6 16h.01M18 16h.01"/></svg>
+            </div>
+            <span class="tag live">Live</span>
+            <h3>Controls & Keybinds</h3>
+            <p>Rebinding issues or controller not working? Default keybinds and input fixes.</p>
+            <span class="card-link">Fix controls →</span>
+          </a>
+        </div>
 
-      <div class="grid" id="cards">
-        <a class="card" href="https://starrupture.net/troubleshooting/crash-fixes"
-          data-keywords="crash crashing freeze frozen wont launch won't launch black screen steam verify files">
-          <div class="title">Crash Fixes & “Won’t Launch” Checklist</div>
-          <p class="desc">The safe, ordered checklist: verify files → reduce conflicts → Windows tools → report
-            template.</p>
-          <div class="meta">
-            <span class="tag">Live</span><span class="tag">High intent</span><span class="tag">PC/Steam</span>
-          </div>
-        </a>
-
-        <a class="card" href="https://starrupture.net/troubleshooting/wont-launch-black-screen"
-          data-keywords="wont launch won't launch black screen stuck loading startup error">
-          <div class="title">Won't Launch / Black Screen</div>
-          <p class="desc">Launch errors, black screen, stuck loading—safe settings checklist and step-by-step fixes.</p>
-          <div class="meta">
-            <span class="tag">Live</span><span class="tag">High intent</span>
-          </div>
-        </a>
-
-        <a class="card" href="https://starrupture.net/troubleshooting/controls-keybinds"
-          data-keywords="controls keybind keyboard mouse input cannot move">
-          <div class="title">Controls / Keybind Problems</div>
-          <p class="desc">Default keybinds, rebinding guide, controller workarounds, and input fixes.</p>
-          <div class="meta">
-            <span class="tag">Live</span><span class="tag">Quick fixes</span>
-          </div>
-        </a>
-
-        <a class="card" href="https://starrupture.net/troubleshooting/fps-performance"
-          data-keywords="fps stutter lag performance settings">
-          <div class="title">Stutter / FPS Drops</div>
-          <p class="desc">Performance tweaks, in-game settings, NVIDIA/AMD optimizations, and Steam launch options.</p>
-          <div class="meta">
-            <span class="tag">Live</span><span class="tag">Performance</span>
-          </div>
-        </a>
-
-        <a class="card" href="https://starrupture.net/troubleshooting/save-issues"
-          data-keywords="save lost progress save file reset">
-          <div class="title">Save Issues / Progress Lost</div>
-          <p class="desc">Save file locations, Steam Cloud setup, backup guide, and recovery steps.</p>
-          <div class="meta">
-            <span class="tag">Live</span><span class="tag">High impact</span>
-          </div>
-        </a>
-
-        <a class="card" href="https://starrupture.net/troubleshooting/coop-issues"
-          data-keywords="coop multiplayer connection disconnect desync">
-          <div class="title">Co-op Connection / Desync</div>
-          <p class="desc">Connection troubleshooting, port forwarding, LAN workarounds, and desync fixes.</p>
-          <div class="meta">
-            <span class="tag">Live</span><span class="tag">Co-op</span>
-          </div>
-        </a>
+        <div class="note">
+          <h3>Safe-First Troubleshooting Rules</h3>
+          <ul>
+            <li><strong>Start reversible:</strong> Verify files, restart, remove overlays first</li>
+            <li><strong>One change at a time:</strong> So you know what actually fixed it</li>
+            <li><strong>Avoid sketchy downloads:</strong> No random "fix packs" or executables</li>
+            <li><strong>Early Access reality:</strong> Some issues may need official patches</li>
+          </ul>
+        </div>
       </div>
     </section>
-
-    <!-- Optional Ad slot placeholder -->
-    <!--
-    <div class="hr"></div>
-    <div class="box" aria-label="Ad slot placeholder">
-      <h3 style="margin:0;">Ad</h3>
-      <p class="lead" style="margin:6px 0 0;">(Reserved space for a responsive AdSense unit after approval.)</p>
-    </div>
-    -->
-
-    <!-- SECTION: SAFE-FIRST RULES -->
-    <section class="section" id="safe-first">
-      <h2>Safe-First Rules (Read Before You Nuke Your Settings)</h2>
-      <p class="lead">Troubleshooting is fastest when you reduce risk and isolate variables.</p>
-
-      <div class="box">
-        <h3>Do this order</h3>
-        <ul>
-          <li><strong>Start with reversible steps</strong>: verify files, restart, remove overlays, test once.</li>
-          <li><strong>Change one thing at a time</strong>, so you know what actually fixed it.</li>
-          <li><strong>Avoid sketchy “fix packs”</strong> and random executables.</li>
-          <li><strong>When in doubt:</strong> report with clean repro steps (we’ll turn it into a page).</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- SECTION: REPORT TEMPLATE -->
-    <section class="section" id="report">
-      <h2>Report Template (Copy/Paste)</h2>
-      <p class="lead">If you email us a clean report, we can verify + publish a short fix page faster.</p>
-
-      <div class="box">
-        <h3>Minimal template</h3>
-        <ul>
-          <li><code>Title:</code> [Crash / Freeze / Black Screen / Controls] + when it happens</li>
-          <li><code>Platform:</code> PC/Steam</li>
-          <li><code>When:</code> first launch / loading / joining co-op / after changing settings</li>
-          <li><code>Repro:</code> 1) … 2) … 3) …</li>
-          <li><code>Expected vs Actual:</code> …</li>
-          <li><code>PC Specs:</code> CPU / GPU / RAM / OS / driver version (if known)</li>
-          <li><code>What you tried:</code> verified files? closed overlays? restarted?</li>
-        </ul>
-        <p class="lead" style="margin-top:10px;">
-          Send it here: <a href="https://starrupture.net/contact">Contact</a>
-        </p>
-      </div>
-    </section>
-
-    <!-- SECTION: LINKS -->
-    <section class="section" id="links">
-      <h2>Related</h2>
-      <p class="lead">If you’re new, fix survival first — it reduces “panic settings changes.”</p>
-
-      <div class="grid">
-        <a class="card" href="https://starrupture.net/guides/start-here" data-keywords="beginner start here roadmap">
-          <div class="title">Start Here (Beginner)</div>
-          <p class="desc">Fast roadmap so you stop guessing and start progressing.</p>
-          <div class="meta"><span class="tag">Guides</span><span class="tag">Beginner</span></div>
-        </a>
-
-        <a class="card" href="https://starrupture.net/guides/water-hydration" data-keywords="water hydration survival">
-          <div class="title">Water & Hydration</div>
-          <p class="desc">Survival basics that prevent “I died while troubleshooting.”</p>
-          <div class="meta"><span class="tag">Guides</span><span class="tag">Survival</span></div>
-        </a>
-
-        <a class="card" href="https://starrupture.net/guides/food-calories" data-keywords="food calories survival">
-          <div class="title">Food & Calories</div>
-          <p class="desc">Stabilize calories early so runs are repeatable.</p>
-          <div class="meta"><span class="tag">Guides</span><span class="tag">Survival</span></div>
-        </a>
-      </div>
-
-      <div class="hr"></div>
-      <div class="box">
-        <h3>Transparency</h3>
-        <ul>
-          <li>Privacy: <a href="https://starrupture.net/privacy-policy">Privacy Policy</a></li>
-          <li>Unofficial fan site: <a href="https://starrupture.net/disclaimer">Disclaimer</a></li>
-        </ul>
-      </div>
-    </section>
-
-    <footer>
-      © <span id="year"></span> StarRupture.net ·
-      <a href="https://starrupture.net/guides">Guides</a> ·
-      <a href="https://starrupture.net/troubleshooting">Troubleshooting</a> ·
-      <a href="https://starrupture.net/privacy-policy">Privacy</a> ·
-      <a href="https://starrupture.net/disclaimer">Disclaimer</a> ·
-      <a href="https://starrupture.net/contact">Contact</a>
-    </footer>
   </main>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Tiny on-page filter (no tracking; purely client-side)
-    const input = document.getElementById('filter');
-    const cards = Array.from(document.querySelectorAll('#cards .card'));
-
-    input.addEventListener('input', () => {
-      const q = input.value.trim().toLowerCase();
-      cards.forEach(card => {
-        const keys = (card.getAttribute('data-keywords') || '').toLowerCase();
-        const text = card.innerText.toLowerCase();
-        const hit = !q || keys.includes(q) || text.includes(q);
-        card.style.display = hit ? '' : 'none';
-      });
-    });
-  </script>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="logo">
+            <span class="logo-icon">SR</span>
+            <span>StarRupture.net</span>
+          </div>
+          <p>Independent StarRupture guides and database. Version-verified for Early Access. Not affiliated with Creepy Jar.</p>
+        </div>
+        <div class="footer-links">
+          <a href="/about/">About</a>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy-policy/">Privacy</a>
+          <a href="/disclaimer/">Disclaimer</a>
+        </div>
+      </div>
+      <p class="footer-copy">© 2026 StarRupture.net — Fan site. Game content belongs to Creepy Jar.</p>
+    </div>
+  </footer>
 </body>
-
 </html>
