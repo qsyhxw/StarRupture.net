@@ -4,20 +4,19 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Food & Calories Guide (StarRupture) — Polifruit, Calorie Fluid, Calorie Gel</title>
+  <title>StarRupture Food & Calories Guide – All Items, Stats, Recipes (v0.1.3)</title>
   <meta name="description"
-    content="Fix calories fast in StarRupture: best early foods (Polifruit), what to unlock next (Calorie Fluid / Calorie Gel), and how to avoid toxicity traps." />
+    content="Complete StarRupture food guide: all consumables with Calories, Hydration, Toxicity stats. Polifruit, Calorie Gel, crafted foods, and toxicity management." />
   <link rel="canonical" href="https://starrupture.net/guides/food-calories" />
 
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8830315294299920"
     crossorigin="anonymous"></script>
 
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Food & Calories Guide (StarRupture)" />
-  <meta property="og:description"
-    content="No-fluff calories: what to eat now, what to unlock next, and toxicity-aware choices." />
+  <meta property="og:title" content="StarRupture Food & Calories Guide – All Items & Stats" />
+  <meta property="og:description" content="Complete food guide with all consumables, stats, and crafting recipes." />
   <meta property="og:url" content="https://starrupture.net/guides/food-calories" />
-  <meta name="theme-color" content="#0b1020" />
+  <meta name="theme-color" content="#0b0f14" />
 
   <style>
     :root {
@@ -27,36 +26,13 @@
       --text: #E6EEF6;
       --muted: #A9B6C6;
       --line: rgba(27, 37, 48, .95);
-      --accent: #A3FFB0;
-      --accent2: #4CC9F0;
+      --brand: #A78BFA;
+      --brand2: #4CC9F0;
+      --ok: #34D399;
       --warn: #FFB703;
-      --shadow: 0 10px 30px rgba(0, 0, 0, .35);
-      --r: 14px;
-      --max: 1100px
-    }
-
-    @keyframes pulse {
-
-      0%,
-      100% {
-        opacity: 1
-      }
-
-      50% {
-        opacity: .6
-      }
-    }
-
-    @keyframes glow {
-
-      0%,
-      100% {
-        box-shadow: 0 0 8px var(--accent2)
-      }
-
-      50% {
-        box-shadow: 0 0 20px var(--accent2)
-      }
+      --danger: #F87171;
+      --radius: 14px;
+      --max: 1120px;
     }
 
     * {
@@ -69,13 +45,13 @@
 
     body {
       margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      background:
-        radial-gradient(1200px 700px at 20% -10%, rgba(76, 201, 240, .15), transparent 55%),
-        radial-gradient(900px 700px at 90% 0%, rgba(163, 255, 176, .12), transparent 60%), var(--bg);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(167, 139, 250, .18), transparent 60%),
+        radial-gradient(900px 500px at 80% 0%, rgba(52, 211, 153, .14), transparent 55%),
+        var(--bg);
       color: var(--text);
-      line-height: 1.55;
-      -webkit-font-smoothing: antialiased
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
     a {
@@ -84,209 +60,254 @@
     }
 
     a:hover {
-      color: var(--accent)
+      color: var(--brand2)
     }
 
     .wrap {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 22px 18px 70px
+      padding: 20px
     }
 
-    .topbar {
-      display: flex;
-      gap: 14px;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 16px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: rgba(11, 15, 20, .72);
-      backdrop-filter: blur(12px);
-      box-shadow: var(--shadow);
+    header {
       position: sticky;
-      top: 10px;
-      z-index: 20
-    }
-
-    .brand {
-      display: flex;
-      gap: 10px;
-      align-items: center
-    }
-
-    .logo {
-      width: 36px;
-      height: 36px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, rgba(163, 255, 176, .9), rgba(76, 201, 240, .9));
-      box-shadow: 0 10px 20px rgba(76, 201, 240, .25)
+      top: 0;
+      z-index: 20;
+      backdrop-filter: saturate(160%) blur(10px);
+      background: rgba(11, 15, 23, .72);
+      border-bottom: 1px solid rgba(31, 42, 68, .7);
     }
 
     .nav {
       display: flex;
-      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 14px 20px;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
       gap: 10px;
+      font-weight: 800;
+    }
+
+    .logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(52, 211, 153, .9), rgba(76, 201, 240, .9));
+      box-shadow: 0 10px 30px rgba(52, 211, 153, .25);
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
       justify-content: flex-end
     }
 
-    .chip {
-      padding: 8px 12px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(12, 18, 26, .55);
+    .navlinks a {
+      padding: 8px 10px;
+      border-radius: 10px;
       color: var(--muted);
-      font-size: 14px;
-      transition: all .2s
+      border: 1px solid transparent;
     }
 
-    .chip:hover {
-      border-color: rgba(76, 201, 240, .55);
-      color: var(--text);
-      transform: translateY(-1px)
+    .navlinks a:hover {
+      border-color: rgba(52, 211, 153, .35);
+      background: rgba(52, 211, 153, .08);
+      color: var(--text)
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(31, 42, 68, .9);
+      background: rgba(15, 22, 36, .7);
+      color: var(--muted);
+      font-size: 13px;
     }
 
     .hero {
-      padding: 34px 6px 12px
+      padding: 26px 0 8px
     }
 
-    h1 {
-      font-size: clamp(1.8rem, 3vw, 2.2rem);
+    .crumbs {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    .crumbs a {
+      color: var(--muted);
+      text-decoration: underline;
+      text-decoration-color: rgba(169, 183, 211, .35)
+    }
+
+    .hero h1 {
+      margin: 12px 0 10px;
+      font-size: clamp(28px, 3.2vw, 40px);
       line-height: 1.15;
-      margin: 0 0 10px
     }
 
-    .sub {
+    .lead {
+      max-width: 880px;
       color: var(--muted);
-      max-width: 82ch;
-      margin: 0 0 18px;
-      font-size: 1.05rem
-    }
-
-    .kicker {
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
-      color: var(--muted);
-      font-size: 14px
-    }
-
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--accent);
-      animation: glow 2s infinite
+      font-size: 16px;
+      margin: 0 0 14px
     }
 
     .grid {
       display: grid;
-      gap: 14px
+      grid-template-columns: 1.3fr .7fr;
+      gap: 16px;
+      align-items: start;
     }
 
-    @media(min-width:860px) {
-      .grid.cols3 {
-        grid-template-columns: repeat(3, 1fr)
+    @media (max-width: 920px) {
+      .grid {
+        grid-template-columns: 1fr
       }
-    }
 
-    @media(min-width:860px) {
-      .grid.cols2 {
-        grid-template-columns: repeat(2, 1fr)
+      .nav {
+        padding: 14px
       }
     }
 
     .card {
-      border: 1px solid var(--line);
-      border-radius: var(--r);
-      background: rgba(12, 18, 26, .65);
-      box-shadow: var(--shadow);
-      padding: 16px;
-      transition: all .25s;
-      position: relative
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      inset: -1px;
-      border-radius: var(--r);
-      background: linear-gradient(135deg, var(--accent2), var(--accent));
-      opacity: 0;
-      z-index: -1;
-      transition: opacity .25s
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(76, 201, 240, .5);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, .25)
-    }
-
-    .card:hover::before {
-      opacity: .15
+      background: linear-gradient(180deg, rgba(15, 22, 36, .9), rgba(12, 18, 32, .9));
+      border: 1px solid rgba(31, 42, 68, .85);
+      border-radius: var(--radius);
+      box-shadow: 0 18px 60px rgba(0, 0, 0, .35);
+      padding: 18px;
     }
 
     .card h2 {
+      margin: 0 0 12px;
       font-size: 18px;
-      margin: 0 0 8px
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
-    .card p {
-      margin: 0;
+    .card h3 {
+      margin: 16px 0 8px;
+      font-size: 16px;
+      color: var(--ok);
+    }
+
+    .toc a {
+      display: block;
+      padding: 8px 10px;
+      border-radius: 12px;
       color: var(--muted)
     }
 
-    .section {
-      margin-top: 18px
-    }
-
-    .section h2 {
-      font-size: clamp(1.2rem, 2vw, 1.4rem);
-      margin: 0 0 10px
-    }
-
-    .note {
-      border: 1px dashed rgba(76, 201, 240, .3);
-      background: rgba(12, 18, 26, .55);
-      border-radius: var(--r);
-      padding: 14px;
-      color: var(--muted)
-    }
-
-    .note b {
+    .toc a:hover {
+      background: rgba(52, 211, 153, .08);
       color: var(--text)
     }
 
-    .list {
-      margin: 10px 0 0;
-      padding-left: 18px;
+    .kicker {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 10px 0 0
+    }
+
+    .callout {
+      border-left: 3px solid rgba(52, 211, 153, .9);
+      padding: 12px 14px;
+      background: rgba(52, 211, 153, .08);
+      border-radius: 12px;
+      color: var(--muted);
+      margin: 14px 0;
+    }
+
+    .callout-warn {
+      border-left-color: var(--warn);
+      background: rgba(255, 183, 3, .08);
+    }
+
+    .callout-danger {
+      border-left-color: var(--danger);
+      background: rgba(248, 113, 113, .08);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 14px;
+    }
+
+    th,
+    td {
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid rgba(31, 42, 68, .7);
+    }
+
+    th {
+      background: rgba(15, 22, 36, .8);
+      color: var(--ok);
+      font-weight: 600;
+      position: sticky;
+      top: 60px;
+    }
+
+    tr:hover {
+      background: rgba(52, 211, 153, .04)
+    }
+
+    .positive {
+      color: var(--ok)
+    }
+
+    .negative {
+      color: var(--danger)
+    }
+
+    .neutral {
       color: var(--muted)
     }
 
-    .list li {
-      margin: 8px 0
+    .steps {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted)
     }
 
-    .ad-slot {
-      border: 1px dashed rgba(76, 201, 240, .3);
-      border-radius: var(--r);
-      padding: 16px;
-      text-align: center;
-      color: rgba(230, 238, 246, .65);
-      background: rgba(12, 18, 26, .35)
+    .steps li {
+      margin: 10px 0
+    }
+
+    code {
+      background: rgba(52, 211, 153, .12);
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-size: 13px;
+      color: var(--ok);
+    }
+
+    .hr {
+      height: 1px;
+      background: rgba(31, 42, 68, .8);
+      margin: 18px 0
     }
 
     details {
-      border: 1px solid var(--line);
-      border-radius: var(--r);
-      background: rgba(12, 18, 26, .55);
+      border: 1px solid rgba(31, 42, 68, .85);
+      border-radius: 14px;
+      background: rgba(15, 22, 36, .55);
       padding: 12px 14px;
-      transition: border-color .2s
-    }
-
-    details:hover {
-      border-color: rgba(76, 201, 240, .3)
     }
 
     details+details {
@@ -298,216 +319,600 @@
       font-weight: 700
     }
 
-    summary::-webkit-details-marker {
-      display: none
+    summary::marker {
+      color: var(--ok)
+    }
+
+    .ad-slot {
+      border: 1px dashed rgba(169, 183, 211, .35);
+      border-radius: 14px;
+      padding: 14px;
+      color: rgba(169, 183, 211, .75);
+      background: rgba(15, 22, 36, .45);
+      text-align: center;
+      font-size: 13px;
     }
 
     footer {
       margin-top: 26px;
-      padding-top: 18px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 14px;
+      border-top: 1px solid rgba(31, 42, 68, .75);
+      background: rgba(11, 15, 23, .55);
+    }
+
+    .foot {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      justify-content: space-between
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      max-width: var(--max);
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 13px;
     }
 
-    .pill {
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(12, 18, 26, .55)
-    }
-
-    .tag {
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(76, 201, 240, .25);
-      background: rgba(76, 201, 240, .10);
-      color: rgba(230, 238, 246, .9);
-      font-size: 13px
+    .foot a {
+      color: var(--muted);
+      text-decoration: underline;
+      text-decoration-color: rgba(169, 183, 211, .35)
     }
 
     @media(max-width:640px) {
-      .nav {
+      .navlinks {
         display: none
       }
 
       h1 {
-        font-size: 1.6rem !important
+        font-size: 1.5rem !important
+      }
+
+      table {
+        font-size: 12px
+      }
+
+      th,
+      td {
+        padding: 8px 6px
       }
     }
+
+    .tier-early {
+      background: rgba(52, 211, 153, .1);
+      border-color: rgba(52, 211, 153, .3)
+    }
+
+    .tier-mid {
+      background: rgba(76, 201, 240, .1);
+      border-color: rgba(76, 201, 240, .3)
+    }
+
+    .tier-late {
+      background: rgba(167, 139, 250, .1);
+      border-color: rgba(167, 139, 250, .3)
+    }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "StarRupture Food & Calories Guide – All Items & Stats",
+    "description": "Complete food guide with all consumables, stats, and crafting recipes.",
+    "datePublished": "2026-02-03",
+    "dateModified": "2026-02-03",
+    "author": { "@type": "Organization", "name": "StarRupture.net" }
+  }
+  </script>
 
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"FAQPage",
     "mainEntity":[
-      {"@type":"Question","name":"What is the best early Calories food?","acceptedAnswer":{"@type":"Answer","text":"Polifruit is a commonly recommended early food and gives 11 Calories."}},
-      {"@type":"Question","name":"What do Calorie Fluid and Calorie Gel do?","acceptedAnswer":{"@type":"Answer","text":"Calorie Fluid grants 20 Calories and 10 Toxicity; Calorie Gel grants 65 Calories."}},
-      {"@type":"Question","name":"How do I unlock Calorie Gel?","acceptedAnswer":{"@type":"Answer","text":"It is commonly unlocked via Recipe Station research requiring 60 Polifruit and 25 Grubblers."}},
-      {"@type":"Question","name":"How do I handle Toxicity while eating?","acceptedAnswer":{"@type":"Answer","text":"Keep a detox option like Purplant (removes 40 Toxicity but also removes positive effects)."}},
-      {"@type":"Question","name":"Can recipes change in Early Access?","acceptedAnswer":{"@type":"Answer","text":"Yes—always double-check your in-game Recipe Station requirements after patches."}}
+      {"@type":"Question","name":"What is the best early game food in StarRupture?","acceptedAnswer":{"@type":"Answer","text":"Polifruit is the most common early food, providing 11 Calories. It's found on orange shrubs throughout the map."}},
+      {"@type":"Question","name":"How do I unlock Calorie Gel?","acceptedAnswer":{"@type":"Answer","text":"Calorie Gel is unlocked through Recipe Station research, requiring 60 Polifruit and 25 Grubblers."}},
+      {"@type":"Question","name":"What food gives the most Calories without Toxicity?","acceptedAnswer":{"@type":"Answer","text":"Calorie Gel provides +65 Calories with no Toxicity, making it the best pure calorie source. Calorie Bar gives +50 Calories without Toxicity."}},
+      {"@type":"Question","name":"How do I reduce Toxicity from food?","acceptedAnswer":{"@type":"Answer","text":"Purfins reduce Toxicity by 70 but remove all positive effects. Clear Capsules double passive Toxicity loss for 30 minutes. Wait for natural decay if Toxicity is low."}},
+      {"@type":"Question","name":"Should I eat raw foods or craft recipes?","acceptedAnswer":{"@type":"Answer","text":"Early game, eat raw foods like Polifruit. Mid to late game, craft recipes like Calorie Gel and Nutri Gel for much higher efficiency per inventory slot."}},
+      {"@type":"Question","name":"What are Ration Packs and where do I find them?","acceptedAnswer":{"@type":"Answer","text":"Ration Packs are found in your starting landing pod. They provide sustenance without adding Toxicity, making them valuable early game."}}
     ]
   }
   </script>
 </head>
 
 <body>
-  <div class="wrap">
-    <header class="topbar">
-      <a class="brand" href="https://starrupture.net/">
+  <header>
+    <div class="nav">
+      <a class="brand" href="https://starrupture.net">
         <span class="logo" aria-hidden="true"></span>
-        <div>
-          <strong>StarRupture Guides & Tools</strong><br />
-          <span style="color:var(--muted); font-size:13px;">Calories • Updated: 2026-01-08</span>
-        </div>
+        <span>StarRupture.net</span>
       </a>
-      <nav class="nav" aria-label="Primary">
-        <a class="chip" href="https://starrupture.net/">Home</a>
-        <a class="chip" href="https://starrupture.net/guides/start-here/">Start Here</a>
-        <a class="chip" href="https://starrupture.net/guides/water-hydration/">Water</a>
-        <a class="chip" href="https://starrupture.net/troubleshooting/crash-fixes/">Crash Fixes</a>
+      <nav class="navlinks" aria-label="Primary">
+        <a href="https://starrupture.net/guides">Guides</a>
+        <a href="https://starrupture.net/guides/water-hydration">Water</a>
+        <a href="https://starrupture.net/troubleshooting">Troubleshooting</a>
+        <a href="https://starrupture.net/contact">Contact</a>
       </nav>
-    </header>
+    </div>
+  </header>
 
+  <main class="wrap">
     <section class="hero">
-      <div class="kicker"><span class="dot"></span> Guide • Food & Calories</div>
-      <h1>Food & Calories (StarRupture)</h1>
-      <p class="sub">
-        If you’re constantly forced to stop and forage, you don’t have a “skill” problem—you have a Calories pipeline
-        problem.
-        This guide helps you stabilize early Calories and then upgrade to higher-value consumables.
+      <div class="kicker">
+        <span class="pill">Guide</span>
+        <span class="pill">Survival</span>
+        <span class="pill">Verified: <time datetime="2026-02-03">Feb 3, 2026</time></span>
+        <span class="pill">v0.1.3</span>
+      </div>
+
+      <div class="crumbs">
+        <a href="https://starrupture.net">Home</a> →
+        <a href="https://starrupture.net/guides">Guides</a> →
+        Food & Calories
+      </div>
+
+      <h1>StarRupture Food & Calories Guide</h1>
+      <p class="lead">
+        Complete food guide with all consumables, stats, and crafting tips.
+        Learn what to eat early game, how to unlock better foods, and how to manage Toxicity.
       </p>
-
-      <div class="grid cols3">
-        <div class="card">
-          <h2>Quick Answer</h2>
-          <p>Eat <span class="tag">Polifruit</span> for an early Calories bump (<b>11 Calories</b>).</p>
-        </div>
-        <div class="card">
-          <h2>Upgrade Path</h2>
-          <p>Use Recipe Station research to unlock <span class="tag">Calorie Fluid</span> → <span class="tag">Calorie
-              Gel</span>.</p>
-        </div>
-        <div class="card">
-          <h2>Plan around Toxicity</h2>
-          <p>Some high-value consumables add Toxicity. Keep a detox plan ready.</p>
-        </div>
-      </div>
     </section>
 
-    <!-- AdSense: place a unit after the routing cards -->
-    <div class="ad-slot section">Ad Slot (responsive) — place AdSense unit here</div>
+    <div class="grid">
+      <!-- Main Content -->
+      <article class="card">
+        <h2 id="quick">⚡ Quick Answer</h2>
+        <div class="callout">
+          <strong style="color:var(--text)">Early Game:</strong> Eat <code>Polifruit</code> (+11 Calories) from orange
+          shrubs.<br>
+          <strong style="color:var(--text)">Mid Game:</strong> Craft <code>Calorie Gel</code> (+65 Calories, no
+          Toxicity).<br>
+          <strong style="color:var(--text)">Late Game:</strong> Use <code>Nutri Gel</code> (+40 Cal, +50 Hydration) for
+          efficiency.
+        </div>
 
-    <section class="section">
-      <h2>Beginner calories loop (simple, repeatable)</h2>
-      <div class="note">
-        <b>Rule:</b> don’t “eat whatever” and hope it works—set a minimum carry.
-        A good early target is to keep enough Calories to finish your current run and still get home safely.
+        <div class="hr"></div>
+
+        <h2 id="raw">🍎 Raw Food Items</h2>
+        <p class="lead" style="margin-top:0">Foraged items found in the world. No crafting required.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Calories</th>
+              <th>Hydration</th>
+              <th>HP</th>
+              <th>Toxicity</th>
+              <th>Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Polifruit</strong></td>
+              <td class="positive">+11</td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td>Orange shrubs (common)</td>
+            </tr>
+            <tr>
+              <td><strong>Hydrobulbs</strong></td>
+              <td class="neutral">—</td>
+              <td class="positive">+15</td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td>Glowing blue plants near water</td>
+            </tr>
+            <tr>
+              <td><strong>Pricklers</strong></td>
+              <td class="positive">+?</td>
+              <td class="positive">+?</td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td>Purple cacti (orange fruits)</td>
+            </tr>
+            <tr>
+              <td><strong>Star Tears</strong></td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td class="positive">+15</td>
+              <td class="negative">+5</td>
+              <td>Various locations</td>
+            </tr>
+            <tr>
+              <td><strong>Ration Packs</strong></td>
+              <td class="positive">+?</td>
+              <td class="positive">+?</td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td>Starting pod (limited)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout">
+          <strong style="color:var(--text)">Tip:</strong> Ration Packs from your landing pod are toxicity-free — save
+          them for emergencies.
+        </div>
+
+        <div class="hr"></div>
+
+        <h2 id="calorie">🍖 Calorie-Focused Crafted Foods</h2>
+        <p class="lead" style="margin-top:0">Unlocked via Recipe Station. Made at Food Station.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Calories</th>
+              <th>Hydration</th>
+              <th>HP</th>
+              <th>Toxicity</th>
+              <th>Special</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Poli Snack</strong></td>
+              <td class="positive">+35</td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td><strong>Calorie Chew</strong></td>
+              <td class="positive">+40</td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td><strong>Calorie Bar</strong></td>
+              <td class="positive">+50</td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td>—</td>
+            </tr>
+            <tr class="tier-mid">
+              <td><strong>⭐ Calorie Gel</strong></td>
+              <td class="positive">+65</td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td>Best pure calorie source</td>
+            </tr>
+            <tr>
+              <td><strong>Calorie Fluid</strong></td>
+              <td class="positive">+20</td>
+              <td class="neutral">—</td>
+              <td class="positive">+30</td>
+              <td class="negative">+20</td>
+              <td>Heals + feeds</td>
+            </tr>
+            <tr>
+              <td><strong>Calorie Block Capsules</strong></td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td class="negative">+45</td>
+              <td>Stops calorie loss 60 min</td>
+            </tr>
+            <tr>
+              <td><strong>Calorie Stim Shards</strong></td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td class="negative">+45</td>
+              <td>+50% calorie limit 45 min</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="hr"></div>
+
+        <h2 id="nutri">🥗 Nutri Foods (Balanced)</h2>
+        <p class="lead" style="margin-top:0">Provide both Calories and Hydration — great for inventory efficiency.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Calories</th>
+              <th>Hydration</th>
+              <th>HP</th>
+              <th>Toxicity</th>
+              <th>Special</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Nutri Chew</strong></td>
+              <td class="positive">+30</td>
+              <td class="positive">+40</td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td><strong>Nutri Fluid</strong></td>
+              <td class="positive">+10</td>
+              <td class="positive">+15</td>
+              <td class="positive">+30</td>
+              <td class="neutral">—</td>
+              <td>Heals too</td>
+            </tr>
+            <tr class="tier-late">
+              <td><strong>⭐ Nutri Gel</strong></td>
+              <td class="positive">+40</td>
+              <td class="positive">+50</td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td>Best balanced food</td>
+            </tr>
+            <tr>
+              <td><strong>Nutri Stim Shards</strong></td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td class="negative">+45</td>
+              <td>+30% Cal/Hydration limits</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="hr"></div>
+
+        <div class="ad-slot" aria-label="Ad placeholder">
+          <!-- AdSense unit placeholder -->
+        </div>
+
+        <div class="hr"></div>
+
+        <h2 id="health">❤️ Health & Buff Foods</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>HP</th>
+              <th>Toxicity</th>
+              <th>Special Effect</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Star Bites</strong></td>
+              <td class="positive">+55</td>
+              <td class="negative">+10</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td><strong>Health Shards</strong></td>
+              <td class="positive">+80</td>
+              <td class="negative">+40</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td><strong>Regen Capsules</strong></td>
+              <td class="neutral">—</td>
+              <td class="negative">+30</td>
+              <td>+1 HP/8s for 10 min</td>
+            </tr>
+            <tr>
+              <td><strong>Sulbon</strong></td>
+              <td class="neutral">—</td>
+              <td class="negative">+40</td>
+              <td>+25% max HP for 20 min</td>
+            </tr>
+            <tr>
+              <td><strong>Serpent Sticks</strong></td>
+              <td class="neutral">—</td>
+              <td class="negative">+30</td>
+              <td>2x energy regen 40 min</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="hr"></div>
+
+        <h2 id="toxicity">☠️ Toxicity Management</h2>
+        <p class="lead" style="margin-top:0">High Toxicity reduces shield regen and can cause damage. Keep it in check.
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>HP</th>
+              <th>Toxicity</th>
+              <th>Side Effect</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="tier-early">
+              <td><strong>⭐ Purfins</strong></td>
+              <td class="neutral">—</td>
+              <td class="positive">-70</td>
+              <td>Removes all positive effects</td>
+            </tr>
+            <tr>
+              <td><strong>Antidote Shards</strong></td>
+              <td class="positive">+60</td>
+              <td class="positive">-40</td>
+              <td>Removes all positive effects</td>
+            </tr>
+            <tr>
+              <td><strong>Clear Capsules</strong></td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td>2x passive toxicity loss 30 min</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout callout-warn">
+          <strong style="color:var(--text)">Warning:</strong> Purfins and Antidote Shards remove ALL positive effects.
+          Use them only when your buffs have expired or when Toxicity is critical.
+        </div>
+
+        <div class="hr"></div>
+
+        <h2 id="progression">📈 Food Progression</h2>
+
+        <h3>Early Game (First 30 min)</h3>
+        <ol class="steps">
+          <li>Eat <strong>Ration Packs</strong> from landing pod (no Toxicity)</li>
+          <li>Forage <strong>Polifruit</strong> (+11 Cal) as you explore</li>
+          <li>Keep <strong>Hydrobulbs</strong> for hydration</li>
+          <li>Bank surplus food at base</li>
+        </ol>
+
+        <h3>Mid Game (Recipe Station unlocked)</h3>
+        <ol class="steps">
+          <li>Research <strong>Calorie Gel</strong> (60 Polifruit + 25 Grubblers)</li>
+          <li>Set up Food Station production</li>
+          <li>Switch from raw foods to crafted consumables</li>
+          <li>Keep <strong>Purfins</strong> for Toxicity emergencies</li>
+        </ol>
+
+        <h3>Late Game (Extended runs)</h3>
+        <ol class="steps">
+          <li>Use <strong>Nutri Gel</strong> for inventory efficiency</li>
+          <li>Stack <strong>Calorie Block Capsules</strong> for long exploration</li>
+          <li>Bring <strong>Clear Capsules</strong> for passive Toxicity decay</li>
+        </ol>
+
+        <div class="hr"></div>
+
+        <h2 id="tips">💡 Tips & Best Practices</h2>
+        <ul class="steps">
+          <li><strong>Don't wait until empty:</strong> Eat when Calories drop below 30% to avoid panic foraging</li>
+          <li><strong>Balance, don't spam:</strong> High-Toxicity foods are fine occasionally, not every meal</li>
+          <li><strong>Bank food at base:</strong> Always have a food reserve for respawns and emergencies</li>
+          <li><strong>Inventory efficiency:</strong> Nutri Gel replaces carrying separate food and water</li>
+          <li><strong>Plan for long trips:</strong> Calorie Block Capsules + Aqua Block Capsules = 45+ min worry-free
+          </li>
+        </ul>
+
+        <div class="hr"></div>
+
+        <h2 id="faq">❓ FAQ</h2>
+
+        <details>
+          <summary>What is the best early game food?</summary>
+          <p class="lead">Polifruit (+11 Calories) is everywhere and has no Toxicity. Ration Packs from your landing pod
+            are even better but limited.</p>
+        </details>
+
+        <details>
+          <summary>How do I unlock Calorie Gel?</summary>
+          <p class="lead">Research it at the Recipe Station. Common requirements: 60 Polifruit + 25 Grubblers. Check
+            your in-game UI as costs may vary by patch.</p>
+        </details>
+
+        <details>
+          <summary>What food gives the most Calories without Toxicity?</summary>
+          <p class="lead">Calorie Gel (+65 Cal) and Calorie Bar (+50 Cal) have no Toxicity. For balanced stats, Nutri
+            Gel (+40 Cal, +50 Hydration) is excellent.</p>
+        </details>
+
+        <details>
+          <summary>How do I reduce Toxicity?</summary>
+          <p class="lead">Purfins (-70 Toxicity) are the strongest cleanser. Antidote Shards give +60 HP and -40
+            Toxicity. Both remove positive buffs, so time them carefully.</p>
+        </details>
+
+        <details>
+          <summary>Is it better to eat raw or crafted foods?</summary>
+          <p class="lead">Early game, raw foods are fine. Mid to late game, crafted foods are significantly more
+            efficient (Calorie Gel = ~6x a Polifruit per slot).</p>
+        </details>
+
+        <details>
+          <summary>My recipe costs don't match this guide. Why?</summary>
+          <p class="lead">StarRupture is in Early Access. Recipe costs may change between patches. Always check your
+            in-game Recipe Station for current requirements.</p>
+        </details>
+
+        <div class="hr"></div>
+
+        <p class="lead" style="font-size:14px">
+          <strong>Related:</strong>
+          <a href="https://starrupture.net/guides/water-hydration" style="text-decoration:underline">Water &
+            Hydration</a> ·
+          <a href="https://starrupture.net/guides/start-here" style="text-decoration:underline">Start Here</a> ·
+          <a href="https://starrupture.net/troubleshooting" style="text-decoration:underline">Troubleshooting</a>
+        </p>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="card toc" aria-label="On this page">
+        <h2>On this page</h2>
+        <a href="#quick">⚡ Quick Answer</a>
+        <a href="#raw">🍎 Raw Foods</a>
+        <a href="#calorie">🍖 Calorie Foods</a>
+        <a href="#nutri">🥗 Nutri Foods</a>
+        <a href="#health">❤️ Health & Buffs</a>
+        <a href="#toxicity">☠️ Toxicity</a>
+        <a href="#progression">📈 Progression</a>
+        <a href="#tips">💡 Tips</a>
+        <a href="#faq">❓ FAQ</a>
+
+        <div class="hr"></div>
+
+        <h2>Quick Stats</h2>
+        <table style="font-size:12px;margin:8px 0">
+          <tr>
+            <td>Best Early</td>
+            <td>Polifruit</td>
+          </tr>
+          <tr>
+            <td>Best Cal</td>
+            <td>Calorie Gel (+65)</td>
+          </tr>
+          <tr>
+            <td>Best Balanced</td>
+            <td>Nutri Gel</td>
+          </tr>
+          <tr>
+            <td>Detox</td>
+            <td>Purfins (-70)</td>
+          </tr>
+        </table>
+
+        <div class="hr"></div>
+
+        <h2>Related Pages</h2>
+        <a href="https://starrupture.net/guides/water-hydration">Water & Hydration</a>
+        <a href="https://starrupture.net/guides/start-here">Start Here</a>
+        <a href="https://starrupture.net/guides">All Guides</a>
+
+        <div class="hr"></div>
+
+        <div class="callout" style="margin:0">
+          <strong style="color:var(--text)">Version:</strong> 0.1.3<br>
+          <strong style="color:var(--text)">Verified:</strong> Feb 3, 2026
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <div class="foot">
+      <div>© <span id="y"></span> StarRupture.net · Unofficial fan site</div>
+      <div>
+        <a href="https://starrupture.net/privacy-policy">Privacy Policy</a> ·
+        <a href="https://starrupture.net/disclaimer">Disclaimer</a> ·
+        <a href="https://starrupture.net/contact">Contact</a>
       </div>
-      <ol class="list">
-        <li><b>Carry Polifruit</b> as your baseline (11 Calories each).</li>
-        <li>Bank surplus food at base so your next run starts stocked, not desperate.</li>
-        <li>As soon as you can, push toward Recipe Station unlocks for higher-value calories.</li>
-      </ol>
-    </section>
+    </div>
+  </footer>
 
-    <section class="section">
-      <h2>Early staple: Polifruit</h2>
-      <div class="grid cols2">
-        <div class="card">
-          <h2>Polifruit</h2>
-          <p><b>+11 Calories</b>. Great early staple because it’s straightforward: eat it, keep moving.</p>
-        </div>
-        <div class="card">
-          <h2>Pair with Hydration</h2>
-          <p>Calories stability is half the story—if Hydration keeps collapsing, you’ll still feel “stuck.” Use the
-            Water page to keep both bars stable.</p>
-          <p style="margin-top:10px;"><a class="chip" href="https://starrupture.net/guides/water-hydration/">Open Water
-              & Hydration →</a></p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>First upgrades: Calorie Fluid & Calorie Gel</h2>
-      <div class="note">
-        These are popular “quality of life” unlocks once Recipe Station research becomes available.
-        Since Early Access balance can shift, always confirm in-game requirements when you research.
-      </div>
-
-      <div class="grid cols2">
-        <div class="card">
-          <h2>Calorie Fluid (effect)</h2>
-          <p><b>+20 Calories</b> and <b>+10 Toxicity</b>. Stronger than basic foods, but don’t chain-consume if Toxicity
-            is already high.</p>
-          <ul class="list">
-            <li><b>Research requirement (common):</b> Star Tears + Polifruit (sources agree on Star Tears being 20;
-              Polifruit count may vary by build/source, so check your UI)</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h2>Calorie Gel (effect)</h2>
-          <p><b>+65 Calories</b>. Big refill—ideal for longer runs where you don’t want to stop foraging.</p>
-          <ul class="list">
-            <li><b>Research requirement (commonly listed):</b> 60 Polifruit + 25 Grubblers</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Toxicity: keep a cleanup button</h2>
-      <div class="grid cols2">
-        <div class="card">
-          <h2>Purplant</h2>
-          <p>Removes <b>40 Toxicity</b> and removes positive effects. Use it after your buffs have done their job.</p>
-        </div>
-        <div class="card">
-          <h2>Practical rule</h2>
-          <p>Don’t “solve calories” by stacking Toxicity. It’s better to eat slightly more basic food than to spiral
-            into detox cycles.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>FAQ</h2>
-      <details>
-        <summary>Should I rush Calorie Gel?</summary>
-        <p class="sub">If your runs are constantly interrupted by eating, yes—Calorie Gel is a major convenience
-          upgrade.</p>
-      </details>
-      <details>
-        <summary>Why do high-value items come with Toxicity?</summary>
-        <p class="sub">It’s a balancing lever. Treat Toxicity as a budget: spend it when it saves your run, then reset
-          safely.</p>
-      </details>
-      <details>
-        <summary>My research cost doesn’t match this page—what now?</summary>
-        <p class="sub">Follow your in-game Recipe Station UI. Early Access changes can alter costs and even names.</p>
-      </details>
-    </section>
-
-    <!-- AdSense: a unit here is usually safe (after FAQ) -->
-    <div class="ad-slot section">Ad Slot (responsive) — place AdSense unit here</div>
-
-    <footer>
-      <div class="pill">Next: <a href="https://starrupture.net/troubleshooting/crash-fixes/">Crash Fixes</a></div>
-      <div class="pill"><a href="https://starrupture.net/guides/start-here/">← Start Here</a> · <a
-          href="https://starrupture.net/guides/water-hydration/">Water →</a></div>
-    </footer>
-  </div>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 
 </html>

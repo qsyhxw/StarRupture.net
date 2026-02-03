@@ -4,20 +4,20 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Water & Hydration Guide (StarRupture) — Hydrobulb, Aqua Fluid, Aqua Gel</title>
+  <title>StarRupture Water & Hydration Guide – All Drinks, Stats, Recipes (v0.1.3)</title>
   <meta name="description"
-    content="Fix hydration fast in StarRupture: best early consumables (Hydrobulb), toxicity-safe habits, and what to unlock next (Aqua Fluid / Aqua Gel) via Recipe Station research." />
+    content="Complete StarRupture hydration guide: all drinks with Hydration, Calories, Toxicity stats. Hydrobulbs, Aqua Gel, crafted fluids, and dehydration solutions." />
   <link rel="canonical" href="https://starrupture.net/guides/water-hydration" />
 
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8830315294299920"
     crossorigin="anonymous"></script>
 
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Water & Hydration Guide (StarRupture)" />
+  <meta property="og:title" content="StarRupture Water & Hydration Guide – All Drinks & Stats" />
   <meta property="og:description"
-    content="No-fluff hydration: what to eat now, what to unlock next, and how to manage toxicity." />
+    content="Complete hydration guide with all consumables, stats, and crafting recipes." />
   <meta property="og:url" content="https://starrupture.net/guides/water-hydration" />
-  <meta name="theme-color" content="#0b1020" />
+  <meta name="theme-color" content="#0b0f14" />
 
   <style>
     :root {
@@ -27,36 +27,13 @@
       --text: #E6EEF6;
       --muted: #A9B6C6;
       --line: rgba(27, 37, 48, .95);
-      --accent: #A3FFB0;
-      --accent2: #4CC9F0;
+      --brand: #A78BFA;
+      --brand2: #4CC9F0;
+      --ok: #34D399;
       --warn: #FFB703;
-      --shadow: 0 10px 30px rgba(0, 0, 0, .35);
-      --r: 14px;
-      --max: 1100px
-    }
-
-    @keyframes pulse {
-
-      0%,
-      100% {
-        opacity: 1
-      }
-
-      50% {
-        opacity: .6
-      }
-    }
-
-    @keyframes glow {
-
-      0%,
-      100% {
-        box-shadow: 0 0 8px var(--accent2)
-      }
-
-      50% {
-        box-shadow: 0 0 20px var(--accent2)
-      }
+      --danger: #F87171;
+      --radius: 14px;
+      --max: 1120px;
     }
 
     * {
@@ -69,13 +46,13 @@
 
     body {
       margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      background:
-        radial-gradient(1200px 700px at 20% -10%, rgba(76, 201, 240, .15), transparent 55%),
-        radial-gradient(900px 700px at 90% 0%, rgba(163, 255, 176, .12), transparent 60%), var(--bg);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(76, 201, 240, .18), transparent 60%),
+        radial-gradient(900px 500px at 80% 0%, rgba(52, 211, 153, .14), transparent 55%),
+        var(--bg);
       color: var(--text);
-      line-height: 1.55;
-      -webkit-font-smoothing: antialiased
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
     a {
@@ -84,209 +61,254 @@
     }
 
     a:hover {
-      color: var(--accent)
+      color: var(--brand2)
     }
 
     .wrap {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 22px 18px 70px
+      padding: 20px
     }
 
-    .topbar {
-      display: flex;
-      gap: 14px;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 16px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: rgba(11, 15, 20, .72);
-      backdrop-filter: blur(12px);
-      box-shadow: var(--shadow);
+    header {
       position: sticky;
-      top: 10px;
-      z-index: 20
-    }
-
-    .brand {
-      display: flex;
-      gap: 10px;
-      align-items: center
-    }
-
-    .logo {
-      width: 36px;
-      height: 36px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, rgba(163, 255, 176, .9), rgba(76, 201, 240, .9));
-      box-shadow: 0 10px 20px rgba(76, 201, 240, .25)
+      top: 0;
+      z-index: 20;
+      backdrop-filter: saturate(160%) blur(10px);
+      background: rgba(11, 15, 23, .72);
+      border-bottom: 1px solid rgba(31, 42, 68, .7);
     }
 
     .nav {
       display: flex;
-      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 14px 20px;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
       gap: 10px;
+      font-weight: 800;
+    }
+
+    .logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(76, 201, 240, .9), rgba(52, 211, 153, .9));
+      box-shadow: 0 10px 30px rgba(76, 201, 240, .25);
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
       justify-content: flex-end
     }
 
-    .chip {
-      padding: 8px 12px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(12, 18, 26, .55);
+    .navlinks a {
+      padding: 8px 10px;
+      border-radius: 10px;
       color: var(--muted);
-      font-size: 14px;
-      transition: all .2s
+      border: 1px solid transparent;
     }
 
-    .chip:hover {
-      border-color: rgba(76, 201, 240, .55);
-      color: var(--text);
-      transform: translateY(-1px)
+    .navlinks a:hover {
+      border-color: rgba(76, 201, 240, .35);
+      background: rgba(76, 201, 240, .08);
+      color: var(--text)
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(31, 42, 68, .9);
+      background: rgba(15, 22, 36, .7);
+      color: var(--muted);
+      font-size: 13px;
     }
 
     .hero {
-      padding: 34px 6px 12px
+      padding: 26px 0 8px
     }
 
-    h1 {
-      font-size: clamp(1.8rem, 3vw, 2.2rem);
+    .crumbs {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    .crumbs a {
+      color: var(--muted);
+      text-decoration: underline;
+      text-decoration-color: rgba(169, 183, 211, .35)
+    }
+
+    .hero h1 {
+      margin: 12px 0 10px;
+      font-size: clamp(28px, 3.2vw, 40px);
       line-height: 1.15;
-      margin: 0 0 10px
     }
 
-    .sub {
+    .lead {
+      max-width: 880px;
       color: var(--muted);
-      max-width: 82ch;
-      margin: 0 0 18px;
-      font-size: 1.05rem
-    }
-
-    .kicker {
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
-      color: var(--muted);
-      font-size: 14px
-    }
-
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--accent);
-      animation: glow 2s infinite
+      font-size: 16px;
+      margin: 0 0 14px
     }
 
     .grid {
       display: grid;
-      gap: 14px
+      grid-template-columns: 1.3fr .7fr;
+      gap: 16px;
+      align-items: start;
     }
 
-    @media(min-width:860px) {
-      .grid.cols3 {
-        grid-template-columns: repeat(3, 1fr)
+    @media (max-width: 920px) {
+      .grid {
+        grid-template-columns: 1fr
       }
-    }
 
-    @media(min-width:860px) {
-      .grid.cols2 {
-        grid-template-columns: repeat(2, 1fr)
+      .nav {
+        padding: 14px
       }
     }
 
     .card {
-      border: 1px solid var(--line);
-      border-radius: var(--r);
-      background: rgba(12, 18, 26, .65);
-      box-shadow: var(--shadow);
-      padding: 16px;
-      transition: all .25s;
-      position: relative
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      inset: -1px;
-      border-radius: var(--r);
-      background: linear-gradient(135deg, var(--accent2), var(--accent));
-      opacity: 0;
-      z-index: -1;
-      transition: opacity .25s
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(76, 201, 240, .5);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, .25)
-    }
-
-    .card:hover::before {
-      opacity: .15
+      background: linear-gradient(180deg, rgba(15, 22, 36, .9), rgba(12, 18, 32, .9));
+      border: 1px solid rgba(31, 42, 68, .85);
+      border-radius: var(--radius);
+      box-shadow: 0 18px 60px rgba(0, 0, 0, .35);
+      padding: 18px;
     }
 
     .card h2 {
+      margin: 0 0 12px;
       font-size: 18px;
-      margin: 0 0 8px
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
-    .card p {
-      margin: 0;
+    .card h3 {
+      margin: 16px 0 8px;
+      font-size: 16px;
+      color: var(--brand2);
+    }
+
+    .toc a {
+      display: block;
+      padding: 8px 10px;
+      border-radius: 12px;
       color: var(--muted)
     }
 
-    .section {
-      margin-top: 18px
-    }
-
-    .section h2 {
-      font-size: clamp(1.2rem, 2vw, 1.4rem);
-      margin: 0 0 10px
-    }
-
-    .note {
-      border: 1px dashed rgba(76, 201, 240, .3);
-      background: rgba(12, 18, 26, .55);
-      border-radius: var(--r);
-      padding: 14px;
-      color: var(--muted)
-    }
-
-    .note b {
+    .toc a:hover {
+      background: rgba(76, 201, 240, .08);
       color: var(--text)
     }
 
-    .list {
-      margin: 10px 0 0;
-      padding-left: 18px;
+    .kicker {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 10px 0 0
+    }
+
+    .callout {
+      border-left: 3px solid rgba(76, 201, 240, .9);
+      padding: 12px 14px;
+      background: rgba(76, 201, 240, .08);
+      border-radius: 12px;
+      color: var(--muted);
+      margin: 14px 0;
+    }
+
+    .callout-warn {
+      border-left-color: var(--warn);
+      background: rgba(255, 183, 3, .08);
+    }
+
+    .callout-ok {
+      border-left-color: var(--ok);
+      background: rgba(52, 211, 153, .08);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 14px;
+    }
+
+    th,
+    td {
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid rgba(31, 42, 68, .7);
+    }
+
+    th {
+      background: rgba(15, 22, 36, .8);
+      color: var(--brand2);
+      font-weight: 600;
+      position: sticky;
+      top: 60px;
+    }
+
+    tr:hover {
+      background: rgba(76, 201, 240, .04)
+    }
+
+    .positive {
+      color: var(--ok)
+    }
+
+    .negative {
+      color: var(--danger)
+    }
+
+    .neutral {
       color: var(--muted)
     }
 
-    .list li {
-      margin: 8px 0
+    .steps {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted)
     }
 
-    .ad-slot {
-      border: 1px dashed rgba(76, 201, 240, .3);
-      border-radius: var(--r);
-      padding: 16px;
-      text-align: center;
-      color: rgba(230, 238, 246, .65);
-      background: rgba(12, 18, 26, .35)
+    .steps li {
+      margin: 10px 0
+    }
+
+    code {
+      background: rgba(76, 201, 240, .12);
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-size: 13px;
+      color: var(--brand2);
+    }
+
+    .hr {
+      height: 1px;
+      background: rgba(31, 42, 68, .8);
+      margin: 18px 0
     }
 
     details {
-      border: 1px solid var(--line);
-      border-radius: var(--r);
-      background: rgba(12, 18, 26, .55);
+      border: 1px solid rgba(31, 42, 68, .85);
+      border-radius: 14px;
+      background: rgba(15, 22, 36, .55);
       padding: 12px 14px;
-      transition: border-color .2s
-    }
-
-    details:hover {
-      border-color: rgba(76, 201, 240, .3)
     }
 
     details+details {
@@ -298,214 +320,538 @@
       font-weight: 700
     }
 
-    summary::-webkit-details-marker {
-      display: none
+    summary::marker {
+      color: var(--brand2)
+    }
+
+    .ad-slot {
+      border: 1px dashed rgba(169, 183, 211, .35);
+      border-radius: 14px;
+      padding: 14px;
+      color: rgba(169, 183, 211, .75);
+      background: rgba(15, 22, 36, .45);
+      text-align: center;
+      font-size: 13px;
     }
 
     footer {
       margin-top: 26px;
-      padding-top: 18px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 14px;
+      border-top: 1px solid rgba(31, 42, 68, .75);
+      background: rgba(11, 15, 23, .55);
+    }
+
+    .foot {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      justify-content: space-between
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      max-width: var(--max);
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 13px;
     }
 
-    .pill {
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(12, 18, 26, .55)
-    }
-
-    .tag {
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(163, 255, 176, .25);
-      background: rgba(163, 255, 176, .10);
-      color: rgba(230, 238, 246, .9);
-      font-size: 13px
+    .foot a {
+      color: var(--muted);
+      text-decoration: underline;
+      text-decoration-color: rgba(169, 183, 211, .35)
     }
 
     @media(max-width:640px) {
-      .nav {
+      .navlinks {
         display: none
       }
 
       h1 {
-        font-size: 1.6rem !important
+        font-size: 1.5rem !important
+      }
+
+      table {
+        font-size: 12px
+      }
+
+      th,
+      td {
+        padding: 8px 6px
       }
     }
+
+    .tier-early {
+      background: rgba(52, 211, 153, .1);
+      border-color: rgba(52, 211, 153, .3)
+    }
+
+    .tier-mid {
+      background: rgba(76, 201, 240, .1);
+      border-color: rgba(76, 201, 240, .3)
+    }
+
+    .tier-late {
+      background: rgba(167, 139, 250, .1);
+      border-color: rgba(167, 139, 250, .3)
+    }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "StarRupture Water & Hydration Guide – All Drinks & Stats",
+    "description": "Complete hydration guide with all consumables, stats, and crafting recipes.",
+    "datePublished": "2026-02-03",
+    "dateModified": "2026-02-03",
+    "author": { "@type": "Organization", "name": "StarRupture.net" }
+  }
+  </script>
 
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"FAQPage",
     "mainEntity":[
-      {"@type":"Question","name":"What is the fastest early Hydration item?","acceptedAnswer":{"@type":"Answer","text":"Hydrobulb is a commonly recommended early consumable, giving 15 Hydration."}},
-      {"@type":"Question","name":"What do Aqua Fluid and Aqua Gel do?","acceptedAnswer":{"@type":"Answer","text":"Aqua Fluid grants 28 Hydration and 10 Toxicity; Aqua Gel grants 75 Hydration."}},
-      {"@type":"Question","name":"How do I unlock Aqua Fluid / Aqua Gel?","acceptedAnswer":{"@type":"Answer","text":"They are typically unlocked via Recipe Station research costs (Aqua Fluid: 30 Hydrobulbs + 20 Star Tears; Aqua Gel: 60 Hydrobulbs + 25 Grubblers)."}},
-      {"@type":"Question","name":"How do I reduce Toxicity?","acceptedAnswer":{"@type":"Answer","text":"Purplant removes 40 Toxicity but also removes positive effects, so use it when you’re done benefiting from buffs."}},
-      {"@type":"Question","name":"Is this guide version-sensitive?","acceptedAnswer":{"@type":"Answer","text":"Yes. StarRupture is in Early Access, so balance and recipes can change—double-check your in-game tooltips if anything differs."}}
+      {"@type":"Question","name":"What is the best early game hydration source in StarRupture?","acceptedAnswer":{"@type":"Answer","text":"Hydrobulbs are the most common early hydration source, providing +15 Hydration. They're glowing blue plants found near water."}},
+      {"@type":"Question","name":"How do I unlock Aqua Gel?","acceptedAnswer":{"@type":"Answer","text":"Aqua Gel is unlocked through Recipe Station research after completing certain corporate contracts."}},
+      {"@type":"Question","name":"What drink gives the most Hydration without Toxicity?","acceptedAnswer":{"@type":"Answer","text":"Aqua Chew provides +100 Hydration with no Toxicity. Aqua Bar gives +50 Hydration without Toxicity."}},
+      {"@type":"Question","name":"Should I prioritize Hydration or Calories?","acceptedAnswer":{"@type":"Answer","text":"Both are equally important. Hydration typically depletes faster in hot biomes. Use Nutri items for balanced replenishment."}},
+      {"@type":"Question","name":"What are Aqua Block Capsules?","acceptedAnswer":{"@type":"Answer","text":"Aqua Block Capsules prevent Hydration loss for 45 minutes but add +45 Toxicity. Great for long exploration runs."}},
+      {"@type":"Question","name":"Do Pricklers restore both Calories and Hydration?","acceptedAnswer":{"@type":"Answer","text":"Yes, Pricklers from purple cacti provide both Calories and Hydration, making them efficient early game finds."}}
     ]
   }
   </script>
 </head>
 
 <body>
-  <div class="wrap">
-    <header class="topbar">
-      <a class="brand" href="https://starrupture.net/">
+  <header>
+    <div class="nav">
+      <a class="brand" href="https://starrupture.net">
         <span class="logo" aria-hidden="true"></span>
-        <div>
-          <strong>StarRupture Guides & Tools</strong><br />
-          <span style="color:var(--muted); font-size:13px;">Hydration • Updated: 2026-01-08</span>
-        </div>
+        <span>StarRupture.net</span>
       </a>
-      <nav class="nav" aria-label="Primary">
-        <a class="chip" href="https://starrupture.net/">Home</a>
-        <a class="chip" href="https://starrupture.net/guides/start-here/">Start Here</a>
-        <a class="chip" href="https://starrupture.net/guides/food-calories/">Food</a>
-        <a class="chip" href="https://starrupture.net/troubleshooting/crash-fixes/">Crash Fixes</a>
+      <nav class="navlinks" aria-label="Primary">
+        <a href="https://starrupture.net/guides">Guides</a>
+        <a href="https://starrupture.net/guides/food-calories">Food</a>
+        <a href="https://starrupture.net/troubleshooting">Troubleshooting</a>
+        <a href="https://starrupture.net/contact">Contact</a>
       </nav>
-    </header>
+    </div>
+  </header>
 
+  <main class="wrap">
     <section class="hero">
-      <div class="kicker"><span class="dot"></span> Guide • Water & Hydration</div>
-      <h1>Water & Hydration (StarRupture)</h1>
-      <p class="sub">
-        Goal: help a new player fix Hydration in <b>under 5 minutes</b>, then point you toward the first “real”
-        upgrades.
-        Early Access warning: if your in-game UI disagrees with any numbers, treat the UI as the final truth.
+      <div class="kicker">
+        <span class="pill">Guide</span>
+        <span class="pill">Survival</span>
+        <span class="pill">Verified: <time datetime="2026-02-03">Feb 3, 2026</time></span>
+        <span class="pill">v0.1.3</span>
+      </div>
+
+      <div class="crumbs">
+        <a href="https://starrupture.net">Home</a> →
+        <a href="https://starrupture.net/guides">Guides</a> →
+        Water & Hydration
+      </div>
+
+      <h1>StarRupture Water & Hydration Guide</h1>
+      <p class="lead">
+        Complete hydration guide with all drinks, stats, and crafting tips.
+        Learn what to drink early game, how to unlock better fluids, and manage dehydration in hot biomes.
       </p>
-
-      <div class="grid cols3">
-        <div class="card">
-          <h2>Quick Answer</h2>
-          <p>Eat <span class="tag">Hydrobulb</span> for a fast Hydration bump (<b>15 Hydration</b>).</p>
-        </div>
-        <div class="card">
-          <h2>Upgrade Path</h2>
-          <p>Unlock better drinks via <b>Recipe Station</b> research: <span class="tag">Aqua Fluid</span> → <span
-              class="tag">Aqua Gel</span>.</p>
-        </div>
-        <div class="card">
-          <h2>Don’t Ignore Toxicity</h2>
-          <p>Some consumables add Toxicity. Keep a “cleanup” option ready (e.g., <span class="tag">Purplant</span>).</p>
-        </div>
-      </div>
     </section>
 
-    <!-- AdSense: place a responsive unit here (after quick routing, before step-by-step) -->
-    <div class="ad-slot section">Ad Slot (responsive) — place AdSense unit here</div>
+    <div class="grid">
+      <!-- Main Content -->
+      <article class="card">
+        <h2 id="quick">⚡ Quick Answer</h2>
+        <div class="callout">
+          <strong style="color:var(--text)">Early Game:</strong> Drink <code>Hydrobulbs</code> (+15 Hydration) from blue
+          glowing plants.<br>
+          <strong style="color:var(--text)">Mid Game:</strong> Craft <code>Aqua Chew</code> (+100 Hydration, no
+          Toxicity).<br>
+          <strong style="color:var(--text)">Late Game:</strong> Use <code>Nutri Gel</code> (+40 Cal, +50 Hydration) for
+          efficiency.
+        </div>
 
-    <section class="section">
-      <h2>Step-by-step: the beginner hydration loop</h2>
-      <div class="note">
-        <b>Loop:</b> gather Hydration items → top up → bank extra supplies → repeat.
-        The biggest beginner mistake is overextending “one more node” while Hydration is already trending down.
+        <div class="hr"></div>
+
+        <h2 id="raw">💧 Raw Hydration Sources</h2>
+        <p class="lead" style="margin-top:0">Foraged items found in the world. No crafting required.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Hydration</th>
+              <th>Calories</th>
+              <th>HP</th>
+              <th>Toxicity</th>
+              <th>Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Hydrobulbs</strong></td>
+              <td class="positive">+15</td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td>Blue glowing plants near water</td>
+            </tr>
+            <tr>
+              <td><strong>Pricklers</strong></td>
+              <td class="positive">+?</td>
+              <td class="positive">+?</td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td>Purple cacti (orange fruits)</td>
+            </tr>
+            <tr>
+              <td><strong>Ration Packs</strong></td>
+              <td class="positive">+?</td>
+              <td class="positive">+?</td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td>Starting pod (limited)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout callout-ok">
+          <strong style="color:var(--text)">Tip:</strong> Hydrobulbs respawn regularly near water sources. Set up routes
+          that pass by reliable spawn points.
+        </div>
+
+        <div class="hr"></div>
+
+        <h2 id="aqua">🥤 Aqua-Focused Crafted Drinks</h2>
+        <p class="lead" style="margin-top:0">Unlocked via Recipe Station. Made at Food Station.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Hydration</th>
+              <th>Calories</th>
+              <th>HP</th>
+              <th>Toxicity</th>
+              <th>Special</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Aqua Bar</strong></td>
+              <td class="positive">+50</td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td>—</td>
+            </tr>
+            <tr class="tier-mid">
+              <td><strong>⭐ Aqua Chew</strong></td>
+              <td class="positive">+100</td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td>Best pure hydration</td>
+            </tr>
+            <tr>
+              <td><strong>Aqua Fluid</strong></td>
+              <td class="positive">+28</td>
+              <td class="neutral">—</td>
+              <td class="positive">+30</td>
+              <td class="negative">+10</td>
+              <td>Heals + hydrates</td>
+            </tr>
+            <tr>
+              <td><strong>Aqua Block Capsules</strong></td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td class="negative">+45</td>
+              <td>Stops hydration loss 45 min</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="hr"></div>
+
+        <h2 id="nutri">🥗 Nutri Items (Balanced)</h2>
+        <p class="lead" style="margin-top:0">Provide both Hydration and Calories — ideal for inventory efficiency.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Hydration</th>
+              <th>Calories</th>
+              <th>HP</th>
+              <th>Toxicity</th>
+              <th>Special</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Nutri Chew</strong></td>
+              <td class="positive">+40</td>
+              <td class="positive">+30</td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td><strong>Nutri Fluid</strong></td>
+              <td class="positive">+15</td>
+              <td class="positive">+10</td>
+              <td class="positive">+30</td>
+              <td class="neutral">—</td>
+              <td>Heals too</td>
+            </tr>
+            <tr class="tier-late">
+              <td><strong>⭐ Nutri Gel</strong></td>
+              <td class="positive">+50</td>
+              <td class="positive">+40</td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td>Best balanced item</td>
+            </tr>
+            <tr>
+              <td><strong>Nutri Stim Shards</strong></td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td class="neutral">—</td>
+              <td class="negative">+45</td>
+              <td>+30% both limits</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="hr"></div>
+
+        <div class="ad-slot" aria-label="Ad placeholder">
+          <!-- AdSense unit placeholder -->
+        </div>
+
+        <div class="hr"></div>
+
+        <h2 id="resistance">🌡️ Environmental Resistance</h2>
+        <p class="lead" style="margin-top:0">Hot biomes drain Hydration faster. These items help.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Effect</th>
+              <th>Duration</th>
+              <th>Toxicity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Termo Res Plasm</strong></td>
+              <td>2x heat resistance</td>
+              <td>10 min</td>
+              <td class="negative">+40</td>
+            </tr>
+            <tr>
+              <td><strong>Aqua Block Capsules</strong></td>
+              <td>Stops hydration loss</td>
+              <td>45 min</td>
+              <td class="negative">+45</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout callout-warn">
+          <strong style="color:var(--text)">Hot Biomes:</strong> Desert and volcanic areas drain Hydration 2-3x faster.
+          Prepare extra Aqua items or use Block Capsules before entering.
+        </div>
+
+        <div class="hr"></div>
+
+        <h2 id="progression">📈 Hydration Progression</h2>
+
+        <h3>Early Game (First 30 min)</h3>
+        <ol class="steps">
+          <li>Use <strong>Ration Packs</strong> from landing pod (no Toxicity)</li>
+          <li>Forage <strong>Hydrobulbs</strong> (+15) near water sources</li>
+          <li>Collect <strong>Pricklers</strong> for combined Cal/Hydration</li>
+          <li>Establish Hydrobulb farming routes</li>
+        </ol>
+
+        <h3>Mid Game (Recipe Station unlocked)</h3>
+        <ol class="steps">
+          <li>Research <strong>Aqua Chew</strong> for +100 Hydration</li>
+          <li>Set up Food Station production</li>
+          <li>Switch from raw to crafted hydration items</li>
+          <li>Carry Nutri items for space efficiency</li>
+        </ol>
+
+        <h3>Late Game (Extended runs)</h3>
+        <ol class="steps">
+          <li>Use <strong>Nutri Gel</strong> exclusively (+50 Hyd, +40 Cal)</li>
+          <li>Bring <strong>Aqua Block Capsules</strong> for desert exploration</li>
+          <li>Stack <strong>Termo Res Plasm</strong> for volcanic biomes</li>
+        </ol>
+
+        <div class="hr"></div>
+
+        <h2 id="vs">⚖️ Hydration vs Calories Priority</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Situation</th>
+              <th>Priority</th>
+              <th>Reasoning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Hot/Desert biome</td>
+              <td class="positive">Hydration</td>
+              <td>Depletes 2-3x faster</td>
+            </tr>
+            <tr>
+              <td>Cold/Night</td>
+              <td class="positive">Calories</td>
+              <td>Hydration stable, stamina matters</td>
+            </tr>
+            <tr>
+              <td>Combat heavy</td>
+              <td class="neutral">Equal</td>
+              <td>Both deplete from sprinting/dodging</td>
+            </tr>
+            <tr>
+              <td>Base building</td>
+              <td class="positive">Calories</td>
+              <td>Low movement, steady drain</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="hr"></div>
+
+        <h2 id="tips">💡 Tips & Best Practices</h2>
+        <ul class="steps">
+          <li><strong>Check biome before traveling:</strong> Hot = extra Aqua items</li>
+          <li><strong>Hydrobulb farming:</strong> They respawn near water — loop back regularly</li>
+          <li><strong>Nutri Gel late game:</strong> One slot covers both needs</li>
+          <li><strong>Block Capsules:</strong> 45 min worry-free for serious exploration</li>
+          <li><strong>Don't panic drink:</strong> Hydration has clear warning phases</li>
+        </ul>
+
+        <div class="hr"></div>
+
+        <h2 id="faq">❓ FAQ</h2>
+
+        <details>
+          <summary>What is the best early game hydration source?</summary>
+          <p class="lead">Hydrobulbs (+15 Hydration) are everywhere near water and have no Toxicity. Look for glowing
+            blue plants.</p>
+        </details>
+
+        <details>
+          <summary>How do I stop dehydrating so fast in the desert?</summary>
+          <p class="lead">Use Aqua Block Capsules (stops hydration loss 45 min) or Termo Res Plasm (doubles heat
+            resistance). Both add Toxicity, so plan detox.</p>
+        </details>
+
+        <details>
+          <summary>What drink gives the most Hydration without Toxicity?</summary>
+          <p class="lead">Aqua Chew (+100 Hydration) is the best pure hydration item with no Toxicity.</p>
+        </details>
+
+        <details>
+          <summary>Should I carry separate food and water, or use Nutri items?</summary>
+          <p class="lead">Early game, separate is fine. Mid to late game, Nutri Gel (+50 Hyd, +40 Cal) is much more
+            inventory efficient.</p>
+        </details>
+
+        <details>
+          <summary>Do Pricklers give both Calories and Hydration?</summary>
+          <p class="lead">Yes! Pricklers from purple cacti are great early game finds that restore both stats.</p>
+        </details>
+
+        <details>
+          <summary>How do Aqua Block Capsules work?</summary>
+          <p class="lead">They completely stop Hydration loss for 45 minutes. You still need to manage Calories. Good
+            for desert runs, but +45 Toxicity is significant.</p>
+        </details>
+
+        <div class="hr"></div>
+
+        <p class="lead" style="font-size:14px">
+          <strong>Related:</strong>
+          <a href="https://starrupture.net/guides/food-calories" style="text-decoration:underline">Food & Calories</a> ·
+          <a href="https://starrupture.net/guides/start-here" style="text-decoration:underline">Start Here</a> ·
+          <a href="https://starrupture.net/troubleshooting" style="text-decoration:underline">Troubleshooting</a>
+        </p>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="card toc" aria-label="On this page">
+        <h2>On this page</h2>
+        <a href="#quick">⚡ Quick Answer</a>
+        <a href="#raw">💧 Raw Sources</a>
+        <a href="#aqua">🥤 Aqua Drinks</a>
+        <a href="#nutri">🥗 Nutri Items</a>
+        <a href="#resistance">🌡️ Heat Resistance</a>
+        <a href="#progression">📈 Progression</a>
+        <a href="#vs">⚖️ Priority</a>
+        <a href="#tips">💡 Tips</a>
+        <a href="#faq">❓ FAQ</a>
+
+        <div class="hr"></div>
+
+        <h2>Quick Stats</h2>
+        <table style="font-size:12px;margin:8px 0">
+          <tr>
+            <td>Best Early</td>
+            <td>Hydrobulbs</td>
+          </tr>
+          <tr>
+            <td>Best Pure</td>
+            <td>Aqua Chew (+100)</td>
+          </tr>
+          <tr>
+            <td>Best Balanced</td>
+            <td>Nutri Gel</td>
+          </tr>
+          <tr>
+            <td>Desert Run</td>
+            <td>Aqua Block Caps</td>
+          </tr>
+        </table>
+
+        <div class="hr"></div>
+
+        <h2>Related Pages</h2>
+        <a href="https://starrupture.net/guides/food-calories">Food & Calories</a>
+        <a href="https://starrupture.net/guides/start-here">Start Here</a>
+        <a href="https://starrupture.net/guides">All Guides</a>
+
+        <div class="hr"></div>
+
+        <div class="callout" style="margin:0">
+          <strong style="color:var(--text)">Version:</strong> 0.1.3<br>
+          <strong style="color:var(--text)">Verified:</strong> Feb 3, 2026
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <div class="foot">
+      <div>© <span id="y"></span> StarRupture.net · Unofficial fan site</div>
+      <div>
+        <a href="https://starrupture.net/privacy-policy">Privacy Policy</a> ·
+        <a href="https://starrupture.net/disclaimer">Disclaimer</a> ·
+        <a href="https://starrupture.net/contact">Contact</a>
       </div>
-      <ol class="list">
-        <li><b>Carry 2–3 emergency consumables</b> before you roam far.</li>
-        <li><b>Prioritize Hydrobulb</b> as an early “panic fix” (15 Hydration).</li>
-        <li>If Toxicity is rising, consider <b>Purplant</b> (removes 40 Toxicity, but also removes positive effects).
-        </li>
-      </ol>
-    </section>
+    </div>
+  </footer>
 
-    <section class="section">
-      <h2>Best early Hydration items (simple & reliable)</h2>
-      <div class="grid cols2">
-        <div class="card">
-          <h2>Hydrobulb</h2>
-          <p><b>+15 Hydration</b>. Classic early-game hydration stabilizer.</p>
-        </div>
-        <div class="card">
-          <h2>“Food that helps Hydration”</h2>
-          <p>Some foods help stabilize the run even if they’re mainly for Calories. Example: <b>Polifruit</b> gives
-            <b>11 Calories</b> (great for not needing two separate trips).</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Toxicity management (don’t get baited by “big numbers”)</h2>
-      <div class="grid cols2">
-        <div class="card">
-          <h2>Star Tears</h2>
-          <p>Heals <b>20 HP</b> but adds <b>5 Toxicity</b>. Treat it as a situational heal, not your daily snack.</p>
-        </div>
-        <div class="card">
-          <h2>Purplant</h2>
-          <p>Removes <b>40 Toxicity</b> and also removes positive effects. Use it when you’re done benefiting from
-            buffs.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>First real upgrades: Aqua Fluid & Aqua Gel</h2>
-      <div class="note">
-        These are commonly pursued as early hydration upgrades once you can access the <b>Recipe Station</b>
-        (often described as tied to <b>Moon Energy Corporation Level 2</b> progression).
-      </div>
-
-      <div class="grid cols2">
-        <div class="card">
-          <h2>Aqua Fluid (effect)</h2>
-          <p><b>+28 Hydration</b> and <b>+10 Toxicity</b>. Stronger than basic items, but don’t spam if Toxicity is
-            already high.</p>
-          <ul class="list">
-            <li><b>Recipe Station research cost (commonly listed):</b> 30 Hydrobulbs + 20 Star Tears</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h2>Aqua Gel (effect)</h2>
-          <p><b>+75 Hydration</b>. Big swing—ideal for “I’m going deep” expeditions.</p>
-          <ul class="list">
-            <li><b>Recipe Station research cost (commonly listed):</b> 60 Hydrobulbs + 25 Grubblers</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>FAQ</h2>
-      <details>
-        <summary>Is Hydrobulb always the best early hydration?</summary>
-        <p class="sub">It’s one of the most consistently recommended because it’s simple and gives +15 Hydration. If
-          your build has alternatives with better availability, use those—availability often beats “best”.</p>
-      </details>
-      <details>
-        <summary>Why do my “good” consumables feel risky?</summary>
-        <p class="sub">Because Toxicity can trade short-term wins for long-term pain. Prefer steady loops, and use detox
-          items when needed.</p>
-      </details>
-      <details>
-        <summary>Do Aqua Fluid/Aqua Gel recipes change?</summary>
-        <p class="sub">They can. This is Early Access—double-check your Recipe Station UI if costs differ.</p>
-      </details>
-    </section>
-
-    <!-- AdSense: place a unit here near the end; avoid inserting between “effect” and “cost” lines -->
-    <div class="ad-slot section">Ad Slot (responsive) — place AdSense unit here</div>
-
-    <footer>
-      <div class="pill">Next: <a href="https://starrupture.net/guides/food-calories/">Food & Calories</a></div>
-      <div class="pill"><a href="https://starrupture.net/guides/start-here/">← Start Here</a> · <a
-          href="https://starrupture.net/troubleshooting/crash-fixes/">Crash Fixes →</a></div>
-    </footer>
-  </div>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 
 </html>
