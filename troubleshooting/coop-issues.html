@@ -1,0 +1,706 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <title>StarRupture Co-op & Multiplayer Fixes (PC/Steam) – Connection & Desync</title>
+    <meta name="description"
+        content="Can't connect to StarRupture co-op? Fix multiplayer issues with port forwarding, network checks, and workarounds for common desync problems." />
+
+    <link rel="canonical" href="https://starrupture.net/troubleshooting/coop-issues" />
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8830315294299920"
+        crossorigin="anonymous"></script>
+
+    <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#0b0f17" />
+
+    <meta property="og:title" content="StarRupture Co-op & Multiplayer Fixes (PC/Steam)" />
+    <meta property="og:description"
+        content="Fix multiplayer connection issues, port forwarding, and desync problems." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://starrupture.net/troubleshooting/coop-issues" />
+
+    <style>
+        :root {
+            --bg: #0B0F14;
+            --panel: #0F1620;
+            --text: #E6EEF6;
+            --muted: #A9B6C6;
+            --line: rgba(27, 37, 48, .95);
+            --brand: #A78BFA;
+            --brand2: #4CC9F0;
+            --ok: #34D399;
+            --warn: #FFB703;
+            --danger: #F87171;
+            --radius: 14px;
+            --max: 1120px;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+            background: radial-gradient(1200px 600px at 20% -10%, rgba(167, 139, 250, .18), transparent 60%),
+                radial-gradient(900px 500px at 80% 0%, rgba(76, 201, 240, .14), transparent 55%),
+                var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        a:hover {
+            color: var(--brand2)
+        }
+
+        .wrap {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 20px
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            backdrop-filter: saturate(160%) blur(10px);
+            background: rgba(11, 15, 23, .72);
+            border-bottom: 1px solid rgba(31, 42, 68, .7);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            padding: 14px 20px;
+            max-width: var(--max);
+            margin: 0 auto;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+        }
+
+        .logo {
+            width: 32px;
+            height: 32px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, rgba(124, 92, 255, .9), rgba(34, 211, 238, .9));
+            box-shadow: 0 10px 30px rgba(124, 92, 255, .25);
+        }
+
+        .navlinks {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: flex-end
+        }
+
+        .navlinks a {
+            padding: 8px 10px;
+            border-radius: 10px;
+            color: var(--muted);
+            border: 1px solid transparent;
+        }
+
+        .navlinks a:hover {
+            border-color: rgba(124, 92, 255, .35);
+            background: rgba(124, 92, 255, .08);
+            color: var(--text)
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(31, 42, 68, .9);
+            background: rgba(15, 22, 36, .7);
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .hero {
+            padding: 26px 0 8px
+        }
+
+        .crumbs {
+            margin: 10px 0 0;
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        .crumbs a {
+            color: var(--muted);
+            text-decoration: underline;
+            text-decoration-color: rgba(169, 183, 211, .35)
+        }
+
+        .hero h1 {
+            margin: 12px 0 10px;
+            font-size: clamp(28px, 3.2vw, 40px);
+            line-height: 1.15;
+        }
+
+        .lead {
+            max-width: 880px;
+            color: var(--muted);
+            font-size: 16px;
+            margin: 0 0 14px
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1.3fr .7fr;
+            gap: 16px;
+            align-items: start;
+        }
+
+        @media (max-width: 920px) {
+            .grid {
+                grid-template-columns: 1fr
+            }
+
+            .nav {
+                padding: 14px
+            }
+        }
+
+        .card {
+            background: linear-gradient(180deg, rgba(15, 22, 36, .9), rgba(12, 18, 32, .9));
+            border: 1px solid rgba(31, 42, 68, .85);
+            border-radius: var(--radius);
+            box-shadow: 0 18px 60px rgba(0, 0, 0, .35);
+            padding: 18px;
+        }
+
+        .card h2 {
+            margin: 0 0 12px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card h3 {
+            margin: 16px 0 8px;
+            font-size: 16px;
+            color: var(--brand2);
+        }
+
+        .toc a {
+            display: block;
+            padding: 8px 10px;
+            border-radius: 12px;
+            color: var(--muted)
+        }
+
+        .toc a:hover {
+            background: rgba(34, 211, 238, .08);
+            color: var(--text)
+        }
+
+        .kicker {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 10px 0 0
+        }
+
+        .callout {
+            border-left: 3px solid rgba(124, 92, 255, .9);
+            padding: 12px 14px;
+            background: rgba(124, 92, 255, .08);
+            border-radius: 12px;
+            color: var(--muted);
+            margin: 14px 0;
+        }
+
+        .callout-warn {
+            border-left-color: var(--warn);
+            background: rgba(255, 183, 3, .08);
+        }
+
+        .callout-ok {
+            border-left-color: var(--ok);
+            background: rgba(52, 211, 153, .08);
+        }
+
+        .callout-danger {
+            border-left-color: var(--danger);
+            background: rgba(248, 113, 113, .08);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 14px 0;
+            font-size: 14px;
+        }
+
+        th,
+        td {
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(31, 42, 68, .7);
+        }
+
+        th {
+            background: rgba(15, 22, 36, .8);
+            color: var(--brand2);
+            font-weight: 600;
+        }
+
+        .steps {
+            margin: 0;
+            padding-left: 20px;
+            color: var(--muted)
+        }
+
+        .steps li {
+            margin: 10px 0
+        }
+
+        code {
+            background: rgba(76, 201, 240, .12);
+            padding: 2px 6px;
+            border-radius: 6px;
+            font-size: 13px;
+            color: var(--brand2);
+        }
+
+        .hr {
+            height: 1px;
+            background: rgba(31, 42, 68, .8);
+            margin: 18px 0
+        }
+
+        details {
+            border: 1px solid rgba(31, 42, 68, .85);
+            border-radius: 14px;
+            background: rgba(15, 22, 36, .55);
+            padding: 12px 14px;
+        }
+
+        details+details {
+            margin-top: 10px
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 700
+        }
+
+        summary::marker {
+            color: var(--brand2)
+        }
+
+        .ad-slot {
+            border: 1px dashed rgba(169, 183, 211, .35);
+            border-radius: 14px;
+            padding: 14px;
+            color: rgba(169, 183, 211, .75);
+            background: rgba(15, 22, 36, .45);
+            text-align: center;
+            font-size: 13px;
+        }
+
+        footer {
+            margin-top: 26px;
+            border-top: 1px solid rgba(31, 42, 68, .75);
+            background: rgba(11, 15, 23, .55);
+        }
+
+        .foot {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            max-width: var(--max);
+            margin: 0 auto;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .foot a {
+            color: var(--muted);
+            text-decoration: underline;
+            text-decoration-color: rgba(169, 183, 211, .35)
+        }
+
+        @media(max-width:640px) {
+            .navlinks {
+                display: none
+            }
+
+            h1 {
+                font-size: 1.5rem !important
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "StarRupture Co-op & Multiplayer Fixes (PC/Steam)",
+    "description": "Fix multiplayer connection issues, port forwarding, and desync problems.",
+    "datePublished": "2026-02-03",
+    "dateModified": "2026-02-03",
+    "author": { "@type": "Organization", "name": "StarRupture.net" }
+  }
+  </script>
+</head>
+
+<body>
+    <header>
+        <div class="nav">
+            <a class="brand" href="https://starrupture.net">
+                <span class="logo" aria-hidden="true"></span>
+                <span>StarRupture.net</span>
+            </a>
+            <nav class="navlinks" aria-label="Primary">
+                <a href="https://starrupture.net/guides">Guides</a>
+                <a href="https://starrupture.net/troubleshooting">Troubleshooting</a>
+                <a href="https://starrupture.net/contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="wrap">
+        <section class="hero">
+            <div class="kicker">
+                <span class="pill">Troubleshooting</span>
+                <span class="pill">PC / Steam</span>
+                <span class="pill">Verified: <time datetime="2026-02-03">Feb 3, 2026</time></span>
+                <span class="pill">v0.1.3</span>
+            </div>
+
+            <div class="crumbs">
+                <a href="https://starrupture.net">Home</a> →
+                <a href="https://starrupture.net/troubleshooting">Troubleshooting</a> →
+                Co-op Issues
+            </div>
+
+            <h1>StarRupture Co-op & Multiplayer Fixes (PC/Steam)</h1>
+            <p class="lead">
+                Having trouble connecting to friends or experiencing desync? This guide covers connection
+                troubleshooting,
+                port forwarding, and known multiplayer issues in StarRupture's Early Access.
+            </p>
+        </section>
+
+        <div class="grid">
+            <!-- Main Content -->
+            <article class="card">
+                <h2 id="basics">🎮 Co-op Basics</h2>
+                <p class="lead" style="margin-top:0">StarRupture supports up to <strong>4-player co-op</strong>
+                    multiplayer, with one player hosting the session.</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Max Players</td>
+                            <td>4 (including host)</td>
+                        </tr>
+                        <tr>
+                            <td>Hosting Method</td>
+                            <td>Player-hosted (no dedicated servers from developer)</td>
+                        </tr>
+                        <tr>
+                            <td>Network Service</td>
+                            <td>Epic Online Services (EOS)</td>
+                        </tr>
+                        <tr>
+                            <td>Cross-Play</td>
+                            <td>Not confirmed</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="callout callout-warn">
+                    <strong style="color:var(--text)">Early Access Note:</strong> Multiplayer is still being refined.
+                    Expect occasional bugs, disconnects, and desync issues. Report issues to help the developers
+                    improve.
+                </div>
+
+                <div class="hr"></div>
+
+                <h2 id="connection">🔌 Connection Troubleshooting</h2>
+                <p class="lead" style="margin-top:0">Start with these checks if you can't connect to friends.</p>
+
+                <h3>Quick Checklist</h3>
+                <ol class="steps">
+                    <li><strong>Same game version:</strong> All players must be on the same version (check in Steam)
+                    </li>
+                    <li><strong>Stable internet:</strong> Test your connection; avoid WiFi if possible for hosting</li>
+                    <li><strong>Restart everything:</strong> Close game, restart Steam, restart router</li>
+                    <li><strong>Verify game files:</strong> Steam → Right-click StarRupture → Properties → Installed
+                        Files → Verify integrity</li>
+                    <li><strong>Check Steam status:</strong> Ensure Steam's online services aren't down</li>
+                </ol>
+
+                <h3>Firewall & Antivirus</h3>
+                <ol class="steps">
+                    <li>Open <strong>Windows Defender Firewall</strong></li>
+                    <li>Click <strong>"Allow an app through firewall"</strong></li>
+                    <li>Find StarRupture (or add it manually via "Allow another app")</li>
+                    <li>Ensure both <strong>Private</strong> and <strong>Public</strong> are checked</li>
+                    <li>If using third-party antivirus, add StarRupture to its exceptions/whitelist</li>
+                </ol>
+
+                <div class="hr"></div>
+
+                <h2 id="ports">🌐 Port Forwarding</h2>
+                <p class="lead" style="margin-top:0">If you're hosting and friends can't join, you may need to forward
+                    ports on your router.</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Port</th>
+                            <th>Protocol</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>7777</code></td>
+                            <td>TCP + UDP</td>
+                            <td>Main game traffic</td>
+                        </tr>
+                        <tr>
+                            <td><code>30010</code></td>
+                            <td>TCP</td>
+                            <td>Server management (dedicated servers)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>How to Port Forward</h3>
+                <ol class="steps">
+                    <li>Find your router's IP address (usually <code>192.168.1.1</code> or <code>192.168.0.1</code>)
+                    </li>
+                    <li>Access router admin panel in a web browser</li>
+                    <li>Find "Port Forwarding" or "NAT" settings (location varies by router)</li>
+                    <li>Create a new rule:
+                        <ul style="margin-top:8px">
+                            <li>External/Internal Port: <code>7777</code></li>
+                            <li>Protocol: <code>TCP</code> and <code>UDP</code> (or "Both")</li>
+                            <li>Internal IP: Your PC's local IP address</li>
+                        </ul>
+                    </li>
+                    <li>Save and restart router</li>
+                </ol>
+
+                <div class="callout">
+                    <strong style="color:var(--text)">Find your local IP:</strong> Open Command Prompt, type
+                    <code>ipconfig</code>, find "IPv4 Address" under your network adapter.
+                </div>
+
+                <div class="hr"></div>
+
+                <div class="ad-slot" aria-label="Ad placeholder">
+                    <!-- AdSense unit placeholder -->
+                </div>
+
+                <div class="hr"></div>
+
+                <h2 id="lan">🏠 LAN Connection Issues</h2>
+                <p class="lead" style="margin-top:0">StarRupture uses Epic Online Services (EOS), which can complicate
+                    LAN play.</p>
+
+                <h3>Common LAN Problem</h3>
+                <p class="lead">If you're hosting a server on your local network, you (the host) may not be able to
+                    connect using the LAN IP address, even though external players can connect via your public IP.</p>
+
+                <h3>Workarounds</h3>
+                <ol class="steps">
+                    <li><strong>Use your public IP:</strong> Even on LAN, try connecting via your public IP (find it at
+                        <code>whatismyip.com</code>)</li>
+                    <li><strong>Check router for Hairpin NAT:</strong> Some routers support "Loopback NAT" or "Hairpin
+                        NAT" which allows this; check router settings or documentation</li>
+                    <li><strong>Test via mobile data:</strong> As a test, have one player tether to phone data to
+                        confirm the public IP connection works</li>
+                </ol>
+
+                <div class="callout callout-warn">
+                    <strong style="color:var(--text)">Note:</strong> Due to EOS, true "offline LAN" play may not be
+                    possible. An internet connection is typically required.
+                </div>
+
+                <div class="hr"></div>
+
+                <h2 id="desync">⚠️ Desync Issues</h2>
+                <p class="lead" style="margin-top:0">Desync occurs when players see different game states. This is a
+                    known Early Access issue.</p>
+
+                <h3>Common Desync Symptoms</h3>
+                <ul class="steps">
+                    <li>Recently placed structures don't appear for other players</li>
+                    <li>Players can walk through objects that exist for the host</li>
+                    <li>Map markers or progress not syncing between players</li>
+                    <li>Enemies dying with a delay for non-hosts</li>
+                    <li>Items appearing different for each player</li>
+                </ul>
+
+                <h3>Mitigation Steps</h3>
+                <ol class="steps">
+                    <li><strong>Save and reload:</strong> Have the host save the game, all players disconnect, then
+                        rejoin</li>
+                    <li><strong>Avoid rapid building:</strong> Building too quickly can cause sync issues; pause between
+                        placements</li>
+                    <li><strong>Reduce player count:</strong> Fewer players = less desync risk</li>
+                    <li><strong>Host with best connection:</strong> The player with the most stable internet should host
+                    </li>
+                    <li><strong>Update the game:</strong> Ensure all players are on the latest patch</li>
+                </ol>
+
+                <div class="callout callout-danger">
+                    <strong style="color:var(--text)">Known Issue:</strong> Significant desync may require starting a
+                    new session. This is an Early Access limitation that developers are actively working on.
+                </div>
+
+                <div class="hr"></div>
+
+                <h2 id="performance">📉 Multiplayer Performance Issues</h2>
+                <ol class="steps">
+                    <li><strong>Lower graphics settings:</strong> Hosting is CPU-intensive; reduce settings to reduce
+                        host lag</li>
+                    <li><strong>Limit base complexity:</strong> Very large/complex bases can cause performance issues
+                        for all players</li>
+                    <li><strong>Close background apps:</strong> Free up bandwidth and CPU for hosting</li>
+                    <li><strong>Wired connection:</strong> Use Ethernet instead of WiFi for hosting</li>
+                </ol>
+
+                <div class="hr"></div>
+
+                <h2 id="faq">❓ FAQ</h2>
+
+                <details>
+                    <summary>Can I play with friends on different platforms?</summary>
+                    <p class="lead">StarRupture is currently PC-only (Steam). Cross-play with other platforms is not
+                        available.</p>
+                </details>
+
+                <details>
+                    <summary>Why do I keep disconnecting?</summary>
+                    <p class="lead">Check your internet stability. If the host's connection is unstable, all players
+                        will experience disconnects. The host should use a wired connection if possible.</p>
+                </details>
+
+                <details>
+                    <summary>Can I run a dedicated server?</summary>
+                    <p class="lead">Community-run dedicated servers may be possible, but official dedicated server tools
+                        are not widely available yet. Check Steam forums for community solutions.</p>
+                </details>
+
+                <details>
+                    <summary>My friend can join but I can't join theirs. Why?</summary>
+                    <p class="lead">This is usually a port forwarding or NAT issue on your end. The person who can be
+                        joined likely has more permissive network settings or has forwarded ports.</p>
+                </details>
+
+                <details>
+                    <summary>Is there local split-screen co-op?</summary>
+                    <p class="lead">No, StarRupture does not support split-screen. Each player needs their own PC and
+                        copy of the game.</p>
+                </details>
+
+                <div class="hr"></div>
+
+                <p class="lead" style="font-size:14px">
+                    <strong>Related:</strong>
+                    <a href="https://starrupture.net/troubleshooting/crash-fixes"
+                        style="text-decoration:underline">Crash Fixes</a> ·
+                    <a href="https://starrupture.net/troubleshooting/fps-performance"
+                        style="text-decoration:underline">FPS & Performance</a> ·
+                    <a href="https://starrupture.net/troubleshooting/save-issues" style="text-decoration:underline">Save
+                        Issues</a>
+                </p>
+            </article>
+
+            <!-- Sidebar -->
+            <aside class="card toc" aria-label="On this page">
+                <h2>On this page</h2>
+                <a href="#basics">🎮 Co-op Basics</a>
+                <a href="#connection">🔌 Connection Troubleshooting</a>
+                <a href="#ports">🌐 Port Forwarding</a>
+                <a href="#lan">🏠 LAN Issues</a>
+                <a href="#desync">⚠️ Desync Issues</a>
+                <a href="#performance">📉 Performance</a>
+                <a href="#faq">❓ FAQ</a>
+
+                <div class="hr"></div>
+
+                <h2>Key Ports</h2>
+                <table style="font-size:12px;margin:8px 0">
+                    <tr>
+                        <td><code>7777</code></td>
+                        <td>TCP+UDP</td>
+                    </tr>
+                    <tr>
+                        <td><code>30010</code></td>
+                        <td>TCP</td>
+                    </tr>
+                </table>
+
+                <div class="hr"></div>
+
+                <h2>Related Pages</h2>
+                <a href="https://starrupture.net/troubleshooting">Troubleshooting Hub</a>
+                <a href="https://starrupture.net/troubleshooting/crash-fixes">Crash Fixes</a>
+                <a href="https://starrupture.net/troubleshooting/save-issues">Save Issues</a>
+
+                <div class="hr"></div>
+
+                <div class="callout callout-ok" style="margin:0">
+                    <strong style="color:var(--text)">Version:</strong> 0.1.3<br>
+                    <strong style="color:var(--text)">Verified:</strong> Feb 3, 2026
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="foot">
+            <div>© <span id="y"></span> StarRupture.net · Unofficial fan site</div>
+            <div>
+                <a href="https://starrupture.net/privacy-policy">Privacy Policy</a> ·
+                <a href="https://starrupture.net/disclaimer">Disclaimer</a> ·
+                <a href="https://starrupture.net/contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+
+</html>

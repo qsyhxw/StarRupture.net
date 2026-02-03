@@ -1,0 +1,681 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <title>StarRupture Save File Location & Recovery (PC/Steam) – Fix Lost Progress</title>
+    <meta name="description"
+        content="Lost your StarRupture progress? Find save file locations, enable Steam Cloud, and learn how to backup/restore saves on PC to prevent data loss." />
+
+    <link rel="canonical" href="https://starrupture.net/troubleshooting/save-issues" />
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8830315294299920"
+        crossorigin="anonymous"></script>
+
+    <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#0b0f17" />
+
+    <meta property="og:title" content="StarRupture Save File Location & Recovery (PC/Steam)" />
+    <meta property="og:description"
+        content="Find save file locations, enable Steam Cloud, and learn how to backup/restore saves." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://starrupture.net/troubleshooting/save-issues" />
+
+    <style>
+        :root {
+            --bg: #0B0F14;
+            --panel: #0F1620;
+            --panel2: #0C121A;
+            --text: #E6EEF6;
+            --muted: #A9B6C6;
+            --line: rgba(27, 37, 48, .95);
+            --brand: #A78BFA;
+            --brand2: #4CC9F0;
+            --ok: #34D399;
+            --warn: #FFB703;
+            --danger: #F87171;
+            --radius: 14px;
+            --max: 1120px;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+            background: radial-gradient(1200px 600px at 20% -10%, rgba(167, 139, 250, .18), transparent 60%),
+                radial-gradient(900px 500px at 80% 0%, rgba(76, 201, 240, .14), transparent 55%),
+                var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        a:hover {
+            color: var(--brand2)
+        }
+
+        .wrap {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 20px
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            backdrop-filter: saturate(160%) blur(10px);
+            background: rgba(11, 15, 23, .72);
+            border-bottom: 1px solid rgba(31, 42, 68, .7);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            padding: 14px 20px;
+            max-width: var(--max);
+            margin: 0 auto;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+        }
+
+        .logo {
+            width: 32px;
+            height: 32px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, rgba(124, 92, 255, .9), rgba(34, 211, 238, .9));
+            box-shadow: 0 10px 30px rgba(124, 92, 255, .25);
+        }
+
+        .navlinks {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: flex-end
+        }
+
+        .navlinks a {
+            padding: 8px 10px;
+            border-radius: 10px;
+            color: var(--muted);
+            border: 1px solid transparent;
+        }
+
+        .navlinks a:hover {
+            border-color: rgba(124, 92, 255, .35);
+            background: rgba(124, 92, 255, .08);
+            color: var(--text)
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(31, 42, 68, .9);
+            background: rgba(15, 22, 36, .7);
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .hero {
+            padding: 26px 0 8px
+        }
+
+        .crumbs {
+            margin: 10px 0 0;
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        .crumbs a {
+            color: var(--muted);
+            text-decoration: underline;
+            text-decoration-color: rgba(169, 183, 211, .35)
+        }
+
+        .hero h1 {
+            margin: 12px 0 10px;
+            font-size: clamp(28px, 3.2vw, 40px);
+            line-height: 1.15;
+        }
+
+        .lead {
+            max-width: 880px;
+            color: var(--muted);
+            font-size: 16px;
+            margin: 0 0 14px
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1.3fr .7fr;
+            gap: 16px;
+            align-items: start;
+        }
+
+        @media (max-width: 920px) {
+            .grid {
+                grid-template-columns: 1fr
+            }
+
+            .nav {
+                padding: 14px
+            }
+        }
+
+        .card {
+            background: linear-gradient(180deg, rgba(15, 22, 36, .9), rgba(12, 18, 32, .9));
+            border: 1px solid rgba(31, 42, 68, .85);
+            border-radius: var(--radius);
+            box-shadow: 0 18px 60px rgba(0, 0, 0, .35);
+            padding: 18px;
+        }
+
+        .card h2 {
+            margin: 0 0 12px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card h3 {
+            margin: 16px 0 8px;
+            font-size: 16px;
+            color: var(--brand2);
+        }
+
+        .toc a {
+            display: block;
+            padding: 8px 10px;
+            border-radius: 12px;
+            color: var(--muted)
+        }
+
+        .toc a:hover {
+            background: rgba(34, 211, 238, .08);
+            color: var(--text)
+        }
+
+        .kicker {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 10px 0 0
+        }
+
+        .callout {
+            border-left: 3px solid rgba(124, 92, 255, .9);
+            padding: 12px 14px;
+            background: rgba(124, 92, 255, .08);
+            border-radius: 12px;
+            color: var(--muted);
+            margin: 14px 0;
+        }
+
+        .callout-warn {
+            border-left-color: var(--warn);
+            background: rgba(255, 183, 3, .08);
+        }
+
+        .callout-ok {
+            border-left-color: var(--ok);
+            background: rgba(52, 211, 153, .08);
+        }
+
+        .callout-danger {
+            border-left-color: var(--danger);
+            background: rgba(248, 113, 113, .08);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 14px 0;
+            font-size: 14px;
+        }
+
+        th,
+        td {
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(31, 42, 68, .7);
+        }
+
+        th {
+            background: rgba(15, 22, 36, .8);
+            color: var(--brand2);
+            font-weight: 600;
+        }
+
+        .steps {
+            margin: 0;
+            padding-left: 20px;
+            color: var(--muted)
+        }
+
+        .steps li {
+            margin: 10px 0
+        }
+
+        code {
+            background: rgba(76, 201, 240, .12);
+            padding: 2px 6px;
+            border-radius: 6px;
+            font-size: 13px;
+            color: var(--brand2);
+            word-break: break-all;
+        }
+
+        .path-box {
+            background: rgba(15, 22, 36, .8);
+            border: 1px solid rgba(31, 42, 68, .85);
+            border-radius: 10px;
+            padding: 12px 14px;
+            margin: 10px 0;
+            font-family: monospace;
+            font-size: 13px;
+            word-break: break-all;
+            color: var(--brand2);
+        }
+
+        .hr {
+            height: 1px;
+            background: rgba(31, 42, 68, .8);
+            margin: 18px 0
+        }
+
+        details {
+            border: 1px solid rgba(31, 42, 68, .85);
+            border-radius: 14px;
+            background: rgba(15, 22, 36, .55);
+            padding: 12px 14px;
+        }
+
+        details+details {
+            margin-top: 10px
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 700
+        }
+
+        summary::marker {
+            color: var(--brand2)
+        }
+
+        .ad-slot {
+            border: 1px dashed rgba(169, 183, 211, .35);
+            border-radius: 14px;
+            padding: 14px;
+            color: rgba(169, 183, 211, .75);
+            background: rgba(15, 22, 36, .45);
+            text-align: center;
+            font-size: 13px;
+        }
+
+        footer {
+            margin-top: 26px;
+            border-top: 1px solid rgba(31, 42, 68, .75);
+            background: rgba(11, 15, 23, .55);
+        }
+
+        .foot {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            max-width: var(--max);
+            margin: 0 auto;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .foot a {
+            color: var(--muted);
+            text-decoration: underline;
+            text-decoration-color: rgba(169, 183, 211, .35)
+        }
+
+        @media(max-width:640px) {
+            .navlinks {
+                display: none
+            }
+
+            h1 {
+                font-size: 1.5rem !important
+            }
+
+            .path-box {
+                font-size: 11px
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "StarRupture Save File Location & Recovery (PC/Steam)",
+    "description": "Find save file locations, enable Steam Cloud, and learn how to backup/restore saves.",
+    "datePublished": "2026-02-03",
+    "dateModified": "2026-02-03",
+    "author": { "@type": "Organization", "name": "StarRupture.net" }
+  }
+  </script>
+</head>
+
+<body>
+    <header>
+        <div class="nav">
+            <a class="brand" href="https://starrupture.net">
+                <span class="logo" aria-hidden="true"></span>
+                <span>StarRupture.net</span>
+            </a>
+            <nav class="navlinks" aria-label="Primary">
+                <a href="https://starrupture.net/guides">Guides</a>
+                <a href="https://starrupture.net/troubleshooting">Troubleshooting</a>
+                <a href="https://starrupture.net/contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="wrap">
+        <section class="hero">
+            <div class="kicker">
+                <span class="pill">Troubleshooting</span>
+                <span class="pill">PC / Steam</span>
+                <span class="pill">Verified: <time datetime="2026-02-03">Feb 3, 2026</time></span>
+                <span class="pill">v0.1.3</span>
+            </div>
+
+            <div class="crumbs">
+                <a href="https://starrupture.net">Home</a> →
+                <a href="https://starrupture.net/troubleshooting">Troubleshooting</a> →
+                Save Issues
+            </div>
+
+            <h1>StarRupture Save File Location & Recovery (PC/Steam)</h1>
+            <p class="lead">
+                Lost your progress? This guide covers where StarRupture stores save files, how to enable Steam Cloud
+                sync,
+                and steps to backup or recover your saves.
+            </p>
+        </section>
+
+        <div class="grid">
+            <!-- Main Content -->
+            <article class="card">
+                <h2 id="locations">📂 Save File Locations</h2>
+                <p class="lead" style="margin-top:0">StarRupture saves are stored in two possible locations depending on
+                    your Steam Cloud settings.</p>
+
+                <h3>Local Save Location</h3>
+                <p class="lead" style="margin:0 0 8px">Your primary local save folder:</p>
+                <div class="path-box">%LocalAppData%\StarRupture\Saved\SaveGames</div>
+                <p class="lead" style="margin-top:8px">Full path example:</p>
+                <div class="path-box">C:\Users\YourUsername\AppData\Local\StarRupture\Saved\SaveGames</div>
+
+                <div class="callout">
+                    <strong style="color:var(--text)">Quick Access:</strong> Press <code>Win + R</code>, paste
+                    <code>%LocalAppData%\StarRupture\Saved\SaveGames</code>, and press Enter.
+                </div>
+
+                <h3>Steam Cloud Save Location</h3>
+                <p class="lead" style="margin:0 0 8px">If Steam Cloud is enabled:</p>
+                <div class="path-box">C:\Program Files
+                    (x86)\Steam\userdata\[Your_Steam_ID]\1631270\remote\Saved\SaveGames</div>
+
+                <p class="lead" style="margin-top:8px"><strong>Note:</strong> <code>1631270</code> is StarRupture's
+                    Steam AppID. Replace <code>[Your_Steam_ID]</code> with your numeric Steam ID.</p>
+
+                <h3>Save File Structure</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>File Type</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>.sav</code></td>
+                            <td>Main save data file</td>
+                        </tr>
+                        <tr>
+                            <td><code>.met</code></td>
+                            <td>Metadata file (pairs with .sav)</td>
+                        </tr>
+                        <tr>
+                            <td><code>AutoSave*.sav</code></td>
+                            <td>Automatic backup saves</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="hr"></div>
+
+                <h2 id="backup">💾 How to Backup Saves</h2>
+                <div class="callout callout-warn">
+                    <strong style="color:var(--text)">Important:</strong> Always close StarRupture before copying or
+                    modifying save files to prevent corruption.
+                </div>
+
+                <ol class="steps">
+                    <li>Close StarRupture completely</li>
+                    <li>Navigate to your save folder (see paths above)</li>
+                    <li>Copy the entire <code>SaveGames</code> folder to a safe location (e.g., Desktop, external drive,
+                        cloud storage)</li>
+                    <li>Label the backup with the date (e.g., "StarRupture_Saves_2026-02-03")</li>
+                </ol>
+
+                <div class="callout callout-ok">
+                    <strong style="color:var(--text)">Tip:</strong> Create backups before major game updates or when
+                    trying risky in-game actions.
+                </div>
+
+                <div class="hr"></div>
+
+                <h2 id="steam-cloud">☁️ Steam Cloud Sync</h2>
+                <p class="lead" style="margin-top:0">Steam Cloud automatically backs up your saves to Steam's servers,
+                    allowing you to access them from any PC.</p>
+
+                <h3>Enable Steam Cloud</h3>
+                <ol class="steps">
+                    <li>Open Steam and go to <strong>Library</strong></li>
+                    <li>Right-click <strong>StarRupture</strong> → <strong>Properties</strong></li>
+                    <li>Go to the <strong>General</strong> tab</li>
+                    <li>Check <strong>"Keep games saves in the Steam Cloud for StarRupture"</strong></li>
+                </ol>
+
+                <h3>Force Sync</h3>
+                <p class="lead">If saves seem out of sync:</p>
+                <ol class="steps">
+                    <li>Close StarRupture</li>
+                    <li>Right-click Steam tray icon → <strong>Exit Steam</strong></li>
+                    <li>Restart Steam and launch the game</li>
+                    <li>Steam will sync the latest cloud save on startup</li>
+                </ol>
+
+                <h3>Steam Cloud Conflict</h3>
+                <p class="lead">If Steam shows a sync conflict dialog:</p>
+                <ul class="steps">
+                    <li><strong>Upload to Steam Cloud:</strong> Uses your local save (overwrites cloud)</li>
+                    <li><strong>Download to this machine:</strong> Uses cloud save (overwrites local)</li>
+                </ul>
+                <p class="lead">Choose based on which save is more recent/valuable.</p>
+
+                <div class="hr"></div>
+
+                <div class="ad-slot" aria-label="Ad placeholder">
+                    <!-- AdSense unit placeholder -->
+                </div>
+
+                <div class="hr"></div>
+
+                <h2 id="recovery">🔧 Troubleshooting Lost Saves</h2>
+
+                <h3>Save Not Appearing in Load Menu</h3>
+                <ol class="steps">
+                    <li>Check both local and Steam Cloud save locations</li>
+                    <li>Verify the <code>.sav</code> and matching <code>.met</code> files exist</li>
+                    <li>Ensure file names haven't been accidentally modified</li>
+                    <li>Try restarting the game and Steam</li>
+                </ol>
+
+                <h3>Corrupted Save (Game Won't Load It)</h3>
+                <div class="callout callout-danger">
+                    <strong style="color:var(--text)">Warning:</strong> If the game prompts "Save file corrupt,
+                    delete?", do NOT confirm. Close the game first.
+                </div>
+
+                <ol class="steps">
+                    <li>Close the game without deleting</li>
+                    <li>Navigate to your save folder</li>
+                    <li>Check for <code>AutoSave*.sav</code> files—these may have a recent uncorrupted backup</li>
+                    <li>If you have a manual backup, replace the corrupted files with your backup</li>
+                    <li>Verify game files: Steam → Right-click StarRupture → Properties → Installed Files → Verify
+                        integrity</li>
+                </ol>
+
+                <h3>Progress Reset After Update</h3>
+                <ol class="steps">
+                    <li>Check if Steam Cloud sync was disabled or failed</li>
+                    <li>Look in both save locations—your old save may be in the other folder</li>
+                    <li>Check Steam Cloud storage online:
+                        <code>https://store.steampowered.com/account/remotestorage</code> (view only, can't download)
+                    </li>
+                </ol>
+
+                <h3>Transferring Saves to Another PC</h3>
+                <ol class="steps">
+                    <li><strong>With Steam Cloud:</strong> Simply log in to Steam on the new PC and launch the game</li>
+                    <li><strong>Without Steam Cloud:</strong>
+                        <ul style="margin-top:8px">
+                            <li>Copy the <code>SaveGames</code> folder from the old PC</li>
+                            <li>Paste it to the same location on the new PC</li>
+                            <li>If save doesn't appear, create a new game with the same name, save it, then replace the
+                                files</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <div class="hr"></div>
+
+                <h2 id="faq">❓ FAQ</h2>
+
+                <details>
+                    <summary>Where is the AppData folder?</summary>
+                    <p class="lead">It's hidden by default. Press <code>Win + R</code>, type
+                        <code>%LocalAppData%</code>, and press Enter to open it directly.</p>
+                </details>
+
+                <details>
+                    <summary>How do I find my Steam ID?</summary>
+                    <p class="lead">Open Steam → Click your username (top right) → Account Details. Your Steam ID is a
+                        long number. Alternatively, check the <code>userdata</code> folder—each subfolder is a Steam ID.
+                    </p>
+                </details>
+
+                <details>
+                    <summary>Can I have multiple save files?</summary>
+                    <p class="lead">Yes, StarRupture supports multiple save slots. Each appears as a numbered folder or
+                        file within SaveGames.</p>
+                </details>
+
+                <details>
+                    <summary>Will verifying game files delete my saves?</summary>
+                    <p class="lead">No. "Verify integrity of game files" only checks game installation files, not your
+                        user data in AppData or Steam Cloud.</p>
+                </details>
+
+                <details>
+                    <summary>My autosaves are also corrupted. What now?</summary>
+                    <p class="lead">If you have no backup, recovery may not be possible. For future protection, enable
+                        Steam Cloud and make periodic manual backups.</p>
+                </details>
+
+                <div class="hr"></div>
+
+                <p class="lead" style="font-size:14px">
+                    <strong>Related:</strong>
+                    <a href="https://starrupture.net/troubleshooting/crash-fixes"
+                        style="text-decoration:underline">Crash Fixes</a> ·
+                    <a href="https://starrupture.net/troubleshooting/fps-performance"
+                        style="text-decoration:underline">FPS & Performance</a> ·
+                    <a href="https://starrupture.net/guides/start-here" style="text-decoration:underline">Start Here</a>
+                </p>
+            </article>
+
+            <!-- Sidebar -->
+            <aside class="card toc" aria-label="On this page">
+                <h2>On this page</h2>
+                <a href="#locations">📂 Save Locations</a>
+                <a href="#backup">💾 How to Backup</a>
+                <a href="#steam-cloud">☁️ Steam Cloud</a>
+                <a href="#recovery">🔧 Troubleshooting</a>
+                <a href="#faq">❓ FAQ</a>
+
+                <div class="hr"></div>
+
+                <h2>Quick Paths</h2>
+                <div class="path-box" style="font-size:11px">%LocalAppData%\StarRupture\Saved\SaveGames</div>
+
+                <div class="hr"></div>
+
+                <h2>Related Pages</h2>
+                <a href="https://starrupture.net/troubleshooting">Troubleshooting Hub</a>
+                <a href="https://starrupture.net/troubleshooting/crash-fixes">Crash Fixes</a>
+                <a href="https://starrupture.net/troubleshooting/coop-issues">Co-op Issues</a>
+
+                <div class="hr"></div>
+
+                <div class="callout callout-ok" style="margin:0">
+                    <strong style="color:var(--text)">Version:</strong> 0.1.3<br>
+                    <strong style="color:var(--text)">Verified:</strong> Feb 3, 2026
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="foot">
+            <div>© <span id="y"></span> StarRupture.net · Unofficial fan site</div>
+            <div>
+                <a href="https://starrupture.net/privacy-policy">Privacy Policy</a> ·
+                <a href="https://starrupture.net/disclaimer">Disclaimer</a> ·
+                <a href="https://starrupture.net/contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+
+</html>
