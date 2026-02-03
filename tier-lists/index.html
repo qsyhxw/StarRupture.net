@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StarRupture Tier Lists - Best Weapons, Locations & LEMs Ranked</title>
+  <meta name="description" content="StarRupture tier lists ranking best weapons, base locations & LEM modules. MAR-9 Phantom, SLAMS-12 & more rated S to C tier. Updated for Early Access 2026.">
+  <link rel="canonical" href="https://starrupture.net/tier-lists/">
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8830315294299920" crossorigin="anonymous"></script>
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="StarRupture Tier Lists - Best Weapons, Locations & LEMs Ranked">
+  <meta property="og:description" content="Weapons, base locations & LEM modules ranked S to C tier for Early Access 2026.">
+  <meta property="og:url" content="https://starrupture.net/tier-lists/">
+  <meta property="og:site_name" content="StarRupture.net">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#06080c;--surface:#0d1117;--surface-2:#161b22;--border:#21262d;
+      --text:#e6edf3;--text-muted:#8b949e;
+      --primary:#f97316;--primary-dim:rgba(249,115,22,.15);
+      --secondary:#22d3ee;--secondary-dim:rgba(34,211,238,.12);
+      --accent:#a855f7;--success:#22c55e;--warning:#eab308;--danger:#ef4444;
+      --radius:12px;--max-w:1200px;
+      --tier-s:#ff7f7f;--tier-a:#ffbf7f;--tier-b:#ffdf7f;--tier-c:#bfff7f;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+    a{color:inherit;text-decoration:none;transition:color .2s}
+    a:hover{color:var(--primary)}
+    .container{max-width:var(--max-w);margin:0 auto;padding:0 20px}
+
+    .header{position:sticky;top:0;z-index:100;background:rgba(6,8,12,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;height:60px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.1rem}
+    .logo-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--primary),var(--secondary));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;color:#fff}
+    .nav{display:flex;gap:8px}
+    .nav a{padding:8px 14px;border-radius:8px;font-size:.9rem;color:var(--text-muted);transition:all .2s}
+    .nav a:hover,.nav a.active{background:var(--surface-2);color:var(--text)}
+    .nav a.active{color:var(--primary)}
+
+    .breadcrumb{padding:16px 0;font-size:.875rem;color:var(--text-muted)}
+    .breadcrumb a:hover{color:var(--primary)}
+    .breadcrumb span{margin:0 8px;opacity:.5}
+
+    .hero{padding:40px 0;background:radial-gradient(ellipse at 30% 0%,rgba(168,85,247,.08),transparent 50%)}
+    .hero h1{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;margin-bottom:12px;background:linear-gradient(135deg,var(--text) 0%,var(--accent) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero p{font-size:1.1rem;color:var(--text-muted);max-width:700px}
+    .hero-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:20px;font-size:.8rem;background:rgba(168,85,247,.15);color:var(--accent);margin-bottom:16px}
+
+    .section{padding:40px 0}
+    .section-header{margin-bottom:24px}
+    .section-header h2{font-size:1.4rem;font-weight:700;margin-bottom:8px}
+    .section-header p{color:var(--text-muted);font-size:.95rem}
+
+    .tier-legend{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0;padding:16px;background:var(--surface);border-radius:var(--radius);border:1px solid var(--border)}
+    .tier-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:6px;font-weight:700;font-size:.85rem}
+    .tier-s{background:rgba(255,127,127,.2);color:var(--tier-s)}
+    .tier-a{background:rgba(255,191,127,.2);color:var(--tier-a)}
+    .tier-b{background:rgba(255,223,127,.2);color:var(--tier-b)}
+    .tier-c{background:rgba(191,255,127,.2);color:var(--tier-c)}
+
+    .cards{display:grid;gap:20px}
+    .cards-2{grid-template-columns:repeat(2,1fr)}
+    .card{padding:24px;border-radius:var(--radius);background:var(--surface);border:1px solid var(--border);transition:all .25s}
+    .card:hover{border-color:var(--primary);transform:translateY(-3px)}
+    .card-icon{width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:1.3rem}
+    .card h3{font-size:1.15rem;font-weight:600;margin-bottom:8px}
+    .card p{font-size:.9rem;color:var(--text-muted);margin-bottom:12px}
+    .card-link{display:inline-flex;align-items:center;gap:4px;font-size:.9rem;font-weight:600;color:var(--primary)}
+
+    .featured-card{padding:30px;border-radius:var(--radius);background:linear-gradient(135deg,var(--surface) 0%,var(--surface-2) 100%);border:2px solid var(--primary);position:relative;overflow:hidden}
+    .featured-card::before{content:'FEATURED';position:absolute;top:12px;right:-30px;background:var(--primary);color:#fff;font-size:.7rem;font-weight:700;padding:4px 40px;transform:rotate(45deg)}
+    .featured-card h3{font-size:1.3rem;margin-bottom:10px}
+    .featured-card p{color:var(--text-muted);margin-bottom:16px}
+
+    .quick-tier{margin-top:20px;padding:16px;background:var(--surface-2);border-radius:8px}
+    .quick-tier h4{font-size:.9rem;color:var(--text-muted);margin-bottom:10px}
+    .quick-tier-row{display:flex;align-items:center;gap:8px;margin-bottom:6px;font-size:.9rem}
+    .quick-tier-row:last-child{margin-bottom:0}
+
+    .footer{padding:40px 0;border-top:1px solid var(--border);margin-top:40px}
+    .footer-inner{display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:30px}
+    .footer-brand{max-width:300px}
+    .footer-brand p{font-size:.85rem;color:var(--text-muted);margin-top:10px}
+    .footer-links{display:flex;gap:30px}
+    .footer-links a{font-size:.9rem;color:var(--text-muted)}
+    .footer-copy{text-align:center;padding-top:30px;margin-top:30px;border-top:1px solid var(--border);font-size:.8rem;color:var(--text-muted)}
+
+    @media(max-width:768px){.cards-2{grid-template-columns:1fr}.nav{display:none}.footer-inner{flex-direction:column}.tier-legend{justify-content:center}}
+  </style>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"CollectionPage","name":"StarRupture Tier Lists","description":"Tier lists ranking best weapons, base locations and LEM modules in StarRupture.","url":"https://starrupture.net/tier-lists/"}
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="/" class="logo">
+        <span class="logo-icon">SR</span>
+        <span>StarRupture<span style="color:var(--text-muted)">.net</span></span>
+      </a>
+      <nav class="nav">
+        <a href="/guides/">Guides</a>
+        <a href="/database/">Database</a>
+        <a href="/tier-lists/" class="active">Tier Lists</a>
+        <a href="/troubleshooting/">Fixes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a><span>›</span><span>Tier Lists</span>
+      </nav>
+    </div>
+
+    <section class="hero">
+      <div class="container">
+        <span class="hero-badge">⭐ Updated for Patch 0.1.x</span>
+        <h1>StarRupture Tier Lists</h1>
+        <p>Community-tested rankings for weapons, base locations, and LEM modules. Each tier list is based on Early Access gameplay data and updated with major patches.</p>
+
+        <div class="tier-legend">
+          <span class="tier-badge tier-s">S - Meta / Best in Slot</span>
+          <span class="tier-badge tier-a">A - Excellent Choice</span>
+          <span class="tier-badge tier-b">B - Solid / Situational</span>
+          <span class="tier-badge tier-c">C - Viable but Outclassed</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <a href="/tier-lists/weapons/" class="featured-card">
+          <div class="card-icon" style="background:var(--primary-dim);color:var(--primary)">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <h3>Weapons Tier List</h3>
+          <p>Complete ranking of all firearms in StarRupture. From the versatile MAR-9 Phantom to the starter UPP-7 Pistol — find out which weapons are worth your War Bonds.</p>
+          <div class="quick-tier">
+            <h4>Quick Rankings:</h4>
+            <div class="quick-tier-row"><span class="tier-badge tier-s">S</span> MAR-9 Phantom, Grenades</div>
+            <div class="quick-tier-row"><span class="tier-badge tier-a">A</span> SLAMS-12 Shotgun, M175 Grim LMG</div>
+            <div class="quick-tier-row"><span class="tier-badge tier-b">B</span> UPP-7 Reaper Pistol</div>
+          </div>
+          <span class="card-link" style="margin-top:16px;display:inline-flex">View full tier list →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" style="background:var(--surface)">
+      <div class="container">
+        <div class="section-header">
+          <h2>All Tier Lists</h2>
+          <p>Choose a category to see detailed rankings and analysis.</p>
+        </div>
+
+        <div class="cards cards-2">
+          <a href="/tier-lists/base-locations/" class="card">
+            <div class="card-icon" style="background:var(--secondary-dim);color:var(--secondary)">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <h3>Best Base Locations</h3>
+            <p>Ranked spots for early, mid, and late game. Resource access, defensibility, and expansion potential considered.</p>
+            <div class="quick-tier">
+              <h4>Top Picks:</h4>
+              <div class="quick-tier-row"><span class="tier-badge tier-s">S</span> Central Hub (Ti+W+Ca+He)</div>
+              <div class="quick-tier-row"><span class="tier-badge tier-a">A</span> Lakeside Plateau, Hill Base</div>
+            </div>
+            <span class="card-link">View rankings →</span>
+          </a>
+
+          <a href="/tier-lists/lems/" class="card">
+            <div class="card-icon" style="background:rgba(168,85,247,.12);color:var(--accent)">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <h3>LEM Modules Ranked</h3>
+            <p>Which Limbic Enhancement Membranes are worth slotting? Combat, movement, and survival LEMs compared.</p>
+            <div class="quick-tier">
+              <h4>Top Picks:</h4>
+              <div class="quick-tier-row"><span class="tier-badge tier-s">S</span> Greater Lifegiver, Greater Scalper</div>
+              <div class="quick-tier-row"><span class="tier-badge tier-a">A</span> Greater Shieldgiver, Endurancegiver</div>
+            </div>
+            <span class="card-link">View rankings →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>How We Rank</h2>
+          <p>Our tier list methodology for transparent and useful rankings.</p>
+        </div>
+
+        <div class="cards cards-2">
+          <div class="card">
+            <h3>Criteria</h3>
+            <ul style="color:var(--text-muted);font-size:.9rem;padding-left:20px">
+              <li>Effectiveness in intended role</li>
+              <li>Resource cost vs. performance</li>
+              <li>Unlock difficulty and timing</li>
+              <li>Versatility across game phases</li>
+              <li>Community feedback and testing</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Update Policy</h3>
+            <ul style="color:var(--text-muted);font-size:.9rem;padding-left:20px">
+              <li>Re-evaluated after major patches</li>
+              <li>Community input considered</li>
+              <li>Version number always noted</li>
+              <li>Change history documented</li>
+              <li>Early Access volatility acknowledged</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="logo">
+            <span class="logo-icon">SR</span>
+            <span>StarRupture.net</span>
+          </div>
+          <p>Independent StarRupture guides and database. Version-verified for Early Access. Not affiliated with Creepy Jar.</p>
+        </div>
+        <div class="footer-links">
+          <a href="/about/">About</a>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy-policy/">Privacy</a>
+          <a href="/disclaimer/">Disclaimer</a>
+        </div>
+      </div>
+      <p class="footer-copy">© 2026 StarRupture.net — Fan site. Game content belongs to Creepy Jar.</p>
+    </div>
+  </footer>
+</body>
+</html>
