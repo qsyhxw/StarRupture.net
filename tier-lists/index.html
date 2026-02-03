@@ -85,6 +85,18 @@
     .featured-card::before{content:'FEATURED';position:absolute;top:20px;right:-35px;background:var(--primary);color:#fff;font-size:.7rem;font-weight:700;padding:6px 45px;transform:rotate(45deg);z-index:10}
     .featured-card h3{font-size:1.3rem;margin-bottom:10px}
     .featured-card p{color:var(--text-muted);margin-bottom:16px}
+    .featured-card {
+    display: block;  /* <--- 加上这一行关键代码 */
+    padding: 30px;
+    border-radius: var(--radius);
+    background: linear-gradient(135deg,var(--surface) 0%,var(--surface-2) 100%);
+    border: 2px solid var(--primary);
+    position: relative;
+    overflow: hidden;
+    /* 建议：为了确保文字颜色正确继承，可以显式加这一行，虽然你目前的 a 标签样式可能已经覆盖了 */
+    color: inherit; 
+    text-decoration: none;
+}
 
     .quick-tier{margin-top:20px;padding:16px;background:var(--surface-2);border-radius:8px}
     .quick-tier h4{font-size:.9rem;color:var(--text-muted);margin-bottom:10px}
