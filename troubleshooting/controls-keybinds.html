@@ -1,0 +1,766 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <title>StarRupture Controls & Keybind Fixes (PC/Steam) – Default Keys & Troubleshooting</title>
+    <meta name="description"
+        content="StarRupture controls not working? See default PC keybinds, how to rebind keys, controller workarounds, and fixes for input issues on Steam." />
+
+    <link rel="canonical" href="https://starrupture.net/troubleshooting/controls-keybinds" />
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8830315294299920"
+        crossorigin="anonymous"></script>
+
+    <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#0b0f17" />
+
+    <meta property="og:title" content="StarRupture Controls & Keybind Fixes (PC/Steam)" />
+    <meta property="og:description"
+        content="Default PC keybinds, rebinding guide, controller workarounds, and fixes for input issues." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://starrupture.net/troubleshooting/controls-keybinds" />
+
+    <style>
+        :root {
+            --bg: #0B0F14;
+            --panel: #0F1620;
+            --panel2: #0C121A;
+            --text: #E6EEF6;
+            --muted: #A9B6C6;
+            --line: rgba(27, 37, 48, .95);
+            --brand: #A78BFA;
+            --brand2: #4CC9F0;
+            --ok: #34D399;
+            --warn: #FFB703;
+            --radius: 14px;
+            --max: 1120px;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: .6
+            }
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+            background: radial-gradient(1200px 600px at 20% -10%, rgba(167, 139, 250, .18), transparent 60%),
+                radial-gradient(900px 500px at 80% 0%, rgba(76, 201, 240, .14), transparent 55%),
+                var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        a:hover {
+            color: var(--brand2)
+        }
+
+        .wrap {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 20px
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            backdrop-filter: saturate(160%) blur(10px);
+            background: rgba(11, 15, 23, .72);
+            border-bottom: 1px solid rgba(31, 42, 68, .7);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            padding: 14px 20px;
+            max-width: var(--max);
+            margin: 0 auto;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            letter-spacing: .2px;
+        }
+
+        .logo {
+            width: 32px;
+            height: 32px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, rgba(124, 92, 255, .9), rgba(34, 211, 238, .9));
+            box-shadow: 0 10px 30px rgba(124, 92, 255, .25);
+        }
+
+        .navlinks {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: flex-end
+        }
+
+        .navlinks a {
+            padding: 8px 10px;
+            border-radius: 10px;
+            color: var(--muted);
+            border: 1px solid transparent;
+        }
+
+        .navlinks a:hover {
+            border-color: rgba(124, 92, 255, .35);
+            background: rgba(124, 92, 255, .08);
+            color: var(--text)
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(31, 42, 68, .9);
+            background: rgba(15, 22, 36, .7);
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .hero {
+            padding: 26px 0 8px;
+        }
+
+        .crumbs {
+            margin: 10px 0 0;
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        .crumbs a {
+            color: var(--muted);
+            text-decoration: underline;
+            text-decoration-color: rgba(169, 183, 211, .35)
+        }
+
+        .hero h1 {
+            margin: 12px 0 10px;
+            font-size: clamp(28px, 3.2vw, 40px);
+            line-height: 1.15;
+            letter-spacing: -.4px;
+        }
+
+        .lead {
+            max-width: 880px;
+            color: var(--muted);
+            font-size: 16px;
+            margin: 0 0 14px
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1.3fr .7fr;
+            gap: 16px;
+            align-items: start;
+        }
+
+        @media (max-width: 920px) {
+            .grid {
+                grid-template-columns: 1fr
+            }
+
+            .nav {
+                padding: 14px
+            }
+        }
+
+        .card {
+            background: linear-gradient(180deg, rgba(15, 22, 36, .9), rgba(12, 18, 32, .9));
+            border: 1px solid rgba(31, 42, 68, .85);
+            border-radius: var(--radius);
+            box-shadow: 0 18px 60px rgba(0, 0, 0, .35);
+            padding: 18px;
+        }
+
+        .card h2 {
+            margin: 0 0 12px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card h3 {
+            margin: 16px 0 8px;
+            font-size: 16px;
+            color: var(--brand2);
+        }
+
+        .toc a {
+            display: block;
+            padding: 8px 10px;
+            border-radius: 12px;
+            color: var(--muted)
+        }
+
+        .toc a:hover {
+            background: rgba(34, 211, 238, .08);
+            color: var(--text)
+        }
+
+        .kicker {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 10px 0 0
+        }
+
+        .callout {
+            border-left: 3px solid rgba(124, 92, 255, .9);
+            padding: 12px 14px;
+            background: rgba(124, 92, 255, .08);
+            border-radius: 12px;
+            color: var(--muted);
+            margin: 14px 0;
+        }
+
+        .callout-warn {
+            border-left-color: var(--warn);
+            background: rgba(255, 183, 3, .08);
+        }
+
+        .callout-ok {
+            border-left-color: var(--ok);
+            background: rgba(52, 211, 153, .08);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 14px 0;
+            font-size: 14px;
+        }
+
+        th,
+        td {
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(31, 42, 68, .7);
+        }
+
+        th {
+            background: rgba(15, 22, 36, .8);
+            color: var(--brand2);
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: rgba(76, 201, 240, .04);
+        }
+
+        .steps {
+            margin: 0;
+            padding-left: 20px;
+            color: var(--muted)
+        }
+
+        .steps li {
+            margin: 10px 0
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 10px;
+            border-radius: 12px;
+            background: rgba(34, 211, 238, .08);
+            border: 1px solid rgba(34, 211, 238, .22);
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        code {
+            background: rgba(76, 201, 240, .12);
+            padding: 2px 6px;
+            border-radius: 6px;
+            font-size: 13px;
+            color: var(--brand2);
+        }
+
+        .hr {
+            height: 1px;
+            background: rgba(31, 42, 68, .8);
+            margin: 18px 0
+        }
+
+        details {
+            border: 1px solid rgba(31, 42, 68, .85);
+            border-radius: 14px;
+            background: rgba(15, 22, 36, .55);
+            padding: 12px 14px;
+        }
+
+        details+details {
+            margin-top: 10px
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 700
+        }
+
+        summary::marker {
+            color: var(--brand2)
+        }
+
+        .ad-slot {
+            border: 1px dashed rgba(169, 183, 211, .35);
+            border-radius: 14px;
+            padding: 14px;
+            color: rgba(169, 183, 211, .75);
+            background: rgba(15, 22, 36, .45);
+            text-align: center;
+            font-size: 13px;
+        }
+
+        footer {
+            margin-top: 26px;
+            border-top: 1px solid rgba(31, 42, 68, .75);
+            background: rgba(11, 15, 23, .55);
+        }
+
+        .foot {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            max-width: var(--max);
+            margin: 0 auto;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .foot a {
+            color: var(--muted);
+            text-decoration: underline;
+            text-decoration-color: rgba(169, 183, 211, .35)
+        }
+
+        @media(max-width:640px) {
+            .navlinks {
+                display: none
+            }
+
+            h1 {
+                font-size: 1.5rem !important
+            }
+
+            table {
+                font-size: 12px
+            }
+
+            th,
+            td {
+                padding: 8px
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "StarRupture Controls & Keybind Fixes (PC/Steam)",
+    "description": "Default PC keybinds, rebinding guide, controller workarounds, and fixes for input issues.",
+    "datePublished": "2026-02-03",
+    "dateModified": "2026-02-03",
+    "author": {
+      "@type": "Organization",
+      "name": "StarRupture.net"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "StarRupture.net",
+      "url": "https://starrupture.net"
+    }
+  }
+  </script>
+</head>
+
+<body>
+    <header>
+        <div class="nav">
+            <a class="brand" href="https://starrupture.net">
+                <span class="logo" aria-hidden="true"></span>
+                <span>StarRupture.net</span>
+            </a>
+            <nav class="navlinks" aria-label="Primary">
+                <a href="https://starrupture.net/guides">Guides</a>
+                <a href="https://starrupture.net/troubleshooting">Troubleshooting</a>
+                <a href="https://starrupture.net/contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="wrap">
+        <section class="hero">
+            <div class="kicker">
+                <span class="pill">Troubleshooting</span>
+                <span class="pill">PC / Steam</span>
+                <span class="pill">Verified: <time datetime="2026-02-03">Feb 3, 2026</time></span>
+                <span class="pill">v0.1.3</span>
+            </div>
+
+            <div class="crumbs">
+                <a href="https://starrupture.net">Home</a> →
+                <a href="https://starrupture.net/troubleshooting">Troubleshooting</a> →
+                Controls & Keybinds
+            </div>
+
+            <h1>StarRupture Controls & Keybind Fixes (PC/Steam)</h1>
+            <p class="lead">
+                Keys not responding? Can't rebind? This guide covers StarRupture's default keybinds,
+                how to customize controls, controller workarounds via Steam Input, and fixes for common input issues.
+            </p>
+        </section>
+
+        <div class="grid">
+            <!-- Main Content -->
+            <article class="card">
+                <h2 id="defaults">🎮 Default Keybinds</h2>
+                <p class="lead" style="margin-top:0">StarRupture uses standard FPS controls. All keys are rebindable in
+                    Settings → Mouse & Keyboard.</p>
+
+                <h3>Movement</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Action</th>
+                            <th>Default Key</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Move Forward</td>
+                            <td><code>W</code></td>
+                        </tr>
+                        <tr>
+                            <td>Move Backward</td>
+                            <td><code>S</code></td>
+                        </tr>
+                        <tr>
+                            <td>Move Left</td>
+                            <td><code>A</code></td>
+                        </tr>
+                        <tr>
+                            <td>Move Right</td>
+                            <td><code>D</code></td>
+                        </tr>
+                        <tr>
+                            <td>Sprint</td>
+                            <td><code>Left Shift</code></td>
+                        </tr>
+                        <tr>
+                            <td>Crouch / Slide</td>
+                            <td><code>Left Ctrl</code></td>
+                        </tr>
+                        <tr>
+                            <td>Jump</td>
+                            <td><code>Space</code></td>
+                        </tr>
+                        <tr>
+                            <td>Dash</td>
+                            <td><code>Left Alt</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Combat</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Action</th>
+                            <th>Default Key</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Fire / Attack</td>
+                            <td><code>Left Mouse Button</code></td>
+                        </tr>
+                        <tr>
+                            <td>Aim Down Sights (ADS)</td>
+                            <td><code>Right Mouse Button</code></td>
+                        </tr>
+                        <tr>
+                            <td>Reload</td>
+                            <td><code>R</code></td>
+                        </tr>
+                        <tr>
+                            <td>Grenade</td>
+                            <td><code>G</code></td>
+                        </tr>
+                        <tr>
+                            <td>Next Weapon</td>
+                            <td><code>Mouse Wheel Down</code></td>
+                        </tr>
+                        <tr>
+                            <td>Previous Weapon</td>
+                            <td><code>Mouse Wheel Up</code></td>
+                        </tr>
+                        <tr>
+                            <td>Harvester Tool</td>
+                            <td><code>1</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Building & Interaction</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Action</th>
+                            <th>Default Key</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Interact / Pick Up</td>
+                            <td><code>E</code></td>
+                        </tr>
+                        <tr>
+                            <td>Inventory</td>
+                            <td><code>Tab</code></td>
+                        </tr>
+                        <tr>
+                            <td>Building Mode</td>
+                            <td><code>B</code></td>
+                        </tr>
+                        <tr>
+                            <td>Confirm Build</td>
+                            <td><code>Left Mouse Button</code></td>
+                        </tr>
+                        <tr>
+                            <td>Deconstruct</td>
+                            <td><code>F</code></td>
+                        </tr>
+                        <tr>
+                            <td>Toggle Drone</td>
+                            <td><code>C</code></td>
+                        </tr>
+                        <tr>
+                            <td>Map</td>
+                            <td><code>M</code></td>
+                        </tr>
+                        <tr>
+                            <td>Ping</td>
+                            <td><code>Middle Mouse Button</code></td>
+                        </tr>
+                        <tr>
+                            <td>Cancel / Close Menu</td>
+                            <td><code>Q</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="hr"></div>
+
+                <h2 id="rebind">⚙️ How to Rebind Keys</h2>
+                <ol class="steps">
+                    <li>Open the game and press <code>Esc</code> to access the menu</li>
+                    <li>Navigate to <strong>Settings → Mouse & Keyboard</strong></li>
+                    <li>Click on any action to rebind it to a new key</li>
+                    <li>Press the desired key when prompted</li>
+                    <li>Click <strong>Apply</strong> to save changes</li>
+                </ol>
+
+                <div class="callout">
+                    <strong style="color:var(--text)">Tip:</strong> You can also adjust mouse sensitivity, invert axes,
+                    and toggle Sprint/Crouch/ADS behavior (hold vs toggle) in the same menu.
+                </div>
+
+                <div class="hr"></div>
+
+                <h2 id="controller">🎮 Controller Support (Workaround)</h2>
+                <p class="lead" style="margin-top:0">
+                    As of version 0.1.3, StarRupture does <strong>not have native controller support</strong> on PC.
+                    However, you can use Steam Input to create a controller layout.
+                </p>
+
+                <h3>Setting Up Steam Input</h3>
+                <ol class="steps">
+                    <li>In Steam, right-click <strong>StarRupture</strong> → <strong>Properties</strong></li>
+                    <li>Go to the <strong>Controller</strong> tab</li>
+                    <li>Set "Override for StarRupture" to <strong>Enable Steam Input</strong></li>
+                    <li>Click <strong>Controller Layout</strong> to customize bindings</li>
+                    <li>Map controller buttons to keyboard keys (e.g., Right Trigger → Left Mouse Button)</li>
+                </ol>
+
+                <div class="callout callout-warn">
+                    <strong style="color:var(--text)">Note:</strong> Community layouts may be available in Steam's
+                    controller
+                    configuration. Search for "StarRupture" layouts shared by other players.
+                </div>
+
+                <h3>Recommended Settings for Controller</h3>
+                <ul class="steps">
+                    <li>Enable <strong>Toggle Sprint</strong> in Settings → Mouse & Keyboard</li>
+                    <li>Enable <strong>Toggle ADS</strong> for easier aiming</li>
+                    <li>Consider using gyro aiming (if your controller supports it) for precision</li>
+                </ul>
+
+                <div class="hr"></div>
+
+                <h2 id="fixes">🔧 Common Issues & Fixes</h2>
+
+                <h3>Keys Not Responding</h3>
+                <ol class="steps">
+                    <li><strong>Check for conflicting software:</strong> Close overlay apps (Discord, GeForce
+                        Experience, etc.)</li>
+                    <li><strong>Run as Administrator:</strong> Right-click Steam → Run as administrator, then launch the
+                        game</li>
+                    <li><strong>Verify game files:</strong> Steam → Library → Right-click StarRupture → Properties →
+                        Installed Files → Verify integrity</li>
+                    <li><strong>Check keyboard language:</strong> Ensure Windows keyboard layout matches your physical
+                        keyboard</li>
+                    <li><strong>Disable full-screen optimizations:</strong> Right-click StarRupture.exe → Properties →
+                        Compatibility → Check "Disable full-screen optimizations"</li>
+                </ol>
+
+                <h3>Stuck Inputs / Keys Repeating</h3>
+                <ol class="steps">
+                    <li><strong>Alt+Tab out and back:</strong> This can reset stuck key states</li>
+                    <li><strong>Check Sticky Keys:</strong> Press Shift 5 times quickly to access Sticky Keys settings,
+                        ensure it's disabled</li>
+                    <li><strong>Restart the game:</strong> If inputs remain stuck, a full restart usually fixes it</li>
+                </ol>
+
+                <h3>Mouse Issues</h3>
+                <ol class="steps">
+                    <li><strong>Raw input:</strong> Check if there's a raw mouse input option in settings</li>
+                    <li><strong>Disable mouse acceleration:</strong> In Windows → Mouse settings → Additional mouse
+                        options → Pointer Options → Uncheck "Enhance pointer precision"</li>
+                    <li><strong>Update mouse drivers:</strong> Check your mouse manufacturer's website for driver
+                        updates</li>
+                </ol>
+
+                <div class="hr"></div>
+
+                <div class="ad-slot" aria-label="Ad placeholder">
+                    <!-- AdSense unit placeholder -->
+                </div>
+
+                <div class="hr"></div>
+
+                <h2 id="faq">❓ FAQ</h2>
+
+                <details>
+                    <summary>Can I use a controller with StarRupture?</summary>
+                    <p class="lead">Not natively. Use Steam Input to map controller buttons to keyboard/mouse inputs.
+                        Community layouts may be available.</p>
+                </details>
+
+                <details>
+                    <summary>My keybinds reset after restarting. How do I fix this?</summary>
+                    <p class="lead">Check if your config file is set to read-only. Navigate to
+                        <code>%LocalAppData%\StarRupture\Saved\Config\Windows</code> and ensure GameUserSettings.ini is
+                        not read-only.</p>
+                </details>
+
+                <details>
+                    <summary>Some keys won't rebind. Is this a bug?</summary>
+                    <p class="lead">Some system keys (like Windows key) may be reserved. Try alternative keys. If a
+                        specific action won't rebind, report it via the game's feedback system.</p>
+                </details>
+
+                <details>
+                    <summary>How do I reset keybinds to default?</summary>
+                    <p class="lead">In Settings → Mouse & Keyboard, look for a "Reset to Defaults" button. If
+                        unavailable, delete the GameUserSettings.ini file (the game will regenerate it with defaults).
+                    </p>
+                </details>
+
+                <div class="hr"></div>
+
+                <p class="lead" style="font-size:14px">
+                    <strong>Related:</strong>
+                    <a href="https://starrupture.net/troubleshooting/crash-fixes"
+                        style="text-decoration:underline">Crash Fixes</a> ·
+                    <a href="https://starrupture.net/troubleshooting/fps-performance"
+                        style="text-decoration:underline">FPS & Performance</a> ·
+                    <a href="https://starrupture.net/guides/start-here" style="text-decoration:underline">Start Here
+                        (Beginner)</a>
+                </p>
+            </article>
+
+            <!-- Sidebar -->
+            <aside class="card toc" aria-label="On this page">
+                <h2>On this page</h2>
+                <a href="#defaults">🎮 Default Keybinds</a>
+                <a href="#rebind">⚙️ How to Rebind</a>
+                <a href="#controller">🎮 Controller Workaround</a>
+                <a href="#fixes">🔧 Common Fixes</a>
+                <a href="#faq">❓ FAQ</a>
+
+                <div class="hr"></div>
+
+                <h2>Related Pages</h2>
+                <a href="https://starrupture.net/troubleshooting">Troubleshooting Hub</a>
+                <a href="https://starrupture.net/troubleshooting/crash-fixes">Crash Fixes</a>
+                <a href="https://starrupture.net/troubleshooting/fps-performance">FPS & Performance</a>
+
+                <div class="hr"></div>
+
+                <div class="callout callout-ok" style="margin:0">
+                    <strong style="color:var(--text)">Version:</strong> 0.1.3<br>
+                    <strong style="color:var(--text)">Verified:</strong> Feb 3, 2026
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="foot">
+            <div>© <span id="y"></span> StarRupture.net · Unofficial fan site</div>
+            <div>
+                <a href="https://starrupture.net/privacy-policy">Privacy Policy</a> ·
+                <a href="https://starrupture.net/disclaimer">Disclaimer</a> ·
+                <a href="https://starrupture.net/contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('y').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
