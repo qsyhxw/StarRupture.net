@@ -4,20 +4,20 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>StarRupture Crash Fixes (PC/Steam) — Known Issues + Safe Troubleshooting</title>
+  <title>StarRupture Crash Fixes – GPU-Specific Solutions, Crash Logs (v0.1.3)</title>
   <meta name="description"
-    content="StarRupture crashing or won’t launch? Start with official known issues, then follow safe steps: verify Steam files, reduce conflicts, and use Windows compatibility tools if needed." />
+    content="Fix StarRupture crashes: NVIDIA & AMD-specific solutions, crash log analysis, known crash scenarios, and safe troubleshooting steps for PC/Steam." />
   <link rel="canonical" href="https://starrupture.net/troubleshooting/crash-fixes" />
 
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8830315294299920"
     crossorigin="anonymous"></script>
 
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="StarRupture Crash Fixes (PC/Steam)" />
+  <meta property="og:title" content="StarRupture Crash Fixes – GPU-Specific Solutions" />
   <meta property="og:description"
-    content="Known issues + safe troubleshooting steps (verify files, compatibility, and common conflicts)." />
+    content="Fix crashes with NVIDIA/AMD-specific steps, crash log analysis, and known issue workarounds." />
   <meta property="og:url" content="https://starrupture.net/troubleshooting/crash-fixes" />
-  <meta name="theme-color" content="#0b1020" />
+  <meta name="theme-color" content="#0b0f14" />
 
   <style>
     :root {
@@ -27,37 +27,13 @@
       --text: #E6EEF6;
       --muted: #A9B6C6;
       --line: rgba(27, 37, 48, .95);
-      --accent: #A3FFB0;
-      --accent2: #4CC9F0;
+      --brand: #F87171;
+      --brand2: #4CC9F0;
+      --ok: #34D399;
       --warn: #FFB703;
-      --danger: #FB7185;
-      --shadow: 0 10px 30px rgba(0, 0, 0, .35);
-      --r: 14px;
-      --max: 1100px
-    }
-
-    @keyframes pulse {
-
-      0%,
-      100% {
-        opacity: 1
-      }
-
-      50% {
-        opacity: .6
-      }
-    }
-
-    @keyframes glow {
-
-      0%,
-      100% {
-        box-shadow: 0 0 8px var(--accent2)
-      }
-
-      50% {
-        box-shadow: 0 0 20px var(--accent2)
-      }
+      --danger: #F87171;
+      --radius: 14px;
+      --max: 1120px;
     }
 
     * {
@@ -70,13 +46,13 @@
 
     body {
       margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      background:
-        radial-gradient(1200px 700px at 20% -10%, rgba(76, 201, 240, .15), transparent 55%),
-        radial-gradient(900px 700px at 90% 0%, rgba(163, 255, 176, .12), transparent 60%), var(--bg);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(248, 113, 113, .15), transparent 60%),
+        radial-gradient(900px 500px at 80% 0%, rgba(76, 201, 240, .12), transparent 55%),
+        var(--bg);
       color: var(--text);
-      line-height: 1.55;
-      -webkit-font-smoothing: antialiased
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
     a {
@@ -85,214 +61,247 @@
     }
 
     a:hover {
-      color: var(--accent)
+      color: var(--brand2)
     }
 
     .wrap {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 22px 18px 70px
+      padding: 20px
     }
 
-    .topbar {
-      display: flex;
-      gap: 14px;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 16px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: rgba(11, 15, 20, .72);
-      backdrop-filter: blur(12px);
-      box-shadow: var(--shadow);
+    header {
       position: sticky;
-      top: 10px;
-      z-index: 20
-    }
-
-    .brand {
-      display: flex;
-      gap: 10px;
-      align-items: center
-    }
-
-    .logo {
-      width: 36px;
-      height: 36px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, rgba(163, 255, 176, .9), rgba(76, 201, 240, .9));
-      box-shadow: 0 10px 20px rgba(76, 201, 240, .25)
+      top: 0;
+      z-index: 20;
+      backdrop-filter: saturate(160%) blur(10px);
+      background: rgba(11, 15, 23, .72);
+      border-bottom: 1px solid rgba(31, 42, 68, .7);
     }
 
     .nav {
       display: flex;
-      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 14px 20px;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
       gap: 10px;
+      font-weight: 800;
+    }
+
+    .logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(248, 113, 113, .9), rgba(76, 201, 240, .9));
+      box-shadow: 0 10px 30px rgba(248, 113, 113, .25);
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
       justify-content: flex-end
     }
 
-    .chip {
-      padding: 8px 12px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(12, 18, 26, .55);
+    .navlinks a {
+      padding: 8px 10px;
+      border-radius: 10px;
       color: var(--muted);
-      font-size: 14px;
-      transition: all .2s
+      border: 1px solid transparent;
     }
 
-    .chip:hover {
-      border-color: rgba(76, 201, 240, .55);
-      color: var(--text);
-      transform: translateY(-1px)
+    .navlinks a:hover {
+      border-color: rgba(248, 113, 113, .35);
+      background: rgba(248, 113, 113, .08);
+      color: var(--text)
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(31, 42, 68, .9);
+      background: rgba(15, 22, 36, .7);
+      color: var(--muted);
+      font-size: 13px;
     }
 
     .hero {
-      padding: 34px 6px 12px
+      padding: 26px 0 8px
     }
 
-    h1 {
-      font-size: clamp(1.8rem, 3vw, 2.2rem);
+    .crumbs {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    .crumbs a {
+      color: var(--muted);
+      text-decoration: underline;
+      text-decoration-color: rgba(169, 183, 211, .35)
+    }
+
+    .hero h1 {
+      margin: 12px 0 10px;
+      font-size: clamp(28px, 3.2vw, 40px);
       line-height: 1.15;
-      margin: 0 0 10px
     }
 
-    .sub {
+    .lead {
+      max-width: 880px;
       color: var(--muted);
-      max-width: 90ch;
-      margin: 0 0 18px;
-      font-size: 1.05rem
-    }
-
-    .kicker {
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
-      color: var(--muted);
-      font-size: 14px
-    }
-
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--accent);
-      animation: glow 2s infinite
+      font-size: 16px;
+      margin: 0 0 14px
     }
 
     .grid {
       display: grid;
-      gap: 14px
+      grid-template-columns: 1.3fr .7fr;
+      gap: 16px;
+      align-items: start;
     }
 
-    @media(min-width:860px) {
-      .grid.cols3 {
-        grid-template-columns: repeat(3, 1fr)
+    @media (max-width: 920px) {
+      .grid {
+        grid-template-columns: 1fr
       }
-    }
 
-    @media(min-width:860px) {
-      .grid.cols2 {
-        grid-template-columns: repeat(2, 1fr)
+      .nav {
+        padding: 14px
       }
     }
 
     .card {
-      border: 1px solid var(--line);
-      border-radius: var(--r);
-      background: rgba(12, 18, 26, .65);
-      box-shadow: var(--shadow);
-      padding: 16px;
-      transition: all .25s;
-      position: relative
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      inset: -1px;
-      border-radius: var(--r);
-      background: linear-gradient(135deg, var(--accent2), var(--accent));
-      opacity: 0;
-      z-index: -1;
-      transition: opacity .25s
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(76, 201, 240, .5);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, .25)
-    }
-
-    .card:hover::before {
-      opacity: .15
+      background: linear-gradient(180deg, rgba(15, 22, 36, .9), rgba(12, 18, 32, .9));
+      border: 1px solid rgba(31, 42, 68, .85);
+      border-radius: var(--radius);
+      box-shadow: 0 18px 60px rgba(0, 0, 0, .35);
+      padding: 18px;
     }
 
     .card h2 {
+      margin: 0 0 12px;
       font-size: 18px;
-      margin: 0 0 8px
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
-    .card p {
-      margin: 0;
+    .card h3 {
+      margin: 16px 0 8px;
+      font-size: 16px;
+      color: var(--brand2);
+    }
+
+    .toc a {
+      display: block;
+      padding: 8px 10px;
+      border-radius: 12px;
       color: var(--muted)
     }
 
-    .section {
-      margin-top: 18px
-    }
-
-    .section h2 {
-      font-size: clamp(1.2rem, 2vw, 1.4rem);
-      margin: 0 0 10px
-    }
-
-    .note {
-      border: 1px dashed rgba(76, 201, 240, .3);
-      background: rgba(12, 18, 26, .55);
-      border-radius: var(--r);
-      padding: 14px;
-      color: var(--muted)
-    }
-
-    .note b {
+    .toc a:hover {
+      background: rgba(248, 113, 113, .08);
       color: var(--text)
     }
 
-    .warn {
-      border: 1px solid rgba(251, 113, 133, .25);
-      background: rgba(251, 113, 133, .08)
+    .kicker {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 10px 0 0
     }
 
-    .list {
-      margin: 10px 0 0;
-      padding-left: 18px;
+    .callout {
+      border-left: 3px solid rgba(76, 201, 240, .9);
+      padding: 12px 14px;
+      background: rgba(76, 201, 240, .08);
+      border-radius: 12px;
+      color: var(--muted);
+      margin: 14px 0;
+    }
+
+    .callout-warn {
+      border-left-color: var(--warn);
+      background: rgba(255, 183, 3, .08);
+    }
+
+    .callout-danger {
+      border-left-color: var(--danger);
+      background: rgba(248, 113, 113, .08);
+    }
+
+    .callout-ok {
+      border-left-color: var(--ok);
+      background: rgba(52, 211, 153, .08);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 14px;
+    }
+
+    th,
+    td {
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid rgba(31, 42, 68, .7);
+    }
+
+    th {
+      background: rgba(15, 22, 36, .8);
+      color: var(--brand);
+      font-weight: 600;
+      position: sticky;
+      top: 60px;
+    }
+
+    tr:hover {
+      background: rgba(248, 113, 113, .04)
+    }
+
+    .steps {
+      margin: 0;
+      padding-left: 20px;
       color: var(--muted)
     }
 
-    .list li {
-      margin: 8px 0
+    .steps li {
+      margin: 10px 0
     }
 
-    .ad-slot {
-      border: 1px dashed rgba(76, 201, 240, .3);
-      border-radius: var(--r);
-      padding: 16px;
-      text-align: center;
-      color: rgba(230, 238, 246, .65);
-      background: rgba(12, 18, 26, .35)
+    code {
+      background: rgba(248, 113, 113, .12);
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-size: 13px;
+      color: var(--brand);
+    }
+
+    .hr {
+      height: 1px;
+      background: rgba(31, 42, 68, .8);
+      margin: 18px 0
     }
 
     details {
-      border: 1px solid var(--line);
-      border-radius: var(--r);
-      background: rgba(12, 18, 26, .55);
+      border: 1px solid rgba(31, 42, 68, .85);
+      border-radius: 14px;
+      background: rgba(15, 22, 36, .55);
       padding: 12px 14px;
-      transition: border-color .2s
-    }
-
-    details:hover {
-      border-color: rgba(76, 201, 240, .3)
     }
 
     details+details {
@@ -304,232 +313,547 @@
       font-weight: 700
     }
 
-    summary::-webkit-details-marker {
-      display: none
+    summary::marker {
+      color: var(--brand)
+    }
+
+    .ad-slot {
+      border: 1px dashed rgba(169, 183, 211, .35);
+      border-radius: 14px;
+      padding: 14px;
+      color: rgba(169, 183, 211, .75);
+      background: rgba(15, 22, 36, .45);
+      text-align: center;
+      font-size: 13px;
     }
 
     footer {
       margin-top: 26px;
-      padding-top: 18px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 14px;
+      border-top: 1px solid rgba(31, 42, 68, .75);
+      background: rgba(11, 15, 23, .55);
+    }
+
+    .foot {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      justify-content: space-between
-    }
-
-    .pill {
-      display: inline-flex;
-      gap: 8px;
       align-items: center;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(12, 18, 26, .55)
+      justify-content: space-between;
+      padding: 16px 20px;
+      max-width: var(--max);
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 13px;
     }
 
-    .step {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start
-    }
-
-    .num {
-      flex: 0 0 auto;
-      width: 26px;
-      height: 26px;
-      border-radius: 10px;
-      background: rgba(76, 201, 240, .18);
-      border: 1px solid rgba(76, 201, 240, .35);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800
+    .foot a {
+      color: var(--muted);
+      text-decoration: underline;
+      text-decoration-color: rgba(169, 183, 211, .35)
     }
 
     @media(max-width:640px) {
-      .nav {
+      .navlinks {
         display: none
       }
 
       h1 {
-        font-size: 1.6rem !important
+        font-size: 1.5rem !important
+      }
+
+      table {
+        font-size: 12px
+      }
+
+      th,
+      td {
+        padding: 8px 6px
       }
     }
+
+    .step-box {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin: 10px 0;
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 10px;
+      background: rgba(248, 113, 113, .18);
+      border: 1px solid rgba(248, 113, 113, .35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .nvidia {
+      border-color: rgba(118, 185, 0, .5);
+      background: rgba(118, 185, 0, .08)
+    }
+
+    .amd {
+      border-color: rgba(237, 28, 36, .5);
+      background: rgba(237, 28, 36, .08)
+    }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "StarRupture Crash Fixes – GPU-Specific Solutions",
+    "description": "Fix crashes with NVIDIA/AMD-specific steps, crash log analysis, and known issue workarounds.",
+    "datePublished": "2026-02-03",
+    "dateModified": "2026-02-03",
+    "author": { "@type": "Organization", "name": "StarRupture.net" }
+  }
+  </script>
 
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"FAQPage",
     "mainEntity":[
-      {"@type":"Question","name":"What is the safest first step for crashes?","acceptedAnswer":{"@type":"Answer","text":"Verify the integrity of the game files in Steam. This checks that files are installed correctly and replaces corrupted files if needed."}},
-      {"@type":"Question","name":"Are there official known issues?","acceptedAnswer":{"@type":"Answer","text":"Yes. The developers posted known issues for the Early Access launch build (including a movement lock related to certain movement keybinding changes)."}},
-      {"@type":"Question","name":"My character can’t move after changing keybinds—what do I do?","acceptedAnswer":{"@type":"Answer","text":"Restore default movement keybindings. An official note suggests using arrow keys for AZERTY instead of remapping movement keys."}},
-      {"@type":"Question","name":"What if verifying files doesn’t help?","acceptedAnswer":{"@type":"Answer","text":"Try reducing conflicts (overlays, background apps), reboot, and use Windows Program Compatibility Troubleshooter if the game still won’t behave."}},
-      {"@type":"Question","name":"Where should I report bugs?","acceptedAnswer":{"@type":"Answer","text":"Use the official Steam discussions / bug-report channels referenced by the developers, and include steps to reproduce plus your PC specs."}}
+      {"@type":"Question","name":"What is the safest first step for StarRupture crashes?","acceptedAnswer":{"@type":"Answer","text":"Verify game files in Steam. Right-click StarRupture → Properties → Installed Files → Verify integrity of game files."}},
+      {"@type":"Question","name":"Where are StarRupture crash logs located?","acceptedAnswer":{"@type":"Answer","text":"Crash logs are in %LocalAppData%\\StarRupture\\Saved\\Logs. The main file is StarRupture.log."}},
+      {"@type":"Question","name":"Why does StarRupture crash with AMD GPUs?","acceptedAnswer":{"@type":"Answer","text":"Patch 0.1.2 fixed a known AMD GPU crash related to hair rendering. Update to the latest version and ensure drivers are current."}},
+      {"@type":"Question","name":"Does StarRupture support DirectX 11?","acceptedAnswer":{"@type":"Answer","text":"You can force DX11 with the -dx11 launch option in Steam. This can fix crashes on older GPUs."}},
+      {"@type":"Question","name":"How do I fix crashes when opening inventory?","acceptedAnswer":{"@type":"Answer","text":"This was a known bug fixed in patch 0.1.2. Update your game. If it persists, verify files and check for mod conflicts."}},
+      {"@type":"Question","name":"What information should I include in a crash bug report?","acceptedAnswer":{"@type":"Answer","text":"Include: steps to reproduce, game version, GPU model, driver version, Windows version, and attach crash logs from %LocalAppData%\\StarRupture\\Saved\\Logs."}}
     ]
   }
   </script>
 </head>
 
 <body>
-  <div class="wrap">
-    <header class="topbar">
-      <a class="brand" href="https://starrupture.net/">
+  <header>
+    <div class="nav">
+      <a class="brand" href="https://starrupture.net">
         <span class="logo" aria-hidden="true"></span>
-        <div>
-          <strong>StarRupture Guides & Tools</strong><br />
-          <span style="color:var(--muted); font-size:13px;">Troubleshooting • Updated: 2026-01-08</span>
-        </div>
+        <span>StarRupture.net</span>
       </a>
-      <nav class="nav" aria-label="Primary">
-        <a class="chip" href="https://starrupture.net/">Home</a>
-        <a class="chip" href="https://starrupture.net/guides/start-here/">Start Here</a>
-        <a class="chip" href="https://starrupture.net/guides/water-hydration/">Water</a>
-        <a class="chip" href="https://starrupture.net/guides/food-calories/">Food</a>
+      <nav class="navlinks" aria-label="Primary">
+        <a href="https://starrupture.net/troubleshooting">Troubleshooting</a>
+        <a href="https://starrupture.net/guides">Guides</a>
+        <a href="https://starrupture.net/troubleshooting/fps-performance">FPS Fixes</a>
+        <a href="https://starrupture.net/contact">Contact</a>
       </nav>
-    </header>
+    </div>
+  </header>
 
+  <main class="wrap">
     <section class="hero">
-      <div class="kicker"><span class="dot"></span> Troubleshooting • PC/Steam</div>
-      <h1>Crash Fixes & “Won’t Launch” Checklist (StarRupture)</h1>
-      <p class="sub">
-        This page prioritizes <b>safe</b>, low-risk fixes first (no sketchy downloads, no registry voodoo).
-        StarRupture is in Early Access, so some crashes are simply “known issues” awaiting patches.
+      <div class="kicker">
+        <span class="pill">Troubleshooting</span>
+        <span class="pill">Crashes</span>
+        <span class="pill">Verified: <time datetime="2026-02-03">Feb 3, 2026</time></span>
+        <span class="pill">v0.1.3</span>
+      </div>
+
+      <div class="crumbs">
+        <a href="https://starrupture.net">Home</a> →
+        <a href="https://starrupture.net/troubleshooting">Troubleshooting</a> →
+        Crash Fixes
+      </div>
+
+      <h1>StarRupture Crash Fixes (PC/Steam)</h1>
+      <p class="lead">
+        Fix crashes with GPU-specific solutions, crash log analysis, and safe troubleshooting steps.
+        We prioritize safe, reversible fixes first — no sketchy downloads or registry hacks.
       </p>
-
-      <div class="grid cols3">
-        <div class="card">
-          <h2>Start Here (Safest)</h2>
-          <p><b>Verify game files</b> in Steam (fixes missing/corrupt files).</p>
-        </div>
-        <div class="card">
-          <h2>Known Issues</h2>
-          <p>Check official launch notes first. Some “bugs” have specific workarounds.</p>
-        </div>
-        <div class="card">
-          <h2>Still broken?</h2>
-          <p>Use Windows compatibility tools, reduce conflicts, and then report with repro steps.</p>
-        </div>
-      </div>
     </section>
 
-    <!-- AdSense: OK after routing, before long steps -->
-    <div class="ad-slot section">Ad Slot (responsive) — place AdSense unit here</div>
-
-    <section class="section">
-      <h2>Step 1: Verify integrity of game files (Steam)</h2>
-      <div class="note">
-        Steam has a built-in “verify integrity” feature that checks whether the game’s files are installed correctly and
-        reacquires missing/corrupt files if needed.
-      </div>
-      <div class="card">
-        <div class="step">
-          <div class="num">1</div>
-          <p class="sub">Steam Library → right-click <b>StarRupture</b> → <b>Properties</b>.</p>
+    <div class="grid">
+      <!-- Main Content -->
+      <article class="card">
+        <h2 id="priority">🎯 Priority Checklist</h2>
+        <div class="callout callout-ok">
+          <strong style="color:var(--text)">Step 1:</strong> Verify game files in Steam<br>
+          <strong style="color:var(--text)">Step 2:</strong> Update GPU drivers<br>
+          <strong style="color:var(--text)">Step 3:</strong> Check known issues below<br>
+          <strong style="color:var(--text)">Step 4:</strong> Try GPU-specific fixes
         </div>
-        <div class="step">
-          <div class="num">2</div>
-          <p class="sub">Open <b>Installed Files</b> (or Local Files) → click <b>Verify integrity of game files</b>.</p>
+
+        <div class="hr"></div>
+
+        <h2 id="verify">✅ Step 1: Verify Game Files</h2>
+        <p class="lead" style="margin-top:0">Fixes 80% of random crashes caused by corrupted or missing files.</p>
+
+        <div class="step-box">
+          <span class="step-num">1</span>
+          <span>Steam Library → Right-click <strong>StarRupture</strong> → <strong>Properties</strong></span>
         </div>
-        <div class="step">
-          <div class="num">3</div>
-          <p class="sub">Let it finish, then relaunch the game.</p>
+        <div class="step-box">
+          <span class="step-num">2</span>
+          <span><strong>Installed Files</strong> tab → Click <strong>Verify integrity of game files</strong></span>
         </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Step 2: Check official known issues (Early Access launch build)</h2>
-      <div class="note warn">
-        <b>Important:</b> if your problem matches a known issue, don’t waste an hour “fixing Windows.” Use the dev
-        workaround and move on.
-      </div>
-
-      <div class="grid cols2">
-        <div class="card">
-          <h2>Movement locked after keybind changes</h2>
-          <p>Official notes warn that changing movement keybindings may result in being unable to move.</p>
-          <ul class="list">
-            <li><b>Fix:</b> restore default movement binds.</li>
-            <li><b>Workaround mentioned:</b> for AZERTY, use arrow keys rather than remapping movement keys.</li>
-          </ul>
+        <div class="step-box">
+          <span class="step-num">3</span>
+          <span>Wait for completion → Relaunch game</span>
         </div>
-        <div class="card">
-          <h2>If your issue isn’t listed</h2>
-          <p>Still do Step 1 first, then continue to Step 3 and Step 4 below (conflict reduction + Windows tools).</p>
+
+        <div class="hr"></div>
+
+        <h2 id="known">⚠️ Known Crash Issues (v0.1.3)</h2>
+        <p class="lead" style="margin-top:0">Official bugs confirmed by developers. Check if your issue is already
+          known.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Issue</th>
+              <th>Status</th>
+              <th>Fix/Workaround</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>AMD GPU hair render crash</strong></td>
+              <td style="color:var(--ok)">Fixed v0.1.2</td>
+              <td>Update game</td>
+            </tr>
+            <tr>
+              <td><strong>Inventory crash</strong></td>
+              <td style="color:var(--ok)">Fixed v0.1.2</td>
+              <td>Update game</td>
+            </tr>
+            <tr>
+              <td><strong>Movement lock after keybind change</strong></td>
+              <td style="color:var(--warn)">Known</td>
+              <td>Reset to default keybinds</td>
+            </tr>
+            <tr>
+              <td><strong>Subtitle font crashes (Chinese)</strong></td>
+              <td style="color:var(--ok)">Fixed v0.1.3</td>
+              <td>Update game</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="hr"></div>
+
+        <div class="ad-slot" aria-label="Ad placeholder">
+          <!-- AdSense unit placeholder -->
         </div>
+
+        <div class="hr"></div>
+
+        <h2 id="nvidia">🟢 NVIDIA-Specific Fixes</h2>
+
+        <div class="callout nvidia">
+          <strong style="color:var(--text)">Driver Update:</strong> Download latest from
+          <a href="https://www.nvidia.com/Download/index.aspx"
+            style="color:var(--ok);text-decoration:underline">nvidia.com/Download</a>
+        </div>
+
+        <h3>NVIDIA Control Panel Settings</h3>
+        <ol class="steps">
+          <li>Open NVIDIA Control Panel → <strong>Manage 3D Settings</strong></li>
+          <li>Add <code>StarRupture.exe</code> under <strong>Program Settings</strong></li>
+          <li>Set these:
+            <ul style="margin-top:8px">
+              <li><strong>Power Management:</strong> Prefer maximum performance</li>
+              <li><strong>Threaded Optimization:</strong> On</li>
+              <li><strong>Shader Cache Size:</strong> Unlimited</li>
+              <li><strong>Vertical Sync:</strong> Off (use in-game V-Sync)</li>
+            </ul>
+          </li>
+          <li>Apply and restart game</li>
+        </ol>
+
+        <h3>RTX-Specific Issues</h3>
+        <ul class="steps">
+          <li><strong>Ray tracing crashes:</strong> Disable ray tracing in settings if available</li>
+          <li><strong>DLSS crashes:</strong> Try switching to FSR or disable upscaling</li>
+          <li><strong>Frame Generation issues:</strong> Disable Frame Generation in NVIDIA app</li>
+        </ul>
+
+        <div class="hr"></div>
+
+        <h2 id="amd">🔴 AMD-Specific Fixes</h2>
+
+        <div class="callout amd">
+          <strong style="color:var(--text)">Driver Update:</strong> Download latest from
+          <a href="https://www.amd.com/en/support"
+            style="color:var(--danger);text-decoration:underline">amd.com/support</a>
+        </div>
+
+        <div class="callout callout-warn">
+          <strong style="color:var(--text)">Important:</strong> Patch 0.1.2 fixed a critical AMD GPU crash related to
+          hair rendering.
+          Make sure your game is updated!
+        </div>
+
+        <h3>AMD Software: Adrenalin Edition</h3>
+        <ol class="steps">
+          <li>Open AMD Software → <strong>Gaming</strong> tab</li>
+          <li>Add StarRupture or find it in the game list</li>
+          <li>Set these:
+            <ul style="margin-top:8px">
+              <li><strong>Radeon Anti-Lag:</strong> Off (can cause issues)</li>
+              <li><strong>Radeon Boost:</strong> Off</li>
+              <li><strong>Image Sharpening:</strong> Off</li>
+              <li><strong>Wait for Vertical Refresh:</strong> Off, unless app specifies</li>
+            </ul>
+          </li>
+          <li>Apply and restart game</li>
+        </ol>
+
+        <h3>RX 7000 Series Issues</h3>
+        <ul class="steps">
+          <li><strong>Black screen crash:</strong> Try <code>-dx11</code> launch option</li>
+          <li><strong>FSR crashes:</strong> Disable FSR or use a lower quality tier</li>
+        </ul>
+
+        <div class="hr"></div>
+
+        <h2 id="scenarios">🔥 Crash Scenarios & Fixes</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>When It Crashes</th>
+              <th>Likely Cause</th>
+              <th>Fix</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>On launch / splash screen</strong></td>
+              <td>Missing files, antivirus</td>
+              <td>Verify files, whitelist in AV</td>
+            </tr>
+            <tr>
+              <td><strong>Loading save</strong></td>
+              <td>Corrupted save</td>
+              <td>Try backup or new save</td>
+            </tr>
+            <tr>
+              <td><strong>Entering specific area</strong></td>
+              <td>Corrupt chunk data</td>
+              <td>Verify files, lower settings</td>
+            </tr>
+            <tr>
+              <td><strong>Opening inventory</strong></td>
+              <td>Fixed in 0.1.2</td>
+              <td>Update game</td>
+            </tr>
+            <tr>
+              <td><strong>Building structures</strong></td>
+              <td>VRAM limit</td>
+              <td>Lower graphics, reduce builds</td>
+            </tr>
+            <tr>
+              <td><strong>Teleporting</strong></td>
+              <td>Memory pressure</td>
+              <td>Close background apps</td>
+            </tr>
+            <tr>
+              <td><strong>After 1-2 hours</strong></td>
+              <td>Memory leak</td>
+              <td>Restart game periodically</td>
+            </tr>
+            <tr>
+              <td><strong>Co-op joining</strong></td>
+              <td>Network / EOS</td>
+              <td>Check <a href="https://starrupture.net/troubleshooting/coop-issues"
+                  style="text-decoration:underline">Co-op Issues</a></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="hr"></div>
+
+        <h2 id="logs">📋 Finding Crash Logs</h2>
+        <p class="lead" style="margin-top:0">Crash logs help developers fix your issue. Here's where to find them.</p>
+
+        <h3>Log File Location</h3>
+        <div class="callout">
+          <code>%LocalAppData%\StarRupture\Saved\Logs</code>
+        </div>
+
+        <ol class="steps">
+          <li>Press <strong>Win + R</strong> → paste the path above → Enter</li>
+          <li>Find <code>StarRupture.log</code> (main log file)</li>
+          <li>Sort by date to get the most recent crash</li>
+          <li>Attach to bug reports</li>
+        </ol>
+
+        <h3>What to Look For</h3>
+        <ul class="steps">
+          <li><strong>Fatal error:</strong> Search for "Fatal" or "Crash"</li>
+          <li><strong>GPU errors:</strong> Look for "D3D", "Vulkan", or "GPU"</li>
+          <li><strong>Out of memory:</strong> Search for "OutOfMemory" or "Allocation failed"</li>
+        </ul>
+
+        <div class="hr"></div>
+
+        <h2 id="launch">🚀 Launch Options</h2>
+        <p class="lead" style="margin-top:0">Add these in Steam → Right-click game → Properties → Launch Options</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Option</th>
+              <th>Effect</th>
+              <th>When to Use</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>-dx11</code></td>
+              <td>Force DirectX 11</td>
+              <td>DX12 crashes, older GPUs</td>
+            </tr>
+            <tr>
+              <td><code>-windowed</code></td>
+              <td>Windowed mode</td>
+              <td>Fullscreen crashes</td>
+            </tr>
+            <tr>
+              <td><code>-USEALLAVAILABLECORES</code></td>
+              <td>Use all CPU cores</td>
+              <td>Performance issues</td>
+            </tr>
+            <tr>
+              <td><code>-nothreading</code></td>
+              <td>Disable multithreading</td>
+              <td>Thread-related crashes</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="hr"></div>
+
+        <h2 id="report">📝 Bug Report Template</h2>
+        <div class="callout">
+          <strong style="color:var(--text)">Title:</strong> [Crash] Description of when it happens<br><br>
+          <strong style="color:var(--text)">Game Version:</strong> v0.1.3<br>
+          <strong style="color:var(--text)">GPU:</strong> [Model + Driver version]<br>
+          <strong style="color:var(--text)">CPU:</strong> [Model]<br>
+          <strong style="color:var(--text)">RAM:</strong> [Amount]<br>
+          <strong style="color:var(--text)">OS:</strong> Windows 10/11 [Version]<br><br>
+          <strong style="color:var(--text)">Steps to Reproduce:</strong><br>
+          1. ...<br>
+          2. ...<br>
+          3. Crash occurs<br><br>
+          <strong style="color:var(--text)">Attachments:</strong> Crash log from %LocalAppData%\StarRupture\Saved\Logs
+        </div>
+
+        <div class="hr"></div>
+
+        <h2 id="faq">❓ FAQ</h2>
+
+        <details>
+          <summary>Should I reinstall the game immediately?</summary>
+          <p class="lead">No. Try verify files first. Reinstall is a last resort after all other steps fail.</p>
+        </details>
+
+        <details>
+          <summary>Where are crash logs located?</summary>
+          <p class="lead"><code>%LocalAppData%\StarRupture\Saved\Logs</code> — press Win+R and paste this path.</p>
+        </details>
+
+        <details>
+          <summary>Does StarRupture support DirectX 11?</summary>
+          <p class="lead">Yes. Add <code>-dx11</code> to Steam launch options to force DX11 mode.</p>
+        </details>
+
+        <details>
+          <summary>Why does my game crash after 1-2 hours?</summary>
+          <p class="lead">Possible memory leak. Restart the game periodically. Close background apps to free RAM.</p>
+        </details>
+
+        <details>
+          <summary>AMD GPU crashes — is this a known issue?</summary>
+          <p class="lead">Yes. Patch 0.1.2 fixed a critical AMD hair render crash. Make sure your game is updated.</p>
+        </details>
+
+        <details>
+          <summary>What if nothing works?</summary>
+          <p class="lead">Report to developers with crash logs, GPU info, and reproduction steps. Some crashes require
+            patches.</p>
+        </details>
+
+        <div class="hr"></div>
+
+        <p class="lead" style="font-size:14px">
+          <strong>Related:</strong>
+          <a href="https://starrupture.net/troubleshooting/fps-performance" style="text-decoration:underline">FPS &
+            Performance</a> ·
+          <a href="https://starrupture.net/troubleshooting/wont-launch-black-screen"
+            style="text-decoration:underline">Won't Launch</a> ·
+          <a href="https://starrupture.net/troubleshooting" style="text-decoration:underline">All Troubleshooting</a>
+        </p>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="card toc" aria-label="On this page">
+        <h2>On this page</h2>
+        <a href="#priority">🎯 Priority Checklist</a>
+        <a href="#verify">✅ Verify Files</a>
+        <a href="#known">⚠️ Known Issues</a>
+        <a href="#nvidia">🟢 NVIDIA Fixes</a>
+        <a href="#amd">🔴 AMD Fixes</a>
+        <a href="#scenarios">🔥 Crash Scenarios</a>
+        <a href="#logs">📋 Crash Logs</a>
+        <a href="#launch">🚀 Launch Options</a>
+        <a href="#report">📝 Bug Report</a>
+        <a href="#faq">❓ FAQ</a>
+
+        <div class="hr"></div>
+
+        <h2>Quick Reference</h2>
+        <table style="font-size:12px;margin:8px 0">
+          <tr>
+            <td>Logs</td>
+            <td>%LocalAppData%\<br>StarRupture\Saved\Logs</td>
+          </tr>
+          <tr>
+            <td>DX11</td>
+            <td><code>-dx11</code></td>
+          </tr>
+          <tr>
+            <td>Verify</td>
+            <td>Steam → Properties</td>
+          </tr>
+        </table>
+
+        <div class="hr"></div>
+
+        <h2>Related Pages</h2>
+        <a href="https://starrupture.net/troubleshooting/fps-performance">FPS & Performance</a>
+        <a href="https://starrupture.net/troubleshooting/wont-launch-black-screen">Won't Launch</a>
+        <a href="https://starrupture.net/troubleshooting/coop-issues">Co-op Issues</a>
+
+        <div class="hr"></div>
+
+        <div class="callout" style="margin:0;border-left-color:var(--ok)">
+          <strong style="color:var(--text)">Version:</strong> 0.1.3<br>
+          <strong style="color:var(--text)">Verified:</strong> Feb 3, 2026
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <div class="foot">
+      <div>© <span id="y"></span> StarRupture.net · Unofficial fan site</div>
+      <div>
+        <a href="https://starrupture.net/privacy-policy">Privacy Policy</a> ·
+        <a href="https://starrupture.net/disclaimer">Disclaimer</a> ·
+        <a href="https://starrupture.net/contact">Contact</a>
       </div>
-    </section>
+    </div>
+  </footer>
 
-    <section class="section">
-      <h2>Step 3: Reduce common conflicts (low-risk)</h2>
-      <div class="note">
-        The goal is to remove variables. Do one change at a time so you know what worked.
-      </div>
-      <ul class="list">
-        <li>Reboot PC (simple, but it clears stuck drivers and background hooks).</li>
-        <li>Close background overlays/capture tools (if you use them) and try again.</li>
-        <li>Temporarily disable aggressive antivirus “game mode” blocking (if applicable), then retry.</li>
-      </ul>
-    </section>
-
-    <section class="section">
-      <h2>Step 4: Windows Program Compatibility Troubleshooter</h2>
-      <div class="note">
-        Windows includes a built-in Program Compatibility Troubleshooter path in Settings. Use it if the game launches
-        but behaves strangely or fails immediately.
-      </div>
-      <ul class="list">
-        <li>Windows Settings → System → Troubleshoot → Other troubleshooters → <b>Program Compatibility
-            Troubleshooter</b>.</li>
-        <li>Follow prompts, test, and revert if it makes things worse.</li>
-      </ul>
-    </section>
-
-    <section class="section">
-      <h2>Bug report template (copy/paste)</h2>
-      <div class="card">
-        <p class="sub"><b>Title:</b> [Crash / Freeze / Black Screen] + when it happens</p>
-        <p class="sub"><b>Build/Date:</b> Steam Early Access + today’s date</p>
-        <p class="sub"><b>Repro steps:</b> 1) … 2) … 3) …</p>
-        <p class="sub"><b>Expected:</b> …</p>
-        <p class="sub"><b>Actual:</b> …</p>
-        <p class="sub"><b>PC specs:</b> CPU / GPU / RAM / OS / Driver version</p>
-        <p class="sub"><b>Logs:</b> (attach if available) • <b>Did you verify files?</b> Yes/No</p>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>FAQ</h2>
-      <details>
-        <summary>Should I reinstall immediately?</summary>
-        <p class="sub">Try verify-files first. Reinstall is usually a “last resort” when verification and conflict
-          reduction fail.</p>
-      </details>
-      <details>
-        <summary>My keyboard controls broke after rebinding—am I cooked?</summary>
-        <p class="sub">Not necessarily. Official notes specifically mention restoring default movement binds; start
-          there.</p>
-      </details>
-      <details>
-        <summary>Will this page be updated?</summary>
-        <p class="sub">Yes—known issues and fixes change fast in Early Access. Keep a “last updated” stamp visible.</p>
-      </details>
-    </section>
-
-    <!-- AdSense: safe placement after FAQ -->
-    <div class="ad-slot section">Ad Slot (responsive) — place AdSense unit here</div>
-
-    <footer>
-      <div class="pill"><a href="https://starrupture.net/guides/start-here/">← Start Here</a></div>
-      <div class="pill">Also useful: <a href="https://starrupture.net/guides/water-hydration/">Water</a> · <a
-          href="https://starrupture.net/guides/food-calories/">Food</a></div>
-    </footer>
-  </div>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 
 </html>
