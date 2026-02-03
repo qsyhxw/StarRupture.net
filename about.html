@@ -1,0 +1,774 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <title>About Us | StarRupture.net - Independent Game Guides</title>
+    <meta name="description"
+        content="Learn about StarRupture.net - an independent, community-driven guide site dedicated to helping players master StarRupture. Our mission, team, and editorial standards." />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://starrupture.net/about" />
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8830315294299920"
+        crossorigin="anonymous"></script>
+
+    <meta property="og:title" content="About Us | StarRupture.net" />
+    <meta property="og:description"
+        content="Independent, community-driven StarRupture guides. Learn about our mission, team, and editorial standards." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://starrupture.net/about" />
+
+    <style>
+        :root {
+            --bg: #0B0F14;
+            --panel: #0F1620;
+            --text: #E6EEF6;
+            --muted: #A9B6C6;
+            --brand: #4CC9F0;
+            --accent: #A78BFA;
+            --accent-2: #A3FFB0;
+            --border: rgba(27, 37, 48, .95);
+            --shadow: 0 12px 30px rgba(0, 0, 0, .35);
+            --radius: 14px;
+            --max: 980px;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: .6
+            }
+        }
+
+        @keyframes glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 8px var(--brand)
+            }
+
+            50% {
+                box-shadow: 0 0 20px var(--brand)
+            }
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+            background: radial-gradient(1200px 600px at 20% -10%, rgba(76, 201, 240, .12), transparent 60%),
+                radial-gradient(1000px 500px at 90% 0%, rgba(167, 139, 250, .10), transparent 55%),
+                var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: var(--brand);
+            text-decoration: none
+        }
+
+        a:hover {
+            text-decoration: none;
+            color: var(--accent-2)
+        }
+
+        header {
+            border-bottom: 1px solid var(--border);
+            background: rgba(11, 15, 20, .72);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .nav {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            letter-spacing: .2px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--brand), var(--accent));
+            box-shadow: 0 0 18px rgba(76, 201, 240, .55);
+        }
+
+        .nav a.small {
+            color: var(--muted);
+            font-size: 14px;
+            transition: color .2s
+        }
+
+        .nav a.small:hover {
+            color: var(--text)
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            align-items: center
+        }
+
+        .wrap {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 28px 18px 60px
+        }
+
+        .hero {
+            border: 1px solid var(--border);
+            border-radius: calc(var(--radius) + 6px);
+            box-shadow: var(--shadow);
+            padding: 26px;
+            background: linear-gradient(180deg, rgba(15, 22, 32, .92), rgba(12, 18, 26, .88));
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero:before {
+            content: "";
+            position: absolute;
+            inset: -1px;
+            background:
+                radial-gradient(500px 220px at 15% 10%, rgba(76, 201, 240, .16), transparent 60%),
+                radial-gradient(520px 240px at 85% 0%, rgba(167, 139, 250, .14), transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero>* {
+            position: relative
+        }
+
+        h1 {
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            line-height: 1.15;
+            margin: 0 0 12px
+        }
+
+        .sub {
+            color: var(--muted);
+            margin: 0 0 18px;
+            max-width: 70ch;
+            font-size: 1.05rem
+        }
+
+        .pill {
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: rgba(12, 18, 26, .55);
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .section {
+            margin-top: 28px
+        }
+
+        .section h2 {
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
+            margin: 0 0 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section h2 .icon {
+            font-size: 1.3em;
+        }
+
+        .section p {
+            color: var(--muted);
+            margin: 0 0 14px;
+            max-width: 72ch;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+        }
+
+        @media(min-width:760px) {
+            .grid {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .grid.cols3 {
+                grid-template-columns: 1fr 1fr 1fr
+            }
+        }
+
+        .card {
+            background: rgba(12, 18, 26, .65);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 18px;
+            transition: all .25s ease;
+            position: relative;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: var(--radius);
+            background: linear-gradient(135deg, var(--brand), var(--accent));
+            opacity: 0;
+            z-index: -1;
+            transition: opacity .25s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(76, 201, 240, .4);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, .2);
+        }
+
+        .card:hover::before {
+            opacity: .12
+        }
+
+        .card h3 {
+            margin: 0 0 8px;
+            font-size: 1.1rem;
+            color: var(--text);
+        }
+
+        .card p {
+            margin: 0;
+            font-size: .95rem;
+        }
+
+        .card .tag {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: rgba(76, 201, 240, .08);
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .values-list {
+            display: grid;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .value-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            padding: 14px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: rgba(12, 18, 26, .45);
+        }
+
+        .value-item .icon {
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .value-item h4 {
+            margin: 0 0 4px;
+            font-size: 1rem;
+        }
+
+        .value-item p {
+            margin: 0;
+            font-size: .92rem;
+        }
+
+        .timeline {
+            margin-top: 14px;
+            padding-left: 24px;
+            border-left: 2px solid rgba(76, 201, 240, .3);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 18px;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -29px;
+            top: 4px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--brand);
+            box-shadow: 0 0 12px rgba(76, 201, 240, .5);
+        }
+
+        .timeline-item .date {
+            font-size: .85rem;
+            color: var(--brand);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .timeline-item h4 {
+            margin: 0 0 4px;
+            font-size: 1rem;
+        }
+
+        .timeline-item p {
+            margin: 0;
+            font-size: .92rem;
+        }
+
+        .box {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 18px;
+            background: linear-gradient(180deg, rgba(15, 22, 32, .80), rgba(12, 18, 26, .70));
+            margin-top: 14px;
+        }
+
+        .box h3 {
+            margin: 0 0 10px;
+            font-size: 1.05rem;
+        }
+
+        .box ul {
+            margin: 10px 0 0;
+            padding-left: 18px;
+        }
+
+        .box li {
+            margin: 6px 0;
+            color: var(--muted);
+        }
+
+        .cta-box {
+            border: 1px solid rgba(163, 255, 176, .25);
+            border-radius: var(--radius);
+            padding: 20px;
+            background: radial-gradient(600px 200px at 20% 50%, rgba(163, 255, 176, .08), transparent 60%),
+                rgba(12, 18, 26, .65);
+            margin-top: 28px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .cta-box h3 {
+            margin: 0 0 4px;
+        }
+
+        .cta-box p {
+            margin: 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 18px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 14px;
+            border: 1px solid var(--border);
+            background: rgba(12, 18, 26, .55);
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none !important;
+            transition: all .2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, transparent, rgba(255, 255, 255, .1), transparent);
+            transform: translateX(-100%);
+            transition: transform .4s ease;
+        }
+
+        .btn:hover::before {
+            transform: translateX(100%)
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(76, 201, 240, .15);
+            border-color: rgba(76, 201, 240, .5);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, rgba(76, 201, 240, .25), rgba(167, 139, 250, .15));
+            border-color: rgba(76, 201, 240, .5);
+        }
+
+        .hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 24px 0;
+        }
+
+        footer {
+            max-width: var(--max);
+            margin: 24px auto 0;
+            padding: 18px;
+            color: var(--muted);
+            font-size: 14px;
+            border-top: 1px solid var(--border);
+        }
+
+        @media(max-width:640px) {
+            .nav-links {
+                display: none
+            }
+
+            h1 {
+                font-size: 1.6rem !important
+            }
+
+            .cta-box {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "StarRupture.net",
+    "url": "https://starrupture.net",
+    "description": "Independent, community-driven StarRupture game guides and resources.",
+    "foundingDate": "2026-01",
+    "sameAs": [],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "qsyhxw@gmail.com",
+      "contactType": "customer support",
+      "url": "https://starrupture.net/contact"
+    }
+  }
+  </script>
+
+    <!-- AboutPage Schema -->
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About StarRupture.net",
+    "url": "https://starrupture.net/about",
+    "description": "Learn about StarRupture.net - an independent, community-driven guide site dedicated to helping players master StarRupture.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "StarRupture.net",
+      "url": "https://starrupture.net"
+    }
+  }
+  </script>
+</head>
+
+<body>
+    <header>
+        <div class="nav">
+            <div class="logo">
+                <span class="dot"></span>
+                <a href="https://starrupture.net" aria-label="StarRupture.net Home">StarRupture.net</a>
+            </div>
+            <div class="nav-links">
+                <a class="small" href="https://starrupture.net/guides/start-here">Start Here</a>
+                <a class="small" href="https://starrupture.net/guides">Guides</a>
+                <a class="small" href="https://starrupture.net/troubleshooting">Troubleshooting</a>
+                <a class="small" href="https://starrupture.net/contact">Contact</a>
+                <a class="small" href="https://starrupture.net/privacy-policy">Privacy</a>
+                <a class="small" href="https://starrupture.net/disclaimer">Disclaimer</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="wrap">
+        <!-- HERO -->
+        <section class="hero">
+            <div class="pill" title="Page version">
+                <span>Last updated:</span>
+                <strong>2026-02-03</strong>
+            </div>
+
+            <h1>About StarRupture.net</h1>
+            <p class="sub">
+                We're an <strong>independent, community-driven guide site</strong> dedicated to helping players master
+                StarRupture.
+                No official affiliation—just passionate players creating practical, version-verified resources for the
+                community.
+            </p>
+        </section>
+
+        <!-- MISSION -->
+        <section class="section">
+            <h2><span class="icon">🎯</span> Our Mission</h2>
+            <p>
+                StarRupture launched into Early Access on January 6, 2026, and players immediately started asking the
+                same
+                questions:
+                <em>"How do I survive the first night?"</em>, <em>"Where do I find water?"</em>, <em>"Why does my game
+                    crash?"</em>
+            </p>
+            <p>
+                We created StarRupture.net to provide <strong>fast, accurate, no-fluff answers</strong> to these
+                questions.
+                Our goal is simple: help you find what you need in 30 seconds or less, so you can get back to playing.
+            </p>
+
+            <div class="box">
+                <h3>What we believe</h3>
+                <ul>
+                    <li><strong>Speed matters</strong> — Guides should answer your question immediately, not after 500
+                        words of
+                        introduction</li>
+                    <li><strong>Accuracy over quantity</strong> — We'd rather have 10 correct pages than 100 outdated
+                        ones</li>
+                    <li><strong>Version awareness</strong> — Early Access games change fast; we track and update when
+                        they do</li>
+                    <li><strong>Community-first</strong> — Player feedback directly shapes our content priorities</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WHAT WE DO -->
+        <section class="section">
+            <h2><span class="icon">📚</span> What We Provide</h2>
+
+            <div class="grid cols3">
+                <div class="card">
+                    <h3>Beginner Guides</h3>
+                    <p>Step-by-step survival basics: hydration, food, early progression, and core mechanics explained
+                        simply.</p>
+                    <span class="tag">New players</span>
+                </div>
+
+                <div class="card">
+                    <h3>Troubleshooting</h3>
+                    <p>Crash fixes, performance tips, and solutions to common technical issues—tested and verified.</p>
+                    <span class="tag">Tech support</span>
+                </div>
+
+                <div class="card">
+                    <h3>Resource Tables</h3>
+                    <p>Quick-reference data: item stats, crafting requirements, and location guides in scannable
+                        formats.</p>
+                    <span class="tag">Reference</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- OUR VALUES -->
+        <section class="section">
+            <h2><span class="icon">💎</span> Our Editorial Standards</h2>
+            <p>
+                Every guide on StarRupture.net follows these principles to maintain quality and trustworthiness:
+            </p>
+
+            <div class="values-list">
+                <div class="value-item">
+                    <span class="icon">✅</span>
+                    <div>
+                        <h4>Version Verified</h4>
+                        <p>Each guide displays the game version it was tested on. When major patches drop, we review and
+                            update
+                            affected content.</p>
+                    </div>
+                </div>
+
+                <div class="value-item">
+                    <span class="icon">🔍</span>
+                    <div>
+                        <h4>In-Game Tested</h4>
+                        <p>We don't copy-paste from other sources. Our guides are based on actual gameplay testing and
+                            verification.</p>
+                    </div>
+                </div>
+
+                <div class="value-item">
+                    <span class="icon">📝</span>
+                    <div>
+                        <h4>Correction-Friendly</h4>
+                        <p>Found something wrong? We encourage players to <a
+                                href="https://starrupture.net/contact">report
+                                errors</a>. We fix confirmed issues quickly.</p>
+                    </div>
+                </div>
+
+                <div class="value-item">
+                    <span class="icon">🚫</span>
+                    <div>
+                        <h4>No Fluff Policy</h4>
+                        <p>We skip the filler. No "As a player, you might wonder..." introductions. Just the information
+                            you need.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SITE HISTORY -->
+        <section class="section">
+            <h2><span class="icon">📅</span> Site History</h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="date">January 2026</div>
+                    <h4>Site Launch</h4>
+                    <p>StarRupture.net launched alongside the game's Early Access release. Initial content focused on
+                        survival
+                        basics and crash fixes—the most common Day 1 questions.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="date">February 2026</div>
+                    <h4>Content Expansion</h4>
+                    <p>Expanded guide library with deeper tutorials, troubleshooting pages, and resource databases.
+                        Ongoing
+                        updates as the game evolves.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="date">Ongoing</div>
+                    <h4>Continuous Updates</h4>
+                    <p>Active monitoring of game patches and community feedback to keep all content accurate and
+                        relevant.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- INDEPENDENCE -->
+        <section class="section">
+            <h2><span class="icon">🔒</span> Independence & Transparency</h2>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>Not Official</h3>
+                    <p>StarRupture.net is an <strong>unofficial fan site</strong>. We are not affiliated with, endorsed
+                        by, or
+                        sponsored by the game's developers (Creepy Jar) or any official entity.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Ad-Supported</h3>
+                    <p>This site may display advertisements to cover hosting costs. We maintain editorial
+                        independence—ads never
+                        influence our content or recommendations.</p>
+                </div>
+            </div>
+
+            <div class="box">
+                <h3>Related policies</h3>
+                <ul>
+                    <li><a href="https://starrupture.net/privacy-policy">Privacy Policy</a> — How we handle your data
+                    </li>
+                    <li><a href="https://starrupture.net/disclaimer">Disclaimer</a> — Full legal disclaimers and
+                        copyright info
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- TEAM -->
+        <section class="section">
+            <h2><span class="icon">👥</span> The Team</h2>
+            <p>
+                StarRupture.net is maintained by a small team of dedicated players who love survival games and believe
+                in
+                creating
+                genuinely helpful resources for the community.
+            </p>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>Content & Guides</h3>
+                    <p>Our editors play the game extensively, test strategies, and translate complex mechanics into
+                        clear,
+                        actionable guides.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Technical & Design</h3>
+                    <p>We focus on fast-loading, accessible design that works on all devices. No bloat, no tracking
+                        beyond
+                        essential analytics.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <div class="cta-box">
+            <div>
+                <h3>Have feedback or suggestions?</h3>
+                <p>We're always looking to improve. Tell us what guides you need or report any issues.</p>
+            </div>
+            <a class="btn btn-primary" href="https://starrupture.net/contact">Contact Us →</a>
+        </div>
+
+        <hr class="hr" />
+
+        <footer>
+            © <span id="year"></span> StarRupture.net ·
+            <a href="https://starrupture.net/privacy-policy">Privacy</a> ·
+            <a href="https://starrupture.net/disclaimer">Disclaimer</a> ·
+            <a href="https://starrupture.net/contact">Contact</a>
+        </footer>
+    </main>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
