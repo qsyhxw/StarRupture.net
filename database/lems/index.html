@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StarRupture LEM Modules Guide - All Limbic Enhancements & Effects</title>
+  <meta name="description" content="Complete StarRupture LEM guide: Greater Lifegiver, Scalper, Shieldgiver & more. Combat, movement & survival modules with effects, stacking rules & locations.">
+  <link rel="canonical" href="https://starrupture.net/database/lems/">
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8830315294299920" crossorigin="anonymous"></script>
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="StarRupture LEM Modules Guide - All Limbic Enhancements & Effects">
+  <meta property="og:description" content="All LEM modules with effects, stacking rules and acquisition locations.">
+  <meta property="og:url" content="https://starrupture.net/database/lems/">
+
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#06080c;--surface:#0d1117;--surface-2:#161b22;--border:#21262d;
+      --text:#e6edf3;--text-muted:#8b949e;
+      --primary:#f97316;--primary-dim:rgba(249,115,22,.15);
+      --secondary:#22d3ee;--secondary-dim:rgba(34,211,238,.12);
+      --accent:#a855f7;--accent-dim:rgba(168,85,247,.15);
+      --success:#22c55e;--warning:#eab308;--danger:#ef4444;
+      --lem-blue:#3b82f6;--lem-red:#ef4444;--lem-green:#22c55e;
+      --radius:12px;--max-w:1200px;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+    a{color:inherit;text-decoration:none;transition:color .2s}
+    a:hover{color:var(--primary)}
+    .container{max-width:var(--max-w);margin:0 auto;padding:0 20px}
+
+    .header{position:sticky;top:0;z-index:100;background:rgba(6,8,12,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;height:60px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.1rem}
+    .logo-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--primary),var(--secondary));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;color:#fff}
+    .nav{display:flex;gap:8px}
+    .nav a{padding:8px 14px;border-radius:8px;font-size:.9rem;color:var(--text-muted);transition:all .2s}
+    .nav a:hover,.nav a.active{background:var(--surface-2);color:var(--text)}
+    .nav a.active{color:var(--primary)}
+
+    .breadcrumb{padding:16px 0;font-size:.875rem;color:var(--text-muted)}
+    .breadcrumb a:hover{color:var(--primary)}
+    .breadcrumb span{margin:0 8px;opacity:.5}
+
+    .hero{padding:40px 0 30px;background:radial-gradient(ellipse at 30% 0%,rgba(168,85,247,.08),transparent 50%)}
+    .hero h1{font-size:clamp(1.8rem,4vw,2.4rem);font-weight:800;margin-bottom:12px}
+    .hero p{font-size:1.05rem;color:var(--text-muted);max-width:700px}
+    .hero-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:20px;font-size:.8rem;background:var(--accent-dim);color:var(--accent);margin-bottom:16px}
+
+    .section{padding:30px 0}
+    .section-header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+    .section-header h2{font-size:1.25rem;font-weight:700;display:flex;align-items:center;gap:10px}
+    .section-header p{color:var(--text-muted);font-size:.9rem;margin-top:4px}
+
+    .quick-nav{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0;padding:16px;background:var(--surface);border-radius:var(--radius);border:1px solid var(--border)}
+    .quick-nav a{padding:8px 16px;background:var(--surface-2);border-radius:8px;font-size:.85rem;font-weight:500;transition:all .2s}
+    .quick-nav a:hover{background:var(--primary);color:#fff}
+    .quick-nav .nav-blue{border-left:3px solid var(--lem-blue)}
+    .quick-nav .nav-red{border-left:3px solid var(--lem-red)}
+    .quick-nav .nav-green{border-left:3px solid var(--lem-green)}
+
+    .lem-card{padding:20px;border-radius:var(--radius);background:var(--surface);border:1px solid var(--border);margin-bottom:16px}
+    .lem-header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+    .lem-title{display:flex;align-items:center;gap:12px}
+    .lem-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center}
+    .lem-name h3{font-size:1.1rem;font-weight:700;margin-bottom:2px}
+    .lem-name .type{font-size:.8rem;padding:3px 8px;border-radius:4px;display:inline-block}
+    .type-blue{background:rgba(59,130,246,.15);color:var(--lem-blue)}
+    .type-red{background:rgba(239,68,68,.15);color:var(--lem-red)}
+    .type-green{background:rgba(34,197,94,.15);color:var(--lem-green)}
+    .lem-tier{padding:5px 12px;border-radius:6px;font-weight:700;font-size:.8rem}
+    .tier-s{background:rgba(255,127,127,.15);color:#ff7f7f}
+    .tier-a{background:rgba(255,191,127,.15);color:#ffbf7f}
+    .tier-b{background:rgba(255,223,127,.15);color:#ffdf7f}
+
+    .lem-effect{padding:12px;background:var(--surface-2);border-radius:8px;margin-bottom:12px}
+    .lem-effect .label{font-size:.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+    .lem-effect .value{font-size:.95rem;font-weight:500}
+
+    .lem-desc{color:var(--text-muted);font-size:.9rem;margin-bottom:12px}
+
+    .lem-location{padding:10px 14px;background:linear-gradient(135deg,var(--surface-2),var(--surface));border-radius:8px;border-left:3px solid var(--accent);font-size:.85rem}
+
+    .info-box{padding:16px;background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);margin:20px 0}
+    .info-box h4{font-size:.95rem;font-weight:600;margin-bottom:8px}
+    .info-box p,.info-box li{font-size:.9rem;color:var(--text-muted)}
+    .info-box ul{padding-left:20px;margin-top:8px}
+
+    .category-header{padding:16px 20px;border-radius:var(--radius);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+    .category-header.blue{background:linear-gradient(135deg,rgba(59,130,246,.1),transparent);border-left:4px solid var(--lem-blue)}
+    .category-header.red{background:linear-gradient(135deg,rgba(239,68,68,.1),transparent);border-left:4px solid var(--lem-red)}
+    .category-header.green{background:linear-gradient(135deg,rgba(34,197,94,.1),transparent);border-left:4px solid var(--lem-green)}
+    .category-header h3{font-size:1.1rem;font-weight:700}
+    .category-header p{font-size:.85rem;color:var(--text-muted)}
+
+    .footer{padding:40px 0;border-top:1px solid var(--border);margin-top:40px}
+    .footer-inner{display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:30px}
+    .footer-brand{max-width:300px}
+    .footer-brand p{font-size:.85rem;color:var(--text-muted);margin-top:10px}
+    .footer-links{display:flex;gap:30px}
+    .footer-links a{font-size:.9rem;color:var(--text-muted)}
+    .footer-copy{text-align:center;padding-top:30px;margin-top:30px;border-top:1px solid var(--border);font-size:.8rem;color:var(--text-muted)}
+
+    @media(max-width:768px){.nav{display:none}.lem-header{flex-direction:column;align-items:flex-start}.footer-inner{flex-direction:column}}
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="/" class="logo">
+        <span class="logo-icon">SR</span>
+        <span>StarRupture<span style="color:var(--text-muted)">.net</span></span>
+      </a>
+      <nav class="nav">
+        <a href="/guides/">Guides</a>
+        <a href="/database/" class="active">Database</a>
+        <a href="/tier-lists/">Tier Lists</a>
+        <a href="/troubleshooting/">Fixes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a><span>›</span><a href="/database/">Database</a><span>›</span><span>LEM Modules</span>
+      </nav>
+    </div>
+
+    <section class="hero">
+      <div class="container">
+        <span class="hero-badge">🧬 20+ LEMs Documented</span>
+        <h1>LEM Modules Database</h1>
+        <p>Complete guide to Limbic Enhancement Membranes in StarRupture. Combat, movement, and survival upgrades with effects, stacking rules, and acquisition locations.</p>
+
+        <div class="quick-nav">
+          <span style="color:var(--text-muted);font-size:.85rem;padding:8px 0">Jump to:</span>
+          <a href="#overview" class="nav-blue">Overview</a>
+          <a href="#combat" class="nav-red">Combat (Red)</a>
+          <a href="#movement" class="nav-blue">Movement (Blue)</a>
+          <a href="#survival" class="nav-green">Survival (Green)</a>
+          <a href="#locations">Locations</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- OVERVIEW SECTION -->
+    <section class="section" id="overview">
+      <div class="container">
+        <div class="section-header">
+          <h2>What are LEMs?</h2>
+          <p>Limbic Enhancement Membranes are permanent character upgrades.</p>
+        </div>
+
+        <div class="info-box" style="border-left:3px solid var(--accent)">
+          <h4>LEM Basics</h4>
+          <p>LEMs (Limbic Enhancement Membranes) are powerful upgrades that enhance your character's abilities. Once acquired, they provide permanent bonuses.</p>
+          <ul>
+            <li><strong>Acquisition:</strong> Found in abandoned bases, loot containers, and enemy drops</li>
+            <li><strong>Slots:</strong> Limited number of LEM slots available</li>
+            <li><strong>Stacking:</strong> Some LEMs stack, others have diminishing returns</li>
+            <li><strong>Categories:</strong> Red (Combat), Blue (Movement), Green (Survival)</li>
+          </ul>
+        </div>
+
+        <div class="info-box" style="border-left:3px solid var(--warning)">
+          <h4>LEM Tiers</h4>
+          <p>LEMs come in different power levels:</p>
+          <ul>
+            <li><strong>Basic:</strong> Standard effect (e.g., "Lifegiver")</li>
+            <li><strong>Greater:</strong> Enhanced effect (e.g., "Greater Lifegiver")</li>
+            <li><strong>Superior:</strong> Maximum effect (rare, late-game)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMBAT SECTION -->
+    <section class="section" id="combat">
+      <div class="container">
+        <div class="category-header red">
+          <div>
+            <h3>Combat LEMs (Red)</h3>
+            <p>Enhance damage output, critical hits, and offensive capabilities.</p>
+          </div>
+        </div>
+
+        <!-- Greater Scalper -->
+        <div class="lem-card">
+          <div class="lem-header">
+            <div class="lem-title">
+              <div class="lem-icon" style="background:rgba(239,68,68,.15);color:var(--lem-red)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              </div>
+              <div class="lem-name">
+                <h3>Greater Scalper</h3>
+                <span class="type type-red">Combat</span>
+              </div>
+            </div>
+            <span class="lem-tier tier-s">S Tier</span>
+          </div>
+
+          <div class="lem-effect">
+            <div class="label">Effect</div>
+            <div class="value">+25% Critical Hit Damage</div>
+          </div>
+
+          <p class="lem-desc">One of the best combat LEMs. Significantly increases damage on critical hits. Stacks with other damage modifiers for devastating burst damage.</p>
+
+          <div class="lem-location">
+            <strong>Location:</strong> Abandoned bases, high-tier loot containers, enemy drops
+          </div>
+        </div>
+
+        <!-- Scalper -->
+        <div class="lem-card">
+          <div class="lem-header">
+            <div class="lem-title">
+              <div class="lem-icon" style="background:rgba(239,68,68,.15);color:var(--lem-red)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              </div>
+              <div class="lem-name">
+                <h3>Scalper</h3>
+                <span class="type type-red">Combat</span>
+              </div>
+            </div>
+            <span class="lem-tier tier-a">A Tier</span>
+          </div>
+
+          <div class="lem-effect">
+            <div class="label">Effect</div>
+            <div class="value">+15% Critical Hit Damage</div>
+          </div>
+
+          <p class="lem-desc">Basic version of the Scalper line. Good early-game pickup that remains useful throughout. Stack multiple for increased effect.</p>
+        </div>
+
+        <!-- Damage Amplifier -->
+        <div class="lem-card">
+          <div class="lem-header">
+            <div class="lem-title">
+              <div class="lem-icon" style="background:rgba(239,68,68,.15);color:var(--lem-red)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
+              </div>
+              <div class="lem-name">
+                <h3>Damage Amplifier</h3>
+                <span class="type type-red">Combat</span>
+              </div>
+            </div>
+            <span class="lem-tier tier-a">A Tier</span>
+          </div>
+
+          <div class="lem-effect">
+            <div class="label">Effect</div>
+            <div class="value">+10-15% Base Damage</div>
+          </div>
+
+          <p class="lem-desc">Flat damage increase to all attacks. Works with all weapon types. Solid choice for consistent damage improvement.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MOVEMENT SECTION -->
+    <section class="section" id="movement">
+      <div class="container">
+        <div class="category-header blue">
+          <div>
+            <h3>Movement LEMs (Blue)</h3>
+            <p>Enhance speed, stamina, and mobility options.</p>
+          </div>
+        </div>
+
+        <!-- Greater Sprinter -->
+        <div class="lem-card">
+          <div class="lem-header">
+            <div class="lem-title">
+              <div class="lem-icon" style="background:rgba(59,130,246,.15);color:var(--lem-blue)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              </div>
+              <div class="lem-name">
+                <h3>Greater Sprinter</h3>
+                <span class="type type-blue">Movement</span>
+              </div>
+            </div>
+            <span class="lem-tier tier-a">A Tier</span>
+          </div>
+
+          <div class="lem-effect">
+            <div class="label">Effect</div>
+            <div class="value">+20% Sprint Speed</div>
+          </div>
+
+          <p class="lem-desc">Significantly increases sprint speed for faster traversal and combat repositioning. Essential for exploration and escaping dangerous situations.</p>
+        </div>
+
+        <!-- Endurancegiver -->
+        <div class="lem-card">
+          <div class="lem-header">
+            <div class="lem-title">
+              <div class="lem-icon" style="background:rgba(59,130,246,.15);color:var(--lem-blue)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4"/><path d="M12 18v4"/><circle cx="12" cy="12" r="4"/></svg>
+              </div>
+              <div class="lem-name">
+                <h3>Endurancegiver</h3>
+                <span class="type type-blue">Movement</span>
+              </div>
+            </div>
+            <span class="lem-tier tier-a">A Tier</span>
+          </div>
+
+          <div class="lem-effect">
+            <div class="label">Effect</div>
+            <div class="value">+15-25% Stamina Pool</div>
+          </div>
+
+          <p class="lem-desc">Increases maximum stamina for longer sprints and more combat actions. Pairs well with sprint speed LEMs for extended mobility.</p>
+        </div>
+
+        <!-- Stamina Regen -->
+        <div class="lem-card">
+          <div class="lem-header">
+            <div class="lem-title">
+              <div class="lem-icon" style="background:rgba(59,130,246,.15);color:var(--lem-blue)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/></svg>
+              </div>
+              <div class="lem-name">
+                <h3>Stamina Regenerator</h3>
+                <span class="type type-blue">Movement</span>
+              </div>
+            </div>
+            <span class="lem-tier tier-b">B Tier</span>
+          </div>
+
+          <div class="lem-effect">
+            <div class="label">Effect</div>
+            <div class="value">+10-15% Stamina Regen Rate</div>
+          </div>
+
+          <p class="lem-desc">Faster stamina recovery between actions. Useful for sustained combat but less impactful than raw stamina increases.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SURVIVAL SECTION -->
+    <section class="section" id="survival">
+      <div class="container">
+        <div class="category-header green">
+          <div>
+            <h3>Survival LEMs (Green)</h3>
+            <p>Enhance health, shields, and defensive capabilities.</p>
+          </div>
+        </div>
+
+        <!-- Greater Lifegiver -->
+        <div class="lem-card">
+          <div class="lem-header">
+            <div class="lem-title">
+              <div class="lem-icon" style="background:rgba(34,197,94,.15);color:var(--lem-green)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </div>
+              <div class="lem-name">
+                <h3>Greater Lifegiver</h3>
+                <span class="type type-green">Survival</span>
+              </div>
+            </div>
+            <span class="lem-tier tier-s">S Tier</span>
+          </div>
+
+          <div class="lem-effect">
+            <div class="label">Effect</div>
+            <div class="value">+25% Maximum Health</div>
+          </div>
+
+          <p class="lem-desc">The best survival LEM. Significantly increases your health pool, allowing you to survive more hits. Essential for Rupture events and tough encounters.</p>
+
+          <div class="lem-location">
+            <strong>Location:</strong> High-tier abandoned bases, rare enemy drops, late-game areas
+          </div>
+        </div>
+
+        <!-- Lifegiver -->
+        <div class="lem-card">
+          <div class="lem-header">
+            <div class="lem-title">
+              <div class="lem-icon" style="background:rgba(34,197,94,.15);color:var(--lem-green)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </div>
+              <div class="lem-name">
+                <h3>Lifegiver</h3>
+                <span class="type type-green">Survival</span>
+              </div>
+            </div>
+            <span class="lem-tier tier-a">A Tier</span>
+          </div>
+
+          <div class="lem-effect">
+            <div class="label">Effect</div>
+            <div class="value">+15% Maximum Health</div>
+          </div>
+
+          <p class="lem-desc">Basic health increase. Stack multiple for significant survivability boost. One of the first LEMs you should prioritize finding.</p>
+        </div>
+
+        <!-- Greater Shieldgiver -->
+        <div class="lem-card">
+          <div class="lem-header">
+            <div class="lem-title">
+              <div class="lem-icon" style="background:rgba(34,197,94,.15);color:var(--lem-green)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div class="lem-name">
+                <h3>Greater Shieldgiver</h3>
+                <span class="type type-green">Survival</span>
+              </div>
+            </div>
+            <span class="lem-tier tier-a">A Tier</span>
+          </div>
+
+          <div class="lem-effect">
+            <div class="label">Effect</div>
+            <div class="value">+20% Shield Capacity</div>
+          </div>
+
+          <p class="lem-desc">Increases shield pool for additional damage absorption. Shields regenerate over time, making this valuable for sustained exploration.</p>
+        </div>
+
+        <!-- Health Regen -->
+        <div class="lem-card">
+          <div class="lem-header">
+            <div class="lem-title">
+              <div class="lem-icon" style="background:rgba(34,197,94,.15);color:var(--lem-green)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4"/><path d="M12 18v4"/><circle cx="12" cy="12" r="4"/></svg>
+              </div>
+              <div class="lem-name">
+                <h3>Regenerator</h3>
+                <span class="type type-green">Survival</span>
+              </div>
+            </div>
+            <span class="lem-tier tier-b">B Tier</span>
+          </div>
+
+          <div class="lem-effect">
+            <div class="label">Effect</div>
+            <div class="value">+Health Regeneration</div>
+          </div>
+
+          <p class="lem-desc">Passive health regeneration over time. Reduces reliance on healing items during exploration. Less impactful in intense combat.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- LOCATIONS SECTION -->
+    <section class="section" id="locations">
+      <div class="container">
+        <div class="section-header">
+          <h2>Where to Find LEMs</h2>
+          <p>Primary locations for acquiring Limbic Enhancement Membranes.</p>
+        </div>
+
+        <div class="info-box" style="border-left:3px solid var(--secondary)">
+          <h4>Abandoned Bases</h4>
+          <p>The primary source for LEMs. Explore ruins and abandoned structures.</p>
+          <ul>
+            <li><strong>Purple Haze:</strong> Selenian Mining Base - Multiple LEMs + Blueprints</li>
+            <li><strong>SMB Locations:</strong> Scattered across the map, marked on radar</li>
+            <li><strong>Underground:</strong> Cave systems contain rare LEMs</li>
+          </ul>
+        </div>
+
+        <div class="info-box" style="border-left:3px solid var(--danger)">
+          <h4>Enemy Drops</h4>
+          <p>Hostile creatures occasionally drop LEMs on death.</p>
+          <ul>
+            <li><strong>Elite Enemies:</strong> Higher chance for Greater-tier LEMs</li>
+            <li><strong>Rupture Spawns:</strong> Enemies during Rupture events</li>
+            <li><strong>Boss Creatures:</strong> Guaranteed LEM drops</li>
+          </ul>
+        </div>
+
+        <div class="info-box" style="border-left:3px solid var(--warning)">
+          <h4>Loot Containers</h4>
+          <p>Blue-glowing containers found throughout the world.</p>
+          <ul>
+            <li><strong>Standard Crates:</strong> Basic LEMs</li>
+            <li><strong>Rare Containers:</strong> Greater-tier LEMs</li>
+            <li><strong>Hidden Stashes:</strong> Check behind structures and in corners</li>
+          </ul>
+        </div>
+
+        <!-- Tips Section -->
+        <div class="info-box" style="border-left:3px solid var(--accent)">
+          <h4>LEM Optimization Tips</h4>
+          <ul>
+            <li><strong>Priority:</strong> Greater Lifegiver > Greater Scalper > Endurancegiver</li>
+            <li><strong>Stacking:</strong> Multiple same-type LEMs stack additively</li>
+            <li><strong>Balance:</strong> Mix survival and combat LEMs for versatility</li>
+            <li><strong>Exploration:</strong> Thoroughly search abandoned bases for hidden LEMs</li>
+            <li><strong>Rupture Events:</strong> Farm enemies during Ruptures for LEM drops</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="logo">
+            <span class="logo-icon">SR</span>
+            <span>StarRupture.net</span>
+          </div>
+          <p>Independent StarRupture guides and database. Version-verified for Early Access. Not affiliated with Creepy Jar.</p>
+        </div>
+        <div class="footer-links">
+          <a href="/about/">About</a>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy-policy/">Privacy</a>
+          <a href="/disclaimer/">Disclaimer</a>
+        </div>
+      </div>
+      <p class="footer-copy">© 2026 StarRupture.net — Fan site. Game content belongs to Creepy Jar.</p>
+    </div>
+  </footer>
+</body>
+</html>
