@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StarRupture Weapons Database - All Guns, Stats & Modifications</title>
+  <meta name="description" content="Complete StarRupture weapons guide with all firearms, unlock requirements, War Bond costs, modifications & ammo recipes. UPP-7, MAR-9, SLAMS-12, M175 Grim.">
+  <link rel="canonical" href="https://starrupture.net/database/weapons/">
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8830315294299920" crossorigin="anonymous"></script>
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="StarRupture Weapons Database - All Guns, Stats & Modifications">
+  <meta property="og:description" content="Complete weapons guide with unlock requirements, War Bond costs, modifications & ammo recipes.">
+  <meta property="og:url" content="https://starrupture.net/database/weapons/">
+  <meta property="og:site_name" content="StarRupture.net">
+
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#06080c;--surface:#0d1117;--surface-2:#161b22;--border:#21262d;
+      --text:#e6edf3;--text-muted:#8b949e;
+      --primary:#f97316;--primary-dim:rgba(249,115,22,.15);
+      --secondary:#22d3ee;--secondary-dim:rgba(34,211,238,.12);
+      --accent:#a855f7;--success:#22c55e;--warning:#eab308;--danger:#ef4444;
+      --radius:12px;--max-w:1200px;
+      --tier-s:#ff7f7f;--tier-a:#ffbf7f;--tier-b:#ffdf7f;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+    a{color:inherit;text-decoration:none;transition:color .2s}
+    a:hover{color:var(--primary)}
+    .container{max-width:var(--max-w);margin:0 auto;padding:0 20px}
+
+    .header{position:sticky;top:0;z-index:100;background:rgba(6,8,12,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;height:60px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.1rem}
+    .logo-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--primary),var(--secondary));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;color:#fff}
+    .nav{display:flex;gap:8px}
+    .nav a{padding:8px 14px;border-radius:8px;font-size:.9rem;color:var(--text-muted);transition:all .2s}
+    .nav a:hover,.nav a.active{background:var(--surface-2);color:var(--text)}
+    .nav a.active{color:var(--primary)}
+
+    .breadcrumb{padding:16px 0;font-size:.875rem;color:var(--text-muted)}
+    .breadcrumb a:hover{color:var(--primary)}
+    .breadcrumb span{margin:0 8px;opacity:.5}
+
+    .hero{padding:40px 0 30px;background:radial-gradient(ellipse at 30% 0%,rgba(249,115,22,.08),transparent 50%)}
+    .hero h1{font-size:clamp(1.8rem,4vw,2.4rem);font-weight:800;margin-bottom:12px}
+    .hero p{font-size:1.05rem;color:var(--text-muted);max-width:700px}
+    .hero-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:20px;font-size:.8rem;background:var(--primary-dim);color:var(--primary);margin-bottom:16px}
+
+    .section{padding:30px 0}
+    .section-header{margin-bottom:20px}
+    .section-header h2{font-size:1.3rem;font-weight:700;margin-bottom:6px}
+
+    .weapon-card{padding:24px;border-radius:var(--radius);background:var(--surface);border:1px solid var(--border);margin-bottom:20px}
+    .weapon-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:16px;flex-wrap:wrap}
+    .weapon-title{display:flex;align-items:center;gap:12px}
+    .weapon-icon{width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem}
+    .weapon-name h3{font-size:1.2rem;font-weight:700;margin-bottom:2px}
+    .weapon-name .type{font-size:.85rem;color:var(--text-muted)}
+    .weapon-tier{padding:6px 14px;border-radius:6px;font-weight:700;font-size:.85rem}
+    .tier-s{background:rgba(255,127,127,.15);color:var(--tier-s)}
+    .tier-a{background:rgba(255,191,127,.15);color:var(--tier-a)}
+    .tier-b{background:rgba(255,223,127,.15);color:var(--tier-b)}
+
+    .weapon-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:16px}
+    .stat-item{padding:12px;background:var(--surface-2);border-radius:8px}
+    .stat-label{font-size:.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px}
+    .stat-value{font-size:.95rem;font-weight:600;margin-top:2px}
+
+    .weapon-desc{color:var(--text-muted);font-size:.9rem;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+
+    .mods-section h4{font-size:.95rem;font-weight:600;margin-bottom:12px;color:var(--secondary)}
+    .mods-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+    .mod-category{padding:14px;background:var(--surface-2);border-radius:8px}
+    .mod-category h5{font-size:.8rem;color:var(--text-muted);text-transform:uppercase;margin-bottom:8px}
+    .mod-item{display:flex;justify-content:space-between;font-size:.85rem;padding:4px 0;border-bottom:1px solid var(--border)}
+    .mod-item:last-child{border-bottom:none}
+    .mod-cost{color:var(--warning);font-weight:600}
+    .mod-free{color:var(--success)}
+
+    .ammo-box{margin-top:16px;padding:14px;background:linear-gradient(135deg,var(--surface-2),var(--surface));border-radius:8px;border-left:3px solid var(--warning)}
+    .ammo-box h4{font-size:.9rem;font-weight:600;margin-bottom:8px}
+    .ammo-recipe{font-size:.85rem;color:var(--text-muted)}
+
+    .unlock-info{display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--primary-dim);border-radius:8px;font-size:.85rem;margin-top:12px}
+
+    .quick-nav{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0;padding:16px;background:var(--surface);border-radius:var(--radius);border:1px solid var(--border)}
+    .quick-nav a{padding:8px 16px;background:var(--surface-2);border-radius:8px;font-size:.85rem;font-weight:500;transition:all .2s}
+    .quick-nav a:hover{background:var(--primary);color:#fff}
+
+    .info-box{padding:16px;background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);margin:20px 0}
+    .info-box h4{font-size:.95rem;font-weight:600;margin-bottom:8px}
+    .info-box p,.info-box li{font-size:.9rem;color:var(--text-muted)}
+    .info-box ul{padding-left:20px;margin-top:8px}
+
+    .footer{padding:40px 0;border-top:1px solid var(--border);margin-top:40px}
+    .footer-inner{display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:30px}
+    .footer-brand{max-width:300px}
+    .footer-brand p{font-size:.85rem;color:var(--text-muted);margin-top:10px}
+    .footer-links{display:flex;gap:30px}
+    .footer-links a{font-size:.9rem;color:var(--text-muted)}
+    .footer-copy{text-align:center;padding-top:30px;margin-top:30px;border-top:1px solid var(--border);font-size:.8rem;color:var(--text-muted)}
+
+    @media(max-width:768px){.nav{display:none}.weapon-header{flex-direction:column}.mods-grid{grid-template-columns:1fr}.footer-inner{flex-direction:column}}
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="/" class="logo">
+        <span class="logo-icon">SR</span>
+        <span>StarRupture<span style="color:var(--text-muted)">.net</span></span>
+      </a>
+      <nav class="nav">
+        <a href="/guides/">Guides</a>
+        <a href="/database/" class="active">Database</a>
+        <a href="/tier-lists/">Tier Lists</a>
+        <a href="/troubleshooting/">Fixes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a><span>›</span><a href="/database/">Database</a><span>›</span><span>Weapons</span>
+      </nav>
+    </div>
+
+    <section class="hero">
+      <div class="container">
+        <span class="hero-badge">🔫 5 Weapons Documented</span>
+        <h1>Weapons Database</h1>
+        <p>Complete reference for all firearms in StarRupture. Unlock requirements, War Bond costs, modifications, and ammo crafting recipes.</p>
+
+        <div class="quick-nav">
+          <span style="color:var(--text-muted);font-size:.85rem;padding:8px 0">Jump to:</span>
+          <a href="#upp7">UPP-7 Pistol</a>
+          <a href="#mar9">MAR-9 Phantom</a>
+          <a href="#slams12">SLAMS-12</a>
+          <a href="#m175">M175 Grim</a>
+          <a href="#grenades">Grenades</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="info-box">
+          <h4>How Weapons Work in StarRupture</h4>
+          <p>Weapons are purchased with War Bonds at the Equipment Upgrade Station (unlocked at Griffits Blue Lv4). You can carry 2 weapons at a time. Dying with non-pistol weapons causes them to be lost and must be re-crafted.</p>
+          <ul>
+            <li>War Bonds are earned from Griffits Blue contracts and looting</li>
+            <li>Modifications require War Bonds to unlock, then Basic Building Materials to craft</li>
+            <li>Ammo is crafted at the Basic Item Printer</li>
+          </ul>
+        </div>
+
+        <!-- UPP-7 Pistol -->
+        <div class="weapon-card" id="upp7">
+          <div class="weapon-header">
+            <div class="weapon-title">
+              <div class="weapon-icon" style="background:var(--secondary-dim);color:var(--secondary)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 22h5a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-1"/><path d="M3 14h7v8H3z"/><path d="M10 14V6a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v2"/></svg>
+              </div>
+              <div class="weapon-name">
+                <h3>UPP-7 "Reaper" Pistol</h3>
+                <span class="type">Semi-Automatic Handgun</span>
+              </div>
+            </div>
+            <span class="weapon-tier tier-b">B Tier</span>
+          </div>
+
+          <div class="weapon-stats">
+            <div class="stat-item">
+              <div class="stat-label">Range</div>
+              <div class="stat-value">Mid / Close</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label">Cost</div>
+              <div class="stat-value" style="color:var(--success)">Free</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label">Unlock</div>
+              <div class="stat-value">Griffits Blue Lv2</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label">Modifications</div>
+              <div class="stat-value" style="color:var(--danger)">None</div>
+            </div>
+          </div>
+
+          <p class="weapon-desc">Your first ranged weapon in StarRupture. The UPP-7 is automatically equipped when unlocked and serves well in early game. However, it has no available modifications, causing its effectiveness to diminish as you progress. Consider upgrading to the MAR-9 Phantom as soon as possible.</p>
+
+          <div class="ammo-box">
+            <h4>Pistol Ammo Recipe</h4>
+            <p class="ammo-recipe">Crafted at Basic Item Printer: <strong>7× Basic Building Material</strong></p>
+          </div>
+
+          <div class="unlock-info">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span>Auto-equipped after completing Griffits Blue Corporation Level 2 contract</span>
+          </div>
+        </div>
+
+        <!-- MAR-9 Phantom -->
+        <div class="weapon-card" id="mar9">
+          <div class="weapon-header">
+            <div class="weapon-title">
+              <div class="weapon-icon" style="background:var(--primary-dim);color:var(--primary)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              </div>
+              <div class="weapon-name">
+                <h3>MAR-9 "Phantom" Assault Rifle</h3>
+                <span class="type">Modular Assault Rifle</span>
+              </div>
+            </div>
+            <span class="weapon-tier tier-s">S Tier</span>
+          </div>
+
+          <div class="weapon-stats">
+            <div class="stat-item">
+              <div class="stat-label">Range</div>
+              <div class="stat-value">Medium</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label">Cost</div>
+              <div class="stat-value" style="color:var(--warning)">~70-200 WB*</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label">Unlock</div>
+              <div class="stat-value">Equipment Station</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label">Modifications</div>
+              <div class="stat-value" style="color:var(--success)">12 Available</div>
+            </div>
+          </div>
+
+          <p class="weapon-desc">The best all-rounder weapon in StarRupture. Excels at long-range sniping, mid-range burst fire, and close-quarters combat. The only weapon with a magnified optic (3X). Highly recommended as your primary weapon once you can afford it.</p>
+
+          <div class="mods-section">
+            <h4>Available Modifications</h4>
+            <div class="mods-grid">
+              <div class="mod-category">
+                <h5>Barrel</h5>
+                <div class="mod-item"><span>Long Barrel</span><span class="mod-free">Free</span></div>
+                <div class="mod-item"><span>Short Barrel</span><span class="mod-cost">50 WB</span></div>
+                <div class="mod-item"><span>Cooled Barrel</span><span class="mod-cost">65 WB</span></div>
+              </div>
+              <div class="mod-category">
+                <h5>Magazine</h5>
+                <div class="mod-item"><span>Light Magazine</span><span class="mod-free">Free</span></div>
+                <div class="mod-item"><span>Extended Mag</span><span class="mod-cost">75 WB</span></div>
+                <div class="mod-item"><span>Piercing Mag</span><span class="mod-cost">60 WB</span></div>
+              </div>
+              <div class="mod-category">
+                <h5>Stock</h5>
+                <div class="mod-item"><span>Recoil Dampening</span><span class="mod-free">Free</span></div>
+                <div class="mod-item"><span>Gyro Stock</span><span class="mod-cost">50 WB</span></div>
+                <div class="mod-item"><span>Lightweight Stock</span><span class="mod-cost">80 WB</span></div>
+              </div>
+              <div class="mod-category">
+                <h5>Sight</h5>
+                <div class="mod-item"><span>TH Sight Mk2</span><span class="mod-free">Free</span></div>
+                <div class="mod-item"><span>CCS Sight</span><span class="mod-cost">55 WB</span></div>
+                <div class="mod-item"><span>3X Optic</span><span class="mod-cost">90 WB</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="ammo-box">
+            <h4>Standard Ammo Recipe</h4>
+            <p class="ammo-recipe">Crafted at Basic Item Printer: <strong>Basic Building Material + Wolfram Powder</strong></p>
+          </div>
+        </div>
+
+        <!-- SLAMS-12 Shotgun -->
+        <div class="weapon-card" id="slams12">
+          <div class="weapon-header">
+            <div class="weapon-title">
+              <div class="weapon-icon" style="background:rgba(239,68,68,.12);color:var(--danger)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+              </div>
+              <div class="weapon-name">
+                <h3>SLAMS-12 Modular Shotgun</h3>
+                <span class="type">Close-Combat Shotgun</span>
+              </div>
+            </div>
+            <span class="weapon-tier tier-a">A Tier</span>
+          </div>
+
+          <div class="weapon-stats">
+            <div class="stat-item">
+              <div class="stat-label">Range</div>
+              <div class="stat-value">Short / Close</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label">Cost</div>
+              <div class="stat-value" style="color:var(--warning)">~85-250 WB*</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label">Unlock</div>
+              <div class="stat-value">Equipment Station</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label">Modifications</div>
+              <div class="stat-value" style="color:var(--success)">9 Available</div>
+            </div>
+          </div>
+
+          <p class="weapon-desc">High-damage close-combat weapon with significant recoil. Often capable of one-shotting enemies. Excellent for clearing groups in tight spaces. The single-shell reload animation makes reload speed mods particularly valuable. No sight modifications available.</p>
+
+          <div class="mods-section">
+            <h4>Available Modifications</h4>
+            <div class="mods-grid">
+              <div class="mod-category">
+                <h5>Barrel</h5>
+                <div class="mod-item"><span>Piercing Barrel</span><span class="mod-free">Free</span></div>
+                <div class="mod-item"><span>Range Mod</span><span class="mod-cost">70 WB</span></div>
+                <div class="mod-item"><span>Short Barrel</span><span class="mod-cost">110 WB</span></div>
+              </div>
+              <div class="mod-category">
+                <h5>Magazine</h5>
+                <div class="mod-item"><span>Rapid Fire Mag</span><span class="mod-free">Free</span></div>
+                <div class="mod-item"><span>ALM Magazine</span><span class="mod-cost">80 WB</span></div>
+                <div class="mod-item"><span>Shredder Ammo</span><span class="mod-cost">105 WB</span></div>
+              </div>
+              <div class="mod-category">
+                <h5>Stock</h5>
+                <div class="mod-item"><span>Standard Stock</span><span class="mod-free">Free</span></div>
+                <div class="mod-item"><span>Ammo Reserve</span><span class="mod-cost">85 WB</span></div>
+                <div class="mod-item"><span>Runner Stock</span><span class="mod-cost">90 WB</span></div>
+              </div>
+              <div class="mod-category">
+                <h5>Sight</h5>
+                <div class="mod-item" style="color:var(--text-muted);font-style:italic"><span>No sight mods</span><span>—</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="ammo-box">
+            <h4>Shotgun Ammo Recipe</h4>
+            <p class="ammo-recipe">Crafted at Basic Item Printer: <strong>10× Basic Building Material + 3× Calcium Powder</strong></p>
+          </div>
+        </div>
+
+        <!-- M175 Grim LMG -->
+        <div class="weapon-card" id="m175">
+          <div class="weapon-header">
+            <div class="weapon-title">
+              <div class="weapon-icon" style="background:rgba(168,85,247,.12);color:var(--accent)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M12 12h.01"/><path d="M17 12h.01"/><path d="M7 12h.01"/></svg>
+              </div>
+              <div class="weapon-name">
+                <h3>M175 "Grim" Infantry Machine Gun</h3>
+                <span class="type">Light Machine Gun (LMG)</span>
+              </div>
+            </div>
+            <span class="weapon-tier tier-a">A Tier</span>
+          </div>
+
+          <div class="weapon-stats">
+            <div class="stat-item">
+              <div class="stat-label">Range</div>
+              <div class="stat-value">Long / Mid</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label">Cost</div>
+              <div class="stat-value" style="color:var(--warning)">~110-400 WB*</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label">Unlock</div>
+              <div class="stat-value">Equipment Station</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label">Modifications</div>
+              <div class="stat-value" style="color:var(--success)">9 Available</div>
+            </div>
+          </div>
+
+          <p class="weapon-desc">Rapid-fire machine gun effective for dealing with large groups of enemies. Best used for hip-firing in close-range engagements. High recoil makes it less effective at longer ranges without upgrades. Good starter weapon due to easy ammo crafting.</p>
+
+          <div class="mods-section">
+            <h4>Available Modifications</h4>
+            <div class="mods-grid">
+              <div class="mod-category">
+                <h5>Barrel</h5>
+                <div class="mod-item"><span>Front GMS Barrel</span><span class="mod-free">Free</span></div>
+                <div class="mod-item"><span>Uplift Dampener</span><span class="mod-cost">90 WB</span></div>
+                <div class="mod-item"><span>Buzzsaw Barrel</span><span class="mod-cost">130 WB</span></div>
+              </div>
+              <div class="mod-category">
+                <h5>Magazine</h5>
+                <div class="mod-item"><span>Hi Cap</span><span class="mod-free">Free</span></div>
+                <div class="mod-item"><span>Light Magazine</span><span class="mod-cost">120 WB</span></div>
+                <div class="mod-item"><span>Horizontal Stabilizer</span><span class="mod-cost">95 WB</span></div>
+              </div>
+              <div class="mod-category">
+                <h5>Stock</h5>
+                <div class="mod-item"><span>Ergonomic Stock</span><span class="mod-free">Free</span></div>
+                <div class="mod-item"><span>Folding Stock</span><span class="mod-cost">110 WB</span></div>
+                <div class="mod-item"><span>Rear Force Dampener</span><span class="mod-cost">85 WB</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="ammo-box">
+            <h4>Heavy Ammo Recipe</h4>
+            <p class="ammo-recipe">Crafted at Basic Item Printer: <strong>Basic Building Material + Titanium Rod</strong></p>
+          </div>
+        </div>
+
+        <!-- Grenades -->
+        <div class="weapon-card" id="grenades">
+          <div class="weapon-header">
+            <div class="weapon-title">
+              <div class="weapon-icon" style="background:rgba(34,197,94,.12);color:var(--success)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+              </div>
+              <div class="weapon-name">
+                <h3>Grenades</h3>
+                <span class="type">Explosive Throwable</span>
+              </div>
+            </div>
+            <span class="weapon-tier tier-s">S Tier</span>
+          </div>
+
+          <div class="weapon-stats">
+            <div class="stat-item">
+              <div class="stat-label">Type</div>
+              <div class="stat-value">Explosive</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label">Cost</div>
+              <div class="stat-value">Crafting Only</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label">Unlock</div>
+              <div class="stat-value">Griffits Blue Lv3</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label">Modifications</div>
+              <div class="stat-value" style="color:var(--danger)">None</div>
+            </div>
+          </div>
+
+          <p class="weapon-desc">Extremely powerful explosives capable of turning the tide in difficult fights. High damage output makes them essential for crowd control and tough enemies. Unlocked relatively early compared to other advanced weapons.</p>
+
+          <div class="unlock-info">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span>Unlock by reaching Griffits Blue Corporation Level 3 (requires 200 Titanium Bars)</span>
+          </div>
+        </div>
+
+        <!-- Notes Section -->
+        <div class="info-box" style="border-left:3px solid var(--warning)">
+          <h4>* Price Variance Note</h4>
+          <p>War Bond costs shown as ranges (~70-200 WB) reflect discrepancies between sources. Prices may vary by game version or have been adjusted in patches. Always check in-game Equipment Upgrade Station for current prices.</p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="logo">
+            <span class="logo-icon">SR</span>
+            <span>StarRupture.net</span>
+          </div>
+          <p>Independent StarRupture guides and database. Version-verified for Early Access. Not affiliated with Creepy Jar.</p>
+        </div>
+        <div class="footer-links">
+          <a href="/about/">About</a>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy-policy/">Privacy</a>
+          <a href="/disclaimer/">Disclaimer</a>
+        </div>
+      </div>
+      <p class="footer-copy">© 2026 StarRupture.net — Fan site. Game content belongs to Creepy Jar.</p>
+    </div>
+  </footer>
+</body>
+</html>
