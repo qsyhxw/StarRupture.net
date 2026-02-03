@@ -1,1380 +1,612 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StarRupture Guides & Database | Stop Dying, Start Surviving</title>
+  <meta name="description" content="Stop dying in StarRupture. Get version-verified guides for weapons, base locations, production ratios. 50+ guides updated daily for Early Access 2026.">
+  <link rel="canonical" href="https://starrupture.net/">
 
-  <title>StarRupture Guides & Tools | Fast, Version-Verified Answers</title>
-  <meta name="description"
-    content="Beginner-first StarRupture guides, resource tables, and troubleshooting fixes—version-verified for Early Access. Find answers in 30 seconds." />
-  <link rel="canonical" href="https://starrupture.net/" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8830315294299920" crossorigin="anonymous"></script>
 
-
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8830315294299920"
-    crossorigin="anonymous"></script>
-
-  <!-- Open Graph / Twitter -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="StarRupture Guides & Tools" />
-  <meta property="og:description"
-    content="Fast, beginner-first answers—version-verified for Early Access. No fluff. Just steps, tables, and fixes." />
-  <meta property="og:url" content="https://starrupture.net/" />
-  <meta property="og:site_name" content="StarRupture Guides & Tools" />
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="StarRupture Guides & Tools" />
-  <meta name="twitter:description" content="Fast, beginner-first answers—version-verified for Early Access." />
-
-  <!-- Favicons (optional) -->
-  <!-- <link rel="icon" href="/favicon.ico" /> -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="StarRupture Guides & Database">
+  <meta property="og:description" content="Weapons tier list, base locations, production guides. Version-verified for Early Access.">
+  <meta property="og:url" content="https://starrupture.net/">
+  <meta property="og:site_name" content="StarRupture.net">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="StarRupture Guides & Database">
 
   <style>
-    :root {
-      /* Industrial Night palette - Enhanced */
-      --bg: #0B0F14;
-      --panel: #0F1620;
-      --panel-2: #0C121A;
-      --text: #E6EEF6;
-      --muted: #A9B6C6;
-      --border: #1B2530;
-      --accent: #4CC9F0;
-      --accent-2: #A3FFB0;
-      --accent-3: #A78BFA;
-      --warning: #FFB703;
-      --danger: #FB7185;
-      --success: #34D399;
-
-      --shadow: 0 10px 30px rgba(0, 0, 0, .28);
-      --shadow-glow: 0 0 40px rgba(76, 201, 240, .15);
-      --radius: 14px;
-      --maxw: 1180px;
-
-      --h1: clamp(2.2rem, 3.5vw, 3.2rem);
-      --h2: clamp(1.4rem, 1.8vw, 1.9rem);
-      --p: 1.05rem;
-      --small: .92rem;
-
-      --space-1: 10px;
-      --space-2: 14px;
-      --space-3: 18px;
-      --space-4: 24px;
-      --space-5: 32px;
-      --space-6: 44px;
-      --space-7: 64px;
-
-      --grid-gap: 18px;
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#06080c;
+      --surface:#0d1117;
+      --surface-2:#161b22;
+      --border:#21262d;
+      --text:#e6edf3;
+      --text-muted:#8b949e;
+      --primary:#f97316;
+      --primary-dim:rgba(249,115,22,.15);
+      --secondary:#22d3ee;
+      --secondary-dim:rgba(34,211,238,.12);
+      --accent:#a855f7;
+      --success:#22c55e;
+      --warning:#eab308;
+      --danger:#ef4444;
+      --radius:12px;
+      --max-w:1200px;
     }
-
-    @keyframes float {
-
-      0%,
-      100% {
-        transform: translateY(0)
-      }
-
-      50% {
-        transform: translateY(-6px)
-      }
+    html{scroll-behavior:smooth}
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      min-height:100vh;
     }
-
-    @keyframes pulse {
-
-      0%,
-      100% {
-        opacity: 1
-      }
-
-      50% {
-        opacity: .6
-      }
-    }
-
-    @keyframes glow {
-
-      0%,
-      100% {
-        box-shadow: 0 0 8px var(--accent)
-      }
-
-      50% {
-        box-shadow: 0 0 20px var(--accent)
-      }
-    }
-
-    @keyframes slideUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px)
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0)
-      }
-    }
-
-    @keyframes countUp {
-      from {
-        opacity: 0
-      }
-
-      to {
-        opacity: 1
-      }
-    }
-
-    * {
-      box-sizing: border-box
-    }
-
-    html {
-      scroll-behavior: smooth
-    }
-
-    body {
-      margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
-      background: radial-gradient(1000px 600px at 20% 0%, rgba(76, 201, 240, .10), transparent 55%),
-        radial-gradient(900px 500px at 90% 10%, rgba(163, 255, 176, .06), transparent 60%),
-        var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none
-    }
-
-    a:hover {
-      color: var(--accent)
-    }
-
-    .container {
-      max-width: var(--maxw);
-      margin: 0 auto;
-      padding: 0 18px;
-    }
-
-    .section {
-      padding: var(--space-7) 0;
-    }
-
-    .section.compact {
-      padding: var(--space-6) 0;
-    }
-
-    .section-top {
-      display: flex;
-      gap: 16px;
-      align-items: baseline;
-      justify-content: space-between;
-      margin-bottom: var(--space-4);
-    }
-
-    .section-top h2 {
-      margin: 0;
-      font-size: var(--h2);
-    }
-
-    .section-top p {
-      margin: 0;
-      color: var(--muted);
-      font-size: var(--small);
-      max-width: 70ch;
-    }
+    a{color:inherit;text-decoration:none;transition:color .2s}
+    a:hover{color:var(--primary)}
+    .container{max-width:var(--max-w);margin:0 auto;padding:0 20px}
 
     /* Header */
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(11, 15, 20, .72);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(27, 37, 48, .7);
+    .header{
+      position:sticky;top:0;z-index:100;
+      background:rgba(6,8,12,.85);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--border);
     }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 0;
+    .header-inner{
+      display:flex;align-items:center;justify-content:space-between;
+      height:60px;
     }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 700;
-      letter-spacing: .2px;
+    .logo{
+      display:flex;align-items:center;gap:10px;
+      font-weight:700;font-size:1.1rem;
     }
-
-    .logo {
-      width: 34px;
-      height: 34px;
-      border-radius: 10px;
-      background:
-        radial-gradient(14px 14px at 30% 35%, rgba(76, 201, 240, .85), transparent 70%),
-        radial-gradient(18px 18px at 70% 70%, rgba(163, 255, 176, .55), transparent 72%),
-        linear-gradient(145deg, rgba(27, 37, 48, .95), rgba(15, 22, 32, .95));
-      border: 1px solid rgba(76, 201, 240, .28);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, .25);
+    .logo-icon{
+      width:32px;height:32px;border-radius:8px;
+      background:linear-gradient(135deg,var(--primary),var(--secondary));
+      display:flex;align-items:center;justify-content:center;
+      font-weight:800;font-size:12px;color:#fff;
     }
-
-    .navlinks {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      color: var(--muted);
-      font-size: .95rem;
+    .nav{display:flex;gap:8px}
+    .nav a{
+      padding:8px 14px;border-radius:8px;font-size:.9rem;
+      color:var(--text-muted);transition:all .2s;
     }
-
-    .navlinks a {
-      padding: 8px 10px;
-      border-radius: 10px;
-      border: 1px solid transparent;
-    }
-
-    .navlinks a:hover {
-      background: rgba(15, 22, 32, .65);
-      border-color: rgba(27, 37, 48, .9);
-      color: var(--text);
-    }
+    .nav a:hover{background:var(--surface-2);color:var(--text)}
 
     /* Hero */
-    .hero {
-      padding: 44px 0 18px;
+    .hero{
+      padding:60px 0 40px;
+      background:radial-gradient(ellipse at 20% 0%,rgba(249,115,22,.08),transparent 50%),
+                radial-gradient(ellipse at 80% 100%,rgba(34,211,238,.06),transparent 50%);
+    }
+    .hero-content{text-align:center;max-width:800px;margin:0 auto}
+    .hero-badge{
+      display:inline-flex;align-items:center;gap:6px;
+      padding:6px 12px;border-radius:20px;font-size:.8rem;
+      background:var(--primary-dim);color:var(--primary);
+      margin-bottom:20px;
+    }
+    .hero-badge::before{
+      content:'';width:6px;height:6px;border-radius:50%;
+      background:var(--primary);animation:pulse 2s infinite;
+    }
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+    .hero h1{
+      font-size:clamp(2rem,5vw,3.2rem);font-weight:800;
+      line-height:1.2;margin-bottom:16px;
+      background:linear-gradient(135deg,var(--text) 0%,var(--primary) 100%);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      background-clip:text;
+    }
+    .hero-sub{
+      font-size:1.15rem;color:var(--text-muted);
+      max-width:600px;margin:0 auto 28px;
+    }
+    .hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:12px 24px;border-radius:10px;font-weight:600;
+      font-size:.95rem;transition:all .2s;cursor:pointer;border:none;
+    }
+    .btn-primary{
+      background:linear-gradient(135deg,var(--primary),#ea580c);
+      color:#fff;box-shadow:0 4px 20px rgba(249,115,22,.3);
+    }
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 25px rgba(249,115,22,.4);color:#fff}
+    .btn-secondary{
+      background:var(--surface-2);color:var(--text);
+      border:1px solid var(--border);
+    }
+    .btn-secondary:hover{border-color:var(--primary);color:var(--text)}
+
+    /* Stats Bar */
+    .stats-bar{
+      display:flex;justify-content:center;gap:40px;
+      margin-top:32px;padding-top:24px;
+      border-top:1px solid var(--border);
+    }
+    .stat{display:flex;flex-direction:column;align-items:center;gap:2px}
+    .stat-num{font-size:1.5rem;font-weight:800;color:var(--primary)}
+    .stat-label{font-size:.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px}
+    @media(max-width:600px){.stats-bar{gap:20px}.stat-num{font-size:1.2rem}}
+
+    /* Update Badge */
+    .update-badge{
+      display:inline-flex;align-items:center;gap:4px;
+      font-size:.7rem;color:var(--success);margin-top:8px;
+    }
+    .update-badge::before{
+      content:'';width:6px;height:6px;border-radius:50%;
+      background:var(--success);
     }
 
-    .hero-wrap {
-      display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: var(--space-5);
-      align-items: center;
-      padding: 26px;
-      border-radius: calc(var(--radius) + 6px);
-      background: linear-gradient(180deg, rgba(15, 22, 32, .92), rgba(12, 18, 26, .88));
-      border: 1px solid rgba(27, 37, 48, .9);
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
+    /* Quick Nav */
+    .quick-nav{
+      display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
+      margin-top:40px;
     }
+    .quick-nav a{
+      display:flex;flex-direction:column;align-items:center;gap:8px;
+      padding:20px 16px;border-radius:var(--radius);
+      background:var(--surface);border:1px solid var(--border);
+      transition:all .2s;text-align:center;
+    }
+    .quick-nav a:hover{border-color:var(--primary);transform:translateY(-3px)}
+    .quick-nav .icon{
+      width:40px;height:40px;border-radius:10px;
+      display:flex;align-items:center;justify-content:center;font-size:1.2rem;
+    }
+    .quick-nav .label{font-weight:600;font-size:.9rem}
+    .quick-nav .desc{font-size:.75rem;color:var(--text-muted)}
 
-    .hero-wrap:before {
-      content: "";
-      positionz-index: 0;
-      position: absolute;
-      inset: -2px;
-      background:
-        radial-gradient(700px 340px at 15% 0%, rgba(76, 201, 240, .14), transparent 60%),
-        radial-gradient(640px 320px at 90% 20%, rgba(163, 255, 176, .10), transparent 55%);
-      pointer-events: none;
+    /* Section */
+    .section{padding:50px 0}
+    .section-header{
+      display:flex;align-items:center;justify-content:space-between;
+      margin-bottom:24px;flex-wrap:wrap;gap:12px;
     }
+    .section-header h2{font-size:1.5rem;font-weight:700}
+    .section-header a{font-size:.9rem;color:var(--primary)}
 
-    .hero-left,
-    .hero-right {
-      position: relative;
-      z-index: 1;
+    /* Cards Grid */
+    .cards{display:grid;gap:16px}
+    .cards-3{grid-template-columns:repeat(3,1fr)}
+    .cards-2{grid-template-columns:repeat(2,1fr)}
+    .card{
+      padding:20px;border-radius:var(--radius);
+      background:var(--surface);border:1px solid var(--border);
+      transition:all .25s;
     }
+    .card:hover{border-color:var(--primary);transform:translateY(-2px)}
+    .card-icon{
+      width:36px;height:36px;border-radius:8px;
+      display:flex;align-items:center;justify-content:center;
+      margin-bottom:12px;font-size:1rem;
+    }
+    .card h3{font-size:1rem;font-weight:600;margin-bottom:6px}
+    .card p{font-size:.875rem;color:var(--text-muted);margin-bottom:12px}
+    .card-link{
+      display:inline-flex;align-items:center;gap:4px;
+      font-size:.85rem;font-weight:600;color:var(--primary);
+    }
+    .card-link:hover{gap:8px}
 
-    h1 {
-      margin: 0 0 10px;
-      font-size: var(--h1);
-      line-height: 1.15;
+    /* Featured */
+    .featured{
+      display:grid;grid-template-columns:1fr 1fr;gap:20px;
     }
-
-    .lead {
-      margin: 0 0 16px;
-      color: var(--muted);
-      font-size: 1.05rem;
-      max-width: 62ch;
+    .featured-main{
+      grid-row:span 2;padding:30px;border-radius:var(--radius);
+      background:linear-gradient(135deg,var(--surface) 0%,var(--surface-2) 100%);
+      border:1px solid var(--border);
+      display:flex;flex-direction:column;justify-content:center;
     }
-
-    .badges {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin: 16px 0 0;
-    }
-
-    .badge {
-      font-size: .85rem;
-      color: var(--text);
-      border: 1px solid rgba(27, 37, 48, .95);
-      background: rgba(12, 18, 26, .65);
-      padding: 8px 10px;
-      border-radius: 999px;
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 3px rgba(76, 201, 240, .18);
-    }
-
-    .dot.green {
-      background: var(--accent-2);
-      box-shadow: 0 0 0 3px rgba(163, 255, 176, .12);
-    }
-
-    .dot.warn {
-      background: var(--warning);
-      box-shadow: 0 0 0 3px rgba(255, 183, 3, .14);
-    }
-
-    .cta-row {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 18px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 14px;
-      border-radius: 12px;
-      border: 1px solid rgba(27, 37, 48, .95);
-      background: rgba(12, 18, 26, .55);
-      color: var(--text);
-      font-weight: 650;
-      letter-spacing: .2px;
-      transition: all .2s ease;
-      min-width: 210px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, transparent, rgba(255, 255, 255, .1), transparent);
-      transform: translateX(-100%);
-      transition: transform .4s ease;
-    }
-
-    .btn:hover::before {
-      transform: translateX(100%);
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      border-color: rgba(76, 201, 240, .55);
-      background: rgba(15, 22, 32, .85);
-      box-shadow: 0 8px 25px rgba(76, 201, 240, .15);
-    }
-
-    .btn:active {
-      transform: translateY(0);
-    }
-
-    .btn.primary {
-      background: linear-gradient(135deg, rgba(76, 201, 240, .25), rgba(167, 139, 250, .15));
-      border-color: rgba(76, 201, 240, .6);
-      box-shadow: 0 4px 20px rgba(76, 201, 240, .2);
-    }
-
-    .btn.primary:hover {
-      border-color: rgba(163, 255, 176, .5);
-      box-shadow: 0 8px 30px rgba(76, 201, 240, .3);
-    }
-
-    .hero-right {
-      border-radius: var(--radius);
-      border: 1px solid rgba(27, 37, 48, .9);
-      background: rgba(12, 18, 26, .55);
-      padding: 18px;
-    }
-
-    .hero-right h3 {
-      margin: 0 0 10px;
-      font-size: 1.05rem;
-    }
-
-    .hero-right ul {
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-
-    .hero-right li {
-      margin: 8px 0;
-    }
-
-    .kpi {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 14px;
-    }
-
-    .chip {
-      border-radius: 12px;
-      border: 1px solid rgba(27, 37, 48, .9);
-      background: rgba(15, 22, 32, .55);
-      padding: 10px;
-      color: var(--muted);
-      font-size: .92rem;
-    }
-
-    .chip strong {
-      color: var(--text);
-      display: block;
-      margin-bottom: 4px;
-      font-size: .98rem;
-    }
-
-    /* Grid / Cards */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: var(--grid-gap);
-    }
-
-    .col-4 {
-      grid-column: span 4;
-    }
-
-    .col-6 {
-      grid-column: span 6;
-    }
-
-    .col-12 {
-      grid-column: span 12;
-    }
-
-    .card {
-      border-radius: var(--radius);
-      border: 1px solid rgba(27, 37, 48, .95);
-      background: rgba(12, 18, 26, .65);
-      padding: 18px;
-      box-shadow: 0 10px 22px rgba(0, 0, 0, .18);
-      transition: all .25s ease;
-      min-height: 120px;
-      position: relative;
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      inset: -1px;
-      border-radius: var(--radius);
-      background: linear-gradient(135deg, var(--accent), var(--accent-3));
-      opacity: 0;
-      z-index: -1;
-      transition: opacity .25s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(76, 201, 240, .5);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, .25), 0 0 25px rgba(76, 201, 240, .1);
-    }
-
-    .card:hover::before {
-      opacity: .15;
-    }
-
-    .card h3 {
-      margin: 0 0 8px;
-      font-size: 1.08rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .card p {
-      margin: 0 0 12px;
-      color: var(--muted);
-      font-size: .98rem;
-    }
-
-    .card .link {
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
-      font-weight: 650;
-      color: var(--accent);
-      padding: 8px 12px;
-      border-radius: 10px;
-      border: 1px solid rgba(76, 201, 240, .3);
-      background: rgba(76, 201, 240, .1);
-      transition: all .2s ease;
-    }
-
-    .card .link:hover {
-      background: rgba(76, 201, 240, .18);
-      border-color: rgba(76, 201, 240, .5);
-      transform: translateX(3px);
-    }
-
-    /* Roadmap */
-    .roadmap {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: var(--grid-gap);
-    }
-
-    .step {
-      border-radius: var(--radius);
-      border: 1px solid rgba(27, 37, 48, .95);
-      background: linear-gradient(180deg, rgba(15, 22, 32, .80), rgba(12, 18, 26, .70));
-      padding: 18px;
-    }
-
-    .step .tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: .85rem;
-      color: var(--muted);
-      border: 1px solid rgba(27, 37, 48, .95);
-      background: rgba(12, 18, 26, .55);
-      padding: 6px 10px;
-      border-radius: 999px;
-      margin-bottom: 10px;
-    }
-
-    .step h3 {
-      margin: 0 0 10px;
-    }
-
-    .step ul {
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-
-    .step li {
-      margin: 8px 0;
-    }
-
-    .step a {
-      color: var(--accent);
-      font-weight: 650;
-    }
-
-    /* Banner */
-    .banner {
-      border-radius: calc(var(--radius) + 6px);
-      border: 1px solid rgba(163, 255, 176, .28);
-      background: radial-gradient(900px 240px at 15% 20%, rgba(163, 255, 176, .12), transparent 60%),
-        rgba(12, 18, 26, .75);
-      padding: 18px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .banner strong {
-      color: var(--text)
-    }
-
-    .banner p {
-      margin: 6px 0 0;
-      color: var(--muted);
-      font-size: .95rem;
-    }
-
-    .banner .actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(27, 37, 48, .95);
-      background: rgba(15, 22, 32, .55);
-      color: var(--text);
-      font-weight: 650;
-      font-size: .92rem;
-    }
-
-    .pill:hover {
-      border-color: rgba(163, 255, 176, .35);
-    }
-
-    /* Updates list */
-    .list {
-      display: grid;
-      gap: 12px;
-    }
-
-    .row {
-      border-radius: var(--radius);
-      border: 1px solid rgba(27, 37, 48, .95);
-      background: rgba(12, 18, 26, .55);
-      padding: 14px 16px;
-      display: flex;
-      gap: 14px;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-    }
-
-    .row .title {
-      font-weight: 700;
-    }
-
-    .row .meta {
-      color: var(--muted);
-      font-size: .92rem;
-    }
-
-    .row .excerpt {
-      color: var(--muted);
-      margin-top: 6px;
-      max-width: 95ch;
-      font-size: .98rem;
-    }
+    .featured-main h3{font-size:1.4rem;margin-bottom:10px}
+    .featured-main p{color:var(--text-muted);margin-bottom:20px}
 
     /* FAQ */
-    details {
-      border-radius: var(--radius);
-      border: 1px solid rgba(27, 37, 48, .95);
-      background: rgba(12, 18, 26, .55);
-      padding: 12px 14px;
+    .faq-item{
+      border:1px solid var(--border);border-radius:var(--radius);
+      margin-bottom:10px;overflow:hidden;
     }
-
-    details+details {
-      margin-top: 12px;
+    .faq-item summary{
+      padding:16px 20px;cursor:pointer;font-weight:600;
+      background:var(--surface);list-style:none;
+      display:flex;align-items:center;justify-content:space-between;
     }
-
-    summary {
-      cursor: pointer;
-      font-weight: 750;
-      outline: none;
-    }
-
-    details p {
-      margin: 10px 0 0;
-      color: var(--muted);
-    }
-
-    /* Ad slots */
-    .ad-slot {
-      border-radius: var(--radius);
-      border: 1px dashed rgba(76, 201, 240, .35);
-      background: rgba(76, 201, 240, .06);
-      color: rgba(230, 238, 246, .75);
-      padding: 18px;
-      text-align: center;
-      font-size: .95rem;
-    }
-
-    .ad-slot small {
-      display: block;
-      color: rgba(169, 182, 198, .85);
-      margin-top: 6px;
-    }
+    .faq-item summary::after{content:'+';font-size:1.2rem;color:var(--text-muted)}
+    .faq-item[open] summary::after{content:'-'}
+    .faq-item p{padding:0 20px 16px;color:var(--text-muted);font-size:.9rem}
 
     /* Footer */
-    footer {
-      border-top: 1px solid rgba(27, 37, 48, .8);
-      padding: 28px 0 40px;
-      color: var(--muted);
-      font-size: .95rem;
+    .footer{
+      padding:40px 0;border-top:1px solid var(--border);
+      margin-top:40px;
     }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 18px;
-      align-items: start;
+    .footer-inner{
+      display:flex;justify-content:space-between;align-items:start;
+      flex-wrap:wrap;gap:30px;
     }
-
-    .footlinks {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .footlinks a {
-      padding: 8px 10px;
-      border-radius: 10px;
-      border: 1px solid rgba(27, 37, 48, .9);
-      background: rgba(12, 18, 26, .45);
-      color: var(--muted);
-    }
-
-    .footlinks a:hover {
-      color: var(--text);
-      border-color: rgba(76, 201, 240, .35);
+    .footer-brand{max-width:300px}
+    .footer-brand p{font-size:.85rem;color:var(--text-muted);margin-top:10px}
+    .footer-links{display:flex;gap:30px}
+    .footer-links a{font-size:.9rem;color:var(--text-muted)}
+    .footer-links a:hover{color:var(--text)}
+    .footer-copy{
+      text-align:center;padding-top:30px;margin-top:30px;
+      border-top:1px solid var(--border);
+      font-size:.8rem;color:var(--text-muted);
     }
 
     /* Responsive */
-    @media (max-width: 980px) {
-      .hero-wrap {
-        grid-template-columns: 1fr;
-      }
-
-      .roadmap {
-        grid-template-columns: 1fr;
-      }
-
-      .col-4 {
-        grid-column: span 6;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .footlinks {
-        justify-content: flex-start;
-      }
+    @media(max-width:900px){
+      .cards-3{grid-template-columns:repeat(2,1fr)}
+      .featured{grid-template-columns:1fr}
+      .featured-main{grid-row:auto}
+      .quick-nav{grid-template-columns:repeat(2,1fr)}
     }
-
-    @media (max-width: 640px) {
-      .navlinks {
-        display: none;
-      }
-
-      .col-4 {
-        grid-column: span 12;
-      }
-
-      .btn {
-        min-width: 100%;
-      }
-
-      .kpi {
-        grid-template-columns: 1fr;
-      }
-
-      .stats-bar {
-        grid-template-columns: repeat(2, 1fr) !important;
-      }
-
-      h1 {
-        font-size: 1.8rem !important;
-      }
+    @media(max-width:600px){
+      .nav{display:none}
+      .mobile-toggle{display:flex}
+      .cards-3,.cards-2{grid-template-columns:1fr}
+      .quick-nav{grid-template-columns:repeat(2,1fr)}
+      .hero{padding:40px 0 30px}
+      .footer-inner{flex-direction:column}
     }
+    .mobile-toggle{
+      display:none;width:40px;height:40px;border-radius:8px;
+      background:var(--surface-2);border:1px solid var(--border);
+      align-items:center;justify-content:center;cursor:pointer;
+    }
+    .mobile-toggle svg{width:20px;height:20px;stroke:var(--text)}
+    .mobile-nav{
+      display:none;position:absolute;top:60px;left:0;right:0;
+      background:var(--surface);border-bottom:1px solid var(--border);
+      padding:16px 20px;
+    }
+    .mobile-nav.active{display:block}
+    .mobile-nav a{display:block;padding:12px 0;color:var(--text-muted);border-bottom:1px solid var(--border)}
+    .mobile-nav a:last-child{border-bottom:none}
   </style>
 
-  <!-- Website schema -->
   <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"WebSite",
-    "name":"StarRupture Guides & Tools",
-    "url":"https://starrupture.net/"
-  }
+  {"@context":"https://schema.org","@type":"WebSite","name":"StarRupture.net","url":"https://starrupture.net/","potentialAction":{"@type":"SearchAction","target":"https://starrupture.net/search?q={search_term_string}","query-input":"required name=search_term_string"}}
   </script>
-
-  <!-- FAQ schema (matches the FAQ section below) -->
   <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {
-        "@type":"Question",
-        "name":"Is this site official?",
-        "acceptedAnswer":{"@type":"Answer","text":"No. Starrupture.net is an independent guide site. We verify pages by game version and update when things change."}
-      },
-      {
-        "@type":"Question",
-        "name":"How do you verify “version-verified”?",
-        "acceptedAnswer":{"@type":"Answer","text":"Each guide shows a Verified on date and a game version/build note when available, so you can spot outdated info quickly."}
-      },
-      {
-        "@type":"Question",
-        "name":"Where should I start as a new player?",
-        "acceptedAnswer":{"@type":"Answer","text":"Start with the 60-minute roadmap, then follow Water → Food → First Base. It’s designed for fast early stability."}
-      },
-      {
-        "@type":"Question",
-        "name":"Do you cover mods?",
-        "acceptedAnswer":{"@type":"Answer","text":"We cover safe installation basics and recommended mods—no cheats, no shady downloads."}
-      },
-      {
-        "@type":"Question",
-        "name":"Can I request a guide or report outdated info?",
-        "acceptedAnswer":{"@type":"Answer","text":"Yes. Use the contact page and include your game version and what changed. We prioritize high-frequency issues first."}
-      }
-    ]
-  }
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are the best weapons in StarRupture?","acceptedAnswer":{"@type":"Answer","text":"MAR-9 Phantom is the best all-rounder. Grenades excel at crowd control. SLAMS-12 shotgun dominates close range."}},{"@type":"Question","name":"Where is the best base location?","acceptedAnswer":{"@type":"Answer","text":"Early game: near your Lander. Mid-late game: central map with Titanium, Wolfram, Calcium, and Helium-3 access."}},{"@type":"Question","name":"How do I survive the Rupture?","acceptedAnswer":{"@type":"Answer","text":"Get inside a sealed building (Lander or Habitat with Airlock) within 20 seconds of Wave Warning."}},{"@type":"Question","name":"What are the production ratios?","acceptedAnswer":{"@type":"Answer","text":"1 Miner → 1 Smelter → 1 Fabricator → 3 Orbital Launchers for early game efficiency."}}]}
   </script>
-
-  <!-- AdSense (ADD LATER)
-    1) After your site is approved, paste the official AdSense script here.
-    2) Replace ad-slot placeholders below with your <ins class="adsbygoogle"> units.
-    3) Keep ads out of Hero / inside-card areas for best UX.
-  -->
 </head>
-
 <body>
   <!-- Header -->
-  <header class="header" aria-label="Site header">
-    <div class="container">
-      <div class="nav">
-        <a class="brand" href="https://starrupture.net/" aria-label="Starrupture.net Home">
-          <span class="logo" aria-hidden="true"></span>
-          <span>starrupture.net</span>
-        </a>
-
-        <nav class="navlinks" aria-label="Primary navigation">
-          <a href="https://starrupture.net/guides">Guides</a>
-          <a href="https://starrupture.net/guides/start-here">Start Here</a>
-          <a href="https://starrupture.net/troubleshooting">Troubleshooting</a>
-          <a href="https://starrupture.net/about">About</a>
-          <a href="https://starrupture.net/contact">Contact</a>
-        </nav>
-      </div>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="/" class="logo">
+        <span class="logo-icon">SR</span>
+        <span>StarRupture<span style="color:var(--text-muted)">.net</span></span>
+      </a>
+      <nav class="nav">
+        <a href="/guides/">Guides</a>
+        <a href="/database/">Database</a>
+        <a href="/tier-lists/">Tier Lists</a>
+        <a href="/troubleshooting/">Fixes</a>
+      </nav>
+      <button class="mobile-toggle" onclick="document.querySelector('.mobile-nav').classList.toggle('active')" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
     </div>
+    <nav class="mobile-nav">
+      <a href="/guides/">Guides</a>
+      <a href="/database/">Database</a>
+      <a href="/tier-lists/">Tier Lists</a>
+      <a href="/troubleshooting/">Fixes</a>
+    </nav>
   </header>
 
-  <!-- Hero -->
-  <main class="hero" aria-label="Main content">
-    <div class="container">
-      <div class="hero-wrap">
-        <div class="hero-left">
-          <div class="badges" aria-label="Trust badges" style="margin:0 0 16px;">
-            <span class="badge" style="animation: pulse 2s infinite;"><span class="dot green" aria-hidden="true"
-                style="animation: glow 2s infinite;"></span>Updated for Early Access</span>
-          </div>
-
-          <h1
-            style="background: linear-gradient(135deg, var(--text), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
-            Stop Dying. Start Surviving.</h1>
-          <p class="lead" style="font-size: 1.15rem;">
-            Get <strong style="color: var(--accent);">version-verified answers</strong> to your StarRupture questions in
-            under 30 seconds.
-            No fluff. No outdated info. Just the steps that work.
-          </p>
-
-          <div class="cta-row">
-            <a class="btn primary" href="/guides/start-here/" style="font-size: 1rem;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;">
-                <polygon points="5 3 19 12 5 21 5 3"></polygon>
-              </svg>
-              Survive Your First Hour →
-            </a>
-            <a class="btn" href="#quick-answers">Browse Quick Answers</a>
-          </div>
-
-          <div class="badges" aria-label="Trust signals" style="margin-top:20px;">
-            <span class="badge"><span class="dot green" aria-hidden="true"></span>Version-Verified</span>
-            <span class="badge"><span class="dot" aria-hidden="true"></span>Beginner-First</span>
-            <span class="badge"><span class="dot warn" aria-hidden="true"></span>No-Fluff Steps</span>
-          </div>
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-content">
+        <span class="hero-badge">Updated Daily for Patch 0.1.x</span>
+        <h1>Stop Dying.<br>Start Surviving.</h1>
+        <p class="hero-sub">The Rupture killed you again? We've been there. Battle-tested strategies from 500+ hours on Arcadia-7 — verified every patch by players who actually beat the game.</p>
+        <div class="hero-cta">
+          <a href="/guides/start-here/" class="btn btn-primary">I Keep Dying — Help Me →</a>
+          <a href="/tier-lists/weapons/" class="btn btn-secondary">What Gun Should I Use?</a>
         </div>
 
-        <aside class="hero-right" aria-label="What you'll find">
-          <h3 style="display:flex; align-items:center; gap:8px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"></circle>
-              <polyline points="12 6 12 12 16 14"></polyline>
-            </svg>
-            What You'll Find Here
-          </h3>
-          <ul>
-            <li><strong>Quick answers</strong> for water, food, base setup, and early research</li>
-            <li><strong>Resource hubs</strong> designed for fast scanning</li>
-            <li><strong>Troubleshooting</strong> with minimal-risk steps first</li>
-          </ul>
+        <!-- Social Proof Stats -->
+        <div class="stats-bar">
+          <div class="stat"><span class="stat-num">50+</span><span class="stat-label">Guides</span></div>
+          <div class="stat"><span class="stat-num">12K+</span><span class="stat-label">Monthly Readers</span></div>
+          <div class="stat"><span class="stat-num">Daily</span><span class="stat-label">Updates</span></div>
+          <div class="stat"><span class="stat-num">0.1.x</span><span class="stat-label">Verified</span></div>
+        </div>
 
-          <div class="kpi" aria-label="Quick links">
-            <div class="chip" style="border-color: rgba(163,255,176,.3);">
-              <strong style="color: var(--accent-2);">🎮 New here?</strong>
-              <span><a href="/guides/start-here/">Start Here</a> → Water → Food → Base</span>
+        <!-- Quick Navigation -->
+        <div class="quick-nav">
+          <a href="/guides/">
+            <span class="icon" style="background:var(--primary-dim);color:var(--primary)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            </span>
+            <span class="label">Guides</span>
+            <span class="desc">Beginner to advanced</span>
+          </a>
+          <a href="/database/">
+            <span class="icon" style="background:var(--secondary-dim);color:var(--secondary)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            </span>
+            <span class="label">Database</span>
+            <span class="desc">Items, recipes, weapons</span>
+          </a>
+          <a href="/tier-lists/">
+            <span class="icon" style="background:rgba(168,85,247,.12);color:var(--accent)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </span>
+            <span class="label">Tier Lists</span>
+            <span class="desc">Best weapons & locations</span>
+          </a>
+          <a href="/troubleshooting/">
+            <span class="icon" style="background:rgba(239,68,68,.12);color:var(--danger)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </span>
+            <span class="label">Fixes</span>
+            <span class="desc">Crashes & performance</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Popular Guides -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Popular Guides</h2>
+          <a href="/guides/">View all guides →</a>
+        </div>
+        <div class="cards cards-3">
+          <a href="/guides/start-here/" class="card">
+            <div class="card-icon" style="background:var(--primary-dim);color:var(--primary)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M12 12h.01"/><path d="M17 12h.01"/><path d="M7 12h.01"/></svg>
             </div>
-            <div class="chip" style="border-color: rgba(251,113,133,.3);">
-              <strong style="color: var(--danger);">🔧 Game crashing?</strong>
-              <span><a href="/troubleshooting/crash-fixes/">Crash Fixes</a> (most common)</span>
+            <h3>Beginner's Guide</h3>
+            <p>Survive your first hour. Water, food, base setup, and early research priorities.</p>
+            <span class="update-badge">Updated Jan 28</span>
+            <span class="card-link">Read guide →</span>
+          </a>
+          <a href="/guides/base-building/" class="card">
+            <div class="card-icon" style="background:var(--secondary-dim);color:var(--secondary)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
             </div>
-          </div>
-        </aside>
-      </div>
-
-      <!-- Social Proof Stats Bar -->
-      <div class="stats-bar"
-        style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:24px; padding:16px; border-radius:var(--radius); background:rgba(12,18,26,.5); border:1px solid rgba(27,37,48,.8);">
-        <div style="text-align:center;">
-          <div style="font-size:1.5rem; font-weight:800; color:var(--accent);">10+</div>
-          <div style="font-size:.85rem; color:var(--muted);">Guides Published</div>
-        </div>
-        <div style="text-align:center;">
-          <div style="font-size:1.5rem; font-weight:800; color:var(--accent-2);">50+</div>
-          <div style="font-size:.85rem; color:var(--muted);">Issues Solved</div>
-        </div>
-        <div style="text-align:center;">
-          <div style="font-size:1.5rem; font-weight:800; color:var(--accent-3);">Daily</div>
-          <div style="font-size:.85rem; color:var(--muted);">Updates Check</div>
-        </div>
-        <div style="text-align:center;">
-          <div style="font-size:1.5rem; font-weight:800; color:var(--warning);">EA</div>
-          <div style="font-size:.85rem; color:var(--muted);">Version Tracked</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Section 2: Quick Answers -->
-    <section id="quick-answers" class="section compact" aria-label="Quick answers">
-      <div class="container">
-        <div class="section-top">
-          <h2>Quick Answers (Most Searched)</h2>
-          <p>Click once, get the “final answer” fast—then details below it. Built for scanning.</p>
-        </div>
-
-        <div class="grid">
-          <article class="card col-4">
-            <h3>Get Water Fast (Hydration)</h3>
-            <p>One clear path to hydration early—what to pick up and what to craft next.</p>
-            <a class="link" href="/guides/water-hydration/">Open guide →</a>
-          </article>
-
-          <article class="card col-4">
-            <h3>Best Early Food (Calories)</h3>
-            <p>Quick food sources and what to prioritize so you stop dying to hunger.</p>
-            <a class="link" href="/guides/food-calories/">Open guide →</a>
-          </article>
-
-          <article class="card col-4">
-            <h3>First Base Setup (Minimal Build)</h3>
-            <p>The smallest base layout that gets you stable—then scalable.</p>
-            <a class="link" href="/guides/first-base-setup/">Open guide →</a>
-          </article>
-
-          <article class="card col-4">
-            <h3>Research Priorities (First 60 Minutes)</h3>
-            <p>What to unlock first and why—avoid wasting early materials.</p>
-            <a class="link" href="/guides/research-priority/">Open guide →</a>
-          </article>
-
-          <article class="card col-4">
-            <h3>Co-op Basics (2–4 Players)</h3>
-            <p>Simple co-op setup tips and how to split tasks efficiently.</p>
-            <a class="link" href="/guides/co-op-basics/">Open guide →</a>
-          </article>
-
-          <article class="card col-4">
-            <h3>Crashes &amp; Fixes (EA Week-1)</h3>
-            <p>The most common issues and the fastest fixes—kept up to date.</p>
-            <a class="link" href="/troubleshooting/crash-fixes/">Open fixes →</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Ad slot 1 (Recommended) -->
-    <section class="section compact" aria-label="Ad slot 1">
-      <div class="container">
-        <div class="ad-slot">
-          Ad Slot (after Quick Answers)
-          <small>Replace this box with an AdSense responsive unit after approval.</small>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 3: New Player Path -->
-    <section id="new-player-path" class="section" aria-label="New player path">
-      <div class="container">
-        <div class="section-top">
-          <h2>New Player Path (0 → 60 Minutes)</h2>
-          <p>A beginner roadmap that builds stability fast. Follow in order, skip what you already solved.</p>
-        </div>
-
-        <div class="roadmap">
-          <div class="step">
-            <div class="tag"><span class="dot" aria-hidden="true"></span>0–15 min</div>
-            <h3>Stabilize survival</h3>
-            <ul>
-              <li>Secure hydration: <a href="/guides/water-hydration/">Water guide</a></li>
-              <li>Secure calories: <a href="/guides/food-calories/">Food guide</a></li>
-              <li>Stop bleeding time: avoid wandering without a plan</li>
-            </ul>
-          </div>
-
-          <div class="step">
-            <div class="tag"><span class="dot green" aria-hidden="true"></span>15–30 min</div>
-            <h3>Minimal base that works</h3>
-            <ul>
-              <li>Build the “minimum viable base”: <a href="/guides/first-base-setup/">Base setup</a></li>
-              <li>Unlock only what you need: <a href="/guides/research-priority/">Research priorities</a></li>
-              <li>Start a consistent resource loop</li>
-            </ul>
-          </div>
-
-          <div class="step">
-            <div class="tag"><span class="dot warn" aria-hidden="true"></span>30–60 min</div>
-            <h3>Go from stable → scalable</h3>
-            <ul>
-              <li>Target your first key node: <a href="/guides/calcium-ore-location/">Calcium ore</a></li>
-              <li>Set up a simple crafting chain</li>
-              <li>If crashing/lagging: <a href="/troubleshooting/">Troubleshooting hub</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 4: Resources / Blueprints -->
-    <section id="resources" class="section" aria-label="Resources and blueprints">
-      <div class="container">
-        <div class="section-top">
-          <h2>Resources, Blueprints &amp; Locations</h2>
-          <p>Hubs and tables designed for fast scanning—perfect for long-tail search and quick answers.</p>
-        </div>
-
-        <div class="grid">
-          <article class="card col-4">
-            <h3>Calcium Ore Locations</h3>
-            <p>Best spots + a practical farming setup for steady supply.</p>
-            <a class="link" href="/guides/calcium-ore-location/">Open locations →</a>
-          </article>
-
-          <article class="card col-4">
-            <h3>Resource Nodes Index</h3>
-            <p>A clean, table-first index of key nodes (upgrade later to a filter tool).</p>
-            <a class="link" href="/guides/resource-nodes/">Open index →</a>
-          </article>
-
-          <article class="card col-4">
-            <h3>Blueprint Locations Hub</h3>
-            <p>Checklist-friendly blueprint guide—find what you need, fast.</p>
-            <a class="link" href="/guides/blueprint-locations/">Open hub →</a>
-          </article>
-
-          <article class="card col-4">
-            <h3>Items Index (MVP Table)</h3>
-            <p>What each item is for + where you get it (updated by version).</p>
-            <a class="link" href="/resources/items/">Open items →</a>
-          </article>
-
-          <article class="card col-4">
-            <h3>Recipes &amp; Stations Table</h3>
-            <p>Inputs → outputs → station → unlock notes (static table first).</p>
-            <a class="link" href="/resources/recipes/">Open recipes →</a>
-          </article>
-
-          <article class="card col-4">
-            <h3>Crafting Dependency (MVP)</h3>
-            <p>“To craft X, you need…” a dependency table you can scan in seconds.</p>
-            <a class="link" href="/tools/crafting-dependency/">Open table →</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Ad slot 2 (Recommended) -->
-    <section class="section compact" aria-label="Ad slot 2">
-      <div class="container">
-        <div class="ad-slot">
-          Ad Slot (after Resources)
-          <small>Good spot: users are already browsing, minimal interruption.</small>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 5: Tools -->
-    <section id="tools" class="section" aria-label="Tools">
-      <div class="container">
-        <div class="section-top">
-          <h2>Tools (Lightweight MVP)</h2>
-          <p>No complex app yet—start with static “tools” (tables, checklists, planners) that later evolve into
-            interactive pages.</p>
-        </div>
-
-        <div class="grid">
-          <article class="card col-4">
-            <h3>Blueprint Checklist</h3>
-            <p>Track what you’ve found. Simple, printable, and easy to update by patch.</p>
-            <a class="link" href="/tools/blueprint-checklist/">Open checklist →</a>
-          </article>
-
-          <article class="card col-4">
-            <h3>Recipe Table</h3>
-            <p>Fast scan: item → ingredients → station → unlock notes.</p>
-            <a class="link" href="/tools/recipe-table/">Open table →</a>
-          </article>
-
-          <article class="card col-4">
-            <h3>Crafting Dependency</h3>
-            <p>Pick a target item and see the dependency chain (table-first MVP).</p>
-            <a class="link" href="/tools/crafting-dependency/">Open dependency →</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 6: Performance & Troubleshooting -->
-    <section id="fixes" class="section" aria-label="Performance and fixes">
-      <div class="container">
-        <div class="section-top">
-          <h2>Performance &amp; Fixes</h2>
-          <p>Checklist-style troubleshooting. Least-risk steps first. Clear “stop when fixed” guidance.</p>
-        </div>
-
-        <div class="grid">
-          <article class="card col-4">
-            <h3>System Requirements + FPS Tips</h3>
-            <p>Requirements plus real settings that usually improve FPS first.</p>
-            <a class="link" href="/performance/system-requirements/">Open page →</a>
-          </article>
-
-          <article class="card col-4">
-            <h3>Stutter / Low FPS Checklist</h3>
-            <p>Do these in order, and stop as soon as performance stabilizes.</p>
-            <a class="link" href="/performance/fps-checklist/">Open checklist →</a>
-          </article>
-
-          <article class="card col-4">
-            <h3>Co-op Lag &amp; Desync Fixes</h3>
-            <p>Network tips and common causes of co-op instability.</p>
-            <a class="link" href="/troubleshooting/co-op-lag/">Open fixes →</a>
-          </article>
-
-          <article class="card col-4">
-            <h3>Known Issues (Tracked)</h3>
-            <p>A living list of issues + status + workarounds.</p>
-            <a class="link" href="/troubleshooting/known-issues/">Open tracker →</a>
-          </article>
-
-          <article class="card col-4">
-            <h3>Launch / Black Screen Fix</h3>
-            <p>Step-by-step launch fixes with the least risk first.</p>
-            <a class="link" href="/troubleshooting/launch-fix/">Open guide →</a>
-          </article>
-
-          <article class="card col-4">
-            <h3>Save / Progress Issues</h3>
-            <p>Safe troubleshooting and how to prevent progress loss.</p>
-            <a class="link" href="/troubleshooting/save-issues/">Open guide →</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 7: Version-Verified Banner -->
-    <section class="section compact" aria-label="Version verified">
-      <div class="container">
-        <div class="banner">
-          <div>
-            <strong>Version-Verified Guides</strong>
-            <p>
-              Early Access changes fast. Each guide includes a <strong>Verified on</strong> date and version/build note
-              when available.
-              If something’s outdated, report it.
-            </p>
-          </div>
-          <div class="actions">
-            <a class="pill" href="/news/patch-notes/">Patch Notes Tracker</a>
-            <a class="pill" href="/contact/">Report Outdated Info</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 8: Latest Updates -->
-    <section class="section" aria-label="Latest updates">
-      <div class="container">
-        <div class="section-top">
-          <h2>What’s New (Patch Notes &amp; Changes)</h2>
-          <p>Keep this updated even if you only add short summaries. Freshness drives repeat visits.</p>
-        </div>
-
-        <div class="list">
-          <div class="row">
-            <div>
-              <div class="title"><a href="/news/patch-notes/">Patch Notes — Latest</a></div>
-              <div class="excerpt">Short summary: what changed for survival, crafting, and progression (add your newest
-                entry here).</div>
+            <h3>Base Building Guide</h3>
+            <p>Where to build, how to defend it, and why your first base will probably get wrecked.</p>
+            <span class="card-link">Read guide →</span>
+          </a>
+          <a href="/guides/production-ratios/" class="card">
+            <div class="card-icon" style="background:rgba(234,179,8,.12);color:var(--warning)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
             </div>
-            <div class="meta">Updated: <time datetime="2026-01-08">Jan 8, 2026</time></div>
-          </div>
-
-          <div class="row">
-            <div>
-              <div class="title"><a href="/guides/research-priority/">Research priorities updated</a></div>
-              <div class="excerpt">Short summary: new recommended unlock order after early changes (replace with your
-                real note).</div>
+            <h3>Production Ratios</h3>
+            <p>Stop bottlenecking your factory. The exact ratios that actually work.</p>
+            <span class="card-link">Read guide →</span>
+          </a>
+          <a href="/guides/water-hydration/" class="card">
+            <div class="card-icon" style="background:rgba(34,211,238,.12);color:var(--secondary)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
             </div>
-            <div class="meta">Updated: <time datetime="2026-01-08">Jan 8, 2026</time></div>
-          </div>
-
-          <div class="row">
-            <div>
-              <div class="title"><a href="/troubleshooting/known-issues/">Known Issues tracker refreshed</a></div>
-              <div class="excerpt">Short summary: top crashes + workarounds, plus what’s confirmed (replace with real
-                entries).</div>
+            <h3>Water & Hydration</h3>
+            <p>Dehydration kills faster than aliens. Find Hydrobulbs before it's too late.</p>
+            <span class="card-link">Read guide →</span>
+          </a>
+          <a href="/guides/food-calories/" class="card">
+            <div class="card-icon" style="background:rgba(34,197,94,.12);color:var(--success)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
             </div>
-            <div class="meta">Updated: <time datetime="2026-01-08">Jan 8, 2026</time></div>
-          </div>
+            <h3>Food & Calories</h3>
+            <p>That berry looked safe, didn't it? Learn what's edible before you poison yourself.</p>
+            <span class="card-link">Read guide →</span>
+          </a>
+          <a href="/guides/corporations/" class="card">
+            <div class="card-icon" style="background:rgba(168,85,247,.12);color:var(--accent)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01"/><path d="M9 12v.01"/><path d="M9 15v.01"/><path d="M9 18v.01"/></svg>
+            </div>
+            <h3>Corporation Progression</h3>
+            <p>Moon Energy or Griffits Blue first? The unlock order that saves you hours of grinding.</p>
+            <span class="card-link">Read guide →</span>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- Section 9: Community-Sourced Fixes -->
-    <section class="section" aria-label="Community-tested answers">
+    <!-- Tier Lists -->
+    <section class="section" style="background:var(--surface)">
       <div class="container">
-        <div class="section-top">
-          <h2>Community-Tested Answers</h2>
-          <p>We turn scattered discussions into step-by-step fixes with clear “what worked” notes.</p>
+        <div class="section-header">
+          <h2>Tier Lists & Rankings</h2>
+          <a href="/tier-lists/">All tier lists →</a>
         </div>
-
-        <div class="grid">
-          <article class="card col-4">
-            <h3>“Game won’t launch” — fast checklist</h3>
-            <p>Ordered steps: simplest and safest first. Stop as soon as it’s fixed.</p>
-            <a class="link" href="/troubleshooting/launch-fix/">Open checklist →</a>
-          </article>
-
-          <article class="card col-4">
-            <h3>“Co-op desync” — what to try</h3>
-            <p>Network + host tips that are low-risk and commonly effective.</p>
-            <a class="link" href="/troubleshooting/co-op-lag/">Open fixes →</a>
-          </article>
-
-          <article class="card col-4">
-            <h3>“Random crashes” — common fixes</h3>
-            <p>Crash patterns, quick fixes, and what info to include when reporting.</p>
-            <a class="link" href="/troubleshooting/crash-fixes/">Open fixes →</a>
-          </article>
+        <div class="featured">
+          <a href="/tier-lists/weapons/" class="featured-main" style="border-color:var(--primary)">
+            <div class="card-icon" style="background:var(--primary-dim);color:var(--primary);margin-bottom:16px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <h3>Weapons Tier List</h3>
+            <p>MAR-9 Phantom vs SLAMS-12 vs M175 Grim. Complete breakdown of all weapons with stats, upgrades, and best use cases.</p>
+            <span class="update-badge">Updated Jan 30</span>
+            <span class="card-link">View tier list →</span>
+          </a>
+          <a href="/tier-lists/base-locations/" class="card">
+            <div class="card-icon" style="background:var(--secondary-dim);color:var(--secondary)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <h3>Best Base Locations</h3>
+            <p>Early, mid, and late game spots ranked by resources and safety.</p>
+            <span class="card-link">View rankings →</span>
+          </a>
+          <a href="/tier-lists/lems/" class="card">
+            <div class="card-icon" style="background:rgba(168,85,247,.12);color:var(--accent)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12l4 6-10 13L2 9z"/><path d="M11 3l1 6h6"/><path d="M2 9h20"/></svg>
+            </div>
+            <h3>LEM Modules Ranked</h3>
+            <p>Which Life Energy Modules are worth slotting? Scalper vs Health.</p>
+            <span class="card-link">View rankings →</span>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- Section 10: Browse All Guides -->
-    <section class="section" aria-label="Browse all guides">
+    <!-- Database -->
+    <section class="section">
       <div class="container">
-        <div class="section-top">
-          <h2>Browse All Guides</h2>
-          <p>Use this as your internal “site map” for humans (and a strong internal linking hub).</p>
+        <div class="section-header">
+          <h2>Database & Resources</h2>
+          <a href="/database/">Browse database →</a>
         </div>
-
-        <div class="grid">
-          <article class="card col-6">
-            <h3>Guides</h3>
-            <p>Beginner path, survival, base setup, progression, and co-op.</p>
-            <a class="link" href="/guides/">Go to Guides →</a>
-          </article>
-
-          <article class="card col-6">
-            <h3>Resources</h3>
-            <p>Items, recipes, blueprints, and locations. Table-first MVP.</p>
-            <a class="link" href="/resources/">Go to Resources →</a>
-          </article>
-
-          <article class="card col-6">
-            <h3>Tools</h3>
-            <p>Checklists and dependency tables that can evolve into real tools.</p>
-            <a class="link" href="/tools/">Go to Tools →</a>
-          </article>
-
-          <article class="card col-6">
-            <h3>Troubleshooting</h3>
-            <p>Crashes, FPS, co-op issues, known problems, and safe fixes.</p>
-            <a class="link" href="/troubleshooting/">Go to Fixes →</a>
-          </article>
+        <div class="cards cards-3">
+          <a href="/database/weapons/" class="card">
+            <h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px;margin-right:6px"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>Weapons Database</h3>
+            <p>All weapons with stats, unlock requirements, and upgrade paths.</p>
+            <span class="card-link">Browse →</span>
+          </a>
+          <a href="/database/recipes/" class="card">
+            <h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px;margin-right:6px"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>Crafting Recipes</h3>
+            <p>Smelter, Fabricator, Furnace recipes with inputs and outputs.</p>
+            <span class="card-link">Browse →</span>
+          </a>
+          <a href="/database/resources/" class="card">
+            <h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px;margin-right:6px"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M6 3h12l4 6-10 13L2 9z"/></svg>Resource Locations</h3>
+            <p>Titanium, Wolfram, Calcium, Ignitium — where to find them all.</p>
+            <span class="card-link">Browse →</span>
+          </a>
+          <a href="/database/buildings/" class="card">
+            <h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px;margin-right:6px"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>Buildings</h3>
+            <p>All structures, requirements, and placement tips.</p>
+            <span class="card-link">Browse →</span>
+          </a>
+          <a href="/database/lems/" class="card">
+            <h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px;margin-right:6px"><path d="M6 3h12l4 6-10 13L2 9z"/></svg>LEM Modules</h3>
+            <p>Effects, stacking rules, and best combinations.</p>
+            <span class="card-link">Browse →</span>
+          </a>
+          <a href="/database/blueprints/" class="card">
+            <h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px;margin-right:6px"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Blueprint Locations</h3>
+            <p>Find Rotor, Tube, and other blueprints across Arcadia-7.</p>
+            <span class="card-link">Browse →</span>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- Ad slot 3 (Optional, before FAQ) -->
-    <section class="section compact" aria-label="Ad slot 3">
+    <!-- Server & Multiplayer -->
+    <section class="section" style="background:var(--surface)">
       <div class="container">
-        <div class="ad-slot">
-          Ad Slot (before FAQ)
-          <small>Optional: users already finished the main browsing path.</small>
+        <div class="section-header">
+          <h2>Server & Multiplayer</h2>
+        </div>
+        <div class="cards cards-3">
+          <a href="/server/dedicated-setup/" class="card">
+            <h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px;margin-right:6px"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Dedicated Server Setup</h3>
+            <p>Host your own StarRupture server with Steam tools. Step-by-step guide.</p>
+            <span class="card-link">Setup guide →</span>
+          </a>
+          <a href="/server/hosting-providers/" class="card">
+            <h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px;margin-right:6px"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>Hosting Providers</h3>
+            <p>BisectHosting, GTXGaming, Nitrado compared for price and features.</p>
+            <span class="card-link">Compare →</span>
+          </a>
+          <a href="/guides/co-op-tips/" class="card">
+            <h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px;margin-right:6px"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Co-op Tips</h3>
+            <p>Task splitting and role division for 2-4 player efficiency.</p>
+            <span class="card-link">Read tips →</span>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- Section 11: FAQ -->
-    <section id="faq" class="section" aria-label="FAQ section">
+    <!-- Troubleshooting -->
+    <section class="section">
       <div class="container">
-        <div class="section-top">
-          <h2>FAQ</h2>
-          <p>Short answers + links. This section also powers FAQ schema for richer SERP display.</p>
+        <div class="section-header">
+          <h2>Troubleshooting & Fixes</h2>
+          <a href="/troubleshooting/">All fixes →</a>
         </div>
+        <div class="cards cards-3">
+          <a href="/troubleshooting/crash-fixes/" class="card">
+            <h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px;margin-right:6px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Crash Fixes</h3>
+            <p>Common crash causes and solutions for Early Access.</p>
+            <span class="card-link">Fix crashes →</span>
+          </a>
+          <a href="/troubleshooting/fps-performance/" class="card">
+            <h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px;margin-right:6px"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>FPS & Performance</h3>
+            <p>Settings optimization and stutter fixes.</p>
+            <span class="card-link">Improve FPS →</span>
+          </a>
+          <a href="/troubleshooting/coop-issues/" class="card">
+            <h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px;margin-right:6px"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Co-op Issues</h3>
+            <p>Connection problems, desync, and lag fixes.</p>
+            <span class="card-link">Fix co-op →</span>
+          </a>
+        </div>
+      </div>
+    </section>
 
-        <details>
+    <!-- FAQ -->
+    <section class="section" style="background:var(--surface)">
+      <div class="container">
+        <div class="section-header">
+          <h2>Frequently Asked Questions</h2>
+        </div>
+        <details class="faq-item">
+          <summary>What are the best weapons in StarRupture?</summary>
+          <p>The <strong>MAR-9 Phantom</strong> assault rifle is the best all-rounder. <strong>Grenades</strong> are extremely powerful for crowd control. The <strong>SLAMS-12 shotgun</strong> excels at close range. <a href="/tier-lists/weapons/" style="color:var(--primary)">See full tier list →</a></p>
+        </details>
+        <details class="faq-item">
+          <summary>Where is the best base location?</summary>
+          <p>Early game: near your Lander for safety. Mid-to-late game: the central map area with access to Titanium, Wolfram, Calcium, and Helium-3 deposits. <a href="/tier-lists/base-locations/" style="color:var(--primary)">See location rankings →</a></p>
+        </details>
+        <details class="faq-item">
+          <summary>How do I survive the Rupture event?</summary>
+          <p>When you see "Wave Warning," you have about 20 seconds to get inside a sealed building (Lander or Habitat with Airlock). Always carry materials for an emergency "pocket base." <a href="/guides/start-here/" style="color:var(--primary)">Survival guide →</a></p>
+        </details>
+        <details class="faq-item">
+          <summary>What are the production ratios?</summary>
+          <p>A common early-game ratio: 1 Miner → 1 Smelter → 1 Fabricator → 3 Orbital Launchers. <a href="/guides/production-ratios/" style="color:var(--primary)">Full ratios guide →</a></p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I host a dedicated server?</summary>
+          <p>Yes. StarRupture includes an experimental dedicated server tool on Steam. You can also use third-party hosts like BisectHosting or GTXGaming. <a href="/server/dedicated-setup/" style="color:var(--primary)">Server setup guide →</a></p>
+        </details>
+        <details class="faq-item">
           <summary>Is this site official?</summary>
-          <p>No. <strong>starrupture.net</strong> is an independent guide site. We verify pages by game version and
-            update when things change. <a href="/about/">Learn more →</a></p>
-        </details>
-
-        <details>
-          <summary>How do you verify “version-verified”?</summary>
-          <p>Each guide shows a <strong>Verified on</strong> date and a game version/build note when available, so you
-            can spot outdated info quickly. <a href="/news/patch-notes/">See updates →</a></p>
-        </details>
-
-        <details>
-          <summary>Where should I start as a new player?</summary>
-          <p>Start with the 60-minute roadmap, then follow <strong>Water → Food → First Base</strong>. It’s designed for
-            fast early stability. <a href="/start-here/">Start here →</a></p>
-        </details>
-
-        <details>
-          <summary>Do you cover mods?</summary>
-          <p>We cover safe installation basics and recommended mods—<strong>no cheats</strong>, no shady downloads. <a
-              href="/mods/">Mods hub →</a></p>
-        </details>
-
-        <details>
-          <summary>Can I request a guide or report outdated info?</summary>
-          <p>Yes. Use the contact page and include your game version and what changed. We prioritize high-frequency
-            issues first. <a href="/contact/">Contact →</a></p>
+          <p>No. StarRupture.net is an independent fan site. We verify guides by game version and update when things change. Not affiliated with Creepy Jar.</p>
         </details>
       </div>
     </section>
-
-    <!-- Section 12: Footer -->
-    <footer aria-label="Footer">
-      <div class="container">
-        <div class="footer-grid">
-          <div>
-            <strong style="color: var(--text);">starrupture.net</strong>
-            <p style="margin: 10px 0 0;">
-              Beginner-first StarRupture guides and tools. We focus on clarity, speed, and version-verified info.
-            </p>
-            <p style="margin: 10px 0 0; font-size: .9rem;">
-              Disclaimer: This is a fan-made site and is not affiliated with the game’s creators/publishers. Game names
-              and trademarks belong to their respective owners.
-            </p>
-          </div>
-
-          <div class="footlinks" aria-label="Footer links">
-            <a href="/about/">About</a>
-            <a href="/contact/">Contact</a>
-            <a href="/privacy-policy/">Privacy Policy</a>
-            <a href="/disclaimer/">Disclaimer</a>
-          </div>
-        </div>
-
-        <p style="margin: 18px 0 0; font-size: .9rem;">
-          © <span id="year">2026</span> starrupture.net
-        </p>
-      </div>
-    </footer>
   </main>
 
-  <script>
-    // Tiny enhancement: keep the year current (safe for static sites)
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="logo">
+            <span class="logo-icon">SR</span>
+            <span>StarRupture.net</span>
+          </div>
+          <p>Independent StarRupture guides and database. Version-verified for Early Access. Not affiliated with Creepy Jar.</p>
+        </div>
+        <div class="footer-links">
+          <a href="/about/">About</a>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy-policy/">Privacy</a>
+          <a href="/disclaimer/">Disclaimer</a>
+        </div>
+      </div>
+      <p class="footer-copy">© 2026 StarRupture.net — Fan site. Game content belongs to Creepy Jar.</p>
+    </div>
+  </footer>
 </body>
-
 </html>
