@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StarRupture Production Ratios - Factory Efficiency Guide (2026)</title>
+  <meta name="description" content="StarRupture production ratios: Excavator to Smelter ratios (1:1, 1:2, 1:4), rail throughput, OCL output rates. Optimize your factory efficiency.">
+  <link rel="canonical" href="https://starrupture.net/guides/production-ratios/">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1DBN9043DB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1DBN9043DB');
+  </script>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8830315294299920" crossorigin="anonymous"></script>
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="StarRupture Production Ratios - Factory Efficiency Guide">
+  <meta property="og:description" content="Complete guide to excavator-smelter ratios, rail throughput & OCL output optimization.">
+  <meta property="og:url" content="https://starrupture.net/guides/production-ratios/">
+  <meta property="og:site_name" content="StarRupture.net">
+
+  <link rel="stylesheet" href="/enhancements.css">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#06080c;--surface:#0d1117;--surface-2:#161b22;--border:#21262d;
+      --text:#e6edf3;--text-muted:#8b949e;
+      --primary:#f97316;--primary-dim:rgba(249,115,22,.15);
+      --secondary:#22d3ee;--secondary-dim:rgba(34,211,238,.12);
+      --accent:#a855f7;--success:#22c55e;--warning:#eab308;--danger:#ef4444;
+      --radius:12px;--max-w:1200px;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+    a{color:var(--primary);text-decoration:none;transition:color .2s}
+    a:hover{color:var(--secondary)}
+    .container{max-width:var(--max-w);margin:0 auto;padding:0 20px}
+    .header{position:sticky;top:0;z-index:100;background:rgba(6,8,12,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;height:60px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.1rem;color:var(--text)}
+    .logo-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--primary),var(--secondary));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;color:#fff}
+    .nav{display:flex;gap:8px}
+    .nav a{padding:8px 14px;border-radius:8px;font-size:.9rem;color:var(--text-muted);transition:all .2s}
+    .nav a:hover,.nav a.active{background:var(--surface-2);color:var(--text)}
+    .nav a.active{color:var(--primary)}
+    .breadcrumb{padding:16px 0;font-size:.875rem;color:var(--text-muted)}
+    .breadcrumb a{color:var(--text-muted)}
+    .breadcrumb a:hover{color:var(--primary)}
+    .breadcrumb span{margin:0 8px;opacity:.5}
+    .hero{padding:40px 0;background:radial-gradient(ellipse at 30% 0%,rgba(34,211,238,.08),transparent 50%)}
+    .hero h1{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;margin-bottom:12px}
+    .hero p{font-size:1.1rem;color:var(--text-muted);max-width:700px}
+    .hero-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:20px;font-size:.8rem;background:var(--secondary-dim);color:var(--secondary);margin-bottom:16px}
+    .section{padding:40px 0}
+    .grid{display:grid;grid-template-columns:1fr 300px;gap:24px;align-items:start}
+    .content h2{font-size:1.3rem;font-weight:700;margin:32px 0 16px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+    .content h3{font-size:1.1rem;font-weight:600;margin:24px 0 12px;color:var(--primary)}
+    .content p{color:var(--text-muted);margin-bottom:14px}
+    .content ul,.content ol{margin:12px 0 16px;padding-left:24px;color:var(--text-muted)}
+    .content li{margin:8px 0}
+    .ratio-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.9rem}
+    .ratio-table th,.ratio-table td{padding:12px;text-align:left;border-bottom:1px solid var(--border)}
+    .ratio-table th{background:var(--surface-2);color:var(--text);font-weight:600}
+    .ratio-table td{color:var(--text-muted)}
+    .ratio-table tr:hover td{background:var(--surface)}
+    .ratio-highlight{color:var(--secondary);font-weight:700}
+    .tip-card{padding:16px;border-radius:var(--radius);background:var(--surface);border:1px solid var(--border);margin:16px 0}
+    .tip-card h4{font-size:.95rem;font-weight:600;margin-bottom:8px;color:var(--text)}
+    .tip-card p{font-size:.9rem;margin-bottom:0}
+    .callout{border-left:3px solid var(--primary);padding:14px;background:var(--primary-dim);border-radius:0 var(--radius) var(--radius) 0;margin:16px 0;font-size:.9rem}
+    .callout-warn{border-left-color:var(--warning);background:rgba(234,179,8,.1)}
+    .callout-info{border-left-color:var(--secondary);background:var(--secondary-dim)}
+    .hr{height:1px;background:var(--border);margin:24px 0}
+    .sidebar{position:sticky;top:80px}
+    .card{padding:20px;border-radius:var(--radius);background:var(--surface);border:1px solid var(--border);margin-bottom:16px}
+    .card h3{font-size:1rem;font-weight:600;margin-bottom:12px}
+    .toc a{display:block;padding:8px 10px;border-radius:8px;color:var(--text-muted);font-size:.9rem}
+    .toc a:hover{background:var(--surface-2);color:var(--text)}
+    .footer{padding:40px 0;border-top:1px solid var(--border);margin-top:40px}
+    .footer-inner{display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:30px}
+    .footer-brand{max-width:300px}
+    .footer-brand p{font-size:.85rem;color:var(--text-muted);margin-top:10px}
+    .footer-links{display:flex;gap:30px}
+    .footer-links a{font-size:.9rem;color:var(--text-muted)}
+    .footer-copy{text-align:center;padding-top:30px;margin-top:30px;border-top:1px solid var(--border);font-size:.8rem;color:var(--text-muted)}
+    @media(max-width:900px){.grid{grid-template-columns:1fr}.sidebar{position:static}.ratio-table{font-size:.8rem}}
+    @media(max-width:600px){.nav{display:none}.footer-inner{flex-direction:column}}
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="/" class="logo">
+        <span class="logo-icon">SR</span>
+        <span>StarRupture<span style="color:var(--text-muted)">.net</span></span>
+      </a>
+      <nav class="nav">
+        <a href="/guides/" class="active">Guides</a>
+        <a href="/database/">Database</a>
+        <a href="/tier-lists/">Tier Lists</a>
+        <a href="/troubleshooting/">Fixes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a><span>›</span><a href="/guides/">Guides</a><span>›</span><span>Production Ratios</span>
+      </nav>
+    </div>
+
+    <section class="hero">
+      <div class="container">
+        <span class="hero-badge">⚙️ Factory Efficiency</span>
+        <h1>StarRupture Production Ratios</h1>
+        <p>Complete guide to excavator-smelter ratios, rail throughput limits, and OCL output rates. Optimize your factory for maximum efficiency.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid">
+          <article class="content">
+            <h2 id="core-ratios">Core Production Ratios</h2>
+            <p>The most important ratio to understand is <strong>Excavator to Smelter</strong>. This depends on ore node purity:</p>
+
+            <table class="ratio-table">
+              <thead>
+                <tr>
+                  <th>Node Purity</th>
+                  <th>Output</th>
+                  <th>Excavator:Smelter</th>
+                  <th>Rail Tier Needed</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Impure</td>
+                  <td>60/min (2/2s)</td>
+                  <td class="ratio-highlight">1:1</td>
+                  <td>Tier 1</td>
+                </tr>
+                <tr>
+                  <td>Normal</td>
+                  <td>120/min (4/2s)</td>
+                  <td class="ratio-highlight">1:2</td>
+                  <td>Tier 1</td>
+                </tr>
+                <tr>
+                  <td>Pure</td>
+                  <td>240/min (8/2s)</td>
+                  <td class="ratio-highlight">1:4</td>
+                  <td>Tier 2+</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="tip-card">
+              <h4>Smelter Processing Rate</h4>
+              <p>A single Smelter processes <strong>2 ore every 2 seconds</strong> (60/min). Output equals input - 2 ore in = 2 bars out.</p>
+            </div>
+
+            <h2 id="rail-throughput">Rail Throughput</h2>
+            <p>Rails are often the bottleneck. Match your rail tier to production output:</p>
+
+            <table class="ratio-table">
+              <thead>
+                <tr>
+                  <th>Rail Tier</th>
+                  <th>Throughput</th>
+                  <th>Can Handle</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Tier 1</td>
+                  <td class="ratio-highlight">120/min</td>
+                  <td>2 Impure or 1 Normal Excavator</td>
+                </tr>
+                <tr>
+                  <td>Tier 2</td>
+                  <td class="ratio-highlight">240/min</td>
+                  <td>1 Pure Excavator</td>
+                </tr>
+                <tr>
+                  <td>Tier 3</td>
+                  <td class="ratio-highlight">480/min</td>
+                  <td>2 Pure Excavators</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="callout callout-info">
+              <strong style="color:var(--text)">💡 Tip:</strong> If rails clog, add parallel lines or upgrade to higher tier rails rather than reducing production.
+            </div>
+
+            <h2 id="ocl-output">OCL Output Rates</h2>
+            <p>Orbital Cargo Launchers (OCL) export items to fulfill contracts:</p>
+
+            <table class="ratio-table">
+              <thead>
+                <tr>
+                  <th>Machine</th>
+                  <th>Output Rate</th>
+                  <th>OCLs Needed</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1 OCL</td>
+                  <td class="ratio-highlight">10/min</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>1 Smelter (60/min)</td>
+                  <td>Needs export</td>
+                  <td class="ratio-highlight">6 OCLs</td>
+                </tr>
+                <tr>
+                  <td>2 Smelters (120/min)</td>
+                  <td>Needs export</td>
+                  <td class="ratio-highlight">12 OCLs</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="tip-card">
+              <h4>OCL Tip</h4>
+              <p>Use <strong>2 OCLs per corporation</strong> as a baseline. Add more as production scales up.</p>
+            </div>
+
+            <h2 id="processing">Processing Recipes</h2>
+            <p>Common processing ratios (some values may vary with patches):</p>
+
+            <table class="ratio-table">
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Input</th>
+                  <th>Output Rate</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Titanium Bar</td>
+                  <td>2 Titanium Ore</td>
+                  <td>2 Bars / 2s (60/min)</td>
+                </tr>
+                <tr>
+                  <td>Wolfram Bar</td>
+                  <td>2 Wolfram Ore</td>
+                  <td>2 Bars / 2s (60/min)</td>
+                </tr>
+                <tr>
+                  <td>Titanium Sheet</td>
+                  <td>1 Titanium Ingot</td>
+                  <td>~60/min</td>
+                </tr>
+                <tr>
+                  <td>Titanium Rod</td>
+                  <td>1 Titanium Ingot</td>
+                  <td>~30/min</td>
+                </tr>
+                <tr>
+                  <td>Basic Building Material</td>
+                  <td>1 Ti Ore + 1 W Ore</td>
+                  <td>10 / 2s</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="callout callout-warn">
+              <strong style="color:var(--text)">⚠️ Note:</strong> Some processing rates are approximate and may change with patches. Always test in-game for exact values.
+            </div>
+
+            <h2 id="layout-tips">Layout Tips</h2>
+            <ul>
+              <li><strong>Use Storage Depots as buffers</strong> between Excavators and Smelters to prevent production halts</li>
+              <li><strong>Group similar machines</strong> in lines for easier management</li>
+              <li><strong>Plan before building</strong> - estimate output needs first</li>
+              <li><strong>Manual transport early game</strong> may be more efficient than complex rail setups</li>
+            </ul>
+
+            <div class="hr"></div>
+
+            <div class="callout callout-warn">
+              <strong style="color:var(--text)">⚠️ Early Access Notice:</strong> StarRupture entered Early Access on January 6, 2026. Production values may change with future patches.
+            </div>
+
+            <div class="hr"></div>
+
+            <p style="font-size:.9rem;color:var(--text-muted)">
+              <strong>Related:</strong>
+              <a href="/guides/base-building/">Base Building Guide</a> ·
+              <a href="/tier-lists/base-locations/">Best Base Locations</a>
+            </p>
+          </article>
+
+          <!-- Sidebar -->
+          <aside class="sidebar">
+            <div class="card toc">
+              <h3>On This Page</h3>
+              <a href="#core-ratios">⚙️ Core Ratios</a>
+              <a href="#rail-throughput">🚂 Rail Throughput</a>
+              <a href="#ocl-output">🚀 OCL Output</a>
+              <a href="#processing">🔧 Processing Recipes</a>
+              <a href="#layout-tips">📐 Layout Tips</a>
+            </div>
+
+            <div class="card">
+              <h3>Quick Reference</h3>
+              <p style="font-size:.85rem;color:var(--text-muted);line-height:1.8">
+                <strong style="color:var(--text)">Impure:</strong> 1:1<br>
+                <strong style="color:var(--text)">Normal:</strong> 1:2<br>
+                <strong style="color:var(--text)">Pure:</strong> 1:4<br>
+                <strong style="color:var(--text)">OCL:</strong> 10/min
+              </p>
+            </div>
+
+            <div class="card" style="background:var(--secondary-dim);border-color:var(--secondary)">
+              <h3 style="color:var(--secondary)">Version Info</h3>
+              <p style="font-size:.85rem;color:var(--text-muted)">
+                <strong style="color:var(--text)">Game:</strong> Early Access<br>
+                <strong style="color:var(--text)">Released:</strong> Jan 6, 2026<br>
+                <strong style="color:var(--text)">Updated:</strong> Feb 4, 2026
+              </p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="logo">
+            <span class="logo-icon">SR</span>
+            <span>StarRupture.net</span>
+          </div>
+          <p>Independent StarRupture guides and database. Version-verified for Early Access. Not affiliated with Creepy Jar.</p>
+        </div>
+        <div class="footer-links">
+          <a href="/about/">About</a>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy-policy/">Privacy</a>
+          <a href="/disclaimer/">Disclaimer</a>
+        </div>
+      </div>
+      <p class="footer-copy">© 2026 StarRupture.net — Fan site. Game content belongs to Creepy Jar.</p>
+    </div>
+  </footer>
+</body>
+</html>
