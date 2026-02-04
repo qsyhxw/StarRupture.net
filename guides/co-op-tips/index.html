@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StarRupture Co-op Guide - Multiplayer Tips & Team Roles (2026)</title>
+  <meta name="description" content="StarRupture co-op guide: 4-player team roles, division of labor, priority unlocks & multiplayer strategies. Optimize your team for Early Access.">
+  <link rel="canonical" href="https://starrupture.net/guides/co-op-tips/">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1DBN9043DB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1DBN9043DB');
+  </script>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8830315294299920" crossorigin="anonymous"></script>
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="StarRupture Co-op Guide - Multiplayer Tips">
+  <meta property="og:description" content="Complete co-op guide with team roles, strategies & priority unlocks.">
+  <meta property="og:url" content="https://starrupture.net/guides/co-op-tips/">
+  <meta property="og:site_name" content="StarRupture.net">
+
+  <link rel="stylesheet" href="/enhancements.css">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#06080c;--surface:#0d1117;--surface-2:#161b22;--border:#21262d;
+      --text:#e6edf3;--text-muted:#8b949e;
+      --primary:#f97316;--primary-dim:rgba(249,115,22,.15);
+      --secondary:#22d3ee;--secondary-dim:rgba(34,211,238,.12);
+      --accent:#a855f7;--success:#22c55e;--warning:#eab308;--danger:#ef4444;
+      --radius:12px;--max-w:1200px;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+    a{color:var(--primary);text-decoration:none;transition:color .2s}
+    a:hover{color:var(--secondary)}
+    .container{max-width:var(--max-w);margin:0 auto;padding:0 20px}
+    .header{position:sticky;top:0;z-index:100;background:rgba(6,8,12,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;height:60px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.1rem;color:var(--text)}
+    .logo-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--primary),var(--secondary));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;color:#fff}
+    .nav{display:flex;gap:8px}
+    .nav a{padding:8px 14px;border-radius:8px;font-size:.9rem;color:var(--text-muted);transition:all .2s}
+    .nav a:hover,.nav a.active{background:var(--surface-2);color:var(--text)}
+    .nav a.active{color:var(--primary)}
+    .breadcrumb{padding:16px 0;font-size:.875rem;color:var(--text-muted)}
+    .breadcrumb a{color:var(--text-muted)}
+    .breadcrumb a:hover{color:var(--primary)}
+    .breadcrumb span{margin:0 8px;opacity:.5}
+    .hero{padding:40px 0;background:radial-gradient(ellipse at 30% 0%,rgba(34,211,238,.08),transparent 50%)}
+    .hero h1{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;margin-bottom:12px}
+    .hero p{font-size:1.1rem;color:var(--text-muted);max-width:700px}
+    .hero-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:20px;font-size:.8rem;background:var(--secondary-dim);color:var(--secondary);margin-bottom:16px}
+    .section{padding:40px 0}
+    .grid{display:grid;grid-template-columns:1fr 300px;gap:24px;align-items:start}
+    .content h2{font-size:1.3rem;font-weight:700;margin:32px 0 16px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+    .content h3{font-size:1.1rem;font-weight:600;margin:24px 0 12px;color:var(--primary)}
+    .content p{color:var(--text-muted);margin-bottom:14px}
+    .content ul,.content ol{margin:12px 0 16px;padding-left:24px;color:var(--text-muted)}
+    .content li{margin:8px 0}
+    .role-card{padding:20px;border-radius:var(--radius);background:var(--surface);border:1px solid var(--border);margin:16px 0}
+    .role-card h4{font-size:1rem;font-weight:600;margin-bottom:8px;color:var(--text)}
+    .role-card ul{margin:8px 0;padding-left:20px;font-size:.9rem}
+    .callout{border-left:3px solid var(--primary);padding:14px;background:var(--primary-dim);border-radius:0 var(--radius) var(--radius) 0;margin:16px 0;font-size:.9rem}
+    .callout-info{border-left-color:var(--secondary);background:var(--secondary-dim)}
+    .callout-warn{border-left-color:var(--warning);background:rgba(234,179,8,.1)}
+    .hr{height:1px;background:var(--border);margin:24px 0}
+    .sidebar{position:sticky;top:80px}
+    .card{padding:20px;border-radius:var(--radius);background:var(--surface);border:1px solid var(--border);margin-bottom:16px}
+    .card h3{font-size:1rem;font-weight:600;margin-bottom:12px}
+    .toc a{display:block;padding:8px 10px;border-radius:8px;color:var(--text-muted);font-size:.9rem}
+    .toc a:hover{background:var(--surface-2);color:var(--text)}
+    .footer{padding:40px 0;border-top:1px solid var(--border);margin-top:40px}
+    .footer-inner{display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:30px}
+    .footer-brand{max-width:300px}
+    .footer-brand p{font-size:.85rem;color:var(--text-muted);margin-top:10px}
+    .footer-links{display:flex;gap:30px}
+    .footer-links a{font-size:.9rem;color:var(--text-muted)}
+    .footer-copy{text-align:center;padding-top:30px;margin-top:30px;border-top:1px solid var(--border);font-size:.8rem;color:var(--text-muted)}
+    @media(max-width:900px){.grid{grid-template-columns:1fr}.sidebar{position:static}}
+    @media(max-width:600px){.nav{display:none}.footer-inner{flex-direction:column}}
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="/" class="logo">
+        <span class="logo-icon">SR</span>
+        <span>StarRupture<span style="color:var(--text-muted)">.net</span></span>
+      </a>
+      <nav class="nav">
+        <a href="/guides/" class="active">Guides</a>
+        <a href="/database/">Database</a>
+        <a href="/tier-lists/">Tier Lists</a>
+        <a href="/troubleshooting/">Fixes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a><span>›</span><a href="/guides/">Guides</a><span>›</span><span>Co-op Tips</span>
+      </nav>
+    </div>
+
+    <section class="hero">
+      <div class="container">
+        <span class="hero-badge">👥 Multiplayer Guide</span>
+        <h1>StarRupture Co-op Guide</h1>
+        <p>Complete guide to 4-player co-op: team roles, division of labor, priority unlocks, and multiplayer strategies. Maximize efficiency with coordinated teamwork.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid">
+          <article class="content">
+            <h2 id="basics">Co-op Basics</h2>
+            <p>StarRupture supports <strong>up to 4 players</strong> in host-based multiplayer. The host creates a persistent world where all progress is saved.</p>
+
+            <div class="callout callout-info">
+              <strong style="color:var(--text)">💡 Multiplayer Setup:</strong> Host loads save → Pause menu → Change visibility to "Friends Only" or "Invite Only" → Press "Go Online"
+            </div>
+
+            <h2 id="roles">Team Roles</h2>
+            <p>While StarRupture has no formal classes, specializing into these 4 roles maximizes team efficiency:</p>
+
+            <div class="role-card">
+              <h4>🛡️ Defender / Soldier</h4>
+              <ul>
+                <li>Patrol base perimeter during Rupture cycles</li>
+                <li>Clear hostile wildlife and enemy camps</li>
+                <li>Escort Explorers into high-risk areas</li>
+                <li>Manage turret ammunition and defenses</li>
+              </ul>
+            </div>
+
+            <div class="role-card">
+              <h4>🔧 Builder / Engineer</h4>
+              <ul>
+                <li>Design and expand base infrastructure</li>
+                <li>Construct production lines and rail systems</li>
+                <li>Optimize factory layouts for efficiency</li>
+                <li>Manage power distribution</li>
+              </ul>
+            </div>
+
+            <div class="role-card">
+              <h4>🔬 Researcher / Scientist</h4>
+              <ul>
+                <li>Manage OCL contracts and corporation progression</li>
+                <li>Automate production lines for materials</li>
+                <li>Research and unlock new technologies</li>
+                <li>Coordinate resource allocation</li>
+              </ul>
+            </div>
+
+            <div class="role-card">
+              <h4>🗺️ Explorer / Biologist</h4>
+              <ul>
+                <li>Map the open world and scout new areas</li>
+                <li>Locate rare resources and ore deposits</li>
+                <li>Mark points of interest for the team</li>
+                <li>Gather samples and research materials</li>
+              </ul>
+            </div>
+
+            <div class="callout callout-info">
+              <strong style="color:var(--text)">💡 Tip:</strong> Enemy waves scale with player count. Coordinate defenses accordingly.
+            </div>
+
+            <h2 id="unlocks">Priority Unlocks for Co-op</h2>
+            <p>Focus on these corporation levels for coordinated team play:</p>
+
+            <div class="role-card">
+              <h4>1. Moon Energy Level 3 - Map</h4>
+              <ul>
+                <li>Full map reveal for coordinated exploration</li>
+                <li>Essential for long-term planning</li>
+              </ul>
+            </div>
+
+            <div class="role-card">
+              <h4>2. Selenian Level 2 - Fabricator</h4>
+              <ul>
+                <li>Process materials for delivery items</li>
+                <li>Advance all corporations efficiently</li>
+              </ul>
+            </div>
+
+            <div class="role-card">
+              <h4>3. Griffits Blue Level 2 - Pistol Blueprint</h4>
+              <ul>
+                <li>Ensure all players have basic weapons</li>
+                <li>Critical for early defense</li>
+              </ul>
+            </div>
+
+            <h2 id="strategies">Co-op Strategies</h2>
+
+            <h3>Communication</h3>
+            <p>Use clear callouts for effective coordination:</p>
+            <ul>
+              <li>"Low on copper" - Resource shortages</li>
+              <li>"Swarm east side" - Enemy locations</li>
+              <li>"Heat wave incoming" - Environmental hazards</li>
+            </ul>
+
+            <h3>Resource Management</h3>
+            <ul>
+              <li>Coordinate resource gathering to avoid duplication</li>
+              <li>Automate production lines early</li>
+              <li>Set up smelters near excavators</li>
+              <li>Establish efficient rail transportation</li>
+            </ul>
+
+            <h3>Base Building</h3>
+            <ul>
+              <li>Choose locations with basic and advanced resources</li>
+              <li>Minimize enemy presence near base</li>
+              <li>Build essential structures: Base Core, Habitat, Airlock, Solar Panels</li>
+              <li>Leave space for expansion</li>
+            </ul>
+
+            <h2 id="caveats">Important Caveats</h2>
+
+            <div class="callout callout-warn">
+              <strong style="color:var(--text)">⚠️ Avoid "Deconstruct All":</strong> Using the "Deconstruct All" feature in co-op can cause desync issues. Manually deconstruct structures instead.
+            </div>
+
+            <div class="callout callout-info">
+              <strong style="color:var(--text)">💡 Host Management:</strong> The host should coordinate major base changes. Non-hosts may experience lag when placing many structures at once.
+            </div>
+
+            <ul>
+              <li>Save frequently - co-op sessions can desync</li>
+              <li>If players see different base states, restart the session</li>
+              <li>Enemy wave difficulty scales with player count</li>
+              <li>Only the host's world persists - guests don't keep progress in their own saves</li>
+            </ul>
+
+            <div class="hr"></div>
+
+            <div class="callout callout-warn">
+              <strong style="color:var(--text)">⚠️ Early Access Notice:</strong> StarRupture entered Early Access on January 6, 2026. Multiplayer features may change with future patches.
+            </div>
+
+            <div class="hr"></div>
+
+            <p style="font-size:.9rem;color:var(--text-muted)">
+              <strong>Related:</strong>
+              <a href="/guides/base-building/">Base Building Guide</a> ·
+              <a href="/guides/corporations/">Corporation Guide</a> ·
+              <a href="/tier-lists/base-locations/">Best Base Locations</a>
+            </p>
+          </article>
+
+          <!-- Sidebar -->
+          <aside class="sidebar">
+            <div class="card toc">
+              <h3>On This Page</h3>
+              <a href="#basics">🎮 Co-op Basics</a>
+              <a href="#roles">👥 Team Roles</a>
+              <a href="#unlocks">🔓 Priority Unlocks</a>
+              <a href="#strategies">⚙️ Co-op Strategies</a>
+              <a href="#caveats">⚠️ Important Caveats</a>
+            </div>
+
+            <div class="card">
+              <h3>Quick Reference</h3>
+              <p style="font-size:.85rem;color:var(--text-muted);line-height:1.8">
+                <strong style="color:var(--text)">Max Players:</strong> 4<br>
+                <strong style="color:var(--text)">Host Type:</strong> Persistent world<br>
+                <strong style="color:var(--text)">Priority 1:</strong> Moon Energy Lv3<br>
+                <strong style="color:var(--text)">Priority 2:</strong> Selenian Lv2
+              </p>
+            </div>
+
+            <div class="card" style="background:var(--secondary-dim);border-color:var(--secondary)">
+              <h3 style="color:var(--secondary)">Version Info</h3>
+              <p style="font-size:.85rem;color:var(--text-muted)">
+                <strong style="color:var(--text)">Game:</strong> Early Access<br>
+                <strong style="color:var(--text)">Released:</strong> Jan 6, 2026<br>
+                <strong style="color:var(--text)">Updated:</strong> Feb 4, 2026
+              </p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="logo">
+            <span class="logo-icon">SR</span>
+            <span>StarRupture.net</span>
+          </div>
+          <p>Independent StarRupture guides and database. Version-verified for Early Access. Not affiliated with Creepy Jar.</p>
+        </div>
+        <div class="footer-links">
+          <a href="/about/">About</a>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy-policy/">Privacy</a>
+          <a href="/disclaimer/">Disclaimer</a>
+        </div>
+      </div>
+      <p class="footer-copy">© 2026 StarRupture.net — Fan site. Game content belongs to Creepy Jar.</p>
+    </div>
+  </footer>
+</body>
+</html>
