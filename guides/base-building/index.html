@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StarRupture Base Building Guide - Construction & Defense Tips (2026)</title>
+  <meta name="description" content="StarRupture base building guide: Base Core placement, turret defense, rail layouts, power systems & Rupture survival tips for Early Access.">
+  <link rel="canonical" href="https://starrupture.net/guides/base-building/">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1DBN9043DB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1DBN9043DB');
+  </script>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8830315294299920" crossorigin="anonymous"></script>
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="StarRupture Base Building Guide - Construction & Defense">
+  <meta property="og:description" content="Complete guide to base building, defense turrets, rail systems & power management.">
+  <meta property="og:url" content="https://starrupture.net/guides/base-building/">
+  <meta property="og:site_name" content="StarRupture.net">
+
+  <link rel="stylesheet" href="/enhancements.css">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#06080c;--surface:#0d1117;--surface-2:#161b22;--border:#21262d;
+      --text:#e6edf3;--text-muted:#8b949e;
+      --primary:#f97316;--primary-dim:rgba(249,115,22,.15);
+      --secondary:#22d3ee;--secondary-dim:rgba(34,211,238,.12);
+      --accent:#a855f7;--success:#22c55e;--warning:#eab308;--danger:#ef4444;
+      --radius:12px;--max-w:1200px;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+    a{color:var(--primary);text-decoration:none;transition:color .2s}
+    a:hover{color:var(--secondary)}
+    .container{max-width:var(--max-w);margin:0 auto;padding:0 20px}
+    .header{position:sticky;top:0;z-index:100;background:rgba(6,8,12,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;height:60px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.1rem;color:var(--text)}
+    .logo-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--primary),var(--secondary));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;color:#fff}
+    .nav{display:flex;gap:8px}
+    .nav a{padding:8px 14px;border-radius:8px;font-size:.9rem;color:var(--text-muted);transition:all .2s}
+    .nav a:hover,.nav a.active{background:var(--surface-2);color:var(--text)}
+    .nav a.active{color:var(--primary)}
+    .breadcrumb{padding:16px 0;font-size:.875rem;color:var(--text-muted)}
+    .breadcrumb a{color:var(--text-muted)}
+    .breadcrumb a:hover{color:var(--primary)}
+    .breadcrumb span{margin:0 8px;opacity:.5}
+    .hero{padding:40px 0;background:radial-gradient(ellipse at 30% 0%,rgba(249,115,22,.08),transparent 50%)}
+    .hero h1{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;margin-bottom:12px}
+    .hero p{font-size:1.1rem;color:var(--text-muted);max-width:700px}
+    .hero-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:20px;font-size:.8rem;background:var(--primary-dim);color:var(--primary);margin-bottom:16px}
+    .section{padding:40px 0}
+    .grid{display:grid;grid-template-columns:1fr 300px;gap:24px;align-items:start}
+    .content h2{font-size:1.3rem;font-weight:700;margin:32px 0 16px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+    .content h3{font-size:1.1rem;font-weight:600;margin:24px 0 12px;color:var(--primary)}
+    .content p{color:var(--text-muted);margin-bottom:14px}
+    .content ul,.content ol{margin:12px 0 16px;padding-left:24px;color:var(--text-muted)}
+    .content li{margin:8px 0}
+    .tip-card{padding:16px;border-radius:var(--radius);background:var(--surface);border:1px solid var(--border);margin:16px 0}
+    .tip-card h4{font-size:.95rem;font-weight:600;margin-bottom:8px;color:var(--text)}
+    .tip-card p{font-size:.9rem;margin-bottom:0}
+    .callout{border-left:3px solid var(--primary);padding:14px;background:var(--primary-dim);border-radius:0 var(--radius) var(--radius) 0;margin:16px 0;font-size:.9rem}
+    .callout-warn{border-left-color:var(--warning);background:rgba(234,179,8,.1)}
+    .callout-info{border-left-color:var(--secondary);background:var(--secondary-dim)}
+    .callout-success{border-left-color:var(--success);background:rgba(34,197,94,.1)}
+    .key{display:inline-block;padding:2px 8px;background:var(--surface-2);border:1px solid var(--border);border-radius:4px;font-family:monospace;font-size:.85rem}
+    .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:16px 0}
+    .stat-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:12px;text-align:center}
+    .stat-box .label{font-size:.75rem;color:var(--text-muted);text-transform:uppercase}
+    .stat-box .value{font-size:1.1rem;font-weight:700;color:var(--text)}
+    .hr{height:1px;background:var(--border);margin:24px 0}
+    .sidebar{position:sticky;top:80px}
+    .card{padding:20px;border-radius:var(--radius);background:var(--surface);border:1px solid var(--border);margin-bottom:16px}
+    .card h3{font-size:1rem;font-weight:600;margin-bottom:12px}
+    .toc a{display:block;padding:8px 10px;border-radius:8px;color:var(--text-muted);font-size:.9rem}
+    .toc a:hover{background:var(--surface-2);color:var(--text)}
+    .footer{padding:40px 0;border-top:1px solid var(--border);margin-top:40px}
+    .footer-inner{display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:30px}
+    .footer-brand{max-width:300px}
+    .footer-brand p{font-size:.85rem;color:var(--text-muted);margin-top:10px}
+    .footer-links{display:flex;gap:30px}
+    .footer-links a{font-size:.9rem;color:var(--text-muted)}
+    .footer-copy{text-align:center;padding-top:30px;margin-top:30px;border-top:1px solid var(--border);font-size:.8rem;color:var(--text-muted)}
+    @media(max-width:900px){.grid{grid-template-columns:1fr}.sidebar{position:static}}
+    @media(max-width:600px){.nav{display:none}.footer-inner{flex-direction:column}.stats-grid{grid-template-columns:1fr 1fr}}
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="/" class="logo">
+        <span class="logo-icon">SR</span>
+        <span>StarRupture<span style="color:var(--text-muted)">.net</span></span>
+      </a>
+      <nav class="nav">
+        <a href="/guides/" class="active">Guides</a>
+        <a href="/database/">Database</a>
+        <a href="/tier-lists/">Tier Lists</a>
+        <a href="/troubleshooting/">Fixes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a><span>›</span><a href="/guides/">Guides</a><span>›</span><span>Base Building</span>
+      </nav>
+    </div>
+
+    <section class="hero">
+      <div class="container">
+        <span class="hero-badge">🏗️ Construction Guide</span>
+        <h1>StarRupture Base Building Guide</h1>
+        <p>Complete guide to base construction, defense systems, rail layouts, and power management. Learn how to build efficient factories and survive Rupture attacks.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid">
+          <article class="content">
+            <h2 id="essentials">Essential Buildings</h2>
+            <p>Every base needs these core structures to function. Prioritize building them in this order:</p>
+
+            <div class="stats-grid">
+              <div class="stat-box"><div class="label">Priority 1</div><div class="value">Base Core</div></div>
+              <div class="stat-box"><div class="label">Priority 2</div><div class="value">Habitat</div></div>
+              <div class="stat-box"><div class="label">Priority 3</div><div class="value">Solar Generators</div></div>
+              <div class="stat-box"><div class="label">Priority 4</div><div class="value">Ore Excavators</div></div>
+            </div>
+
+            <div class="tip-card">
+              <h4>Base Core Functions</h4>
+              <p>The Base Core protects all buildings within its radius during Solar Ruptures. It also serves as the primary target for enemy attacks. Place it in a defensible position away from the main material flow.</p>
+            </div>
+
+            <div class="tip-card">
+              <h4>Habitat Purpose</h4>
+              <p>The Habitat provides shelter during Rupture waves. You must be inside when the Rupture hits or you'll take massive damage. Build it near your Base Core for quick access.</p>
+            </div>
+
+            <h2 id="layout">Base Layout Tips</h2>
+
+            <h3>Central Plaza Design</h3>
+            <p>Keep a clear central area around your Base Core and Habitat. Ring this space with production lines and defenses. This gives you room to:</p>
+            <ul>
+              <li>Move freely during attacks</li>
+              <li>Kite enemies around obstacles</li>
+              <li>Quickly repair damaged structures</li>
+              <li>Access all critical buildings fast</li>
+            </ul>
+
+            <div class="callout callout-warn">
+              <strong style="color:var(--text)">⚠️ Don't Wall Yourself In:</strong> Avoid completely enclosing your Base Core area. You need escape routes and room to maneuver during combat.
+            </div>
+
+            <h3>Terrain Advantages</h3>
+            <ul>
+              <li><strong>Natural Shields:</strong> Build near large rocks, Titanium stacks, or cliff faces for natural protection</li>
+              <li><strong>Elevated Ground:</strong> Higher terrain gives better visibility for rail placement and turret coverage</li>
+              <li><strong>Flat Areas:</strong> Prioritize flat ground for production floors to avoid "building not stable" errors</li>
+            </ul>
+
+            <h2 id="defense">Defense Systems</h2>
+
+            <h3>Turret Placement Strategy</h3>
+            <p>Concentrate your turrets around the Base Core and Habitat rather than spreading them to protect extractors:</p>
+            <ul>
+              <li><strong>Choke Points:</strong> Place turrets in overlapping arcs to create kill zones</li>
+              <li><strong>Elevated Positions:</strong> Mount turrets on top of Habitats for better coverage</li>
+              <li><strong>Ammo Supply:</strong> Place small storage containers directly behind turrets for continuous fire</li>
+            </ul>
+
+            <div class="callout callout-info">
+              <strong style="color:var(--text)">💡 Turret Tip:</strong> Turrets consume ammo rapidly. The speed of ammunition resupply is critical - always keep storage containers stocked nearby.
+            </div>
+
+            <h3>Monolith Attack Mechanics</h3>
+            <p>Understanding how enemy attacks work helps you prepare better defenses:</p>
+            <ul>
+              <li>Attacks begin after your <strong>first Base Core upgrade</strong></li>
+              <li>The monolith closest to an upgraded core spawns enemies</li>
+              <li>You must be within range of the upgraded core for spawns to trigger</li>
+              <li>If you're away from the monolith, enemies will track and attack you directly</li>
+            </ul>
+
+            <div class="tip-card">
+              <h4>Monolith Defense Strategy</h4>
+              <p>Build a wall around the monolith's red border and position 6-10 basic turrets. Combined with your presence, this can repel attacks in ~30 seconds.</p>
+            </div>
+
+            <h2 id="rails">Rail System</h2>
+
+            <h3>Rail Basics</h3>
+            <p>Rails serve two purposes: <strong>transport materials</strong> and <strong>transmit power</strong>. Key points:</p>
+            <ul>
+              <li>Rails only operate in <strong>one direction</strong></li>
+              <li>Uses a "pull" system - machines request items they need</li>
+              <li>Different materials can share the same rail lines</li>
+              <li>Basic rails handle 120 materials/minute (2/second)</li>
+            </ul>
+
+            <h3>Building Controls</h3>
+            <div class="stats-grid">
+              <div class="stat-box"><div class="label">Rotate</div><div class="value"><span class="key">R</span></div></div>
+              <div class="stat-box"><div class="label">Adjust Height</div><div class="value"><span class="key">MMB</span></div></div>
+              <div class="stat-box"><div class="label">Lock Elevation</div><div class="value"><span class="key">Y</span></div></div>
+              <div class="stat-box"><div class="label">Multi-Place</div><div class="value"><span class="key">RMB Hold</span></div></div>
+            </div>
+
+            <h3>Layout Tips</h3>
+            <ul>
+              <li>Plan your entire production chain before building</li>
+              <li>Leave space between buildings for future expansion</li>
+              <li>If rails clog, add more lines or reduce connected buildings</li>
+              <li>Use manual transport for low-volume items early game</li>
+            </ul>
+
+            <h2 id="power">Power Management</h2>
+
+            <h3>Power Basics</h3>
+            <ul>
+              <li><strong>Solar Generators:</strong> Primary power source, each provides 10 power</li>
+              <li><strong>Auto Distribution:</strong> Power flows through connected rails and touching platforms</li>
+              <li><strong>Remote Power:</strong> Rails transmit power to distant extractors</li>
+            </ul>
+
+            <div class="tip-card">
+              <h4>Power Tips</h4>
+              <p>Check power status via the <span class="key">i</span> button on any building. If you see "insufficient power", add more Solar Generators or check connections. Turn off unused machines to save power.</p>
+            </div>
+
+            <h2 id="ruptures">Surviving Ruptures</h2>
+            <p>Solar Ruptures are periodic events that damage everything outside protected areas:</p>
+            <ul>
+              <li>Get inside your <strong>Habitat</strong> before the Rupture hits</li>
+              <li>Buildings within <strong>Base Core radius</strong> are protected</li>
+              <li>Structures outside the radius will take damage</li>
+              <li>Plan your base layout to keep critical buildings protected</li>
+            </ul>
+
+            <div class="callout callout-success">
+              <strong style="color:var(--text)">✅ Pro Tip:</strong> You can place multiple Base Cores across the map to protect different resource areas. There's no penalty for dismantling and rebuilding structures.
+            </div>
+
+            <div class="hr"></div>
+
+            <div class="callout callout-warn">
+              <strong style="color:var(--text)">⚠️ Early Access Notice:</strong> StarRupture entered Early Access on January 6, 2026. Building mechanics may change with future patches.
+            </div>
+
+            <div class="hr"></div>
+
+            <p style="font-size:.9rem;color:var(--text-muted)">
+              <strong>Related:</strong>
+              <a href="/guides/start-here/">Beginner Guide</a> ·
+              <a href="/tier-lists/base-locations/">Best Base Locations</a> ·
+              <a href="/tier-lists/weapons/">Weapons Tier List</a>
+            </p>
+          </article>
+
+          <!-- Sidebar -->
+          <aside class="sidebar">
+            <div class="card toc">
+              <h3>On This Page</h3>
+              <a href="#essentials">🏠 Essential Buildings</a>
+              <a href="#layout">📐 Base Layout Tips</a>
+              <a href="#defense">🛡️ Defense Systems</a>
+              <a href="#rails">🚂 Rail System</a>
+              <a href="#power">⚡ Power Management</a>
+              <a href="#ruptures">☀️ Surviving Ruptures</a>
+            </div>
+
+            <div class="card">
+              <h3>Quick Reference</h3>
+              <p style="font-size:.85rem;color:var(--text-muted);line-height:1.8">
+                <strong style="color:var(--text)">Solar Generator:</strong> 10 power<br>
+                <strong style="color:var(--text)">Basic Rail:</strong> 120/min<br>
+                <strong style="color:var(--text)">Rotate:</strong> <span class="key">R</span><br>
+                <strong style="color:var(--text)">Height:</strong> <span class="key">MMB</span>
+              </p>
+            </div>
+
+            <div class="card" style="background:var(--primary-dim);border-color:var(--primary)">
+              <h3 style="color:var(--primary)">Version Info</h3>
+              <p style="font-size:.85rem;color:var(--text-muted)">
+                <strong style="color:var(--text)">Game:</strong> Early Access<br>
+                <strong style="color:var(--text)">Released:</strong> Jan 6, 2026<br>
+                <strong style="color:var(--text)">Updated:</strong> Feb 4, 2026
+              </p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="logo">
+            <span class="logo-icon">SR</span>
+            <span>StarRupture.net</span>
+          </div>
+          <p>Independent StarRupture guides and database. Version-verified for Early Access. Not affiliated with Creepy Jar.</p>
+        </div>
+        <div class="footer-links">
+          <a href="/about/">About</a>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy-policy/">Privacy</a>
+          <a href="/disclaimer/">Disclaimer</a>
+        </div>
+      </div>
+      <p class="footer-copy">© 2026 StarRupture.net — Fan site. Game content belongs to Creepy Jar.</p>
+    </div>
+  </footer>
+</body>
+</html>
