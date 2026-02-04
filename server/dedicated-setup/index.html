@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StarRupture Dedicated Server Setup Guide | Host Your Own Server</title>
+  <meta name="description" content="Complete guide to hosting a StarRupture dedicated server. SteamCMD installation, port forwarding, configuration, and troubleshooting for Windows 10/11.">
+  <link rel="canonical" href="https://starrupture.net/server/dedicated-setup/">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1DBN9043DB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1DBN9043DB');
+  </script>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8830315294299920" crossorigin="anonymous"></script>
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="StarRupture Dedicated Server Setup Guide">
+  <meta property="og:description" content="Step-by-step guide to hosting your own StarRupture server with SteamCMD. Includes port forwarding and configuration.">
+  <meta property="og:url" content="https://starrupture.net/server/dedicated-setup/">
+  <meta property="og:site_name" content="StarRupture.net">
+  <meta property="og:image" content="https://starrupture.net/img/card.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="/enhancements.css">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#06080c;
+      --surface:#0d1117;
+      --surface-2:#161b22;
+      --border:#21262d;
+      --text:#e6edf3;
+      --text-muted:#8b949e;
+      --primary:#f97316;
+      --primary-dim:rgba(249,115,22,.15);
+      --secondary:#22d3ee;
+      --secondary-dim:rgba(34,211,238,.12);
+      --accent:#a855f7;
+      --success:#22c55e;
+      --warning:#eab308;
+      --danger:#ef4444;
+      --radius:12px;
+      --max-w:1200px;
+    }
+    html{scroll-behavior:smooth}
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      min-height:100vh;
+    }
+    a{color:inherit;text-decoration:none;transition:color .2s}
+    a:hover{color:var(--primary)}
+    .container{max-width:var(--max-w);margin:0 auto;padding:0 20px}
+
+    /* Header */
+    .header{
+      position:sticky;top:0;z-index:100;
+      background:rgba(6,8,12,.85);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--border);
+    }
+    .header-inner{
+      display:flex;align-items:center;justify-content:space-between;
+      height:60px;
+    }
+    .logo{
+      display:flex;align-items:center;gap:10px;
+      font-weight:700;font-size:1.1rem;
+    }
+    .logo-icon{
+      width:32px;height:32px;border-radius:8px;
+      object-fit:contain;
+    }
+    .nav{display:flex;gap:8px}
+    .nav a{
+      padding:8px 14px;border-radius:8px;font-size:.9rem;
+      color:var(--text-muted);transition:all .2s;
+    }
+    .nav a:hover{background:var(--surface-2);color:var(--text)}
+
+    /* Hero */
+    .hero{
+      padding:40px 0 30px;
+      background:linear-gradient(135deg,var(--surface) 0%,var(--bg) 100%);
+      border-bottom:1px solid var(--border);
+    }
+    .hero-content{max-width:800px}
+    .breadcrumb{
+      display:flex;gap:8px;align-items:center;
+      font-size:.85rem;color:var(--text-muted);
+      margin-bottom:16px;
+    }
+    .breadcrumb a:hover{color:var(--primary)}
+    .breadcrumb span{color:var(--border)}
+    .hero h1{
+      font-size:clamp(1.8rem,4vw,2.5rem);
+      font-weight:800;line-height:1.2;
+      margin-bottom:12px;
+    }
+    .hero-meta{
+      display:flex;gap:16px;flex-wrap:wrap;
+      font-size:.85rem;color:var(--text-muted);
+      margin-bottom:16px;
+    }
+    .hero-meta span{display:flex;align-items:center;gap:6px}
+    .hero p{font-size:1.05rem;color:var(--text-muted);line-height:1.7}
+
+    /* Warning Box */
+    .warning-box{
+      padding:16px 20px;border-radius:var(--radius);
+      border-left:4px solid var(--warning);
+      background:rgba(234,179,8,.08);
+      margin:20px 0;
+    }
+    .warning-box.danger{
+      border-left-color:var(--danger);
+      background:rgba(239,68,68,.08);
+    }
+    .warning-box strong{color:var(--warning);display:block;margin-bottom:6px}
+    .warning-box.danger strong{color:var(--danger)}
+    .warning-box p{font-size:.9rem;color:var(--text-muted);margin:0}
+
+    /* Content */
+    .content{padding:40px 0}
+    .content h2{
+      font-size:1.6rem;font-weight:700;
+      margin:40px 0 20px;
+      padding-bottom:12px;
+      border-bottom:2px solid var(--border);
+    }
+    .content h2:first-child{margin-top:0}
+    .content h3{
+      font-size:1.2rem;font-weight:600;
+      margin:28px 0 14px;
+      color:var(--primary);
+    }
+    .content p{margin:12px 0;line-height:1.8}
+    .content ul,.content ol{margin:12px 0;padding-left:24px}
+    .content li{margin:8px 0;line-height:1.7}
+    .content code{
+      padding:2px 6px;border-radius:4px;
+      background:var(--surface-2);
+      font-family:'Courier New',monospace;
+      font-size:.9em;
+      color:var(--secondary);
+    }
+    .content pre{
+      padding:16px;border-radius:var(--radius);
+      background:var(--surface);
+      border:1px solid var(--border);
+      overflow-x:auto;
+      margin:16px 0;
+    }
+    .content pre code{
+      padding:0;background:none;
+      display:block;color:var(--text);
+    }
+
+    /* Info Box */
+    .info-box{
+      padding:16px 20px;border-radius:var(--radius);
+      background:var(--surface);
+      border:1px solid var(--border);
+      margin:20px 0;
+    }
+    .info-box strong{color:var(--secondary);display:block;margin-bottom:8px}
+    .info-box ul{margin:8px 0;padding-left:20px}
+    .info-box li{margin:6px 0;font-size:.95rem}
+
+    /* Steps */
+    .step{
+      padding:20px;border-radius:var(--radius);
+      background:var(--surface);
+      border:1px solid var(--border);
+      margin:16px 0;
+    }
+    .step-number{
+      display:inline-flex;align-items:center;justify-content:center;
+      width:32px;height:32px;border-radius:50%;
+      background:var(--primary);color:#fff;
+      font-weight:700;font-size:.9rem;
+      margin-right:12px;
+    }
+    .step h3{
+      display:inline;color:var(--text);
+      font-size:1.1rem;margin:0;
+    }
+    .step p,.step ul{margin-top:12px}
+
+    /* Table */
+    table{
+      width:100%;border-collapse:collapse;
+      margin:20px 0;
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      overflow:hidden;
+    }
+    th,td{
+      padding:12px 16px;
+      text-align:left;
+      border-bottom:1px solid var(--border);
+    }
+    th{
+      background:var(--surface-2);
+      font-weight:600;
+      color:var(--primary);
+    }
+    tr:last-child td{border-bottom:none}
+    td code{font-size:.85em}
+
+    /* Footer */
+    .footer{
+      padding:40px 0;border-top:1px solid var(--border);
+      margin-top:60px;
+    }
+    .footer-inner{
+      display:flex;justify-content:space-between;align-items:start;
+      flex-wrap:wrap;gap:30px;
+    }
+    .footer-brand{max-width:300px}
+    .footer-brand p{font-size:.85rem;color:var(--text-muted);margin-top:10px}
+    .footer-links{display:flex;gap:30px}
+    .footer-links a{font-size:.9rem;color:var(--text-muted)}
+    .footer-links a:hover{color:var(--text)}
+    .footer-copy{
+      text-align:center;padding-top:30px;margin-top:30px;
+      border-top:1px solid var(--border);
+      font-size:.8rem;color:var(--text-muted);
+    }
+
+    /* Responsive */
+    @media(max-width:600px){
+      .nav{display:none}
+      .hero{padding:30px 0 20px}
+      .content h2{font-size:1.3rem}
+      .step{padding:16px}
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"TechArticle","headline":"StarRupture Dedicated Server Setup Guide","description":"Complete guide to hosting a StarRupture dedicated server with SteamCMD installation, port forwarding, and configuration.","datePublished":"2026-02-04","dateModified":"2026-02-04","author":{"@type":"Organization","name":"StarRupture.net"},"publisher":{"@type":"Organization","name":"StarRupture.net"}}
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="/" class="logo">
+        <img src="/img/logo.png" alt="StarRupture" class="logo-icon">
+        <span>StarRupture<span style="color:var(--text-muted)">.net</span></span>
+      </a>
+      <nav class="nav">
+        <a href="/guides/">Guides</a>
+        <a href="/database/">Database</a>
+        <a href="/tier-lists/">Tier Lists</a>
+        <a href="/troubleshooting/">Fixes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="/">Home</a>
+          <span>›</span>
+          <a href="/server/">Server</a>
+          <span>›</span>
+          <span>Dedicated Server Setup</span>
+        </div>
+        <div class="hero-content">
+          <h1>StarRupture Dedicated Server Setup Guide</h1>
+          <div class="hero-meta">
+            <span>📅 Updated: Feb 4, 2026</span>
+            <span>🎮 Version: Early Access 0.1.x</span>
+            <span>⏱️ Setup Time: 15-30 min</span>
+          </div>
+          <p>Host your own StarRupture server for up to 4 players. This guide covers SteamCMD installation, port forwarding, configuration, and troubleshooting for Windows 10/11 systems.</p>
+        </div>
+
+        <div class="warning-box danger">
+          <strong>⚠️ EXPERIMENTAL STATUS</strong>
+          <p>StarRupture's dedicated server tools are officially marked as <strong>experimental</strong>. Expect potential instability, frequent updates, and possible breaking changes. Always verify current requirements on the <a href="https://store.steampowered.com/app/3809400" style="color:var(--danger);text-decoration:underline">official Steam page</a> before setup.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <section class="content">
+      <div class="container">
+
+        <h2>System Requirements</h2>
+        <p>Before starting, ensure your system meets these requirements. These specifications are based on hosting provider recommendations and may change as the game develops.</p>
+
+        <div class="info-box">
+          <strong>✅ Minimum Requirements (as of Feb 2026)</strong>
+          <ul>
+            <li><strong>OS:</strong> Windows 10 or Windows 11 (64-bit)</li>
+            <li><strong>CPU:</strong> Quad-core processor (Intel Core i5 or AMD Ryzen 5 recommended)</li>
+            <li><strong>RAM:</strong> 16 GB</li>
+            <li><strong>Storage:</strong> 45 GB available space</li>
+            <li><strong>Network:</strong> Stable internet connection with router access for port forwarding</li>
+          </ul>
+        </div>
+
+        <div class="warning-box">
+          <strong>📌 Note on Requirements</strong>
+          <p>Hardware requirements are based on hosting provider specifications. Actual performance may vary depending on player count, world size, and server load. Monitor your server's resource usage and adjust accordingly.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Installation Methods -->
+    <section class="content" style="background:var(--surface)">
+      <div class="container">
+        <h2>Installation Methods</h2>
+        <p>There are two ways to install the StarRupture dedicated server on Windows. Choose the method that works best for you.</p>
+
+        <h3>Method 1: SteamCMD (Recommended)</h3>
+        <p>SteamCMD is Steam's command-line tool for installing and updating dedicated servers. This method is preferred for automated updates and headless server management.</p>
+
+        <div class="step">
+          <span class="step-number">1</span>
+          <h3>Download SteamCMD</h3>
+          <p>Download SteamCMD from the official Valve website:</p>
+          <ul>
+            <li>Visit <a href="https://developer.valvesoftware.com/wiki/SteamCMD" style="color:var(--secondary);text-decoration:underline">developer.valvesoftware.com/wiki/SteamCMD</a></li>
+            <li>Download the Windows version (steamcmd.zip)</li>
+            <li>Extract to a folder like <code>C:\SteamCMD\</code></li>
+          </ul>
+        </div>
+
+        <div class="step">
+          <span class="step-number">2</span>
+          <h3>Install StarRupture Server</h3>
+          <p>Open Command Prompt and navigate to your SteamCMD folder, then run:</p>
+          <pre><code>steamcmd.exe +login anonymous +app_update 3809400 validate +quit</code></pre>
+          <p>This downloads the server files to <code>C:\SteamCMD\steamapps\common\StarRupture Dedicated Server\</code></p>
+        </div>
+
+        <div class="step">
+          <span class="step-number">3</span>
+          <h3>Verify Installation</h3>
+          <p>Check that <code>StarRuptureServerEOS.exe</code> exists in the installation directory. This is the main server executable.</p>
+        </div>
+
+        <h3>Method 2: Steam Library Tools</h3>
+        <p>If you prefer a GUI approach, you can install the server through your Steam client.</p>
+
+        <div class="step">
+          <span class="step-number">1</span>
+          <h3>Access Steam Tools</h3>
+          <ul>
+            <li>Open Steam client</li>
+            <li>Go to <strong>Library</strong> → <strong>Tools</strong></li>
+            <li>Search for "StarRupture Dedicated Server"</li>
+          </ul>
+        </div>
+
+        <div class="step">
+          <span class="step-number">2</span>
+          <h3>Install Server</h3>
+          <p>Right-click the server in the list and select "Install". Choose your installation directory and wait for the download to complete.</p>
+        </div>
+
+        <div class="info-box">
+          <strong>💡 Which Method Should I Use?</strong>
+          <ul>
+            <li><strong>SteamCMD:</strong> Better for automated updates, remote servers, or if you want to run the server without Steam client</li>
+            <li><strong>Steam Library:</strong> Easier for beginners, visual interface, good for local testing</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Configuration -->
+    <section class="content">
+      <div class="container">
+        <h2>Server Configuration</h2>
+        <p>Configure your server settings by editing the <code>DSSettings.txt</code> file in JSON format. This file is located in your server installation directory.</p>
+
+        <h3>Configuration File Location</h3>
+        <p>Find <code>DSSettings.txt</code> in your server folder:</p>
+        <pre><code>C:\SteamCMD\steamapps\common\StarRupture Dedicated Server\DSSettings.txt</code></pre>
+
+        <h3>Basic Configuration Example</h3>
+        <pre><code>{
+  "ServerName": "My StarRupture Server",
+  "AdminPassword": "your_admin_password_here",
+  "PlayerPassword": "",
+  "MaxPlayers": 4,
+  "Port": 7777,
+  "QueryPort": 27015
+}</code></pre>
+
+        <h3>Configuration Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+              <th>Default</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>ServerName</code></td>
+              <td>Display name for your server in the server browser</td>
+              <td>"StarRupture Server"</td>
+            </tr>
+            <tr>
+              <td><code>AdminPassword</code></td>
+              <td>Password for admin access and server management</td>
+              <td>(empty)</td>
+            </tr>
+            <tr>
+              <td><code>PlayerPassword</code></td>
+              <td>Optional password players must enter to join</td>
+              <td>(empty)</td>
+            </tr>
+            <tr>
+              <td><code>MaxPlayers</code></td>
+              <td>Maximum number of players (co-op limit: 4)</td>
+              <td>4</td>
+            </tr>
+            <tr>
+              <td><code>Port</code></td>
+              <td>Game port (UDP)</td>
+              <td>7777</td>
+            </tr>
+            <tr>
+              <td><code>QueryPort</code></td>
+              <td>Query port for server browser (UDP)</td>
+              <td>27015</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="warning-box">
+          <strong>🔒 Security Recommendation</strong>
+          <p>Always set a strong <code>AdminPassword</code> to prevent unauthorized server management. Use a combination of letters, numbers, and special characters.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Port Forwarding -->
+    <section class="content" style="background:var(--surface)">
+      <div class="container">
+        <h2>Port Forwarding</h2>
+        <p>To allow players outside your local network to connect, you must configure port forwarding on your router.</p>
+
+        <h3>Required Ports</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Port</th>
+              <th>Protocol</th>
+              <th>Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>7777</code></td>
+              <td>UDP</td>
+              <td>Game traffic (required)</td>
+            </tr>
+            <tr>
+              <td><code>27015</code></td>
+              <td>UDP</td>
+              <td>Server query/browser listing (required)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Port Forwarding Steps</h3>
+        <div class="step">
+          <span class="step-number">1</span>
+          <h3>Find Your Local IP Address</h3>
+          <p>Open Command Prompt and run:</p>
+          <pre><code>ipconfig</code></pre>
+          <p>Look for "IPv4 Address" under your active network adapter (usually starts with 192.168.x.x)</p>
+        </div>
+
+        <div class="step">
+          <span class="step-number">2</span>
+          <h3>Access Router Settings</h3>
+          <p>Open your web browser and navigate to your router's admin page (common addresses: 192.168.1.1, 192.168.0.1, or 10.0.0.1). Log in with your router credentials.</p>
+        </div>
+
+        <div class="step">
+          <span class="step-number">3</span>
+          <h3>Configure Port Forwarding Rules</h3>
+          <p>Find the "Port Forwarding" or "Virtual Server" section in your router settings. Create two rules:</p>
+          <ul>
+            <li><strong>Rule 1:</strong> External Port 7777 → Internal Port 7777 (UDP) → Your server's local IP</li>
+            <li><strong>Rule 2:</strong> External Port 27015 → Internal Port 27015 (UDP) → Your server's local IP</li>
+          </ul>
+        </div>
+
+        <div class="info-box">
+          <strong>💡 Router-Specific Guides</strong>
+          <ul>
+            <li>Port forwarding steps vary by router manufacturer</li>
+            <li>Visit <a href="https://portforward.com/" style="color:var(--secondary);text-decoration:underline">portforward.com</a> for router-specific instructions</li>
+            <li>Some routers call this feature "Virtual Server" or "NAT Forwarding"</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Starting the Server -->
+    <section class="content">
+      <div class="container">
+        <h2>Starting the Server</h2>
+        <p>Once configured, you can start your StarRupture dedicated server.</p>
+
+        <h3>Manual Start</h3>
+        <div class="step">
+          <span class="step-number">1</span>
+          <h3>Navigate to Server Directory</h3>
+          <p>Open your server installation folder:</p>
+          <pre><code>C:\SteamCMD\steamapps\common\StarRupture Dedicated Server\</code></pre>
+        </div>
+
+        <div class="step">
+          <span class="step-number">2</span>
+          <h3>Run the Server Executable</h3>
+          <p>Double-click <code>StarRuptureServerEOS.exe</code> or run it from Command Prompt:</p>
+          <pre><code>StarRuptureServerEOS.exe</code></pre>
+          <p>A console window will open showing server status and logs.</p>
+        </div>
+
+        <h3>Automated Start (Optional)</h3>
+        <p>Create a batch file to start the server automatically:</p>
+        <div class="step">
+          <span class="step-number">1</span>
+          <h3>Create Batch File</h3>
+          <p>Create a new text file named <code>start_server.bat</code> in your server directory with this content:</p>
+          <pre><code>@echo off
+cd /d "C:\SteamCMD\steamapps\common\StarRupture Dedicated Server"
+start StarRuptureServerEOS.exe
+echo Server started!
+pause</code></pre>
+        </div>
+
+        <div class="step">
+          <span class="step-number">2</span>
+          <h3>Run Batch File</h3>
+          <p>Double-click <code>start_server.bat</code> to start the server. You can also add this to Windows startup for automatic server launch.</p>
+        </div>
+
+        <div class="warning-box">
+          <strong>⚠️ Keep Console Window Open</strong>
+          <p>Do not close the console window while the server is running. Closing it will shut down the server. Minimize it instead if you need to free up screen space.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Troubleshooting -->
+    <section class="content" style="background:var(--surface)">
+      <div class="container">
+        <h2>Troubleshooting</h2>
+        <p>Common issues and solutions for StarRupture dedicated servers.</p>
+
+        <h3>Server Not Appearing in Browser</h3>
+        <div class="info-box">
+          <strong>Possible Causes & Solutions:</strong>
+          <ul>
+            <li>Port forwarding not configured correctly — verify both ports 7777 and 27015 are forwarded</li>
+            <li>Firewall blocking connections — add exceptions for StarRuptureServerEOS.exe in Windows Firewall</li>
+            <li>Server not fully started — wait 1-2 minutes after launch for server to register</li>
+            <li>Query port mismatch — ensure QueryPort in DSSettings.txt matches forwarded port</li>
+          </ul>
+        </div>
+
+        <h3>Players Cannot Connect</h3>
+        <div class="info-box">
+          <strong>Possible Causes & Solutions:</strong>
+          <ul>
+            <li>Wrong IP address — provide your public IP (check at <a href="https://whatismyipaddress.com/" style="color:var(--secondary);text-decoration:underline">whatismyipaddress.com</a>)</li>
+            <li>Port 7777 not forwarded — double-check router port forwarding rules</li>
+            <li>Server at max capacity — check MaxPlayers setting (limit is 4)</li>
+            <li>Password mismatch — verify PlayerPassword if set</li>
+          </ul>
+        </div>
+
+        <h3>Server Crashes on Startup</h3>
+        <div class="info-box">
+          <strong>Possible Causes & Solutions:</strong>
+          <ul>
+            <li>Corrupted installation — run SteamCMD with <code>validate</code> flag to verify files</li>
+            <li>Invalid DSSettings.txt — check JSON syntax (use <a href="https://jsonlint.com/" style="color:var(--secondary);text-decoration:underline">jsonlint.com</a>)</li>
+            <li>Port already in use — change Port value in config or close conflicting applications</li>
+            <li>Missing dependencies — ensure Visual C++ Redistributables are installed</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Risk Assessment & Version Warnings -->
+    <section class="content">
+      <div class="container">
+        <h2>⚠️ Risk Assessment & Version Warnings</h2>
+        <p><strong>Last Verified:</strong> February 4, 2026 | <strong>Game Version:</strong> Early Access 0.1.x</p>
+
+        <div class="warning-box danger">
+          <strong>🚨 EXPERIMENTAL SERVER STATUS</strong>
+          <p>StarRupture's dedicated server tools are officially marked as <strong>experimental</strong> by the developer. This means:</p>
+          <ul>
+            <li>Server stability is not guaranteed</li>
+            <li>Features may change or break without notice</li>
+            <li>Save file corruption is possible during updates</li>
+            <li>Official support may be limited</li>
+          </ul>
+        </div>
+
+        <h3>Version Compatibility Risks</h3>
+        <div class="warning-box">
+          <strong>⚠️ Early Access Update Frequency</strong>
+          <p>StarRupture is in Early Access and receives frequent updates. Each update may:</p>
+          <ul>
+            <li><strong>Break server compatibility</strong> — Server and client versions must match exactly</li>
+            <li><strong>Change configuration format</strong> — DSSettings.txt parameters may be added, removed, or renamed</li>
+            <li><strong>Require world wipes</strong> — Some updates may not be compatible with existing save files</li>
+            <li><strong>Modify port requirements</strong> — Network configuration may change</li>
+          </ul>
+        </div>
+
+        <h3>Known Limitations (as of Feb 2026)</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Limitation</th>
+              <th>Impact</th>
+              <th>Workaround</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>4-player maximum</td>
+              <td>Cannot host larger communities</td>
+              <td>None (game limitation)</td>
+            </tr>
+            <tr>
+              <td>Windows-only server</td>
+              <td>Cannot run on Linux/Mac</td>
+              <td>Use Windows VM or hosting provider</td>
+            </tr>
+            <tr>
+              <td>Experimental status</td>
+              <td>Potential crashes and bugs</td>
+              <td>Regular backups, monitor logs</td>
+            </tr>
+            <tr>
+              <td>Manual updates required</td>
+              <td>Server may become outdated</td>
+              <td>Check for updates regularly</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Recommendations for Server Operators</h3>
+        <div class="info-box">
+          <strong>✅ Best Practices</strong>
+          <ul>
+            <li><strong>Backup regularly:</strong> Save your world files before each game update</li>
+            <li><strong>Monitor patch notes:</strong> Check Steam news for breaking changes</li>
+            <li><strong>Test updates:</strong> Update a test server before your production server</li>
+            <li><strong>Document your config:</strong> Keep notes on custom settings for easy restoration</li>
+            <li><strong>Join community:</strong> Follow server operator discussions on Steam forums/Discord</li>
+            <li><strong>Verify before setup:</strong> Always check the <a href="https://store.steampowered.com/app/3809400" style="color:var(--secondary);text-decoration:underline">official Steam page</a> for current requirements</li>
+          </ul>
+        </div>
+
+        <div class="warning-box danger">
+          <strong>🔴 When NOT to Host a Server</strong>
+          <p>Consider using a third-party hosting provider or waiting for stable release if:</p>
+          <ul>
+            <li>You need 100% uptime for a community</li>
+            <li>You cannot tolerate potential data loss</li>
+            <li>You lack time to monitor and update regularly</li>
+            <li>You need enterprise-level reliability</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="content">
+      <div class="container">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="info-box">
+          <strong>Q: How many players can join my server?</strong>
+          <p>StarRupture supports up to 4 players in co-op mode. This is a game limitation, not a server limitation.</p>
+        </div>
+
+        <div class="info-box">
+          <strong>Q: Do I need to keep the server running 24/7?</strong>
+          <p>No, but players can only connect when the server is running. For persistent worlds, consider using a dedicated hosting provider or keeping your PC on.</p>
+        </div>
+
+        <div class="info-box">
+          <strong>Q: Can I run the server on Linux?</strong>
+          <p>Currently, the official dedicated server only supports Windows 10/11. Linux support has not been announced.</p>
+        </div>
+
+        <div class="info-box">
+          <strong>Q: How do I update my server?</strong>
+          <p>Run the same SteamCMD command used for installation: <code>steamcmd.exe +login anonymous +app_update 3809400 validate +quit</code></p>
+        </div>
+
+        <div class="info-box">
+          <strong>Q: Will my server work with modded clients?</strong>
+          <p>This depends on the mods. Server and client versions must match, and some mods may require server-side installation. Check mod documentation.</p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="logo">
+            <img src="/img/logo.png" alt="StarRupture" class="logo-icon">
+            <span>StarRupture.net</span>
+          </div>
+          <p>Independent StarRupture guides and database. Version-verified for Early Access. Not affiliated with Creepy Jar.</p>
+        </div>
+        <div class="footer-links">
+          <a href="/about/">About</a>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy-policy/">Privacy</a>
+          <a href="/disclaimer/">Disclaimer</a>
+        </div>
+      </div>
+      <p class="footer-copy">© 2026 StarRupture.net — Fan site. Game content belongs to Creepy Jar.</p>
+    </div>
+  </footer>
+</body>
+</html>
