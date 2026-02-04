@@ -7,7 +7,14 @@
       "Bash(git clone:*)",
       "Bash(npm install:*)",
       "Bash(uipro init:*)",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Bash(for file in about.html contact.html privacy-policy.html disclaimer.html)",
+      "Bash(do if [ -f \"$file\" ])",
+      "Bash(! grep -q \"enhancements.css\" \"$file\")",
+      "Bash(then sed -i 's/<style>/<link rel=\"\"stylesheet\"\" href=\"\"\\/enhancements.css\"\">\\n    <style>/' \"$file\")",
+      "Bash(echo:*)",
+      "Bash(fi)",
+      "Bash(done)"
     ],
     "deny": [],
     "ask": []
