@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StarRupture Best Base Locations - Where to Build Your Base (2026)</title>
+  <meta name="description" content="StarRupture base location tier list: Northeast Hub, Hill Base, The Reach ranked S to C. Resource access, defensibility & expansion tips for Early Access.">
+  <link rel="canonical" href="https://starrupture.net/tier-lists/base-locations/">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1DBN9043DB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1DBN9043DB');
+  </script>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8830315294299920" crossorigin="anonymous"></script>
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="StarRupture Best Base Locations - Where to Build">
+  <meta property="og:description" content="All base locations ranked S to C tier with resource access & defensibility ratings.">
+  <meta property="og:url" content="https://starrupture.net/tier-lists/base-locations/">
+  <meta property="og:site_name" content="StarRupture.net">
+
+  <link rel="stylesheet" href="/enhancements.css">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#06080c;--surface:#0d1117;--surface-2:#161b22;--border:#21262d;
+      --text:#e6edf3;--text-muted:#8b949e;
+      --primary:#f97316;--primary-dim:rgba(249,115,22,.15);
+      --secondary:#22d3ee;--secondary-dim:rgba(34,211,238,.12);
+      --accent:#a855f7;--success:#22c55e;--warning:#eab308;--danger:#ef4444;
+      --radius:12px;--max-w:1200px;
+      --tier-s:#ff7f7f;--tier-a:#ffbf7f;--tier-b:#ffdf7f;--tier-c:#bfff7f;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+    a{color:var(--primary);text-decoration:none;transition:color .2s}
+    a:hover{color:var(--secondary)}
+    .container{max-width:var(--max-w);margin:0 auto;padding:0 20px}
+    .header{position:sticky;top:0;z-index:100;background:rgba(6,8,12,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;height:60px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.1rem;color:var(--text)}
+    .logo-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--primary),var(--secondary));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;color:#fff}
+    .nav{display:flex;gap:8px}
+    .nav a{padding:8px 14px;border-radius:8px;font-size:.9rem;color:var(--text-muted);transition:all .2s}
+    .nav a:hover,.nav a.active{background:var(--surface-2);color:var(--text)}
+    .nav a.active{color:var(--primary)}
+    .breadcrumb{padding:16px 0;font-size:.875rem;color:var(--text-muted)}
+    .breadcrumb a{color:var(--text-muted)}
+    .breadcrumb a:hover{color:var(--primary)}
+    .breadcrumb span{margin:0 8px;opacity:.5}
+    .hero{padding:40px 0;background:radial-gradient(ellipse at 30% 0%,rgba(34,211,238,.08),transparent 50%)}
+    .hero h1{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;margin-bottom:12px}
+    .hero p{font-size:1.1rem;color:var(--text-muted);max-width:700px}
+    .hero-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:20px;font-size:.8rem;background:var(--secondary-dim);color:var(--secondary);margin-bottom:16px}
+    .section{padding:40px 0}
+    .grid{display:grid;grid-template-columns:1fr 300px;gap:24px;align-items:start}
+    .tier-section{margin-bottom:32px}
+    .tier-header{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+    .tier-label{width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.5rem}
+    .tier-label-s{background:rgba(255,127,127,.2);color:var(--tier-s)}
+    .tier-label-a{background:rgba(255,191,127,.2);color:var(--tier-a)}
+    .tier-label-b{background:rgba(255,223,127,.2);color:var(--tier-b)}
+    .tier-label-c{background:rgba(191,255,127,.2);color:var(--tier-c)}
+    .tier-title{font-size:1.1rem;font-weight:600}
+    .tier-desc{font-size:.85rem;color:var(--text-muted)}
+    .location-card{padding:20px;border-radius:var(--radius);background:var(--surface);border:1px solid var(--border);margin-bottom:12px;transition:all .2s}
+    .location-card:hover{border-color:var(--secondary)}
+    .location-header{display:flex;justify-content:space-between;align-items:start;margin-bottom:12px}
+    .location-name{font-size:1.1rem;font-weight:700}
+    .location-region{font-size:.75rem;color:var(--text-muted);background:var(--surface-2);padding:3px 8px;border-radius:4px}
+    .location-desc{font-size:.9rem;color:var(--text-muted);margin-bottom:12px}
+    .location-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin-bottom:12px}
+    .stat{background:var(--surface-2);padding:8px 12px;border-radius:8px}
+    .stat-label{font-size:.7rem;color:var(--text-muted);text-transform:uppercase}
+    .stat-value{font-size:.95rem;font-weight:600}
+    .resources{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;padding-top:12px;border-top:1px solid var(--border)}
+    .resource-tag{font-size:.75rem;padding:4px 8px;border-radius:4px;background:var(--primary-dim);color:var(--primary)}
+    .resource-tag.he{background:rgba(168,85,247,.15);color:var(--accent)}
+    .resource-tag.water{background:rgba(34,211,238,.15);color:var(--secondary)}
+    .sidebar{position:sticky;top:80px}
+    .card{padding:20px;border-radius:var(--radius);background:var(--surface);border:1px solid var(--border);margin-bottom:16px}
+    .card h3{font-size:1rem;font-weight:600;margin-bottom:12px}
+    .toc a{display:block;padding:8px 10px;border-radius:8px;color:var(--text-muted);font-size:.9rem}
+    .toc a:hover{background:var(--surface-2);color:var(--text)}
+    .tier-badge{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:6px;font-weight:700;font-size:.75rem;margin-right:8px}
+    .tier-badge-s{background:rgba(255,127,127,.2);color:var(--tier-s)}
+    .tier-badge-a{background:rgba(255,191,127,.2);color:var(--tier-a)}
+    .tier-badge-b{background:rgba(255,223,127,.2);color:var(--tier-b)}
+    .tier-badge-c{background:rgba(191,255,127,.2);color:var(--tier-c)}
+    .callout{border-left:3px solid var(--primary);padding:14px;background:var(--primary-dim);border-radius:0 var(--radius) var(--radius) 0;margin:16px 0;font-size:.9rem}
+    .callout-warn{border-left-color:var(--warning);background:rgba(234,179,8,.1)}
+    .callout-info{border-left-color:var(--secondary);background:var(--secondary-dim)}
+    .hr{height:1px;background:var(--border);margin:24px 0}
+    .footer{padding:40px 0;border-top:1px solid var(--border);margin-top:40px}
+    .footer-inner{display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:30px}
+    .footer-brand{max-width:300px}
+    .footer-brand p{font-size:.85rem;color:var(--text-muted);margin-top:10px}
+    .footer-links{display:flex;gap:30px}
+    .footer-links a{font-size:.9rem;color:var(--text-muted)}
+    .footer-copy{text-align:center;padding-top:30px;margin-top:30px;border-top:1px solid var(--border);font-size:.8rem;color:var(--text-muted)}
+    @media(max-width:900px){.grid{grid-template-columns:1fr}.sidebar{position:static}}
+    @media(max-width:600px){.nav{display:none}.footer-inner{flex-direction:column}.location-stats{grid-template-columns:1fr 1fr}}
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="/" class="logo">
+        <span class="logo-icon">SR</span>
+        <span>StarRupture<span style="color:var(--text-muted)">.net</span></span>
+      </a>
+      <nav class="nav">
+        <a href="/guides/">Guides</a>
+        <a href="/database/">Database</a>
+        <a href="/tier-lists/" class="active">Tier Lists</a>
+        <a href="/troubleshooting/">Fixes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a><span>›</span><a href="/tier-lists/">Tier Lists</a><span>›</span><span>Base Locations</span>
+      </nav>
+    </div>
+
+    <section class="hero">
+      <div class="container">
+        <span class="hero-badge">📍 Early Access Jan 2026</span>
+        <h1>StarRupture Best Base Locations</h1>
+        <p>Complete ranking of base building spots in StarRupture. Based on resource access, defensibility, flat terrain, and expansion potential. Data verified from multiple sources.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid">
+          <article>
+            <!-- S Tier -->
+            <div class="tier-section" id="tier-s">
+              <div class="tier-header">
+                <div class="tier-label tier-label-s">S</div>
+                <div>
+                  <div class="tier-title">Optimal / Endgame Ready</div>
+                  <div class="tier-desc">Best locations with multi-resource access and expansion space</div>
+                </div>
+              </div>
+
+              <div class="location-card">
+                <div class="location-header">
+                  <div class="location-name">Northeast Central Hub</div>
+                  <span class="location-region">Between Two Mountains</span>
+                </div>
+                <p class="location-desc">Large flat area northeast of starting location, between two mountains near "Lemon Souls". Abundant high-purity resource nodes with massive expansion space. Ideal for late-game mega-factory builds.</p>
+                <div class="location-stats">
+                  <div class="stat"><div class="stat-label">Terrain</div><div class="stat-value">Very Flat</div></div>
+                  <div class="stat"><div class="stat-label">Expansion</div><div class="stat-value">Excellent</div></div>
+                  <div class="stat"><div class="stat-label">Defense</div><div class="stat-value">Moderate</div></div>
+                  <div class="stat"><div class="stat-label">Game Phase</div><div class="stat-value">Mid-Late</div></div>
+                </div>
+                <div class="resources">
+                  <span class="resource-tag">Titanium</span>
+                  <span class="resource-tag">Wolfram</span>
+                  <span class="resource-tag">Calcium</span>
+                  <span class="resource-tag he">Helium-3</span>
+                  <span class="resource-tag">Sulphur</span>
+                </div>
+              </div>
+
+              <div class="location-card">
+                <div class="location-header">
+                  <div class="location-name">West of The Reach</div>
+                  <span class="location-region">River Overlook</span>
+                </div>
+                <p class="location-desc">Overlooking a river west of "The Reach" zone. Access to almost every resource except Sulphur (nearby node available). Consistent supply for advanced crafting. Requires defensive turrets due to Vermin waves.</p>
+                <div class="location-stats">
+                  <div class="stat"><div class="stat-label">Terrain</div><div class="stat-value">Good</div></div>
+                  <div class="stat"><div class="stat-label">Expansion</div><div class="stat-value">Good</div></div>
+                  <div class="stat"><div class="stat-label">Defense</div><div class="stat-value">Challenging</div></div>
+                  <div class="stat"><div class="stat-label">Game Phase</div><div class="stat-value">Endgame</div></div>
+                </div>
+                <div class="resources">
+                  <span class="resource-tag">Titanium</span>
+                  <span class="resource-tag">Calcium</span>
+                  <span class="resource-tag he">Helium-3</span>
+                  <span class="resource-tag">Quartz</span>
+                  <span class="resource-tag water">Water</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- A Tier -->
+            <div class="tier-section" id="tier-a">
+              <div class="tier-header">
+                <div class="tier-label tier-label-a">A</div>
+                <div>
+                  <div class="tier-title">Excellent Choice</div>
+                  <div class="tier-desc">Strong locations with good resource variety</div>
+                </div>
+              </div>
+
+              <div class="location-card">
+                <div class="location-header">
+                  <div class="location-name">Hill Base By The Lake</div>
+                  <span class="location-region">Mid-Eastern Arcadia-7</span>
+                </div>
+                <p class="location-desc">Elevated position with lake access. Hydro Bulbs for water, Prism Herb for consumables. Underground caves offer Quartz and Glowcaps. Fewer Vermin nests than other areas. Near Geo Scanner for easy surveying.</p>
+                <div class="location-stats">
+                  <div class="stat"><div class="stat-label">Terrain</div><div class="stat-value">Elevated</div></div>
+                  <div class="stat"><div class="stat-label">Expansion</div><div class="stat-value">Moderate</div></div>
+                  <div class="stat"><div class="stat-label">Defense</div><div class="stat-value">Good</div></div>
+                  <div class="stat"><div class="stat-label">Game Phase</div><div class="stat-value">Mid-Game</div></div>
+                </div>
+                <div class="resources">
+                  <span class="resource-tag">Calcium</span>
+                  <span class="resource-tag">Wolfram</span>
+                  <span class="resource-tag">Titanium</span>
+                  <span class="resource-tag he">Helium-3</span>
+                  <span class="resource-tag">Sulphur</span>
+                  <span class="resource-tag water">Water</span>
+                </div>
+              </div>
+
+              <div class="location-card">
+                <div class="location-header">
+                  <div class="location-name">Northeast Geo Scanner Area</div>
+                  <span class="location-region">Near First Scanner</span>
+                </div>
+                <p class="location-desc">Strategic position near the first Geo Scanner northeast of spawn. Base Core radius covers Wolfram, Titanium, and Calcium deposits. Nearby pond provides water. Good forward scouting position for western exploration.</p>
+                <div class="location-stats">
+                  <div class="stat"><div class="stat-label">Terrain</div><div class="stat-value">Mixed</div></div>
+                  <div class="stat"><div class="stat-label">Expansion</div><div class="stat-value">Good</div></div>
+                  <div class="stat"><div class="stat-label">Defense</div><div class="stat-value">Moderate</div></div>
+                  <div class="stat"><div class="stat-label">Game Phase</div><div class="stat-value">Early-Mid</div></div>
+                </div>
+                <div class="resources">
+                  <span class="resource-tag">Wolfram</span>
+                  <span class="resource-tag">Titanium</span>
+                  <span class="resource-tag">Calcium</span>
+                  <span class="resource-tag water">Water</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- B Tier -->
+            <div class="tier-section" id="tier-b">
+              <div class="tier-header">
+                <div class="tier-label tier-label-b">B</div>
+                <div>
+                  <div class="tier-title">Solid / Early Game</div>
+                  <div class="tier-desc">Good starting locations with basic resources</div>
+                </div>
+              </div>
+
+              <div class="location-card">
+                <div class="location-header">
+                  <div class="location-name">Near Orbital Lander</div>
+                  <span class="location-region">Starting Area</span>
+                </div>
+                <p class="location-desc">Circular clearing northeast of your starting ship. No nearby enemy spawns initially. Quick access to Copper and Wolfram (north), Titanium (east), Calcium (southwest). Ideal first base for beginners.</p>
+                <div class="location-stats">
+                  <div class="stat"><div class="stat-label">Terrain</div><div class="stat-value">Flat</div></div>
+                  <div class="stat"><div class="stat-label">Expansion</div><div class="stat-value">Limited</div></div>
+                  <div class="stat"><div class="stat-label">Defense</div><div class="stat-value">Easy</div></div>
+                  <div class="stat"><div class="stat-label">Game Phase</div><div class="stat-value">Early</div></div>
+                </div>
+                <div class="resources">
+                  <span class="resource-tag">Titanium</span>
+                  <span class="resource-tag">Wolfram</span>
+                  <span class="resource-tag water">Hydrobulbs</span>
+                </div>
+              </div>
+
+              <div class="location-card">
+                <div class="location-header">
+                  <div class="location-name">The Reach</div>
+                  <span class="location-region">Northeast Zone</span>
+                </div>
+                <p class="location-desc">Resource-rich zone northeast of starting area. Rich in Sulphur, Helium-3, and Calcium. Good for long-term base but challenging due to dangerous wildlife. Requires established defenses before settling.</p>
+                <div class="location-stats">
+                  <div class="stat"><div class="stat-label">Terrain</div><div class="stat-value">Varied</div></div>
+                  <div class="stat"><div class="stat-label">Expansion</div><div class="stat-value">Good</div></div>
+                  <div class="stat"><div class="stat-label">Defense</div><div class="stat-value">Hard</div></div>
+                  <div class="stat"><div class="stat-label">Game Phase</div><div class="stat-value">Mid-Late</div></div>
+                </div>
+                <div class="resources">
+                  <span class="resource-tag">Sulphur</span>
+                  <span class="resource-tag he">Helium-3</span>
+                  <span class="resource-tag">Calcium</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- C Tier -->
+            <div class="tier-section" id="tier-c">
+              <div class="tier-header">
+                <div class="tier-label tier-label-c">C</div>
+                <div>
+                  <div class="tier-title">Temporary / Outclassed</div>
+                  <div class="tier-desc">Locations that serve a purpose but should be relocated from</div>
+                </div>
+              </div>
+
+              <div class="location-card">
+                <div class="location-header">
+                  <div class="location-name">Immediate Spawn Point</div>
+                  <span class="location-region">Ship Landing Site</span>
+                </div>
+                <p class="location-desc">The exact spot where you land. Feels safe initially but usefulness diminishes quickly. Limited resource variety and expansion space. Plan to relocate or establish secondary bases early.</p>
+                <div class="location-stats">
+                  <div class="stat"><div class="stat-label">Terrain</div><div class="stat-value">Cramped</div></div>
+                  <div class="stat"><div class="stat-label">Expansion</div><div class="stat-value">Poor</div></div>
+                  <div class="stat"><div class="stat-label">Defense</div><div class="stat-value">Easy</div></div>
+                  <div class="stat"><div class="stat-label">Game Phase</div><div class="stat-value">Tutorial</div></div>
+                </div>
+                <div class="resources">
+                  <span class="resource-tag">Titanium</span>
+                  <span class="resource-tag">Wolfram</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hr"></div>
+
+            <div class="callout callout-info">
+              <strong style="color:var(--text)">💡 Pro Tip:</strong> You can place multiple Base Cores across the map to cover different resource areas. Don't be afraid to dismantle and move structures — there's no penalty for rebuilding.
+            </div>
+
+            <div class="callout callout-warn">
+              <strong style="color:var(--text)">⚠️ Early Access Notice:</strong> StarRupture entered Early Access on January 6, 2026. Base locations and resource spawns may change with future patches. This tier list will be updated accordingly.
+            </div>
+
+            <div class="hr"></div>
+
+            <h2 style="font-size:1.2rem;margin-bottom:16px">Base Building Tips</h2>
+            <div class="location-card">
+              <div class="location-stats" style="margin-bottom:0">
+                <div class="stat"><div class="stat-label">Unlock Map</div><div class="stat-value">Corp Level 3 (1,500 G)</div></div>
+                <div class="stat"><div class="stat-label">Helium Extractor</div><div class="stat-value">Slenian Level 6</div></div>
+                <div class="stat"><div class="stat-label">Base Core</div><div class="stat-value">Protects during Ruptures</div></div>
+                <div class="stat"><div class="stat-label">Rails</div><div class="stat-value">Higher ground = easier layout</div></div>
+              </div>
+            </div>
+
+            <div class="hr"></div>
+
+            <p style="font-size:.9rem;color:var(--text-muted)">
+              <strong>Related:</strong>
+              <a href="/tier-lists/">All Tier Lists</a> ·
+              <a href="/tier-lists/weapons/">Weapons Tier List</a> ·
+              <a href="/guides/start-here/">Beginner Guide</a>
+            </p>
+          </article>
+
+          <!-- Sidebar -->
+          <aside class="sidebar">
+            <div class="card toc">
+              <h3>Jump to Tier</h3>
+              <a href="#tier-s"><span class="tier-badge tier-badge-s">S</span>Optimal / Endgame</a>
+              <a href="#tier-a"><span class="tier-badge tier-badge-a">A</span>Excellent Choice</a>
+              <a href="#tier-b"><span class="tier-badge tier-badge-b">B</span>Solid / Early Game</a>
+              <a href="#tier-c"><span class="tier-badge tier-badge-c">C</span>Temporary</a>
+            </div>
+
+            <div class="card">
+              <h3>Quick Summary</h3>
+              <p style="font-size:.85rem;color:var(--text-muted);margin-bottom:12px">Priority base progression:</p>
+              <ol style="font-size:.85rem;color:var(--text-muted);padding-left:18px">
+                <li><strong style="color:var(--text)">Near Lander</strong> (Early)</li>
+                <li><strong style="color:var(--text)">Hill Base/NE Scanner</strong> (Mid)</li>
+                <li><strong style="color:var(--text)">Central Hub</strong> (Late)</li>
+              </ol>
+            </div>
+
+            <div class="card">
+              <h3>Key Resources</h3>
+              <p style="font-size:.8rem;color:var(--text-muted);line-height:1.6">
+                <span class="resource-tag" style="margin:2px">Ti</span> Titanium - Gray pillars<br>
+                <span class="resource-tag" style="margin:2px">W</span> Wolfram - Reddish-brown<br>
+                <span class="resource-tag" style="margin:2px">Ca</span> Calcium - Advanced crafting<br>
+                <span class="resource-tag he" style="margin:2px">He</span> Helium-3 - Purple geysers
+              </p>
+            </div>
+
+            <div class="card" style="background:var(--secondary-dim);border-color:var(--secondary)">
+              <h3 style="color:var(--secondary)">Version Info</h3>
+              <p style="font-size:.85rem;color:var(--text-muted)">
+                <strong style="color:var(--text)">Game:</strong> Early Access<br>
+                <strong style="color:var(--text)">Released:</strong> Jan 6, 2026<br>
+                <strong style="color:var(--text)">Updated:</strong> Feb 4, 2026
+              </p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="logo">
+            <span class="logo-icon">SR</span>
+            <span>StarRupture.net</span>
+          </div>
+          <p>Independent StarRupture guides and database. Version-verified for Early Access. Not affiliated with Creepy Jar.</p>
+        </div>
+        <div class="footer-links">
+          <a href="/about/">About</a>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy-policy/">Privacy</a>
+          <a href="/disclaimer/">Disclaimer</a>
+        </div>
+      </div>
+      <p class="footer-copy">© 2026 StarRupture.net — Fan site. Game content belongs to Creepy Jar.</p>
+    </div>
+  </footer>
+</body>
+</html>
