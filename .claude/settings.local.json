@@ -1,7 +1,13 @@
 {
   "permissions": {
     "allow": [
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(gh repo view:*)",
+      "Bash(git ls-remote:*)",
+      "Bash(git clone:*)",
+      "Bash(npm install:*)",
+      "Bash(uipro init:*)",
+      "Bash(python3:*)"
     ],
     "deny": [],
     "ask": []
